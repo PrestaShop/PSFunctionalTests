@@ -18,8 +18,8 @@ function initCommands(client) {
 		client
 			.url('http://' + URL + '/admin-dev')
 			.waitForExist(this.selector.login, 5000)
-            .setValue(this.selector.login, 'guillaume.marsille@prestashop.com')
-            .setValue(this.selector.password, 'guillaume95')
+            .setValue(this.selector.login, 'demo@prestashop.com')
+            .setValue(this.selector.password, 'prestashop_demo')
             .click2(this.selector.login_btn)
 			.call(cb);
     });

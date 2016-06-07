@@ -5,6 +5,7 @@ var should = require('should');
 var argv = require('minimist')(process.argv.slice(2));
 var date_time = new Date().getTime();
 
+
 global.URL = argv.URL;
 global._projectdir = path.join(__dirname, '..', '..');
 global.product_id=new Date().getTime();
