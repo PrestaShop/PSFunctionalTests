@@ -17,7 +17,7 @@ function initCommands(client) {
 		this.selector = globals.selector;
 		client
 			.url('http://' + URL + '/admin-dev')
-			.waitForExist(this.selector.login, 5000)
+			.waitForVisible(this.selector.login, 5000)
             .setValue(this.selector.login, 'demo@prestashop.com')
             .setValue(this.selector.password, 'prestashop_demo')
             .click2(this.selector.login_btn)
@@ -28,9 +28,9 @@ function initCommands(client) {
 		this.selector = globals.selector;
         client
 			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 5000)
+			.waitForVisible(this.selector.access_loginFO, 5000)
 			.click2(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 5000)
+			.waitForVisible(this.selector.loginFO, 5000)
             .setValue2(this.selector.loginFO, 'pub@prestashop.com')
             .setValue(this.selector.passwordFO, '123456789')
             .click2(this.selector.login_btnFO)
@@ -40,7 +40,7 @@ function initCommands(client) {
 	client.addCommand('signoutBO', function(cb) {
 		this.selector = globals.selector;
         client
-			.waitForExist(this.selector.profil, 10000)
+			.waitForVisible(this.selector.profil, 10000)
 			.click(this.selector.profil)
 			.click(this.selector.logout)
 			.call(cb);
@@ -50,9 +50,9 @@ function initCommands(client) {
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
-			.waitForExist(this.selector.logoutFO, 5000)
+			.waitForVisible(this.selector.logoutFO, 5000)
 			.click(this.selector.logoutFO)
-			.waitForExist(this.selector.access_loginFO, 5000)
+			.waitForVisible(this.selector.access_loginFO, 5000)
 			.call(cb);
 	});
 	
