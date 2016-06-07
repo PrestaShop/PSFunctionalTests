@@ -42,7 +42,7 @@ describe('buy_product', function(){
 					global.my_quantity = text;
 				})
 				.click2(this.selector.add_to_cart)
-				.waitForExistVisible(this.selector.layer_cart_name_details, 5000)				
+				.waitForVisible(this.selector.layer_cart_name_details, 5000)				
 				.getText(this.selector.layer_cart_name_details).then(function(text) {
 					var my_cart_name_check = text;
 					should(my_cart_name_check).be.equal(my_name);
