@@ -3,6 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
+
 describe('buy_product', function(){
 	common.initMocha.call(this);
 	
@@ -22,14 +23,14 @@ describe('buy_product', function(){
 		it('add_product_to_cart', function(done){
 			this.client
 				.click2(this.selector.logo_home_pageFO)
-				.waitFor(this.selector.first_product_home_page, 5000)
+				.waitForExist(this.selector.first_product_home_page, 5000)
 				.getText(this.selector.first_product_home_page_name).then(function(text) {
 					global.my_name = text[1];
 				})
 				.moveToObject(this.selector.first_product_home_page)
-				.waitFor(this.selector.details_first_product_home_page, 5000)
+				.waitForExist(this.selector.details_first_product_home_page, 5000)
 				.click2(this.selector.details_first_product_home_page)
-				.waitFor(this.selector.first_product_home_page_name, 5000)
+				.waitForExist(this.selector.first_product_home_page_name, 5000)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text;
 					should(my_name_check).be.equal(my_name);
@@ -41,7 +42,7 @@ describe('buy_product', function(){
 					global.my_quantity = text;
 				})
 				.click2(this.selector.add_to_cart)
-				.waitForVisible(this.selector.layer_cart_name_details, 5000)				
+				.waitForExistVisible(this.selector.layer_cart_name_details, 5000)				
 				.getText(this.selector.layer_cart_name_details).then(function(text) {
 					var my_cart_name_check = text;
 					should(my_cart_name_check).be.equal(my_name);
@@ -60,14 +61,14 @@ describe('buy_product', function(){
 		
 		it('validate_the_cart', function(done){
 			this.client			
-				.waitFor(this.selector.command_button_checkout, 5000)
+				.waitForExist(this.selector.command_button_checkout, 5000)
 				.click2(this.selector.command_button_checkout)
-				.waitFor(this.selector.command_button_checkout_step3, 5000)
+				.waitForExist(this.selector.command_button_checkout_step3, 5000)
 				.click2(this.selector.command_button_checkout_step3)
-				.waitFor(this.selector.command_cgv, 5000)
+				.waitForExist(this.selector.command_cgv, 5000)
 				.click2(this.selector.command_cgv)
 				.click2(this.selector.command_button_checkout)
-				.waitFor(this.selector.command_product_name_step5, 5000)
+				.waitForExist(this.selector.command_product_name_step5, 5000)
 				.getText(this.selector.command_product_name_step5).then(function(text) {
 					var my_name_check2 = text;
 					should(my_name_check2).be.equal(my_name);
@@ -77,13 +78,13 @@ describe('buy_product', function(){
 					should(my_price_check).be.equal(my_price);
 				})
 				.click2(this.selector.command_pay_bankwire)
-				.waitFor(this.selector.command_price_step5_amout, 5000)
+				.waitForExist(this.selector.command_price_step5_amout, 5000)
 				.getText(this.selector.command_price_step5_amout).then(function(text) {
 					var my_price_check2 = text;
 					should(my_price_check2).be.equal(my_price);
 				})
 				.click2(this.selector.command_confirm_button)
-				.waitFor(this.selector.command_success_alert, 5000)
+				.waitForExist(this.selector.command_success_alert, 5000)
 				.getText(this.selector.command_success_price).then(function(text) {
 					var my_price_check3 = text;
 					should(my_price_check3).be.equal(my_price);

@@ -3,6 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
+
 describe('check_product_in_FO', function(){
 	common.initMocha.call(this);
 	
@@ -23,7 +24,7 @@ describe('check_product_in_FO', function(){
 			this.client
 				.setValue2(this.selector.search_product, 'test_nodejs_' + product_id)
 				.click2(this.selector.search_product_button)
-				.waitFor(this.selector.search_product_result_name, 5000)
+				.waitForExist(this.selector.search_product_result_name, 5000)
 				.getText(this.selector.search_product_result_name).then(function(text) {
 					var my_name = text;
 					should(my_name[1]).be.equal('test_nodejs_' + product_id);
@@ -33,7 +34,7 @@ describe('check_product_in_FO', function(){
 					should(parseInt(my_price[1])).be.equal(parseInt("6"));
 				})
 				.moveToObject(this.selector.search_product_result_name)
-				.waitFor(this.selector.search_product_details, 5000)
+				.waitForExist(this.selector.search_product_details, 5000)
 				.click2(this.selector.search_product_details)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text;

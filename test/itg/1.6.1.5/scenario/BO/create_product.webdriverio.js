@@ -24,16 +24,16 @@ describe('create_product', function(){
 		
 		it('go_to_new_product', function(done){
 			this.client
-				.waitFor(this.selector.menu, 5000)
+				.waitForExist(this.selector.menu, 5000)
 				.click2(this.selector.products)
-				.waitFor(this.selector.new_product, 5000)
+				.waitForExist(this.selector.new_product, 5000)
 				.call(done);
 		});
 		
 		it('create_new_product', function(done){			
 				this.client
 				.click2(this.selector.new_product)
-				.waitFor(this.selector.product_name)
+				.waitForExist(this.selector.product_name)
 				.setValue2(this.selector.product_name, 'test_nodejs_' + product_id)
 				.frame(this.selector.summary, function (err, result){
 					if (err) console.log(err);
@@ -48,10 +48,10 @@ describe('create_product', function(){
 				.frameParent()
 				.pause(500)
 				.click2(this.selector.save_and_stay_product)
-				.waitFor(this.selector.close_green_validation, 5000)
+				.waitForExist(this.selector.close_green_validation, 5000)
 				.click2(this.selector.close_green_validation)
 				.click2(this.selector.product_price)
-				.waitFor(this.selector.wholesale_price, 5000)
+				.waitForExist(this.selector.wholesale_price, 5000)
 				.click2(this.selector.wholesale_price)
 				.pause(500)
 				.setValue2(this.selector.wholesale_price, "2")
@@ -59,21 +59,21 @@ describe('create_product', function(){
 				.pause(500)
 				.setValue2(this.selector.priceTE, "5")
 				.click2(this.selector.save_and_stay_price)
-				.waitFor(this.selector.close_green_validation, 5000)
+				.waitForExist(this.selector.close_green_validation, 5000)
 				.click2(this.selector.close_green_validation)
 				.click2(this.selector.product_quantity)
-				.waitFor(this.selector.quantity, 5000)
+				.waitForExist(this.selector.quantity, 5000)
 				.click2(this.selector.quantity)
 				.addValue(this.selector.quantity, "10")
 				.click2(this.selector.product_picture)
-				.waitFor(this.selector.picture, 5000)
+				.waitForExist(this.selector.picture, 5000)
 				.execute(function() {
 					document.getElementById("file").style="";
 					})
 				.chooseFile(this.selector.picture, toUpload)
-				.waitFor(this.selector.upload_file_button, 5000)
+				.waitForExist(this.selector.upload_file_button, 5000)
 				.click2(this.selector.upload_file_button)
-				.waitFor(this.selector.upload_succes, 5000)
+				.waitForExist(this.selector.upload_succes, 5000)
 				.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
 					var src_creation_temp = text;
 					var src_creation_temp2 = src_creation_temp.split("/img");
@@ -86,11 +86,11 @@ describe('create_product', function(){
 		it('check_catalogue', function(done){
 			this.client
 				.click2(this.selector.products)
-				.waitFor(this.selector.catalogue_filter_by_name, 5000)
+				.waitForExist(this.selector.catalogue_filter_by_name, 5000)
 				.setValue2(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.click2(this.selector.catalogue_submit_filter)
 				.click2(this.selector.edit_product)
-				.waitFor(this.selector.product_name)
+				.waitForExist(this.selector.product_name)
 				.call(done);
 		});
 				
@@ -116,7 +116,7 @@ describe('create_product', function(){
 				});
 				this.client.frameParent();
 				this.client.click2(this.selector.product_price);	
-				this.client.waitFor(this.selector.wholesale_price, 5000);
+				this.client.waitForExist(this.selector.wholesale_price, 5000);
 				this.client.getValue(this.selector.wholesale_price).then(function(text) {
 					var my_wholesale_price = text;
 					should(parseInt(my_wholesale_price)).be.equal(parseInt("2"));
@@ -126,13 +126,13 @@ describe('create_product', function(){
 					should(parseInt(my_priceTE)).be.equal(parseInt("5"));
 				});	
 				this.client.click2(this.selector.product_quantity);
-				this.client.waitFor(this.selector.quantity, 5000);
+				this.client.waitForExist(this.selector.quantity, 5000);
 				this.client.getValue(this.selector.quantity).then(function(text) {
 					var my_quantity = text;
 					should(parseInt(my_quantity)).be.equal(parseInt("10"));
 				});	
 				this.client.product_picture;
-				this.client.waitFor(this.selector.upload_file_button, 5000);
+				this.client.waitForExist(this.selector.upload_file_button, 5000);
 				this.client.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
 					var my_src_temp = text[0];
 					var my_src_temp2 = my_src_temp.split("/img");
