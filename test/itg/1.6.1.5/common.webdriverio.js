@@ -25,17 +25,18 @@ function initCommands(client) {
 			.call(cb);
     });
 	
-	client.addCommand('signinFO', function(cb) {
+	client.addCommand('signinFO', function(done) {
 		this.selector = globals.selector;
-        client
+console.log('coucou');
+                client
 			.url('http://' + URL)
 			.waitForExist(this.selector.access_loginFO, 5000)
 			.click(this.selector.access_loginFO)
 			.waitForExist(this.selector.loginFO, 5000)
-            .setValue(this.selector.loginFO, 'pub@prestashop.com')
-            .setValue(this.selector.passwordFO, '123456789')
-            .click(this.selector.login_btnFO)
-            .call(cb);
+                        .setValue(this.selector.loginFO, 'pub@prestashop.com')
+                        .setValue(this.selector.passwordFO, '123456789')
+                        .click(this.selector.login_btnFO)
+                        .call(done);
     });
 
 	client.addCommand('signoutBO', function(cb) {

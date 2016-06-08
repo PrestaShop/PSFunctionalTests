@@ -22,10 +22,10 @@ describe('Allscenario', function(){
 	require('./scenario/FO/check_product.webdriverio');
 	
 	//create an order in FO and check it in BO
-/*	require('./scenario/FO/buy_product.webdriverio');
+	require('./scenario/FO/buy_product.webdriverio');
 	require('./scenario/BO/check_order.webdriverio');
 	
 	//require('./scenario/BO/create_order.webdriverio');
 	require('./scenario/FO/create_account.webdriverio');
-*/	
+	
 });

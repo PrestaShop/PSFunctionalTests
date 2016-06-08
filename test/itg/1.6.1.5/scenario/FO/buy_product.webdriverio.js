@@ -15,13 +15,22 @@ describe('buy_product', function(){
 	after(common.after);
 		
 		it('loggin_FO', function(done){
-			this.client
-				.signinFO()
-				.call(done);
+                     this.client
+				//.signinFO()
+
+			.url('http://' + URL)
+			.waitForExist(this.selector.access_loginFO, 5000)
+			.click(this.selector.access_loginFO)
+			.waitForExist(this.selector.loginFO, 5000)
+                        .setValue(this.selector.loginFO, 'pub@prestashop.com')
+                        .setValue(this.selector.passwordFO, '123456789')
+                        .click(this.selector.login_btnFO)
+                        .call(done);
 		});
 		
 		it('add_product_to_cart', function(done){
 			this.client
+                                .waitForExist(this.selector.logo_home_pageFO, 5000)
 				.click(this.selector.logo_home_pageFO)
 				.waitForExist(this.selector.first_product_home_page, 5000)
 				.getText(this.selector.first_product_home_page_name).then(function(text) {
@@ -42,7 +51,7 @@ describe('buy_product', function(){
 					global.my_quantity = text;
 				})
 				.click(this.selector.add_to_cart)
-				.waitForExist(this.selector.layer_cart_name_details, 5000)				
+				.waitForExist(this.selector.layer_cart, 5000)				
 				.getText(this.selector.layer_cart_name_details).then(function(text) {
 					var my_cart_name_check = text;
 					should(my_cart_name_check).be.equal(my_name);
@@ -94,18 +103,22 @@ describe('buy_product', function(){
 		
 		it('order_id', function(done){
 			this.client
-				.url(function(err,res) {
+				.url().then(function(res) {
 						var current_url = res.value;
-						var temp1 = current_url.split("id_order=");	
+						var temp1 =current_url.split("id_order=");
 						var temp2 = temp1[1].split("&");
 						global.order_id=temp2[0];
+                                                console.log('my order: ' + order_id);
 					})
 				.call(done);
 		});
 		
 		it('logout_FO', function(done){
 			this.client
-				.signoutFO()
+				//.signoutFO()
+                                .waitForExist(this.selector.logoutFO, 5000)
+			        .click(this.selector.logoutFO)
+			        .waitForExist(this.selector.access_loginFO, 5000)
 				.call(done);
 		});
 	
