@@ -33,7 +33,7 @@ describe('create_product', function(){
 		it('create_new_product', function(done){			
 				this.client
 				.click(this.selector.new_product)
-				.waitForExist(this.selector.product_name)
+				.waitForExist(this.selector.product_name, 5000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
 				.frame(this.selector.summary, function (err, result){
 					if (err) console.log(err);
@@ -90,7 +90,7 @@ describe('create_product', function(){
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.click(this.selector.catalogue_submit_filter)
 				.click(this.selector.edit_product)
-				.waitForExist(this.selector.product_name)
+				.waitForExist(this.selector.product_name, 5000)
 				.call(done);
 		});
 				
