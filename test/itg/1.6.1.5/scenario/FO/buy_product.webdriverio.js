@@ -22,15 +22,15 @@ describe('buy_product', function(){
 		
 		it('add_product_to_cart', function(done){
 			this.client
-				.click2(this.selector.logo_home_pageFO)
-				.waitForVisible(this.selector.first_product_home_page, 5000)
+				.click(this.selector.logo_home_pageFO)
+				.waitForExist(this.selector.first_product_home_page, 5000)
 				.getText(this.selector.first_product_home_page_name).then(function(text) {
 					global.my_name = text[1];
 				})
 				.moveToObject(this.selector.first_product_home_page)
-				.waitForVisible(this.selector.details_first_product_home_page, 5000)
-				.click2(this.selector.details_first_product_home_page)
-				.waitForVisible(this.selector.first_product_home_page_name, 5000)
+				.waitForExist(this.selector.details_first_product_home_page, 5000)
+				.click(this.selector.details_first_product_home_page)
+				.waitForExist(this.selector.first_product_home_page_name, 5000)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text;
 					should(my_name_check).be.equal(my_name);
@@ -41,8 +41,8 @@ describe('buy_product', function(){
 				.getValue(this.selector.product_quantity_details).then(function(text) {
 					global.my_quantity = text;
 				})
-				.click2(this.selector.add_to_cart)
-				.waitForVisible(this.selector.layer_cart_name_details, 5000)				
+				.click(this.selector.add_to_cart)
+				.waitForExist(this.selector.layer_cart_name_details, 5000)				
 				.getText(this.selector.layer_cart_name_details).then(function(text) {
 					var my_cart_name_check = text;
 					should(my_cart_name_check).be.equal(my_name);
@@ -55,20 +55,20 @@ describe('buy_product', function(){
 					var my_cart_quantity_check = text;
 					should(my_cart_quantity_check).be.equal(my_quantity);
 				})
-				.click2(this.selector.layer_cart_command_button)
+				.click(this.selector.layer_cart_command_button)
 				.call(done);
 		});
 		
 		it('validate_the_cart', function(done){
 			this.client			
-				.waitForVisible(this.selector.command_button_checkout, 5000)
-				.click2(this.selector.command_button_checkout)
-				.waitForVisible(this.selector.command_button_checkout_step3, 5000)
-				.click2(this.selector.command_button_checkout_step3)
-				.waitForVisible(this.selector.command_cgv, 5000)
-				.click2(this.selector.command_cgv)
-				.click2(this.selector.command_button_checkout)
-				.waitForVisible(this.selector.command_product_name_step5, 5000)
+				.waitForExist(this.selector.command_button_checkout, 5000)
+				.click(this.selector.command_button_checkout)
+				.waitForExist(this.selector.command_button_checkout_step3, 5000)
+				.click(this.selector.command_button_checkout_step3)
+				.waitForExist(this.selector.command_cgv, 5000)
+				.click(this.selector.command_cgv)
+				.click(this.selector.command_button_checkout)
+				.waitForExist(this.selector.command_product_name_step5, 5000)
 				.getText(this.selector.command_product_name_step5).then(function(text) {
 					var my_name_check2 = text;
 					should(my_name_check2).be.equal(my_name);
@@ -77,14 +77,14 @@ describe('buy_product', function(){
 					var my_price_check = text;
 					should(my_price_check).be.equal(my_price);
 				})
-				.click2(this.selector.command_pay_bankwire)
-				.waitForVisible(this.selector.command_price_step5_amout, 5000)
+				.click(this.selector.command_pay_bankwire)
+				.waitForExist(this.selector.command_price_step5_amout, 5000)
 				.getText(this.selector.command_price_step5_amout).then(function(text) {
 					var my_price_check2 = text;
 					should(my_price_check2).be.equal(my_price);
 				})
-				.click2(this.selector.command_confirm_button)
-				.waitForVisible(this.selector.command_success_alert, 5000)
+				.click(this.selector.command_confirm_button)
+				.waitForExist(this.selector.command_success_alert, 5000)
 				.getText(this.selector.command_success_price).then(function(text) {
 					var my_price_check3 = text;
 					should(my_price_check3).be.equal(my_price);

@@ -22,9 +22,9 @@ describe('check_product_in_FO', function(){
 		
 		it('open_the_product', function(done){
 			this.client
-				.setValue2(this.selector.search_product, 'test_nodejs_' + product_id)
-				.click2(this.selector.search_product_button)
-				.waitForVisible(this.selector.search_product_result_name, 5000)
+				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
+				.click(this.selector.search_product_button)
+				.waitForExist(this.selector.search_product_result_name, 5000)
 				.getText(this.selector.search_product_result_name).then(function(text) {
 					var my_name = text;
 					should(my_name[1]).be.equal('test_nodejs_' + product_id);
@@ -34,8 +34,8 @@ describe('check_product_in_FO', function(){
 					should(parseInt(my_price[1])).be.equal(parseInt("6"));
 				})
 				.moveToObject(this.selector.search_product_result_name)
-				.waitForVisible(this.selector.search_product_details, 5000)
-				.click2(this.selector.search_product_details)
+				.waitForExist(this.selector.search_product_details, 5000)
+				.click(this.selector.search_product_details)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text;
 					should(my_name_check).be.equal('test_nodejs_' + product_id);

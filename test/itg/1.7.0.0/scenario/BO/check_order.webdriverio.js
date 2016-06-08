@@ -21,18 +21,18 @@ describe('check the order in BO', function(){
 		
 		it('go_to_order', function(done){
 			this.client
-				.waitFor(this.selector.menu, 5000)
-				.click2(this.selector.orders)
-				.waitFor(this.selector.orders_form, 5000)
+				.waitForExist(this.selector.menu, 5000)
+				.click(this.selector.orders)
+				.waitForExist(this.selector.orders_form, 5000)
 				.call(done);
 		});
 		
 		it('check_order', function(done){
 				var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
 				this.client
-				.waitFor(my_selector, 5000)
-				.click2(my_selector)
-				.waitFor(this.selector.order_product_name, 5000)
+				.waitForExist(my_selector, 5000)
+				.click(my_selector)
+				.waitForExist(this.selector.order_product_name, 5000)
 				.getText(this.selector.order_product_name).then(function(text) {
 					var my_order_product_name = text;
 					my_order_product_name.toLowerCase().should.containEql(my_name.toLowerCase());

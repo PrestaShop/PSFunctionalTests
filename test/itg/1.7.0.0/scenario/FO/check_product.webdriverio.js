@@ -21,9 +21,9 @@ describe('check_product', function(){
 		
 		it('open_the_product', function(done){
 			this.client
-				.setValue2(this.selector.search_product, 'test_nodejs_' + product_id)
-				.click2(this.selector.search_product_button)
-				.waitFor(this.selector.search_product_result_name, 5000)
+				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
+				.click(this.selector.search_product_button)
+				.waitForExist(this.selector.search_product_result_name, 5000)
 				.getText(this.selector.search_product_result_name).then(function(text) {
 					var my_name = text;
 					should(my_name.toLowerCase()).be.equal('test_nodejs_' + product_id);
@@ -32,7 +32,7 @@ describe('check_product', function(){
 					var my_price = text;
 					should(parseInt(my_price)).be.equal(parseInt("6"));
 				})
-				.click2(this.selector.search_product_result_name)
+				.click(this.selector.search_product_result_name)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text[1];
 					should(my_name_check).be.equal('test_nodejs_' + product_id);
