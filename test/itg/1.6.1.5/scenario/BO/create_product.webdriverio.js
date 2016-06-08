@@ -95,51 +95,52 @@ describe('create_product', function(){
 		});
 				
 		it('check_product_in_BO', function(done){		
-				this.client.getValue(this.selector.product_name).then(function(text) {
-					var my_name = text;
-					should(my_name).be.equal('test_nodejs_' + product_id);
-				});		
-				this.client.frame(this.selector.summary, function (err, result){
-					if (err) console.log(err);
+				this.client
+					.getValue(this.selector.product_name).then(function(text) {
+						var my_name = text;
+						should(my_name).be.equal('test_nodejs_' + product_id);
+					})	
+					.frame(this.selector.summary, function (err, result){
+						if (err) console.log(err);
+						})
+					.getText("#tinymce").then(function(text) {
+						var my_summary = text;
+						should(my_summary).be.equal("this the summary");
 					})
-				this.client.getText("#tinymce").then(function(text) {
-					var my_summary = text;
-					should(my_summary).be.equal("this the summary");
-				});
-				this.client.frameParent();
-				this.client.frame(this.selector.description, function (err, result){
-					if (err) console.log(err);
+					.frameParent()
+					.frame(this.selector.description, function (err, result){
+						if (err) console.log(err);
+						})
+					.getText("#tinymce").then(function(text) {
+						var my_description = text;
+						should(my_description).be.equal("this is the description");
 					})
-				this.client.getText("#tinymce").then(function(text) {
-					var my_description = text;
-					should(my_description).be.equal("this is the description");
-				});
-				this.client.frameParent();
-				this.client.click(this.selector.product_price);	
-				this.client.waitForExist(this.selector.wholesale_price, 5000);
-				this.client.getValue(this.selector.wholesale_price).then(function(text) {
-					var my_wholesale_price = text;
-					should(parseInt(my_wholesale_price)).be.equal(parseInt("2"));
-				});	
-				this.client.getValue(this.selector.priceTE).then(function(text) {
-					var my_priceTE = text;
-					should(parseInt(my_priceTE)).be.equal(parseInt("5"));
-				});	
-				this.client.click(this.selector.product_quantity);
-				this.client.waitForExist(this.selector.quantity, 5000);
-				this.client.getValue(this.selector.quantity).then(function(text) {
-					var my_quantity = text;
-					should(parseInt(my_quantity)).be.equal(parseInt("10"));
-				});	
-				this.client.product_picture;
-				this.client.waitForExist(this.selector.upload_file_button, 5000);
-				this.client.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
-					var my_src_temp = text[0];
-					var my_src_temp2 = my_src_temp.split("/img");
-					var my_src_temp3 = my_src_temp2[1].split("?time");
-					should(my_src_temp3[0]).be.equal(src_creation);
-				})
-				this.client.call(done);
+					.frameParent()
+					.click(this.selector.product_price)	
+					.waitForExist(this.selector.wholesale_price, 5000)
+					.getValue(this.selector.wholesale_price).then(function(text) {
+						var my_wholesale_price = text;
+						should(parseInt(my_wholesale_price)).be.equal(parseInt("2"));
+					})
+					.getValue(this.selector.priceTE).then(function(text) {
+						var my_priceTE = text;
+						should(parseInt(my_priceTE)).be.equal(parseInt("5"));
+					})	
+					.click(this.selector.product_quantity)
+					.waitForExist(this.selector.quantity, 5000)
+					.getValue(this.selector.quantity).then(function(text) {
+						var my_quantity = text;
+						should(parseInt(my_quantity)).be.equal(parseInt("10"))
+					})	
+					.click(this.selector.product_picture)
+					.waitForExist(this.selector.upload_file_button, 5000)
+					.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
+						var my_src_temp = text[0];
+						var my_src_temp2 = my_src_temp.split("/img");
+						var my_src_temp3 = my_src_temp2[1].split("?time");
+						should(my_src_temp3[0]).be.equal(src_creation);
+					})
+					.call(done);
 		});
 		
 		it('logout_BO', function(done){
