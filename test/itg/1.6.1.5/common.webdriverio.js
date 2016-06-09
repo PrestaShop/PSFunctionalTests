@@ -5,7 +5,7 @@ var globals = require('./globals.webdriverio');
 
 var options = {
     logLevel: 'silent',
-    waitForTimeout: 5000,
+    waitForTimeout: 30000,
     desiredCapabilities: {
         browserName: 'chrome'
 	},
@@ -18,7 +18,7 @@ function initCommands(client) {
 		this.selector = globals.selector;
 		client
 			.url('http://' + URL + '/admin-dev')
-			.waitForExist(this.selector.login, 5000)
+			.waitForExist(this.selector.login, 30000)
             .setValue(this.selector.login, 'demo@prestashop.com')
             .setValue(this.selector.password, 'prestashop_demo')
             .click(this.selector.login_btn)
@@ -27,12 +27,11 @@ function initCommands(client) {
 	
 	client.addCommand('signinFO', function(done) {
 		this.selector = globals.selector;
-console.log('coucou');
                 client
 			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 5000)
+			.waitForExist(this.selector.access_loginFO, 30000)
 			.click(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 5000)
+			.waitForExist(this.selector.loginFO, 30000)
                         .setValue(this.selector.loginFO, 'pub@prestashop.com')
                         .setValue(this.selector.passwordFO, '123456789')
                         .click(this.selector.login_btnFO)
@@ -56,9 +55,9 @@ console.log('coucou');
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
-			.waitForExist(this.selector.logoutFO, 5000)
+			.waitForExist(this.selector.logoutFO, 30000)
 			.click(this.selector.logoutFO)
-			.waitForExist(this.selector.access_loginFO, 5000)
+			.waitForExist(this.selector.access_loginFO, 30000)
 			.call(cb);
 	});
 	

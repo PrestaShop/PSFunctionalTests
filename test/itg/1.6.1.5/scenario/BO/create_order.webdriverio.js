@@ -21,24 +21,24 @@ describe('check the order in BO', function(){
 	
 	it('go_to_order', function(done){
 		this.client
-			.waitForExist(this.selector.menu, 5000)
+			.waitForExist(this.selector.menu, 30000)
 			.click(this.selector.orders)
-			.waitForExist(this.selector.orders_form, 5000)
+			.waitForExist(this.selector.orders_form, 30000)
 			.call(done);
 	});
 	
 	
 	it('create_order', function(done){
 		this.client
-			.waitForExist(this.selector.new_order, 5000)
+			.waitForExist(this.selector.new_order, 30000)
 			.click(this.selector.new_order)
-			.waitForExist(this.selector.new_order_client, 5000)
+			.waitForExist(this.selector.new_order_client, 30000)
 			.setValue(this.selector.new_order_client, 'john')
-			.waitForExist(this.selector.new_order_client_choose, 5000)
+			.waitForExist(this.selector.new_order_client_choose, 30000)
 			.click(this.selector.new_order_client_choose)
-			.waitForExist(this.selector.new_order_product, 5000)
+			.waitForExist(this.selector.new_order_product, 30000)
 			.setValue(this.selector.new_order_product, 'dress')
-			.waitForExist(this.selector.new_order_product_name_list, 5000)
+			.waitForExist(this.selector.new_order_product_name_list, 30000)
 			.isExisting(this.selector.new_order_product_combination_list).then(function(isExisting) {
 					global.combination = isExisting;
 			})
@@ -69,9 +69,9 @@ describe('check the order in BO', function(){
 	it('check_order', function(done){
 			var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
 			this.client
-			.waitForExist(my_selector, 5000)
+			.waitForExist(my_selector, 30000)
 			.click(my_selector)
-			.waitForExist(this.selector.order_product_name, 5000)
+			.waitForExist(this.selector.order_product_name, 30000)
 			.getText(this.selector.order_product_name).then(function(text) {
 				var my_order_product_name = text;
 				should(my_order_product_name).be.equal(my_name);
@@ -84,7 +84,6 @@ describe('check the order in BO', function(){
 				var my_order_total = text;
 				should(my_order_total).be.equal(my_price);
 			})
-			.pause(5000)
 			.call(done);
 	});
 	

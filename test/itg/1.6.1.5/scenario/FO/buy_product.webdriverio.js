@@ -19,9 +19,9 @@ describe('buy_product', function(){
 				//.signinFO()
 
 			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 5000)
+			.waitForExist(this.selector.access_loginFO, 30000)
 			.click(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 5000)
+			.waitForExist(this.selector.loginFO, 30000)
                         .setValue(this.selector.loginFO, 'pub@prestashop.com')
                         .setValue(this.selector.passwordFO, '123456789')
                         .click(this.selector.login_btnFO)
@@ -30,16 +30,16 @@ describe('buy_product', function(){
 		
 		it('add_product_to_cart', function(done){
 			this.client
-                                .waitForExist(this.selector.logo_home_pageFO, 5000)
+                                .waitForExist(this.selector.logo_home_pageFO, 30000)
 				.click(this.selector.logo_home_pageFO)
-				.waitForExist(this.selector.first_product_home_page, 5000)
+				.waitForExist(this.selector.first_product_home_page, 30000)
 				.getText(this.selector.first_product_home_page_name).then(function(text) {
 					global.my_name = text[1];
 				})
 				.moveToObject(this.selector.first_product_home_page)
-				.waitForExist(this.selector.details_first_product_home_page, 5000)
+				.waitForExist(this.selector.details_first_product_home_page, 30000)
 				.click(this.selector.details_first_product_home_page)
-				.waitForExist(this.selector.first_product_home_page_name, 5000)
+				.waitForExist(this.selector.first_product_home_page_name, 30000)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text;
 					should(my_name_check).be.equal(my_name);
@@ -51,7 +51,7 @@ describe('buy_product', function(){
 					global.my_quantity = text;
 				})
 				.click(this.selector.add_to_cart)
-				.waitForExist(this.selector.layer_cart, 5000)				
+				.waitForExist(this.selector.layer_cart, 30000)				
 				.getText(this.selector.layer_cart_name_details).then(function(text) {
 					var my_cart_name_check = text;
 					should(my_cart_name_check).be.equal(my_name);
@@ -70,14 +70,14 @@ describe('buy_product', function(){
 		
 		it('validate_the_cart', function(done){
 			this.client			
-				.waitForExist(this.selector.command_button_checkout, 5000)
+				.waitForExist(this.selector.command_button_checkout, 30000)
 				.click(this.selector.command_button_checkout)
-				.waitForExist(this.selector.command_button_checkout_step3, 5000)
+				.waitForExist(this.selector.command_button_checkout_step3, 30000)
 				.click(this.selector.command_button_checkout_step3)
-				.waitForExist(this.selector.command_cgv, 5000)
+				.waitForExist(this.selector.command_cgv, 30000)
 				.click(this.selector.command_cgv)
 				.click(this.selector.command_button_checkout)
-				.waitForExist(this.selector.command_product_name_step5, 5000)
+				.waitForExist(this.selector.command_product_name_step5, 30000)
 				.getText(this.selector.command_product_name_step5).then(function(text) {
 					var my_name_check2 = text;
 					should(my_name_check2).be.equal(my_name);
@@ -87,13 +87,13 @@ describe('buy_product', function(){
 					should(my_price_check).be.equal(my_price);
 				})
 				.click(this.selector.command_pay_bankwire)
-				.waitForExist(this.selector.command_price_step5_amout, 5000)
+				.waitForExist(this.selector.command_price_step5_amout, 30000)
 				.getText(this.selector.command_price_step5_amout).then(function(text) {
 					var my_price_check2 = text;
 					should(my_price_check2).be.equal(my_price);
 				})
 				.click(this.selector.command_confirm_button)
-				.waitForExist(this.selector.command_success_alert, 5000)
+				.waitForExist(this.selector.command_success_alert, 30000)
 				.getText(this.selector.command_success_price).then(function(text) {
 					var my_price_check3 = text;
 					should(my_price_check3).be.equal(my_price);
@@ -108,7 +108,6 @@ describe('buy_product', function(){
 						var temp1 =current_url.split("id_order=");
 						var temp2 = temp1[1].split("&");
 						global.order_id=temp2[0];
-                                                console.log('my order: ' + order_id);
 					})
 				.call(done);
 		});
@@ -116,9 +115,9 @@ describe('buy_product', function(){
 		it('logout_FO', function(done){
 			this.client
 				//.signoutFO()
-                                .waitForExist(this.selector.logoutFO, 5000)
+                                .waitForExist(this.selector.logoutFO, 30000)
 			        .click(this.selector.logoutFO)
-			        .waitForExist(this.selector.access_loginFO, 5000)
+			        .waitForExist(this.selector.access_loginFO, 30000)
 				.call(done);
 		});
 	
