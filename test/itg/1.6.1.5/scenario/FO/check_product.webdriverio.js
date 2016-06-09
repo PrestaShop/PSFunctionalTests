@@ -48,7 +48,9 @@ describe('check_product_in_FO', function(){
 					should(my_name_check).be.equal('test_nodejs_' + product_id);
 				})
 				.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
+				    console.log("text: " + text);
 					var my_src_temp = text[0].split("/").pop().split('.');
+					console.log("my_src_temp: " + my_src_temp);
 					var my_name_modify = 'testnodejs' + product_id;
 					my_src_temp[0].should.be.equal(my_name_modify);
 				})
