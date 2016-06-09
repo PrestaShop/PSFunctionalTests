@@ -56,13 +56,14 @@ describe('create_product', function(){
 				.click(this.selector.priceTE)
 				.pause(2000)
 				.setValue(this.selector.priceTE, "5")
+				.waitForExist(this.selector.save_and_stay_price, 30000)
 				.click(this.selector.save_and_stay_price)
 				.waitForExist(this.selector.close_green_validation, 30000)
 				.click(this.selector.close_green_validation)
 				.click(this.selector.product_quantity)
 				.waitForExist(this.selector.quantity, 30000)
 				.click(this.selector.quantity)
-				.addValue(this.selector.quantity, "10")
+				.addValue(this.selector.quantity, "1000")
 				.click(this.selector.product_picture)
 				.waitForExist(this.selector.picture, 30000)
 				.execute(function() {
@@ -128,7 +129,7 @@ describe('create_product', function(){
 					.waitForExist(this.selector.quantity, 30000)
 					.getValue(this.selector.quantity).then(function(text) {
 						var my_quantity = text;
-						should(parseInt(my_quantity)).be.equal(parseInt("10"))
+						should(parseInt(my_quantity)).be.equal(parseInt("1000"))
 					})	
 					.click(this.selector.product_picture)
 					.waitForExist(this.selector.upload_file_button, 30000)

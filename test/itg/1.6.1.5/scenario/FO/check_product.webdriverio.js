@@ -25,6 +25,10 @@ describe('check_product_in_FO', function(){
                 .waitForExist(this.selector.search_product, 30000)                                
                 .click(this.selector.search_product)
 				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
+				.pause(1000)
+				.getValue(this.selector.search_product).then(function(text) {
+					console.log("search value: " + text)
+				})
 				.click(this.selector.search_product_button)
 				.waitForExist(this.selector.search_product_result_name, 30000)
 				.getText(this.selector.search_product_result_name).then(function(text) {

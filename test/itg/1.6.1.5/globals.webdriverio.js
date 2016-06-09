@@ -35,7 +35,8 @@ module.exports = {
 		wholesale_price: '#wholesale_price',
 		priceTE: '#priceTE',
 		priceTI: '#priceTI',
-		save_and_stay_price: '#product-prices > div.panel-footer > button:nth-child(3)',
+		//save_and_stay_price: '#product-prices > div.panel-footer > button:nth-child(3)',
+		save_and_stay_price: '(//div[@id="product-prices"]/div/button[@class="btn btn-default pull-right"])[2]/i[@class="process-icon-save"]',
 		product_quantity: '#link-Quantities',
 		quantity: '[name="qty_0"]',
 		save_and_stay_quantity: '#product-quantities > div.panel-footer > button:nth-child(3)',
@@ -82,7 +83,7 @@ module.exports = {
 		product_name_details: '[itemprop="name"]',
 		product_price_details: '#our_price_display',
 		product_quantity_details: '#quantity_wanted',
-                layer_cart: '//div[@id="layer_cart" and contains(@style, "display: block;")]',
+        layer_cart: '//div[@id="layer_cart" and contains(@style, "display: block;")]',
 		layer_cart_picture: '.layer_cart_img.img-responsive',
 		layer_cart_name_details: 'span#layer_cart_product_title',
 		layer_cart_price_details: 'span#layer_cart_product_price',
@@ -104,6 +105,7 @@ module.exports = {
 		search_product_result_name: '[itemprop="url"]',
 		search_product_result_price: '.price.product-price',
 		search_product_details: '.button.lnk_view.btn.btn-default',
+		check_login_ok: '//ul[@class="myaccount-link-list"]',
 	},
     shouldExist: function(err, existing) {
         should(err).be.not.defined;
