@@ -25,10 +25,6 @@ describe('check_product_in_FO', function(){
                 .waitForExist(this.selector.search_product, 30000)                                
                 .click(this.selector.search_product)
 				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
-				.pause(1000)
-				.getValue(this.selector.search_product).then(function(text) {
-					console.log("search value: " + text)
-				})
 				.click(this.selector.search_product_button)
 				.waitForExist(this.selector.search_product_result_name, 30000)
 				.getText(this.selector.search_product_result_name).then(function(text) {
@@ -47,12 +43,10 @@ describe('check_product_in_FO', function(){
 					var my_name_check = text;
 					should(my_name_check).be.equal('test_nodejs_' + product_id);
 				})
-				.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
-				    console.log("text: " + text);
-					var my_src_temp = text[0].split("/").pop().split('.');
-					console.log("my_src_temp: " + my_src_temp);
-					var my_name_modify = 'testnodejs' + product_id;
-					my_src_temp[0].should.be.equal(my_name_modify);
+				.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "alt").then(function(text) {
+				    var my_src_temp = text[0]
+					var my_name_modify = 'test_nodejs_' + product_id;
+					my_src_temp.should.be.equal(my_name_modify);
 				})
 				.getText(this.selector.product_price_details).then(function(text) {
 					var my_price2 = text;

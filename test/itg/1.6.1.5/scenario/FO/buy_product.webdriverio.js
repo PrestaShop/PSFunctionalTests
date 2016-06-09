@@ -71,6 +71,10 @@ describe('buy_product', function(){
 			this.client			
 				.waitForExist(this.selector.command_button_checkout, 30000)
 				.click(this.selector.command_button_checkout)
+				.pause(3000)
+				.url().then(function(res) {
+					console.log("my_res: " + res.value);
+				})
 				.waitForExist(this.selector.command_button_checkout_step3, 80000)
 				.click(this.selector.command_button_checkout_step3)
 				.waitForExist(this.selector.command_cgv, 30000)
