@@ -112,7 +112,7 @@ module.exports = {
             done();
     },
     initMocha: function () {
-        this.timeout(50000);
-        this.slow(30000);
+        this.timeout(100000);
+        this.slow(50000);
     }
 };

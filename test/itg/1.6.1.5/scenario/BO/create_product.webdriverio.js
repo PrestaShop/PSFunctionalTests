@@ -24,16 +24,16 @@ describe('create_product', function(){
 		
 		it('go_to_new_product', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 5000)
+				.waitForExist(this.selector.menu, 30000)
 				.click(this.selector.products)
-				.waitForExist(this.selector.new_product, 5000)
+				.waitForExist(this.selector.new_product, 30000)
 				.call(done);
 		});
 		
 		it('create_new_product', function(done){			
 				this.client
 				.click(this.selector.new_product)
-				.waitForExist(this.selector.product_name, 5000)
+				.waitForExist(this.selector.product_name, 30000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
 				.frame(this.selector.summary, function (err, result){
 					if (err) console.log(err);
