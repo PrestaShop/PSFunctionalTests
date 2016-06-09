@@ -106,6 +106,7 @@ module.exports = {
 		search_product_result_price: '.price.product-price',
 		search_product_details: '.button.lnk_view.btn.btn-default',
 		check_login_ok: '//ul[@class="myaccount-link-list"]',
+		validate_address: '//button[@id="submitAddress"]',
 	},
     shouldExist: function(err, existing) {
         should(err).be.not.defined;
