@@ -35,10 +35,11 @@ describe('check_product_in_FO', function(){
 					var my_name = text;
 					should(my_name[1]).be.equal('test_nodejs_' + product_id);
 				})
-			/*	.getText(this.selector.search_product_result_price).then(function(text) {
+				.getText(this.selector.search_product_result_price).then(function(text) {
+				    console.log("my_price: " + text);
 					var my_price = text;
 					should(parseInt(my_price[1])).be.equal(parseInt("6"));
-				})*/
+				})
 				.moveToObject(this.selector.search_product_result_name)
 				.waitForExist(this.selector.search_product_details, 30000)
 				.click(this.selector.search_product_details)
@@ -53,6 +54,7 @@ describe('check_product_in_FO', function(){
 					my_src_temp.should.be.equal(my_name_modify);
 				})
 				.getText(this.selector.product_price_details).then(function(text) {
+				    console.log("my_price2: " + text);
 					var my_price2 = text;
 					should(parseInt(my_price2)).be.equal(parseInt("6"));
 				})
