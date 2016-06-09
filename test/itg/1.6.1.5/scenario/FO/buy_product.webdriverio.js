@@ -72,7 +72,7 @@ describe('buy_product', function(){
 			this.client			
 				.waitForExist(this.selector.command_button_checkout, 30000)
 				.click(this.selector.command_button_checkout)
-				.waitForExist(this.selector.command_button_checkout_step3, 30000)
+				.waitForExist(this.selector.command_button_checkout_step3, 80000)
 				.click(this.selector.command_button_checkout_step3)
 				.waitForExist(this.selector.command_cgv, 30000)
 				.click(this.selector.command_cgv)
