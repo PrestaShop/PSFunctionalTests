@@ -116,10 +116,9 @@ describe('buy_product', function(){
 		
 		it('logout_FO', function(done){
 			this.client
-				//.signoutFO()
-                                .waitForExist(this.selector.logoutFO, 30000)
-			        .click(this.selector.logoutFO)
-			        .waitForExist(this.selector.access_loginFO, 30000)
+				.waitForExist(this.selector.logoutFO, 30000)
+			    .click(this.selector.logoutFO)
+			    .waitForExist(this.selector.access_loginFO, 30000)
 				.call(done);
 		});
 	

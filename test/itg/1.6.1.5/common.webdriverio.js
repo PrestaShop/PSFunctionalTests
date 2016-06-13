@@ -47,7 +47,7 @@ function initCommands(client) {
 			.click(this.selector.logout)
                 */
 			client
-                            .deleteCookie()
+                .deleteCookie()
 			    .call(cb);
 	});
 	

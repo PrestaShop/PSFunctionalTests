@@ -5,7 +5,7 @@ var globals = require('./globals.webdriverio');
 
 var options = {
     logLevel: 'silent',
-    waitForTimeout: 5000,
+    waitForTimeout: 30000,
     desiredCapabilities: {
         browserName: 'chrome'
 	},
@@ -17,9 +17,9 @@ function initCommands(client) {
 		this.selector = globals.selector;
 		client
 			.url('http://' + URL + '/admin-dev')
-			.waitForExist(this.selector.login, 5000)
-            .setValue(this.selector.login, 'guillaume.marsille@prestashop.com')
-            .setValue(this.selector.password, 'guillaume95')
+			.waitForExist(this.selector.login, 30000)
+            .setValue(this.selector.login, 'demo@prestashop.com')
+            .setValue(this.selector.password, 'prestashop_demo')
             .click(this.selector.login_btn)
 			.call(cb);
     });
@@ -28,9 +28,9 @@ function initCommands(client) {
 		this.selector = globals.selector;
         client
 			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 5000)
+			.waitForExist(this.selector.access_loginFO, 30000)
 			.click(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 5000)
+			.waitForExist(this.selector.loginFO, 30000)
             .setValue(this.selector.loginFO, 'pub@prestashop.com')
             .setValue(this.selector.passwordFO, '123456789')
             .click(this.selector.login_btnFO)
@@ -39,32 +39,40 @@ function initCommands(client) {
 
 	client.addCommand('signoutBO', function(cb) {
 		this.selector = globals.selector;
-        client
+        /*client
 			.waitForExist(this.selector.profil, 10000)
 			.click(this.selector.profil)
 			.click(this.selector.logout)
+			.call(cb);
+		*/
+		client
+			.deleteCookie()
 			.call(cb);
 	});
 	
 	client.addCommand('signoutBO2', function(cb) {
 		this.selector = globals.selector;
-        client
+       /* client
 			.waitForExist(this.selector.new_profil, 10000)
 			.click(this.selector.new_profil)
 			.click(this.selector.logout)
+			.call(cb);
+		*/	
+		client
+			.deleteCookie()
 			.call(cb);
 	});
 	
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
-			.waitForExist(this.selector.logoutFO, 5000)
+			.waitForExist(this.selector.logoutFO, 30000)
 			.click(this.selector.logoutFO)
-			.waitForExist(this.selector.access_loginFO, 5000)
+			.waitForExist(this.selector.access_loginFO, 30000)
 			.call(cb);
 	});
 	
-	client.addCommand('click', function(cb, done){
+	client.addCommand('click2', function(cb, done){
 		client.click(cb, function(err){
 			if (err){
 				var date_time = new Date().getTime();
@@ -75,7 +83,7 @@ function initCommands(client) {
 		client.call(done);
 	});
 	
-	client.addCommand('setValue', function(element,value, done){
+	client.addCommand('setValue2', function(element,value, done){
 		client.setValue(element,value, function(err){
 			if (err){
 				var date_time = new Date().getTime();
@@ -110,7 +118,7 @@ module.exports = {
             done();
     },
     initMocha: function () {
-        this.timeout(50000);
-        this.slow(30000);
+        this.timeout(100000);
+        this.slow(50000);
     }
 };

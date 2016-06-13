@@ -88,7 +88,7 @@ module.exports = {
 		checkout_step3_continue_button: '[name="confirmDeliveryOption"]',
 		check_out_step4: '#checkout-payment-step',
 		checkout_step4_payment: '#payment-option-1',
-		checkout_step4_cgv: '#conditions_to_approve[terms-and-conditions]',
+		checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
 		checkout_step4_order: '#payment-confirmation >div > button',
 		checkout_total: '//div[@class="cart-summary-line cart-total"]/span[2]',
 		order_confirmation_name: '#order-items > table:nth-child(2) > tbody > tr > td:nth-child(2)',
