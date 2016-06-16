@@ -72,32 +72,7 @@ function initCommands(client) {
 			.call(cb);
 	});
 	
-	client.addCommand('click2', function(cb, done){
-		client.click(cb, function(err){
-			if (err){
-				var date_time = new Date().getTime();
-				client.saveScreenshot('./screenshots/' + date_time + '.png');
-				console.log('Screenshot as taken with name : ' + date_time + '.png')
-			}
-		});
-		client.call(done);
-	});
-	
-	client.addCommand('setValue2', function(element,value, done){
-		client.setValue(element,value, function(err){
-			if (err){
-				var date_time = new Date().getTime();
-				client.saveScreenshot('./screenshots/' + date_time + '.png', function (err, result){
-					if (err) {
-					}else{
-						console.log('Error, screenshot as taken with name : ' + date_time + '.png');
-					}
-				});
-			}
-		});
-		client.call(done);
-	});
-	
+		
 }
 module.exports = {
     getClient: function () {

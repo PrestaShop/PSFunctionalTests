@@ -7,6 +7,7 @@ var date_time = new Date().getTime();
 
 
 global.URL = argv.URL;
+global.module_tech_name = argv.MODULE;
 global._projectdir = path.join(__dirname, '..', '..');
 global.product_id=new Date().getTime();
 global.new_customer_email = 'pub' + date_time + '@prestashop.com';
@@ -61,7 +62,10 @@ module.exports = {
 		new_order_product_name_choose:'(//select[@id="id_product"]/option)[1]',
 		new_order_product_combination_list: '//select[@class="id_product_attribute" and @style=""]',
 		new_order_product_combination_1: '(//select[@class="id_product_attribute" and @style=""]/option)[1]',
-		
+		modules_menu: '.icon-AdminParentModules',
+		modules_search: '#moduleQuicksearch',
+
+
 	//FO
 		access_loginFO:'.login',
 		loginFO: '#email',
