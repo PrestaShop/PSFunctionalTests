@@ -6,6 +6,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var date_time = new Date().getTime();
 
 global.URL = argv.URL;
+global.module_tech_name = argv.MODULE;
 global._projectdir = path.join(__dirname, '..', '..');
 global.product_id=new Date().getTime();
 global.new_customer_email = 'pub' + date_time + '@prestashop.com';
@@ -47,6 +48,12 @@ module.exports = {
 		order_reference: '#content > div.row > div > div:nth-child(4) > div.col-lg-7 > div:nth-child(1) > div.panel-heading > span:nth-child(2)',
 		
 		
+		modules_menu: '#subtab-AdminModulesSf',
+		modules_search: '.pstaggerAddTagInput.module-tags-input',
+		modules_search_button: '.input-group-addon.module-search-icon',
+		modules_page_loaded: '.module-search-result-wording',
+		modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
+		modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 		
 	//FO
 		access_loginFO:'.login',

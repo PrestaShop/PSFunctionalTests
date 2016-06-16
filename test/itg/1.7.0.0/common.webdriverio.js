@@ -39,25 +39,13 @@ function initCommands(client) {
 
 	client.addCommand('signoutBO', function(cb) {
 		this.selector = globals.selector;
-        /*client
-			.waitForExist(this.selector.profil, 10000)
-			.click(this.selector.profil)
-			.click(this.selector.logout)
-			.call(cb);
-		*/
-		client
+       	client
 			.deleteCookie()
 			.call(cb);
 	});
 	
 	client.addCommand('signoutBO2', function(cb) {
 		this.selector = globals.selector;
-       /* client
-			.waitForExist(this.selector.new_profil, 10000)
-			.click(this.selector.new_profil)
-			.click(this.selector.logout)
-			.call(cb);
-		*/	
 		client
 			.deleteCookie()
 			.call(cb);

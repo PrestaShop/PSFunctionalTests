@@ -25,6 +25,12 @@ describe('Allscenario', function(){
 	require('./scenario/FO/buy_product.webdriverio');
 	require('./scenario/BO/check_order.webdriverio');
 	
+	
 	require('./scenario/FO/create_account.webdriverio');
 	
+	
+	if (typeof module_tech_name != "undefined"){
+		require('./scenario/BO/install_module.js');
+		require('./scenario/BO/uninstall_module.js');
+	}
 });
