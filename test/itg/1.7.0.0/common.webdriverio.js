@@ -54,9 +54,10 @@ function initCommands(client) {
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
-			.waitForExist(this.selector.logoutFO, 30000)
+			/*.waitForExist(this.selector.logoutFO, 30000)
 			.click(this.selector.logoutFO)
-			.waitForExist(this.selector.access_loginFO, 30000)
+			.waitForExist(this.selector.access_loginFO, 30000)*/
+			.deleteCookie()
 			.call(cb);
 	});
 	

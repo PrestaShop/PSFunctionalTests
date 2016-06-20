@@ -107,7 +107,9 @@ describe('buy_product', function(){
 					should(order_confirmation_price2).be.equal(my_price);
 				})
 				.getText(this.selector.order_confirmation_ref).then(function(text) {
-					global.order_reference=text;
+					var my_ref=text.split(': ')
+					global.order_reference=my_ref[1];
+					console.log(order_reference);
 				})
 				.call(done);
 		});
