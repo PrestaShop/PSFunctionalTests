@@ -1,0 +1,51 @@
+language: php
+
+services:
+  - docker
+
+addons:
+    apt:
+      packages:
+        - postfix
+        - libappindicator1
+        - fonts-liberation
+    sauce_connect: true
+
+cache:
+  directories:
+    - $HOME/.npm
+
+sudo: required
+dist: trusty
+group: edge
+
+env:
+    - PS_VERSION=1.6.1.5
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
+
+before_script:
+  - docker run -e PS_INSTALL_AUTO=1 -e PS_COUNTRY=fr -e PS_DEV_MODE=1 -e PS_FOLDER_INSTALL=install-dev -e PS_FOLDER_ADMIN=admin-dev -e PS_HANDLE_DYNAMIC_DOMAIN=1 -p 80:80 -tid --name=prestashop prestashop/prestashop:$PS_VERSION
+  - npm install selenium-standalone@latest
+  - selenium-standalone install --silent && DISPLAY=:10 selenium-standalone start &> /dev/null &
+  - npm install
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - cd test/itg/$PS_VERSION
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_10.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :10 -ac -screen 0 1280x1024x16"
+  - sleep 25
+
+script:
+  - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost
+  - curl http://localhost/
+
+after_script:
+  - docker logs prestashop
+  - google-chrome --version
+
+after_failure:
+
