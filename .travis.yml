@@ -21,6 +21,7 @@ group: edge
 
 env:
     - PS_VERSION=1.6.1.5
+    - PS_VERSION=1.7
 
 matrix:
   fast_finish: true
@@ -48,4 +49,3 @@ after_script:
   - google-chrome --version
 
 after_failure:
-
