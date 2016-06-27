@@ -17,7 +17,7 @@ function initCommands(client) {
 		this.selector = globals.selector;
 		client
 			.url('http://' + URL + '/admin-dev')
-			.waitForExist(this.selector.login, 30000)
+			.waitForExist(this.selector.login, 60000)
             .setValue(this.selector.login, 'demo@prestashop.com')
             .setValue(this.selector.password, 'prestashop_demo')
             .click(this.selector.login_btn)
@@ -28,9 +28,9 @@ function initCommands(client) {
 		this.selector = globals.selector;
         client
 			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 30000)
+			.waitForExist(this.selector.access_loginFO, 60000)
 			.click(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 30000)
+			.waitForExist(this.selector.loginFO, 60000)
             .setValue(this.selector.loginFO, 'pub@prestashop.com')
             .setValue(this.selector.passwordFO, '123456789')
             .click(this.selector.login_btnFO)
@@ -54,9 +54,9 @@ function initCommands(client) {
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
-			/*.waitForExist(this.selector.logoutFO, 30000)
+			/*.waitForExist(this.selector.logoutFO, 60000)
 			.click(this.selector.logoutFO)
-			.waitForExist(this.selector.access_loginFO, 30000)*/
+			.waitForExist(this.selector.access_loginFO, 60000)*/
 			.deleteCookie()
 			.call(cb);
 	});
@@ -83,6 +83,6 @@ module.exports = {
     },
     initMocha: function () {
         this.timeout(100000);
-        this.slow(50000);
+        this.slow(30000);
     }
 };

@@ -23,16 +23,16 @@ describe('create_product', function(){
 		
 		it('go_to_new_product', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 30000)
+				.waitForExist(this.selector.menu, 60000)
 				.click(this.selector.products)
-				.waitForExist(this.selector.new_product, 30000)
+				.waitForExist(this.selector.new_product, 60000)
 				.call(done);
 		});
 		
 		it('create_new_product', function(done){			
 				this.client
 				.click(this.selector.new_product)
-				.waitForExist(this.selector.product_name, 30000)
+				.waitForExist(this.selector.product_name, 60000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
 				.frame(this.selector.summary, function (err, result){
 					if (err) console.log(err);
@@ -53,13 +53,13 @@ describe('create_product', function(){
 					document.getElementsByClassName("dz-hidden-input").style="";
 					})
 				.chooseFile(this.selector.picture, toUpload)
-				.waitForExist(this.selector.picture_cover, 30000)
+				.waitForExist(this.selector.picture_cover, 60000)
 				.getAttribute('.dz-preview.dz-image-preview.ui-sortable-handle.dz-complete', "data-id").then(function(text) {
 					global.image_data_id = text;
 				})
 				.click(this.selector.product_online)
 				.click(this.selector.save_product)
-				.waitForExist(this.selector.close_green_validation, 30000)
+				.waitForExist(this.selector.close_green_validation, 60000)
 				.click(this.selector.close_green_validation)
 				.call(done);
 		});
@@ -68,12 +68,12 @@ describe('create_product', function(){
 		it('check_catalogue', function(done){
 			this.client
 				.click(this.selector.go_to_catalog)
-				.waitForExist(this.selector.catalogue_filter_by_name, 30000)
+				.waitForExist(this.selector.catalogue_filter_by_name, 60000)
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.click(this.selector.catalogue_submit_filter)
-				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 30000)
+				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 60000)
 				.click('//a[text()="test_nodejs_' + product_id + '"]')
-				.waitForExist(this.selector.product_name, 30000)
+				.waitForExist(this.selector.product_name, 60000)
 				.call(done);
 		});
 				

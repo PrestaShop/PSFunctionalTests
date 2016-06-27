@@ -48,7 +48,7 @@ module.exports = {
 		order_reference: '#content > div.row > div > div:nth-child(5) > div.col-lg-7 > div:nth-child(1) > div.panel-heading > span:nth-child(2)',
 		
 		
-		modules_menu: '#subtab-AdminModulesSf',
+		modules_menu: '#subtab-AdminParentModulesSf',
 		modules_search: '.pstaggerAddTagInput.module-tags-input',
 		modules_search_button: '.input-group-addon.module-search-icon',
 		modules_page_loaded: '.module-search-result-wording',

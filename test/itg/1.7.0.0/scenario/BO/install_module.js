@@ -22,9 +22,9 @@ describe('install_module', function(){
 		
 		it('go_to_module', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 30000)
+				.waitForExist(this.selector.menu, 60000)
 				.click(this.selector.modules_menu)
-				.waitForExist(this.selector.modules_page_loaded, 30000)
+				.waitForExist(this.selector.modules_page_loaded, 60000)
 				.call(done);
 		});
 		
@@ -32,9 +32,9 @@ describe('install_module', function(){
 				this.client
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
-				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 30000)
+				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 60000)
 				.click('//div[@data-tech-name="statsbestmanufacturers" and not(@style)]//a[@class="btn btn-primary-outline btn-sm light-button module_action_menu_install"]')
-				.waitForExist(this.selector.green_validation, 30000)
+				.waitForExist(this.selector.green_validation, 60000)
 				.call(done);
 		});
 		
