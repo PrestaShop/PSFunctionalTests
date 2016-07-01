@@ -25,7 +25,7 @@ describe('Allscenario', function(){
 	require('./scenario/FO/buy_product.webdriverio');
 	require('./scenario/BO/check_order.webdriverio');
 	
-	
+	//create an account in FO
 	require('./scenario/FO/create_account.webdriverio');
 	
 	

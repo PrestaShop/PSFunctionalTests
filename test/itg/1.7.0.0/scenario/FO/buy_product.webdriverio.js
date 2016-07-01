@@ -37,7 +37,7 @@ describe('buy_product', function(){
 				.waitForExist(this.selector.product_image, 60000)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text;
-					my_name_check.pop(-1).should.containEql(my_name);
+					my_name_check.pop(-1).toLowerCase().should.containEql(my_name.toLowerCase());
 				})
 				.getText(this.selector.product_price_details).then(function(text) {
 					global.my_price = text;
@@ -109,7 +109,6 @@ describe('buy_product', function(){
 				.getText(this.selector.order_confirmation_ref).then(function(text) {
 					var my_ref=text.split(': ')
 					global.order_reference=my_ref[1];
-					console.log(order_reference);
 				})
 				.call(done);
 		});

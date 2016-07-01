@@ -30,13 +30,13 @@ describe('check_product', function(){
 				})
 				.getText(this.selector.search_product_result_price).then(function(text) {
 					var my_price = text;
-					console.log(text);
 					should(my_price).be.equal("€6.00");
 				})
 				.click(this.selector.search_product_result_name)
+				.waitForExist(this.selector.product_name_details, 60000)
 				.getText(this.selector.product_name_details).then(function(text) {
-					var my_name_check = text[1];
-					should(my_name_check).be.equal('test_nodejs_' + product_id);
+					var my_name_check = text[3];
+					should(my_name_check.toLowerCase()).be.equal('test_nodejs_' + product_id);
 				})
 				//image_data_id
 				.getAttribute('img[class="js-qv-product-cover"]', "src").then(function(text) {
