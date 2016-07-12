@@ -70,6 +70,7 @@ describe('create_product', function(){
 				.waitForExist(this.selector.catalogue_filter_by_name, 60000)
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.pause(2000)
+                                .waitForExist(this.selector.catalogue_submit_filter, 60000)
 				.click(this.selector.catalogue_submit_filter)
 				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 60000)
 				.click('//a[text()="test_nodejs_' + product_id + '"]')

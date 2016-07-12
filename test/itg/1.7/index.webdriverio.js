@@ -17,7 +17,7 @@ describe('Allscenario', function(){
 			.call(done);
 	});
 
-	if (typeof module_tech_name != "undefined"){
+	if (module_tech_name != "None"){
 		require('./scenario/BO/install_and_uninstall_module.js');
 		require('./scenario/BO/install_module.js');
 	}
@@ -33,7 +33,7 @@ describe('Allscenario', function(){
 	//create an account in FO
 	require('./scenario/FO/create_account.webdriverio');
 	
-	if (typeof module_tech_name != "undefined"){
+	if (module_tech_name != "None"){
 		require('./scenario/BO/uninstall_module.js');
 	}
 	

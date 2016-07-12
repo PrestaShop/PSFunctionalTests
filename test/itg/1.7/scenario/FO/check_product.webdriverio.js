@@ -15,7 +15,7 @@ describe('check_product', function(){
 		
 		it('open FO', function(done){
 			this.client
-				.url('http://' + URL)
+				.url('http://' + URL + '/en')
 				.call(done);
 		});
 		
