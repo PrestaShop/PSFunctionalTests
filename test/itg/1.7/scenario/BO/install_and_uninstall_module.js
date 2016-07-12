@@ -33,7 +33,7 @@ describe('install_and_uninstall_module', function(){
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 60000)
-				.click('//div[@data-tech-name="statsbestmanufacturers" and not(@style)]//a[@class="btn btn-primary-outline btn-sm light-button module_action_menu_install"]')
+				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
 				.waitForExist(this.selector.green_validation, 60000)
 				.call(done);
 		});
