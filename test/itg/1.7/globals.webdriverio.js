@@ -103,7 +103,7 @@ module.exports = {
 		//order_confirmation_name: '#order-items > table:nth-child(2) > tbody > tr > td:nth-child(2)',
 		order_confirmation_name: '((//div[@class="order-confirmation-table"]/table)[1]//td)[2]',
 		//order_confirmation_price1: '#order-items > table:nth-child(4) > tbody > tr.font-weight-bold > td:nth-child(2)',
-		order_confirmation_price1: '((//div[@class="order-confirmation-table"]/table)[1]//td)[3]',
+		order_confirmation_price1: '((//div[@class="order-confirmation-table"]/table)[2]//td)[2]',
 		order_confirmation_price2: '#content-hook_payment_return > div > div > div > dl > dd:nth-child(2)',
 		order_confirmation_ref: '(//div[@id="order-details"]/ul/li)[1]',
 		search_product: '.ui-autocomplete-input',
