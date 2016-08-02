@@ -29,6 +29,15 @@ describe('create_product', function(){
 				.call(done);
 		});
 		
+		it('check_dev_mode', function(done){
+			if (this.client.isVisible('//div[@id="debug-mode"]') == "True"){
+				this.client
+				.waitForExist('//a[@class="hide-button"]', 60000)
+				.click('//a[@class="hide-button"]');
+			}
+			this.client.call(done);
+		});
+
 		it('create_new_product', function(done){			
 				this.client
 				.click(this.selector.new_product)

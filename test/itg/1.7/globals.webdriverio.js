@@ -49,13 +49,13 @@ module.exports = {
 		order_total: '#total_order > td.amount.text-right.nowrap',
 		//order_reference: '#content > div.row > div > div:nth-child(5) > div.col-lg-7 > div:nth-child(1) > div.panel-heading > span:nth-child(2)',
 		order_reference: '((//div[@class="panel-heading"])[1]/span)[1]',
-		
 		modules_menu: '#subtab-AdminParentModulesSf',
 		modules_search: '.pstaggerAddTagInput.module-tags-input',
 		modules_search_button: '.input-group-addon.module-search-icon',
 		modules_page_loaded: '.module-search-result-wording',
 		modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
 		modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
+		close_sf_toolbar:'//a[@class="hide-button"]',
 		
 	//FO
 		access_loginFO:'div.user-info > a',
