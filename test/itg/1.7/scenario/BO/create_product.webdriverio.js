@@ -34,7 +34,12 @@ describe('create_product', function(){
 				.click(this.selector.new_product)
 				.waitForExist(this.selector.product_name, 60000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
+				.waitForExist(this.selector.priceTE_shortcut, 60000)
+				.execute(function() {
+					document.querySelector('#form_step1_price_shortcut').value="";
+					})
 				.setValue(this.selector.priceTE_shortcut, "5")
+				.waitForExist(this.selector.quantity_shortcut, 60000)
 				.addValue(this.selector.quantity_shortcut, "10")
 				.execute(function() {
 					document.getElementsByClassName("dz-hidden-input").style="";
@@ -70,7 +75,9 @@ describe('create_product', function(){
 				.waitForExist(this.selector.catalogue_filter_by_name, 60000)
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.pause(2000)
-                                .waitForExist(this.selector.catalogue_submit_filter, 60000)
+                .waitForExist(this.selector.catalogue_submit_filter, 60000)
+				.click(this.selector.catalogue_submit_filter)
+				.pause(1000)
 				.click(this.selector.catalogue_submit_filter)
 				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 60000)
 				.click('//a[text()="test_nodejs_' + product_id + '"]')
