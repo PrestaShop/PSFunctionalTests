@@ -70,6 +70,7 @@ describe('create_product', function(){
 					document.getElementById("file").style="";
 					})
 				.chooseFile(this.selector.picture, toUpload)
+				.pause(3000)
 				.waitForExist(this.selector.upload_file_button, 30000)
 				.click(this.selector.upload_file_button)
 				.waitForExist(this.selector.upload_succes, 30000)
