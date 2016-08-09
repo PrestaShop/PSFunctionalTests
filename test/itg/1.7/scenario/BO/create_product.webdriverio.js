@@ -4,6 +4,7 @@ var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 var path = require('path');
 var toUpload = path.join(__dirname, '../..', 'datas', 'image_test.jpg');
+var devMode = false;
 
 describe('create_product', function(){
 	common.initMocha.call(this);
@@ -26,19 +27,24 @@ describe('create_product', function(){
 				.waitForExist(this.selector.menu, 60000)
 				.click(this.selector.products)
 				.waitForExist(this.selector.new_product, 60000)
+				.isVisible('//div[@id="debug-mode"]').then(function(isVisible) {
+					console.log(isVisible);
+					devMode = true;
+				})
 				.call(done);
 		});
 		
-		it('check_dev_mode', function(done){
-			if (this.client.isVisible('//div[@id="debug-mode"]') == "True"){
+		
+		it('check_dev_mode', function() {
+			if (devMode == true){
 				this.client
 				.waitForExist('//a[@class="hide-button"]', 60000)
 				.click('//a[@class="hide-button"]');
 			}
-			this.client.call(done);
 		});
-
-		it('create_new_product', function(done){			
+	
+		
+		it('create_new_product', function(done){	
 				this.client
 				.click(this.selector.new_product)
 				.waitForExist(this.selector.product_name, 60000)
@@ -77,7 +83,7 @@ describe('create_product', function(){
 				.call(done);
 		});
 		
-		
+
 		it('check_catalogue', function(done){
 			this.client
 				.click(this.selector.go_to_catalog)

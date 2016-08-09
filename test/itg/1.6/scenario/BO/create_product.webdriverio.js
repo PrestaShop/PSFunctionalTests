@@ -22,16 +22,16 @@ describe('create_product', function(){
 		
 		it('go_to_new_product', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 30000)
+				.waitForExist(this.selector.menu, 60000)
 				.click(this.selector.products)
-				.waitForExist(this.selector.new_product, 30000)
+				.waitForExist(this.selector.new_product, 60000)
 				.call(done);
 		});
 		
 		it('create_new_product', function(done){			
 				this.client
 				.click(this.selector.new_product)
-				.waitForExist(this.selector.product_name, 30000)
+				.waitForExist(this.selector.product_name, 60000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
 				.frame(this.selector.summary, function (err, result){
 					if (err) console.log(err);
@@ -46,34 +46,34 @@ describe('create_product', function(){
 				.frameParent()
 				.pause(2000)
 				.click(this.selector.save_and_stay_product)
-				.waitForExist(this.selector.close_green_validation, 30000)
+				.waitForExist(this.selector.close_green_validation, 60000)
 				.click(this.selector.close_green_validation)
 				.click(this.selector.product_price)
-				.waitForExist(this.selector.wholesale_price, 30000)
+				.waitForExist(this.selector.wholesale_price, 60000)
 				.click(this.selector.wholesale_price)
 				.pause(2000)
 				.setValue(this.selector.wholesale_price, "2")
 				.click(this.selector.priceTE)
 				.pause(2000)
 				.setValue(this.selector.priceTE, "5")
-				.waitForExist(this.selector.save_and_stay_price, 30000)
+				.waitForExist(this.selector.save_and_stay_price, 60000)
 				.click(this.selector.save_and_stay_price)
-				.waitForExist(this.selector.close_green_validation, 30000)
+				.waitForExist(this.selector.close_green_validation, 60000)
 				.click(this.selector.close_green_validation)
 				.click(this.selector.product_quantity)
-				.waitForExist(this.selector.quantity, 30000)
+				.waitForExist(this.selector.quantity, 60000)
 				.click(this.selector.quantity)
 				.addValue(this.selector.quantity, "1000")
 				.click(this.selector.product_picture)
-				.waitForExist(this.selector.picture, 30000)
+				.waitForExist(this.selector.picture, 60000)
 				.execute(function() {
 					document.getElementById("file").style="";
 					})
 				.chooseFile(this.selector.picture, toUpload)
 				.pause(3000)
-				.waitForExist(this.selector.upload_file_button, 30000)
+				.waitForExist(this.selector.upload_file_button, 60000)
 				.click(this.selector.upload_file_button)
-				.waitForExist(this.selector.upload_succes, 30000)
+				.waitForExist(this.selector.upload_succes, 60000)
 				.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
 					var src_creation_temp = text;
 					var src_creation_temp2 = src_creation_temp.split("/img");
@@ -86,11 +86,11 @@ describe('create_product', function(){
 		it('check_catalogue', function(done){
 			this.client
 				.click(this.selector.products)
-				.waitForExist(this.selector.catalogue_filter_by_name, 30000)
+				.waitForExist(this.selector.catalogue_filter_by_name, 60000)
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.click(this.selector.catalogue_submit_filter)
 				.click(this.selector.edit_product)
-				.waitForExist(this.selector.product_name, 30000)
+				.waitForExist(this.selector.product_name, 60000)
 				.call(done);
 		});
 				
@@ -117,7 +117,7 @@ describe('create_product', function(){
 					})
 					.frameParent()
 					.click(this.selector.product_price)	
-					.waitForExist(this.selector.wholesale_price, 30000)
+					.waitForExist(this.selector.wholesale_price, 60000)
 					.getValue(this.selector.wholesale_price).then(function(text) {
 						var my_wholesale_price = text;
 						should(parseInt(my_wholesale_price)).be.equal(parseInt("2"));
@@ -127,13 +127,13 @@ describe('create_product', function(){
 						should(parseInt(my_priceTE)).be.equal(parseInt("5"));
 					})	
 					.click(this.selector.product_quantity)
-					.waitForExist(this.selector.quantity, 30000)
+					.waitForExist(this.selector.quantity, 60000)
 					.getValue(this.selector.quantity).then(function(text) {
 						var my_quantity = text;
 						should(parseInt(my_quantity)).be.equal(parseInt("1000"))
 					})	
 					.click(this.selector.product_picture)
-					.waitForExist(this.selector.upload_file_button, 30000)
+					.waitForExist(this.selector.upload_file_button, 60000)
 					.getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
 						var my_src_temp = text[0];
 						var my_src_temp2 = my_src_temp.split("/img");

@@ -15,12 +15,13 @@ describe('check_product', function(){
 		
 		it('open FO', function(done){
 			this.client
-				.url('http://' + URL + '/en')
+				.url('http://' + URL + '/en/')
 				.call(done);
 		});
 		
 		it('open_the_product', function(done){
 			this.client
+				.waitForExist(this.selector.search_product, 60000)
 				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
 				.click(this.selector.search_product_button)
 				.waitForExist(this.selector.search_product_result_name, 60000)

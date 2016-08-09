@@ -17,28 +17,28 @@ describe('buy_product', function(){
 		it('loggin_FO', function(done){
            this.client
 			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 30000)
+			.waitForExist(this.selector.access_loginFO, 60000)
 			.click(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 30000)
+			.waitForExist(this.selector.loginFO, 60000)
             .setValue(this.selector.loginFO, 'pub@prestashop.com')
             .setValue(this.selector.passwordFO, '123456789')
             .click(this.selector.login_btnFO)
-			.waitForExist(this.selector.check_login_ok, 30000)
+			.waitForExist(this.selector.check_login_ok, 60000)
             .call(done);
 		});
 		
 		it('add_product_to_cart', function(done){
 			this.client
-                .waitForExist(this.selector.logo_home_pageFO, 30000)
+                .waitForExist(this.selector.logo_home_pageFO, 60000)
 				.click(this.selector.logo_home_pageFO)
-				.waitForExist(this.selector.first_product_home_page, 30000)
+				.waitForExist(this.selector.first_product_home_page, 60000)
 				.getText(this.selector.first_product_home_page_name).then(function(text) {
 					global.my_name = text[1];
 				})
 				.moveToObject(this.selector.first_product_home_page)
-				.waitForExist(this.selector.details_first_product_home_page, 30000)
+				.waitForExist(this.selector.details_first_product_home_page, 60000)
 				.click(this.selector.details_first_product_home_page)
-				.waitForExist(this.selector.first_product_home_page_name, 30000)
+				.waitForExist(this.selector.first_product_home_page_name, 60000)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text;
 					should(my_name_check).be.equal(my_name);
@@ -50,7 +50,7 @@ describe('buy_product', function(){
 					global.my_quantity = text;
 				})
 				.click(this.selector.add_to_cart)
-				.waitForExist(this.selector.layer_cart, 30000)				
+				.waitForExist(this.selector.layer_cart, 60000)				
 				.getText(this.selector.layer_cart_name_details).then(function(text) {
 					var my_cart_name_check = text;
 					should(my_cart_name_check).be.equal(my_name);
@@ -69,17 +69,17 @@ describe('buy_product', function(){
 		
 		it('validate_the_cart', function(done){
 			this.client			
-				.waitForExist(this.selector.command_button_checkout, 30000)
+				.waitForExist(this.selector.command_button_checkout, 60000)
 				.click(this.selector.command_button_checkout)
 				.pause(3000)
-				/*.waitForExist(this.selector.validate_address, 30000)
+				/*.waitForExist(this.selector.validate_address, 60000)
 				.click(this.selector.validate_address)*/
-				.waitForExist(this.selector.command_button_checkout_step3, 30000)
+				.waitForExist(this.selector.command_button_checkout_step3, 60000)
 				.click(this.selector.command_button_checkout_step3)
-				.waitForExist(this.selector.command_cgv, 30000)
+				.waitForExist(this.selector.command_cgv, 60000)
 				.click(this.selector.command_cgv)
 				.click(this.selector.command_button_checkout)
-				.waitForExist(this.selector.command_product_name_step5, 30000)
+				.waitForExist(this.selector.command_product_name_step5, 60000)
 				.getText(this.selector.command_product_name_step5).then(function(text) {
 					var my_name_check2 = text;
 					should(my_name_check2).be.equal(my_name);
@@ -89,13 +89,13 @@ describe('buy_product', function(){
 					should(my_price_check).be.equal(my_price);
 				})
 				.click(this.selector.command_pay_bankwire)
-				.waitForExist(this.selector.command_price_step5_amout, 30000)
+				.waitForExist(this.selector.command_price_step5_amout, 60000)
 				.getText(this.selector.command_price_step5_amout).then(function(text) {
 					var my_price_check2 = text;
 					should(my_price_check2).be.equal(my_price);
 				})
 				.click(this.selector.command_confirm_button)
-				.waitForExist(this.selector.command_success_alert, 30000)
+				.waitForExist(this.selector.command_success_alert, 60000)
 				.getText(this.selector.command_success_price).then(function(text) {
 					var my_price_check3 = text;
 					should(my_price_check3).be.equal(my_price);
@@ -116,9 +116,9 @@ describe('buy_product', function(){
 		
 		it('logout_FO', function(done){
 			this.client
-				.waitForExist(this.selector.logoutFO, 30000)
+				.waitForExist(this.selector.logoutFO, 60000)
 			    .click(this.selector.logoutFO)
-			    .waitForExist(this.selector.access_loginFO, 30000)
+			    .waitForExist(this.selector.access_loginFO, 60000)
 				.call(done);
 		});
 	
