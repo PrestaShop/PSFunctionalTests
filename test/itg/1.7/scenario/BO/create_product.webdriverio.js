@@ -28,7 +28,6 @@ describe('create_product', function(){
 				.click(this.selector.products)
 				.waitForExist(this.selector.new_product, 60000)
 				.isVisible('//div[@id="debug-mode"]').then(function(isVisible) {
-					console.log(isVisible);
 					devMode = true;
 				})
 				.call(done);

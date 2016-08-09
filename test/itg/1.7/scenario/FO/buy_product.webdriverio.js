@@ -93,19 +93,22 @@ describe('buy_product', function(){
 				.click(this.selector.checkout_step4_cgv)
 				.waitForExist(this.selector.checkout_step4_order, 60000)
 				.click(this.selector.checkout_step4_order)
-				
+				.waitForExist(this.selector.order_confirmation_name, 60000)
 				.getText(this.selector.order_confirmation_name).then(function(text) {
 					var command_confirmation_my_name = text;
 					command_confirmation_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
 				})
+				.waitForExist(this.selector.order_confirmation_price1, 60000)
 				.getText(this.selector.order_confirmation_price1).then(function(text) {
 					var order_confirmation_price1 = text;
 					should(order_confirmation_price1).be.equal(my_price);
 				})
+				.waitForExist(this.selector.order_confirmation_price2, 60000)
 				.getText(this.selector.order_confirmation_price2).then(function(text) {
 					var order_confirmation_price2 = text;
 					should(order_confirmation_price2).be.equal(my_price);
 				})
+				.waitForExist(this.selector.order_confirmation_ref, 60000)
 				.getText(this.selector.order_confirmation_ref).then(function(text) {
 					var my_ref=text.split(': ')
 					global.order_reference=my_ref[1];
