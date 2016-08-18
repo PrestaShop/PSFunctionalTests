@@ -29,13 +29,13 @@ describe('uninstall_module', function(){
 		});
 		
 		it('uninstall_module', function(done){			
-				this.client
+			this.client
 				.click(this.selector.modules_installed)
 				.waitForExist(this.selector.modules_page_loaded, 60000)
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 60000)
-				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  btn-sm dropdown-toggle light-button"]')
+				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]')
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@class="dropdown-item module_action_menu_uninstall"]', 60000)
 				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@class="dropdown-item module_action_menu_uninstall"]')
 				.waitForExist('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]', 30000)
