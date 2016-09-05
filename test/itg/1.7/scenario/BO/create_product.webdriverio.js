@@ -27,6 +27,7 @@ describe('create_product', function(){
 				.waitForExist(this.selector.menu, 60000)
 				.click(this.selector.products)
 				.waitForExist(this.selector.new_product, 60000)
+				.waitForExist('#notifications-total', 60000)
 				.isVisible('//div[@id="debug-mode"]').then(function(isVisible) {
 					devMode = true;
 				})
