@@ -95,7 +95,7 @@ describe('buy_product', function(){
 				.click(this.selector.checkout_step4_order)
 				.waitForExist(this.selector.order_confirmation_name, 60000)
 				.getText(this.selector.order_confirmation_name).then(function(text) {
-					var command_confirmation_my_name = text;
+					var command_confirmation_my_name = text[0];
 					command_confirmation_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
 				})
 				.waitForExist(this.selector.order_confirmation_price1, 60000)
