@@ -29,19 +29,19 @@ describe('create_product', function(){
 				.waitForExist(this.selector.new_product, 60000)
 				.waitForExist('#notifications-total', 60000)
 				.isVisible('//div[@id="debug-mode"]').then(function(isVisible) {
-					console.log("devmode est a true");
-					devMode = true;
+					devMode = isVisible;
 				})
 				.call(done);
 		});
 		
 		
-		it('check_dev_mode', function() {
+		it('check_dev_mode', function(done) {
 			if (devMode == true){
 				this.client
 				.waitForExist('//a[@class="hide-button"]', 60000)
 				.click('//a[@class="hide-button"]');
 			}
+			this.client.call(done);
 		});
 	
 		
