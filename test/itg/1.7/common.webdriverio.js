@@ -82,7 +82,7 @@ module.exports = {
         if (client) {
             return client;
         } else {
-			if (saucelabs != "None"){
+			if (typeof saucelabs !== 'undefined' && saucelabs != "None"){
 				client = webdriverio
 					.remote(options2)
 					.init()

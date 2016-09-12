@@ -74,10 +74,6 @@ describe('buy_product', function(){
 					var command_price_check = text;
 					should(command_price_check).be.equal(my_price);
 				})
-				/*.getText(this.selector.command_product_quantity).then(function(text) {
-					var command_quantity_check = text.split(': ');
-					should(command_quantity_check[1]).be.equal(my_quantity);
-				})*/
 				.click(this.selector.command_button_checkout)
 				.waitForExist(this.selector.checkout_step2_continue_button, 60000)
 				.click(this.selector.checkout_step2_continue_button)
@@ -95,7 +91,7 @@ describe('buy_product', function(){
 				.click(this.selector.checkout_step4_order)
 				.waitForExist(this.selector.order_confirmation_name, 60000)
 				.getText(this.selector.order_confirmation_name).then(function(text) {
-					var command_confirmation_my_name = text[0];
+					var command_confirmation_my_name = text;
 					command_confirmation_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
 				})
 				.waitForExist(this.selector.order_confirmation_price1, 60000)
