@@ -21,10 +21,10 @@ describe('check_product', function(){
 		
 		it('open_the_product', function(done){
 			this.client
-				.waitForExist(this.selector.search_product, 60000)
+				.waitForExist(this.selector.search_product, 90000)
 				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
 				.click(this.selector.search_product_button)
-				.waitForExist(this.selector.search_product_result_name, 60000)
+				.waitForExist(this.selector.search_product_result_name, 90000)
 				.getText(this.selector.search_product_result_name).then(function(text) {
 					var my_name = text;
 					should(my_name.toLowerCase()).be.equal('test_nodejs_' + product_id);
@@ -34,7 +34,7 @@ describe('check_product', function(){
 					should(my_price).be.equal("€6.00");
 				})
 				.click(this.selector.search_product_result_name)
-				.waitForExist(this.selector.product_name_details, 60000)
+				.waitForExist(this.selector.product_name_details, 90000)
 				.getText(this.selector.product_name_details).then(function(text) {
 					var my_name_check = text[3];
 					should(my_name_check.toLowerCase()).be.equal('test_nodejs_' + product_id);
