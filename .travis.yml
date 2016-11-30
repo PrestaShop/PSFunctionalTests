@@ -35,9 +35,9 @@ before_script:
   - docker run --link mysql -e DB_SERVER=mysql -e DB_PASSWD=doge -e PS_INSTALL_AUTO=1 -e PS_COUNTRY=fr -e PS_DEV_MODE=0 -e PS_FOLDER_INSTALL=install-dev -e PS_FOLDER_ADMIN=admin-dev -e PS_HANDLE_DYNAMIC_DOMAIN=1 -p 80:80 -tid --name=prestashop prestashop/$DOCKER_IMG:$TAG
   - docker exec prestashop rm -f /var/www/html/app/config/parameters.yml
   - npm install selenium-standalone@latest
+  - selenium-standalone install --version=2.45.0 --baseURL=https://selenium-release.storage.googleapis.com
   - selenium-standalone install --silent && DISPLAY=:10 selenium-standalone start -- -debug &> /dev/null &
   - npm install
-  - ps -ef | grep -v grep | grep selenium
   - export CHROME_BIN=/usr/bin/google-chrome
   - cd test/itg/$PS_VERSION
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_10.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :10 -ac -screen 0 1280x1024x16"
