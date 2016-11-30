@@ -80,14 +80,18 @@ function initCommands(client) {
 module.exports = {
     getClient: function () {
         if (client) {
+            console.log("in if part")
             return client;
         } else {
+            console.log("in else part")
 			if (saucelabs != "None"){
+			    console.log("in if part : options 2")
 				client = webdriverio
 					.remote(options2)
 					.init()
 					.windowHandleMaximize()			
 			}else{
+			    console.log("in else part : options")
             client = webdriverio
 					.remote(options)
 					.init()
