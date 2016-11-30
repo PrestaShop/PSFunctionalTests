@@ -36,13 +36,13 @@ describe('check_product', function(){
 				.click(this.selector.search_product_result_name)
 				.waitForExist(this.selector.product_name_details, 60000)
 				.getText(this.selector.product_name_details).then(function(text) {
-					var my_name_check = text[3];
+					var my_name_check = text[2];
 					should(my_name_check.toLowerCase()).be.equal('test_nodejs_' + product_id);
 				})
 				//image_data_id
 				.getAttribute('img[class="js-qv-product-cover"]', "src").then(function(text) {
 					var my_src_temp = text;
-					my_src_temp.should.containEql(image_data_id + '-medium_default');
+					my_src_temp.should.containEql(image_data_id + '-large_default');
 				})
 				.getText(this.selector.product_price_details).then(function(text) {
 					var my_price2 = text;
