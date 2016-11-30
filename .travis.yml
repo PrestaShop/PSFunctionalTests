@@ -37,6 +37,7 @@ before_script:
   - npm install selenium-standalone@latest
   - selenium-standalone install --silent && DISPLAY=:10 selenium-standalone start &> /dev/null &
   - npm install
+  - ifconfig
   - export CHROME_BIN=/usr/bin/google-chrome
   - cd test/itg/$PS_VERSION
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_10.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :10 -ac -screen 0 1280x1024x16"
