@@ -5,12 +5,12 @@ var globals = require('./globals.webdriverio');
 
 var options = {
     logLevel: 'silent',
-    waitForTimeout: 60000,
+    waitForTimeout: 600000,
     desiredCapabilities: {
         browserName: 'chrome',
 	},
 	host: 'localhost',
-	port: 5556
+	port: 4444
 }; 
 
 var options2 = {
