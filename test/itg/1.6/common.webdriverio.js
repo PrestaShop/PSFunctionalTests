@@ -9,6 +9,7 @@ var options = {
     desiredCapabilities: {
         browserName: 'chrome',
 	},
+	host: 'localhost',
 	port: 4444
 }; 
 
