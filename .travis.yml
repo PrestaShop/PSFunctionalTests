@@ -27,8 +27,8 @@ matrix:
   fast_finish: true
 
 before_install:
-  - wget http://www.slimjetbrowser.com/chrome/lnx/chrome64_52.0.2743.116.deb
-  - sudo dpkg -i chrome64_52.0.2743.116.deb
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
 
 before_script:
   - docker run --name=mysql -e MYSQL_ROOT_PASSWORD=doge -tid mysql

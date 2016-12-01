@@ -23,7 +23,7 @@ var options2 = {
 		screenResolution: "1680x1050",
 		platform: "Windows 7",
 	},
-	port: 4445
+	port: 4444
 }; 
 
 function initCommands(client) {
