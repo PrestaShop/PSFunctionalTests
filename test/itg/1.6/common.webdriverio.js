@@ -10,7 +10,7 @@ var options = {
         browserName: 'chrome',
 	},
 	host: 'localhost',
-	port: 4444
+	port: 5556
 }; 
 
 var options2 = {
