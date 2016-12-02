@@ -36,6 +36,7 @@ before_script:
   - docker exec prestashop rm -f /var/www/html/app/config/parameters.yml
   - npm install selenium-standalone@latest
   - export PATH=$PATH:/usr/lib/jvm/java-8-oracle/jre
+  - ls /usr/lib/jvm/java-8-oracle/jre
   - echo $PATH
   - selenium-standalone install
   - DISPLAY=:10 selenium-standalone start -- -debug &> /dev/null &
