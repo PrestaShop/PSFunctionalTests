@@ -102,18 +102,14 @@ function initCommands(client) {
 module.exports = {
     getClient: function () {
         if (client) {
-            console.log("if block!");
             return client;
         } else {
-        console.log("else block!");
 			if (saucelabs != "None"){
-			console.log("if saucelabs block!");
 				client = webdriverio
 					.remote(options2)
 					.init()
 					.windowHandleMaximize()			
 			}else{
-			console.log("else saucelabs block!");
             client = webdriverio
 					.remote(options)
 					.init()

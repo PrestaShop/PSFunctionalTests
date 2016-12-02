@@ -36,6 +36,14 @@ describe('install_module', function(){
 				.waitForExist('//div[@class="alert alert-success"]', 60000)
 				.call(done);
 		});
+
+		it('go_to_module', function(done){
+			this.client
+				.waitForExist(this.selector.menu, 60000)
+				.click(this.selector.modules_menu)
+				.waitForExist(this.selector.modules_search, 60000)
+				.call(done);
+		});
 		
 		it('uninstall_module', function(done){			
 				this.client
