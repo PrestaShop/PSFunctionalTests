@@ -118,7 +118,6 @@ module.exports = {
 					.remote(options)
 					.init()
 					.windowHandleMaximize()
-			browser.log('browser');
 			}
             initCommands(client);
 
