@@ -7,7 +7,7 @@ var options = {
     logLevel: 'silent',
     waitForTimeout: 60000,
     desiredCapabilities: {
-        browserName: 'firefox',
+        browserName: 'chrome',
 	},
 	host: 'localhost',
 	port: 4444
@@ -117,7 +117,8 @@ module.exports = {
             client = webdriverio
 					.remote(options)
 					.init()
-					.windowHandleMaximize()			
+					.windowHandleMaximize()
+			browser.log('browser');
 			}
             initCommands(client);
 
