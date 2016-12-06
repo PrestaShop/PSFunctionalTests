@@ -20,6 +20,7 @@ describe('Allscenario', function(){
 	if (module_tech_name != "None"){
 		require('./scenario/BO/install_and_uninstall_module.js');
 		require('./scenario/BO/install_module.js');
+		require('./scenario/BO/uninstall_module.js');
 	}
 	
 	//create a product in BO and check it in FO
@@ -33,8 +34,4 @@ describe('Allscenario', function(){
 	//require('./scenario/BO/create_order.webdriverio');
 	require('./scenario/FO/create_account.webdriverio');
 
-
-	if (module_tech_name != "None"){
-		require('./scenario/BO/uninstall_module.js');
-	}
 });

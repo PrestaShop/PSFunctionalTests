@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('install_module', function(){
+describe('install_and_uninstall_module', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){

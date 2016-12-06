@@ -20,7 +20,7 @@ dist: trusty
 group: edge
 
 env:
-    - PS_VERSION=1.6 DOCKER_IMG=prestashop TAG=1.6 MODULE_TECHNICAL_NAME=None SAUCELABS=None
+    - PS_VERSION=1.6 DOCKER_IMG=prestashop TAG=1.6 MODULE_TECHNICAL_NAME=pilipay SAUCELABS=None
     - PS_VERSION=1.7 DOCKER_IMG=prestashop-git TAG=7 MODULE_TECHNICAL_NAME=None SAUCELABS=None
 
 matrix:
@@ -35,9 +35,10 @@ before_script:
   - docker run --link mysql -e DB_SERVER=mysql -e DB_PASSWD=doge -e PS_INSTALL_AUTO=1 -e PS_COUNTRY=fr -e PS_DEV_MODE=0 -e PS_FOLDER_INSTALL=install-dev -e PS_FOLDER_ADMIN=admin-dev -e PS_HANDLE_DYNAMIC_DOMAIN=1 -p 80:80 -tid --name=prestashop prestashop/$DOCKER_IMG:$TAG
   - docker exec prestashop rm -f /var/www/html/app/config/parameters.yml
   - npm install selenium-standalone@latest
-  - export PATH=$PATH:/usr/lib/jvm/java-8-oracle/jre/bin
-  - selenium-standalone install
-  - DISPLAY=:10 selenium-standalone start &> /dev/null &
+  - cd node_modules/selenium-standalone/bin/
+  - selenium-standalone install     - ./selenium-standalone install
+  - DISPLAY=:10 selenium-standalone start &> /dev/null &      - DISPLAY=:10 ./selenium-standalone start -- -debug &> /dev/null &
+  - cd ../../..
   - npm install
   - export CHROME_BIN=/usr/bin/google-chrome
   - cd test/itg/$PS_VERSION
