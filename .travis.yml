@@ -36,7 +36,7 @@ before_script:
   - docker exec prestashop rm -f /var/www/html/app/config/parameters.yml
   - npm install selenium-standalone@latest
   - cd node_modules/selenium-standalone/bin/
-  - selenium-standalone install     - ./selenium-standalone install
+  - ./selenium-standalone install
   - DISPLAY=:10 selenium-standalone start &> /dev/null &      - DISPLAY=:10 ./selenium-standalone start -- -debug &> /dev/null &
   - cd ../../..
   - npm install
