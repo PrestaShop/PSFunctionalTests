@@ -97,6 +97,12 @@ function initCommands(client) {
 		});
 		client.call(done);
 	});
+
+	client.addCommand('takeScreenshot', function(){
+	    var date_time = new Date().getTime();
+	    console.log(__dirname + '/screenshots/' + date_time + '.png');
+	    client.saveScreenshot(__dirname + '/screenshots/' + date_time + '.png');
+	});
 	
 }
 module.exports = {
