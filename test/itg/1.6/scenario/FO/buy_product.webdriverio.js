@@ -15,16 +15,9 @@ describe('buy_product', function(){
 	after(common.after);
 		
 		it('loggin_FO', function(done){
-           this.client
-			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 60000)
-			.click(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 60000)
-            .setValue(this.selector.loginFO, 'pub@prestashop.com')
-            .setValue(this.selector.passwordFO, '123456789')
-            .click(this.selector.login_btnFO)
-			.waitForExist(this.selector.check_login_ok, 60000)
-            .call(done);
+            this.client
+           		.signinFO()
+           		.call(done);
 		});
 		
 		it('add_product_to_cart', function(done){

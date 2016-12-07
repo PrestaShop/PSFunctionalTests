@@ -27,6 +27,7 @@ var options2 = {
 }; 
 
 function initCommands(client) {
+
     client.addCommand('signinBO', function(cb) {
 		this.selector = globals.selector;
 		client
@@ -52,9 +53,9 @@ function initCommands(client) {
     });
 
 	client.addCommand('signoutBO', function(cb) {
-			client
-                .deleteCookie()
-			    .call(cb);
+		client
+			.deleteCookie()
+		    .call(cb);
 	});
 	
 	
@@ -64,6 +65,7 @@ function initCommands(client) {
 			.waitForExist(this.selector.logoutFO, 60000)
 			.click(this.selector.logoutFO)
 			.waitForExist(this.selector.access_loginFO, 60000)
+			.deleteCookie()
 			.call(cb);
 	});
 	
@@ -95,6 +97,11 @@ function initCommands(client) {
 			}
 		});
 		client.call(done);
+	});
+
+	client.addCommand('takeScreenshot', function(n){
+	    var date_time = new Date().getTime();
+	    client.saveScreenshot(__dirname + '/screenshots/' + date_time + '_'+n+'.png');
 	});
 	
 }

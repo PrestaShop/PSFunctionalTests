@@ -37,6 +37,14 @@ describe('install_and_uninstall_module', function(){
 				.call(done);
 		});
 		
+		it('go_to_module', function(done){
+			this.client
+				.waitForExist(this.selector.menu, 60000)
+				.click(this.selector.modules_menu)
+				.waitForExist(this.selector.modules_search, 60000)
+				.call(done);
+		});
+		
 		it('uninstall_module', function(done){			
 				this.client
 				.setValue(this.selector.modules_search, module_tech_name)
