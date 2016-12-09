@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PrestaShop/PSFunctionalTests.git"
+    "url": "git+https://github.com/basma-yangui-prestashop/PSFunctionalTests.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PrestaShop/PSFunctionalTests/issues"
+    "url": "https://github.com/basma-yangui-prestashop/PSFunctionalTests/issues"
   },
-  "homepage": "https://github.com/PrestaShop/PSFunctionalTests#readme",
+  "homepage": "https://github.com/basma-yangui-prestashop/PSFunctionalTests#readme",
   "dependencies": {
     "json": "^9.0",
     "minimist": "^1.2",
