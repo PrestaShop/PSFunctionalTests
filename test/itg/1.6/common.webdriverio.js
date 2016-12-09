@@ -9,6 +9,7 @@ var options = {
     desiredCapabilities: {
         browserName: 'chrome',
 	},
+	host: 'localhost',
 	port: 4444
 }; 
 
@@ -23,7 +24,7 @@ var options2 = {
 		screenResolution: "1680x1050",
 		platform: "Windows 7",
 	},
-	port: 4445
+	port: 4444
 }; 
 
 function initCommands(client) {
@@ -32,7 +33,7 @@ function initCommands(client) {
 		this.selector = globals.selector;
 		client
 			.url('http://' + URL + '/admin-dev')
-			.waitForExist(this.selector.login, 60000)
+			.waitForExist(this.selector.login, 90000)
             .setValue(this.selector.login, 'demo@prestashop.com')
             .setValue(this.selector.password, 'prestashop_demo')
             .click(this.selector.login_btn)
@@ -41,15 +42,15 @@ function initCommands(client) {
 	
 	client.addCommand('signinFO', function(done) {
 		this.selector = globals.selector;
-                client
+        client
 			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 60000)
+			.waitForExist(this.selector.access_loginFO, 90000)
 			.click(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 60000)
-                        .setValue(this.selector.loginFO, 'pub@prestashop.com')
-                        .setValue(this.selector.passwordFO, '123456789')
-                        .click(this.selector.login_btnFO)
-                        .call(done);
+			.waitForExist(this.selector.loginFO, 90000)
+            .setValue(this.selector.loginFO, 'pub@prestashop.com')
+            .setValue(this.selector.passwordFO, '123456789')
+            .click(this.selector.login_btnFO)
+            .call(done);
     });
 
 	client.addCommand('signoutBO', function(cb) {
@@ -65,7 +66,6 @@ function initCommands(client) {
 			.waitForExist(this.selector.logoutFO, 60000)
 			.click(this.selector.logoutFO)
 			.waitForExist(this.selector.access_loginFO, 60000)
-			.deleteCookie()
 			.call(cb);
 	});
 	
