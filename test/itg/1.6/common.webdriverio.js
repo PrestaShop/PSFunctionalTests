@@ -42,7 +42,6 @@ function initCommands(client) {
 	
 	client.addCommand('signinFO', function(done) {
 		this.selector = globals.selector;
-		console.log('http://' + URL + '/index.php?controller=authentication&back=my-account');
         client
 			.url('http://' + URL + '/index.php?controller=authentication&back=my-account')
 			.pause(10000)
