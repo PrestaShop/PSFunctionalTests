@@ -33,9 +33,11 @@ function initCommands(client) {
 		this.selector = globals.selector;
 		client
 			.url('http://' + URL + '/admin-dev')
-			.waitForExist(this.selector.login, 90000)
+			.waitForExist(this.selector.login, 120000)
             .setValue(this.selector.login, 'demo@prestashop.com')
+            .waitForExist(this.selector.password, 120000)
             .setValue(this.selector.password, 'prestashop_demo')
+            .waitForExist(this.selector.login_btn, 120000)
             .click(this.selector.login_btn)
 			.call(cb);
     });
