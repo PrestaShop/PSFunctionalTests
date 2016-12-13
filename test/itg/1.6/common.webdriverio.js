@@ -42,10 +42,12 @@ function initCommands(client) {
 	
 	client.addCommand('signinFO', function(done) {
 		this.selector = globals.selector;
+		console.log('http://' + URL + '/index.php?controller=authentication&back=my-account');
         client
-			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 90000)
-			.click(this.selector.access_loginFO)
+			.url('http://' + URL + '/index.php?controller=authentication&back=my-account')
+			.pause(10000)
+			//.waitForExist(this.selector.access_loginFO, 90000)
+			//.doubleClick(this.selector.access_loginFO)
 			.waitForExist(this.selector.loginFO, 90000)
             .setValue(this.selector.loginFO, 'pub@prestashop.com')
             .setValue(this.selector.passwordFO, '123456789')
@@ -63,9 +65,9 @@ function initCommands(client) {
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
-			.waitForExist(this.selector.logoutFO, 60000)
+			.waitForExist(this.selector.logoutFO, 90000)
 			.click(this.selector.logoutFO)
-			.waitForExist(this.selector.access_loginFO, 60000)
+			.waitForExist(this.selector.access_loginFO, 90000)
 			.call(cb);
 	});
 	
