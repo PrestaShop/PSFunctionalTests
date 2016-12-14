@@ -16,8 +16,10 @@ describe('uninstall_module', function(){
 		it('loggin BO', function(done){
 			this.client
 				.signinBO()
+				.pause(60000);
+			this.client
 				.call(done);
-		});	
+		});
 
 		
 		it('go_to_module', function(done){
