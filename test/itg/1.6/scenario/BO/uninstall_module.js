@@ -16,8 +16,9 @@ describe('uninstall_module', function(){
 		it('loggin BO', function(done){
 			this.client
 				.signinBO()
+				.pause(60000)
 				.call(done);
-		});	
+		});
 
 		
 		it('go_to_module', function(done){
