@@ -33,8 +33,8 @@ describe('Allscenario', function(){
 	//create an account in FO
 	require('./scenario/FO/create_account.webdriverio');
 
-	if (typeof module_tech_name !== 'undefined' && module_tech_name != "None"){
+	/*if (typeof module_tech_name !== 'undefined' && module_tech_name != "None"){
 		require('./scenario/BO/uninstall_module.js');
-	}
+	}*/
 
 });
