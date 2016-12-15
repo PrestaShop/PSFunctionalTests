@@ -20,7 +20,7 @@ dist: trusty
 group: edge
 
 env:
-    - PS_VERSION=1.6 DOCKER_IMG=prestashop TAG=1.6 MODULE_TECHNICAL_NAME=None SAUCELABS=None
+    - PS_VERSION=1.6 DOCKER_IMG=prestashop TAG=1.6 MODULE_TECHNICAL_NAME=oneandonehosting SAUCELABS=None
     - PS_VERSION=1.7 DOCKER_IMG=prestashop-git TAG=7 MODULE_TECHNICAL_NAME=None SAUCELABS=None
 
 matrix:
