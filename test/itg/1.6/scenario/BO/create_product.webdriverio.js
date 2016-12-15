@@ -99,7 +99,8 @@ describe('create_product', function(){
 					.getValue(this.selector.product_name).then(function(text) {
 						var my_name = text;
 						should(my_name).be.equal('test_nodejs_' + product_id);
-					})	
+					})
+					.pause(60000)
 					.frame(this.selector.summary, function (err, result){
 						if (err) console.log(err);
 						})
