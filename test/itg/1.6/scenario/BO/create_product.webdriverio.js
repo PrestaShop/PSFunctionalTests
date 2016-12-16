@@ -33,6 +33,7 @@ describe('create_product', function(){
 				.click(this.selector.new_product)
 				.waitForExist(this.selector.product_name, 60000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
+				.pause(60000)
 				.frame(this.selector.summary, function (err, result){
 					if (err) console.log(err);
 					})
