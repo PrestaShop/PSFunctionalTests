@@ -22,9 +22,9 @@ describe('create_product', function(){
 		
 		it('go_to_new_product', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 60000)
+				.waitForExist(this.selector.menu, 120000)
 				.click(this.selector.products)
-				.waitForExist(this.selector.new_product, 60000)
+				.waitForExist(this.selector.new_product, 120000)
 				.call(done);
 		});
 		
