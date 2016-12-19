@@ -28,13 +28,16 @@ var options2 = {
 }; 
 
 function initCommands(client) {
+
     client.addCommand('signinBO', function(cb) {
 		this.selector = globals.selector;
 		client
 			.url('http://' + URL + '/admin-dev')
-			.waitForExist(this.selector.login, 90000)
+			.waitForExist(this.selector.login, 120000)
             .setValue(this.selector.login, 'demo@prestashop.com')
+            .waitForExist(this.selector.password, 120000)
             .setValue(this.selector.password, 'prestashop_demo')
+            .waitForExist(this.selector.login_btn, 120000)
             .click(this.selector.login_btn)
 			.call(cb);
     });
@@ -53,18 +56,18 @@ function initCommands(client) {
     });
 
 	client.addCommand('signoutBO', function(cb) {
-			client
-                .deleteCookie()
-			    .call(cb);
+		client
+			.deleteCookie()
+		    .call(cb);
 	});
 	
 	
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
-			.waitForExist(this.selector.logoutFO, 60000)
+			.waitForExist(this.selector.logoutFO, 90000)
 			.click(this.selector.logoutFO)
-			.waitForExist(this.selector.access_loginFO, 60000)
+			.waitForExist(this.selector.access_loginFO, 90000)
 			.call(cb);
 	});
 	
@@ -98,10 +101,9 @@ function initCommands(client) {
 		client.call(done);
 	});
 
-	client.addCommand('takeScreenshot', function(){
+	client.addCommand('takeScreenshot', function(n){
 	    var date_time = new Date().getTime();
-	    console.log(__dirname + '/screenshots/' + date_time + '.png');
-	    client.saveScreenshot(__dirname + '/screenshots/' + date_time + '.png');
+	    client.saveScreenshot(__dirname + '/screenshots/' + date_time + '_'+n+'.png');
 	});
 	
 }

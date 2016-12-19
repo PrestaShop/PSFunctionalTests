@@ -24,61 +24,62 @@ describe('create_product', function(){
 		
 		it('go_to_new_product', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 60000)
+				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.products)
-				.waitForExist(this.selector.new_product, 60000)
-				.waitForExist('#notifications-total', 60000)
+				.waitForExist(this.selector.new_product, 90000)
+				.waitForExist('#notifications-total', 90000)
 				.isVisible('//div[@id="debug-mode"]').then(function(isVisible) {
-					devMode = true;
+					devMode = isVisible;
 				})
 				.call(done);
 		});
 		
 		
-		it('check_dev_mode', function() {
+		it('check_dev_mode', function(done) {
 			if (devMode == true){
 				this.client
-				.waitForExist('//a[@class="hide-button"]', 60000)
+				.waitForExist('//a[@class="hide-button"]', 90000)
 				.click('//a[@class="hide-button"]');
 			}
+			this.client.call(done);
 		});
 	
 		
 		it('create_new_product', function(done){	
 				this.client
 				.click(this.selector.new_product)
-				.waitForExist(this.selector.product_name, 60000)
+				.waitForExist(this.selector.product_name, 90000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
-				.waitForExist(this.selector.priceTE_shortcut, 60000)
+				.waitForExist(this.selector.priceTE_shortcut, 90000)
 				.execute(function() {
 					document.querySelector('#form_step1_price_shortcut').value="";
 					})
 				.setValue(this.selector.priceTE_shortcut, "5")
-				.waitForExist(this.selector.quantity_shortcut, 60000)
+				.waitForExist(this.selector.quantity_shortcut, 90000)
 				.addValue(this.selector.quantity_shortcut, "10")
 				.execute(function() {
 					document.getElementsByClassName("dz-hidden-input").style="";
 					})
 				.chooseFile(this.selector.picture, toUpload)
-				.waitForExist(this.selector.picture_cover, 60000)
+				.waitForExist(this.selector.picture_cover, 90000)
 				.getAttribute('.dz-preview.dz-image-preview.ui-sortable-handle.dz-complete', "data-id").then(function(text) {
 					global.image_data_id = text;
 				})
 				.pause(2000)
-				.waitForExist('textarea#form_step1_description_short_1', 60000)
+				.waitForExist('textarea#form_step1_description_short_1', 90000)
 				.execute(function() {
 					document.querySelector('textarea#form_step1_description_short_1').style="";
 					})
 				.setValue('textarea#form_step1_description_short_1', "this the summary")
 				.click(this.selector.description_button)
-				.waitForExist('textarea#form_step1_description_1', 60000)
+				.waitForExist('textarea#form_step1_description_1', 90000)
 				.execute(function() {
 					document.querySelector('textarea#form_step1_description_1').style="";
 					})
 				.setValue('textarea#form_step1_description_1', "this the description")
 				.click(this.selector.product_online)
 				.click(this.selector.save_product)
-				.waitForExist(this.selector.close_green_validation, 60000)
+				.waitForExist(this.selector.close_green_validation, 90000)
 				.click(this.selector.close_green_validation)
 				.call(done);
 		});
@@ -87,16 +88,16 @@ describe('create_product', function(){
 		it('check_catalogue', function(done){
 			this.client
 				.click(this.selector.go_to_catalog)
-				.waitForExist(this.selector.catalogue_filter_by_name, 60000)
+				.waitForExist(this.selector.catalogue_filter_by_name, 90000)
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.pause(2000)
-                .waitForExist(this.selector.catalogue_submit_filter, 60000)
+                .waitForExist(this.selector.catalogue_submit_filter, 90000)
 				.click(this.selector.catalogue_submit_filter)
 				.pause(1000)
 				.click(this.selector.catalogue_submit_filter)
-				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 60000)
+				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 90000)
 				.click('//a[text()="test_nodejs_' + product_id + '"]')
-				.waitForExist(this.selector.product_name, 60000)
+				.waitForExist(this.selector.product_name, 90000)
 				.call(done);
 		});
 				

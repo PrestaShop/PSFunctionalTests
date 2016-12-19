@@ -22,9 +22,9 @@ describe('create_product', function(){
 		
 		it('go_to_new_product', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 60000)
+				.waitForExist(this.selector.menu, 120000)
 				.click(this.selector.products)
-				.waitForExist(this.selector.new_product, 60000)
+				.waitForExist(this.selector.new_product, 120000)
 				.call(done);
 		});
 		
@@ -33,6 +33,7 @@ describe('create_product', function(){
 				.click(this.selector.new_product)
 				.waitForExist(this.selector.product_name, 60000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
+				.pause(60000)
 				.frame(this.selector.summary, function (err, result){
 					if (err) console.log(err);
 					})
@@ -99,7 +100,8 @@ describe('create_product', function(){
 					.getValue(this.selector.product_name).then(function(text) {
 						var my_name = text;
 						should(my_name).be.equal('test_nodejs_' + product_id);
-					})	
+					})
+					.pause(60000)
 					.frame(this.selector.summary, function (err, result){
 						if (err) console.log(err);
 						})

@@ -16,9 +16,9 @@ describe('create_account', function(){
 		it('create customer account FO', function(done){
 			this.client
 				.url('http://' + URL)
-				.waitForExist(this.selector.access_loginFO, 60000)
+				.waitForExist(this.selector.access_loginFO, 90000)
 				.click(this.selector.access_loginFO)
-				.waitForExist(this.selector.create_account_button, 60000)
+				.waitForExist(this.selector.create_account_button, 90000)
 				.click(this.selector.create_account_button)
 				.waitForExist(this.selector.create_account_firstname,60000)
 				.setValue(this.selector.create_account_firstname, 'my firstname')
@@ -27,7 +27,7 @@ describe('create_account', function(){
 				.setValue(this.selector.create_account_password, '123456789')
 				.pause(2000)
 				.click(this.selector.create_account_info_validate)
-				.waitForExist(this.selector.logo_home_pageFO, 60000)
+				.waitForExist(this.selector.logo_home_pageFO, 90000)
 				.call(done);
 		});
 		
@@ -40,13 +40,13 @@ describe('create_account', function(){
 		it('... and login again', function(done){
 			this.client
 				.url('http://' + URL)
-				.waitForExist(this.selector.access_loginFO, 60000)
+				.waitForExist(this.selector.access_loginFO, 90000)
 				.click(this.selector.access_loginFO)
-				.waitForExist(this.selector.loginFO, 60000)
+				.waitForExist(this.selector.loginFO, 90000)
 				.setValue(this.selector.loginFO, new_customer_email)
 				.setValue(this.selector.passwordFO, '123456789')
 				.click(this.selector.login_btnFO)
-				.waitForExist(this.selector.logo_home_pageFO, 60000)
+				.waitForExist(this.selector.logo_home_pageFO, 90000)
 				.call(done);
 		});
 		
