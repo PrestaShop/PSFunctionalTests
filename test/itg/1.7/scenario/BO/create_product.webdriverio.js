@@ -18,9 +18,8 @@ describe('create_product', function(){
 		it('loggin BO', function(done){
 			this.client
 				.signinBO()
-				.waitForExist(this.selector.exit_welcome, 90000)
-				.click(this.selector.exit_welcome)
-				.pause(90000)
+				//.waitForExist(this.selector.exit_welcome, 90000)
+				//.click(this.selector.exit_welcome)
 				.call(done);
 		});	
 
