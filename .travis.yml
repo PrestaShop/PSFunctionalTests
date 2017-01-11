@@ -45,8 +45,6 @@ before_script:
   - cd test/itg/$PS_VERSION
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_10.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :10 -ac -screen 0 1280x1024x16"
   - docker exec prestashop rm -rf /var/www/html/modules/welcome
-  - mysql -u root -pdoge
-  - mysql -uroot 'create database prestashop;'
   - sleep 25
 
 script:
