@@ -82,7 +82,7 @@ describe('create_product', function(){
 				.click(this.selector.product_online)
 				//.click(this.selector.save_product)
 				//.waitForExist(this.selector.close_green_validation, 90000)
-				//.click(this.selector.close_green_validation)
+				//crea.click(this.selector.close_green_validation)
 				.call(done);
 		});
 		
@@ -90,15 +90,14 @@ describe('create_product', function(){
 		it('check_catalogue', function(done){
 			this.client
 				.click(this.selector.go_to_catalog)
-				.waitForExist(this.selector.catalogue_filter_by_name, 90000)
-				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.pause(2000)
-                .waitForExist(this.selector.catalogue_submit_filter, 90000)
+				.waitForExist(this.selector.catalogue_filter_by_name, 90000)
+				.setValue(this.selector.catalogue_filter_by_name, 'standard_product' + product_id)
+				.click(this.selector.test)
+				.pause(2000)
 				.click(this.selector.catalogue_submit_filter)
-				.pause(1000)
-				.click(this.selector.catalogue_submit_filter)
-				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 90000)
-				.click('//a[text()="test_nodejs_' + product_id + '"]')
+				.waitForExist('//a[text()="standard_product' + product_id + '"]', 90000)
+				.click('//a[text()="standard_product' + product_id + '"]')
 				.waitForExist(this.selector.product_name, 90000)
 				.call(done);
 		});
