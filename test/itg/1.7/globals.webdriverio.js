@@ -14,10 +14,41 @@ global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 
 module.exports = {
     selector: {
-	//BO
+	//Installation
+	    english:'//*[@id="langList"]',
+	    next:'//*[@id="btNext"]',
+	    agree_checkbox:'//*[@id="set_license"]',
+        shop_name:'//*[@id="infosShop"]',
+        first_name:'//*[@id="infosFirstname"]',
+        last_name:'//*[@id="infosName"]',
+        email_address:'//*[@id="infosEmail"]',
+        shop_password:'//*[@id="infosPassword"]',
+        retype_password:'//*[@id="infosPasswordRepeat"]',
+        database_address:'//*[@id="dbServer"]',
+        database_name:'//*[@id="dbName"]',
+        database_login:'//*[@id="dbLogin"]',
+        database_password:'//*[@id="dbPassword"]',
+        database_server_address:'//*[@id="dbServer"]',
+        test_conection:'#btTestDB',
+
+        create_file_parameter:'//*[@id="process_step_generateSettingsFile"]',
+        create_database:'//*[@id="process_step_installDatabase"]',
+        create_default_shop:'//*[@id="process_step_installDefaultData"]',
+        create_database_table:'//*[@id="process_step_populateDatabase"]',
+        create_shop_informations:'//*[@id="process_step_configureShop"]',
+        create_demonstration_data:'//*[@id="process_step_installFixtures"]',
+        install_module:'//*[@id="process_step_installModules"]',
+        install_addons_modules:'//*[@id="process_step_installModulesAddons"]',
+        install_theme:'//*[@id="process_step_installTheme"]',
+
+
+
+
+	 //BO
 		login: '#email',
 		password: '#passwd',
 		login_btn: '[name="submitLogin"]',
+		exit_welcome:'/html/body/div[1]/div/div/i',
 		profil: '#employee_infos',
 		new_profil: '.employee-dropdown.dropdown > div',
 		logout: '#header_logout',
@@ -56,6 +87,7 @@ module.exports = {
 		modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
 		modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 		close_sf_toolbar:'//a[@class="hide-button"]',
+		finish:'//*[@id="install_process_success"]/div[1]/h2',
 		
 	//FO
 		access_loginFO:'div.user-info > a',

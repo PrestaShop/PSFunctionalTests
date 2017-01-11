@@ -8,26 +8,29 @@ var devMode = false;
 
 describe('create_product', function(){
 	common.initMocha.call(this);
-	
+
 	before(function(done){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
 	after(common.after);
-	
+
 		it('loggin BO', function(done){
 			this.client
 				.signinBO()
+				.waitForExist(this.selector.exit_welcome, 90000)
+				.click(this.selector.exit_welcome)
+				.pause(90000)
 				.call(done);
 		});	
 
 		
 		it('go_to_new_product', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 300000)
+				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.products)
-				.waitForExist(this.selector.new_product, 300000)
-				.waitForExist('#notifications-total', 300000)
+				.waitForExist(this.selector.new_product, 90000)
+				.waitForExist('#notifications-total', 90000)
 				.isVisible('//div[@id="debug-mode"]').then(function(isVisible) {
 					devMode = isVisible;
 				})
