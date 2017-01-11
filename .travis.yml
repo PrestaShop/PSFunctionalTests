@@ -2,6 +2,7 @@ language: php
 
 services:
   - docker
+  - mysql
 
 addons:
     apt:
