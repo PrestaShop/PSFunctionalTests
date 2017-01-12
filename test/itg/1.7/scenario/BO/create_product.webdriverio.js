@@ -92,12 +92,12 @@ describe('create_product', function(){
 				.click(this.selector.go_to_catalog)
 				.pause(2000)
 				.waitForExist(this.selector.catalogue_filter_by_name, 90000)
-				.setValue(this.selector.catalogue_filter_by_name, 'standard_product' + product_id)
-				.click(this.selector.test)
+				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs' + product_id)
+				.click(this.selector.clic)
 				.pause(2000)
 				.click(this.selector.catalogue_submit_filter)
-				.waitForExist('//a[text()="standard_product' + product_id + '"]', 90000)
-				.click('//a[text()="standard_product' + product_id + '"]')
+				.waitForExist('//a[text()="test_nodejs' + product_id + '"]', 90000)
+				.click('//a[text()="test_nodejs' + product_id + '"]')
 				.waitForExist(this.selector.product_name, 90000)
 				.call(done);
 		});
