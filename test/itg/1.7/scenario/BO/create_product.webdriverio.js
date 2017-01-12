@@ -90,7 +90,6 @@ describe('create_product', function(){
 
 		it('check_catalogue', function(done){
 			this.client
-			    .pause(90000)
 			    .waitForExist(this.selector.go_to_catalog, 90000)
                 .click(this.selector.go_to_catalog)
 				.pause(2000)
