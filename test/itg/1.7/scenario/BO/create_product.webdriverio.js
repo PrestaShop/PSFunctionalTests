@@ -90,9 +90,10 @@ describe('create_product', function(){
 
 		it('check_catalogue', function(done){
 			this.client
-			    .waitForExist(this.selector.go_to_catalog, 90000)
-                .click(this.selector.go_to_catalog)
-				.pause(2000)
+			    .click(this.selector.product_online)
+			    //.waitForExist(this.selector.go_to_catalog, 90000)
+                //.click(this.selector.go_to_catalog)
+				//.pause(2000)
 				/*.waitForExist(this.selector.catalogue_filter_by_name, 90000)
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.click(this.selector.clic)
