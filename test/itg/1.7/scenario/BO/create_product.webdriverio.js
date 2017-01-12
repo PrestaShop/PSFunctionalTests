@@ -80,6 +80,8 @@ describe('create_product', function(){
 					})
 				.setValue('textarea#form_step1_description_1', "this the description")
 				.click(this.selector.product_online)
+				.pause(9000)
+				.waitForExist(this.selector.save_product, 9000)
 				.click(this.selector.save_product)
 				//.waitForExist(this.selector.close_green_validation, 90000)
 				//.click(this.selector.close_green_validation)
