@@ -31,7 +31,7 @@ describe('check_product', function(){
 				})
 				.getText(this.selector.search_product_result_price).then(function(text) {
 					var my_price = text;
-					should(my_price).be.equal("€5.00");
+					should(my_price).be.equal("$5.00");
 				})
 				.click(this.selector.search_product_result_name)
 				.waitForExist(this.selector.product_name_details, 90000)
@@ -46,7 +46,7 @@ describe('check_product', function(){
 				})
 				.getText(this.selector.product_price_details).then(function(text) {
 					var my_price2 = text;
-					should(my_price2).be.equal("€5.00");
+					should(my_price2).be.equal("$5.00");
 				})
 				.call(done);
 		});
