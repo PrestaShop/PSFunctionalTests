@@ -94,19 +94,18 @@ describe('create_product', function(){
                 .click(this.selector.more_option)
 			    .waitForExist(this.selector.go_to_catalog, 90000)
                 .click(this.selector.go_to_catalog)
-				//.pause(2000)
-				/*.waitForExist(this.selector.catalogue_filter_by_name, 90000)
+				.waitForExist(this.selector.catalogue_filter_by_name, 90000)
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
 				.click(this.selector.clic)
 				.pause(2000)
 				.click(this.selector.catalogue_submit_filter)
 				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 90000)
 				.click('//a[text()="test_nodejs_' + product_id + '"]')
-				.waitForExist(this.selector.product_name, 90000)*/
+				.waitForExist(this.selector.product_name, 90000)
 				.call(done);
 		});
 				
-		/*it('generate_picture_url', function(done){
+		it('generate_picture_url', function(done){
 			global.picture_url = "/img/p";
 			for (var i = 0, len = image_data_id.length; i < len; i++) {
 				picture_url= picture_url + "/" + image_data_id[i];
@@ -152,7 +151,7 @@ describe('create_product', function(){
 					should(my_final_picture_url[1]).be.equal(final_picture_url[1]);
 				})
 				.call(done);
-		});*/
+		});
 		
 		it('logout BO', function(done){
 			this.client
