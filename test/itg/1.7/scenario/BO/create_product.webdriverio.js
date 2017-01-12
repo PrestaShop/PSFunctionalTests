@@ -18,8 +18,8 @@ describe('create_product', function(){
 		it('loggin BO', function(done){
 			this.client
 				.signinBO()
-				//.waitForExist(this.selector.exit_welcome, 90000)
-				//.click(this.selector.exit_welcome)
+				.waitForExist(this.selector.exit_welcome, 90000)
+				.click(this.selector.exit_welcome)
 				.call(done);
 		});	
 
@@ -80,7 +80,6 @@ describe('create_product', function(){
 					})
 				.setValue('textarea#form_step1_description_1', "this the description")
 				.click(this.selector.product_online)
-				.pause(9000)
 				//.waitForExist(this.selector.save_product, 9000)
 				//.click(this.selector.save_product)
 				//.waitForExist(this.selector.close_green_validation, 90000)
@@ -91,8 +90,8 @@ describe('create_product', function(){
 
 		it('check_catalogue', function(done){
 			this.client
-			    .pause(9000)
-			    .waitForExist(this.selector.go_to_catalog, 9000)
+			    .pause(90000)
+			    .waitForExist(this.selector.go_to_catalog, 90000)
                 .click(this.selector.go_to_catalog)
 				.pause(2000)
 				.waitForExist(this.selector.catalogue_filter_by_name, 90000)
