@@ -59,7 +59,7 @@ module.exports = {
 		new_product: '#page-header-desc-configuration-add',
 		menu: '#nav-sidebar',
 		product_name: '#form_step1_name_1',
-		save_product: '//*[@id="submit"]',
+		save_product: '//*[@id="product_form_preview_btn"]',
 		catalog_list: '#product_catalog_list',
 		green_validation: '.growl.growl-notice.growl-medium',
 		close_green_validation: '.growl-close',
