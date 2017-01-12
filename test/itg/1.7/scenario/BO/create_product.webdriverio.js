@@ -18,8 +18,8 @@ describe('create_product', function(){
 		it('loggin BO', function(done){
 			this.client
 				.signinBO()
-				.waitForExist(this.selector.exit_welcome, 90000)
-				.click(this.selector.exit_welcome)
+				//.waitForExist(this.selector.exit_welcome, 90000)
+				//.click(this.selector.exit_welcome)
 				.call(done);
 		});	
 
@@ -79,7 +79,7 @@ describe('create_product', function(){
 					document.querySelector('textarea#form_step1_description_1').style="";
 					})
 				.setValue('textarea#form_step1_description_1', "this the description")
-				.click(this.selector.product_online)
+				//.click(this.selector.product_online)
 				//.waitForExist(this.selector.save_product, 9000)
 				//.click(this.selector.save_product)
 				//.waitForExist(this.selector.close_green_validation, 90000)
