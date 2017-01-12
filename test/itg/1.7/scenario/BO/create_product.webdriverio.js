@@ -91,6 +91,8 @@ describe('create_product', function(){
 		it('check_catalogue', function(done){
 			this.client
 			    .click(this.selector.product_online)
+			    .waitForExist(this.selector.save_product, 90000)
+			    .click(this.selector.save_product)
 			    //.waitForExist(this.selector.go_to_catalog, 90000)
                 //.click(this.selector.go_to_catalog)
 				//.pause(2000)
