@@ -79,9 +79,9 @@ describe('create_product', function(){
 					document.querySelector('textarea#form_step1_description_1').style="";
 					})
 				.setValue('textarea#form_step1_description_1', "this the description")
-				//.click(this.selector.product_online)
-				//.waitForExist(this.selector.save_product, 9000)
-				//.click(this.selector.save_product)
+				.click(this.selector.product_online)
+			    .waitForExist(this.selector.save_product, 90000)
+			    .click(this.selector.save_product)
 				//.waitForExist(this.selector.close_green_validation, 90000)
 				//.click(this.selector.close_green_validation)
 				.call(done);
@@ -90,11 +90,10 @@ describe('create_product', function(){
 
 		it('check_catalogue', function(done){
 			this.client
-			    .click(this.selector.product_online)
-			    .waitForExist(this.selector.save_product, 90000)
-			    .click(this.selector.save_product)
-			    //.waitForExist(this.selector.go_to_catalog, 90000)
-                //.click(this.selector.go_to_catalog)
+			    .waitForExist(this.selector.more_option, 90000)
+                .click(this.selector.more_option)
+			    .waitForExist(this.selector.go_to_catalog, 90000)
+                .click(this.selector.go_to_catalog)
 				//.pause(2000)
 				/*.waitForExist(this.selector.catalogue_filter_by_name, 90000)
 				.setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)

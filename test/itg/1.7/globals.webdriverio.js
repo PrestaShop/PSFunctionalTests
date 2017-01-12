@@ -54,7 +54,9 @@ module.exports = {
 		new_profil: '.employee-dropdown.dropdown > div',
 		logout: '#header_logout',
 		products: '#subtab-AdminCatalog',
-		go_to_catalog: '#product_form_save_go_to_catalog_btn',
+		go_to_catalog: '//*[@id="form"]/div[4]/div[2]/div/div[2]/a[2]',
+		more_option:'//*[@id="dropdownMenu"]',
+
 
 		new_product: '#page-header-desc-configuration-add',
 		menu: '#nav-sidebar',
