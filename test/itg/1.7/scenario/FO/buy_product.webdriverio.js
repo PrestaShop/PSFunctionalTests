@@ -22,10 +22,6 @@ describe('buy_product', function(){
             .setValue(this.selector.loginFO, 'pub@prestashop.com')
             .setValue(this.selector.passwordFO, '123456789')
             .click(this.selector.login_btnFO)
-            .waitForExist(this.selector.account, 90000)
-            .getText(this.selector.account).then(function(text) {
-                console.log(text);
-            })
             .call(done);
 			
 		});
@@ -79,6 +75,10 @@ describe('buy_product', function(){
 					should(command_price_check).be.equal(my_price);
 				})
 				.click(this.selector.command_button_checkout)
+				.waitForExist(this.selector.address, 90000)
+                .getText(this.selector.address).then(function(text) {
+                    console.log(text);
+                })
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)

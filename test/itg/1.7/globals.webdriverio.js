@@ -107,7 +107,7 @@ module.exports = {
 		create_account_email: '[name="email"]',
 		create_account_password: '[name="password"]',
 		create_account_info_validate: '[data-link-action="save-customer"]',
-		account: '//*[@id="_desktop_user_info"]/div/a[2]/span',
+		address: '//*[@id="id-address-delivery-address-1"]/header/label/div',
 		
 		logo_home_pageFO: '.logo.img-responsive',
 		first_product_home_page: '.thumbnail.product-thumbnail',
