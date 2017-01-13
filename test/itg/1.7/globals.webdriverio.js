@@ -129,6 +129,7 @@ module.exports = {
 		check_out_step1: '#checkout-personal-information-step',
 		check_out_step2: '#checkout-addresses-step',
 		checkout_step2_continue_button: '[name="confirm-addresses"]',
+		carrier_in_cart: '//*[@id="js-delivery"]/div/div[1]/div[1]',
 		check_out_step3: '#checkout-delivery-step',
 		checkout_step3_continue_button: '[name="confirmDeliveryOption"]',
 		check_out_step4: '#checkout-payment-step',

@@ -77,6 +77,10 @@ describe('buy_product', function(){
 				.click(this.selector.command_button_checkout)
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
+				.waitForExist(this.selector.carrier_in_cart, 90000)
+				.getText(this.selector.carrier_in_cart).then(function(text) {
+				    console.log("The carrier already exists!");
+				})
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
