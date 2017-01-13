@@ -130,7 +130,7 @@ module.exports = {
 		check_out_step2: '#checkout-addresses-step',
 		checkout_step2_continue_button: '[name="confirm-addresses"]',
 		check_out_step3: '#checkout-delivery-step',
-		checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
+		checkout_step3_continue_button: '//*[@id="js-delivery"]/form/button',
 		check_out_step4: '#checkout-payment-step',
 		checkout_step4_payment: '#payment-option-2',
 		checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
