@@ -97,6 +97,7 @@ describe('buy_product', function(){
 				//.click(this.selector.checkout_step3_continue_button)
 				.waitForExist(this.selector.clic_title_paiement, 90000)
 				.click(this.selector.clic_title_paiement)
+				.scroll(this.selector.clic_title_paiement,20,0)
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
 				.getText(this.selector.checkout_total).then(function(text) {
 					var checkout_total = text;
