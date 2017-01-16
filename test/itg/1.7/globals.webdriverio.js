@@ -125,7 +125,9 @@ module.exports = {
 		//command_product_quantity: '//div[@class="product-line-grid-body col-md-5 col-xs-5"]/div[5]',
 		command_product_name: '(//div[@class="product-line-info"])[1]/a',
 		command_product_price: '(//div[@class="product-line-info"])[2]/span',
+
 		command_button_checkout: '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a',
+
 
 		check_out_step1: '#checkout-personal-information-step',
 		check_out_step2: '#checkout-addresses-step',
@@ -140,11 +142,13 @@ module.exports = {
 
         address_title:'//*[@id="checkout-addresses-step"]',
         checkout_step2_continue_button:'//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
-		//checkout_step2_continue_button: '[name="confirm-addresses"]',//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button
+
+
 		check_out_step3: '#checkout-delivery-step',
 		clic_title:'//*[@id="checkout-delivery-step"]',
 		clic_title_paiement:'//*[@id="checkout-payment-step"]',
-		checkout_step3_continue_button: '[name="confirmDeliveryOption"]',
+		checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
+		//*[@id="js-delivery"]/button
 		check_out_step4: '#checkout-payment-step',
 		checkout_step4_payment: '//*[@id="payment-option-2"]',
 		checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
