@@ -144,7 +144,7 @@ module.exports = {
 		check_out_step3: '#checkout-delivery-step',
 		clic_title:'//*[@id="checkout-delivery-step"]',
 		clic_title_paiement:'//*[@id="checkout-payment-step"]',
-		checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
+		checkout_step3_continue_button: '[name="confirmDeliveryOption"]',
 		check_out_step4: '#checkout-payment-step',
 		checkout_step4_payment: '//*[@id="payment-option-2"]',
 		checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
