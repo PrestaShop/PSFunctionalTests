@@ -128,7 +128,7 @@ module.exports = {
 		command_button_checkout: 'div.checkout.cart-detailed-actions.card-block > div > a',
 		check_out_step1: '#checkout-personal-information-step',
 		check_out_step2: '#checkout-addresses-step',
-
+        edit:'//*[@id="id-address-delivery-address-8"]/footer/a[1]',
 		address_lastname:'//*[@id="delivery-address"]/div/section/div[1]/div[1]/input',
 		address_firstname:'//*[@id="delivery-address"]/div/section/div[2]/div[1]/input',
 		address_delivery:'//*[@id="delivery-address"]/div/section/div[5]/div[1]/input',
