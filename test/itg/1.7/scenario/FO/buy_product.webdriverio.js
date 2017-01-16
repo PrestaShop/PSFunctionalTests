@@ -82,6 +82,8 @@ describe('buy_product', function(){
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
 				///////////////////error
+				.waitForExist(this.selector.clic_title, 90000)
+				.click(this.selector.clic_title)
 				.waitForExist(this.selector.btn_radio, 90000)
 				.click(this.selector.btn_radio)
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
