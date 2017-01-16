@@ -139,7 +139,8 @@ module.exports = {
 		checkbox:'//*[@id="delivery-address"]/div/section/div[11]/div/input',
 
         address_title:'//*[@id="checkout-addresses-step"]',
-		checkout_step2_continue_button: '[name="confirm-addresses"]',
+        checkout_step2_continue_button:'//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
+		//checkout_step2_continue_button: '[name="confirm-addresses"]',//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button
 		check_out_step3: '#checkout-delivery-step',
 		clic_title:'//*[@id="checkout-delivery-step"]',
 		clic_title_paiement:'//*[@id="checkout-payment-step"]',

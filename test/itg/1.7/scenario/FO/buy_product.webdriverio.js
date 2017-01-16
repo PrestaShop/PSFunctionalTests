@@ -75,39 +75,15 @@ describe('buy_product', function(){
 					should(command_price_check).be.equal(my_price);
 				})
 				.click(this.selector.command_button_checkout)
-				.waitForExist(this.selector.address, 90000)
-                .getText(this.selector.address).then(function(text) {
-                    console.log(text);
-                })
-                .click(this.selector.address_title)
-                .click(this.selector.edit)
-                .waitForExist(this.selector.address_lastname, 90000)
-                .setValue(this.selector.address_lastname, "Techdata")
-                .setValue(this.selector.address_firstname, "DOE")
-                .setValue(this.selector.address_delivery, "31 rue du Louvre")
-                .setValue(this.selector.post_code, "75001")
-                .setValue(this.selector.city, "Paris")
-                .selectByIndex(this.selector.country,1)
-                .setValue(this.selector.country, "Techdata")
-                .click(this.selector.checkbox)
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
-
-				.waitForExist(this.selector.clic_title, 90000)
-				.click(this.selector.clic_title)
-
-				//.waitForExist(this.selector.checkout_step3_continue_button, 90000)
-				//.click(this.selector.checkout_step3_continue_button)
-				.waitForExist(this.selector.clic_title_paiement, 90000)
-				.click(this.selector.clic_title_paiement)
-				.scroll(this.selector.clic_title_paiement,20,0)
-
+				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
+				.click(this.selector.checkout_step3_continue_button)
+				.waitForExist(this.selector.checkout_step4_payment, 90000)
 				.getText(this.selector.checkout_total).then(function(text) {
 					var checkout_total = text;
 					should(checkout_total).be.equal(my_price);
-					console.log(text);
 				})
-				.waitForExist(this.selector.checkout_step4_payment, 90000)
 				.click(this.selector.checkout_step4_payment)
 				.waitForExist(this.selector.checkout_step4_cgv, 90000)
 				.click(this.selector.checkout_step4_cgv)
