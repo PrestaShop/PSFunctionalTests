@@ -79,6 +79,7 @@ describe('buy_product', function(){
                 .getText(this.selector.address).then(function(text) {
                     console.log(text);
                 })
+                .click(this.selector.address_title)
                 .click(this.selector.edit)
                 .waitForExist(this.selector.address_lastname, 90000)
                 .setValue(this.selector.address_lastname, "Techdata")

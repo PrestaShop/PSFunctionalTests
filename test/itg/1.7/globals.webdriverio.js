@@ -108,7 +108,7 @@ module.exports = {
 		create_account_password: '[name="password"]',
 		create_account_info_validate: '[data-link-action="save-customer"]',
 		address: '//*[@id="id-address-delivery-address-1"]/header/label/div',
-		
+
 		logo_home_pageFO: '.logo.img-responsive',
 		first_product_home_page: '.thumbnail.product-thumbnail',
 		add_to_cart: '.btn.btn-primary.add-to-cart',
@@ -126,6 +126,7 @@ module.exports = {
 		command_product_name: '(//div[@class="product-line-info"])[1]/a',
 		command_product_price: '(//div[@class="product-line-info"])[2]/span',
 		command_button_checkout: 'div.checkout.cart-detailed-actions.card-block > div > a',
+
 		check_out_step1: '#checkout-personal-information-step',
 		check_out_step2: '#checkout-addresses-step',
         edit:'//*[@id="id-address-delivery-address-8"]/footer/a[1]',
@@ -137,6 +138,7 @@ module.exports = {
 		country:'//*[@id="delivery-address"]/div/section/div[9]/div[1]/select',
 		checkbox:'//*[@id="delivery-address"]/div/section/div[11]/div/input',
 
+        address_title:'//*[@id="checkout-addresses-step"]',
 		checkout_step2_continue_button: '[name="confirm-addresses"]',
 		check_out_step3: '#checkout-delivery-step',
 		clic_title:'//*[@id="checkout-delivery-step"]',
