@@ -140,6 +140,8 @@ module.exports = {
 		checkout_step2_continue_button: '[name="confirm-addresses"]',
 		check_out_step3: '#checkout-delivery-step',
 		clic_title:'//*[@id="checkout-delivery-step"]',
+		clic_title_paiement:'//*[@id="checkout-payment-step"]',
+
 		checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
 		check_out_step4: '#checkout-payment-step',
 		checkout_step4_payment: '#payment-option-2',
