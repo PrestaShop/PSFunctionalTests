@@ -77,13 +77,14 @@ describe('buy_product', function(){
 				.click(this.selector.command_button_checkout)
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
-				//.waitForExist(this.selector.checkout_step3_continue_button, 90000)
-				//.click(this.selector.checkout_step3_continue_button)
-				.waitForExist(this.selector.checkout_step4_payment, 90000)
+				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
+				.click(this.selector.checkout_step3_continue_button)
+
 				.getText(this.selector.checkout_total).then(function(text) {
 					var checkout_total = text;
 					should(checkout_total).be.equal(my_price);
 				})
+				.waitForExist(this.selector.checkout_step4_payment, 90000)
 				.click(this.selector.checkout_step4_payment)
 				.waitForExist(this.selector.checkout_step4_cgv, 90000)
 				.click(this.selector.checkout_step4_cgv)
