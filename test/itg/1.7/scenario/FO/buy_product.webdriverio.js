@@ -78,7 +78,7 @@ describe('buy_product', function(){
 				.waitForExist(this.selector.address, 90000)
                 .getText(this.selector.address).then(function(text) {
                    // console.log(text);
-                //})
+                })
                 /*.setValue(this.selector.address_lastname, "Techdata")
                 .setValue(this.selector.address_firstname, "DOE")
                 .setValue(this.selector.address_delivery, "31 rue du Louvre")
