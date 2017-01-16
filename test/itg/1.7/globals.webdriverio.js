@@ -143,7 +143,7 @@ module.exports = {
 		clic_title_paiement:'//*[@id="checkout-payment-step"]',
 		checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
 		check_out_step4: '#checkout-payment-step',
-		checkout_step4_payment: '#payment-option-2',
+		checkout_step4_payment: '//*[@id="payment-option-2"]',
 		checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
 		checkout_step4_order: '#payment-confirmation >div > button',
 		checkout_total: '//div[@class="cart-summary-line cart-total"]/span[2]',
