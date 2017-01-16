@@ -98,12 +98,13 @@ describe('buy_product', function(){
 				.waitForExist(this.selector.clic_title_paiement, 90000)
 				.click(this.selector.clic_title_paiement)
 				.scroll(this.selector.clic_title_paiement,20,0)
-				.waitForExist(this.selector.checkout_step4_payment, 90000)
+
 				.getText(this.selector.checkout_total).then(function(text) {
 					var checkout_total = text;
 					should(checkout_total).be.equal(my_price);
 					console.log(text);
 				})
+				.waitForExist(this.selector.checkout_step4_payment, 90000)
 				.click(this.selector.checkout_step4_payment)
 				.waitForExist(this.selector.checkout_step4_cgv, 90000)
 				.click(this.selector.checkout_step4_cgv)
