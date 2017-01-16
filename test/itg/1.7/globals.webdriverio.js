@@ -131,7 +131,6 @@ module.exports = {
 		checkout_step2_continue_button: '[name="confirm-addresses"]',
 		check_out_step3: '#checkout-delivery-step',
 		clic_title:'//*[@id="checkout-delivery-step"]',
-		btn_radio:'//*[@id="delivery_option_1"]',
 		checkout_step3_continue_button: '[name="confirmDeliveryOption"]',
 		check_out_step4: '#checkout-payment-step',
 		checkout_step4_payment: '#payment-option-2',
