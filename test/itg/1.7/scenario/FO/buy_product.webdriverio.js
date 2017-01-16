@@ -75,10 +75,19 @@ describe('buy_product', function(){
 					should(command_price_check).be.equal(my_price);
 				})
 				.click(this.selector.command_button_checkout)
-				.waitForExist(this.selector.address, 90000)
-                .getText(this.selector.address).then(function(text) {
+				//.waitForExist(this.selector.address, 90000)
+                //.getText(this.selector.address).then(function(text) {
                    // console.log(text);
-                })
+                //})
+                .setValue(this.selector.address_lastname, "Techdata")
+                .setValue(this.selector.address_firstname, "DOE")
+                .setValue(this.selector.address_delivery, "31 rue du Louvre")
+                .setValue(this.selector.post_code, "75001")
+                .setValue(this.selector.city, "Paris")
+                .selectByIndex(this.selector.country,1)
+                .setValue(this.selector.country, "Techdata")
+                .click(this.selector.checkbox)
+
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
 				///////////////////error

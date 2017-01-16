@@ -128,6 +128,15 @@ module.exports = {
 		command_button_checkout: 'div.checkout.cart-detailed-actions.card-block > div > a',
 		check_out_step1: '#checkout-personal-information-step',
 		check_out_step2: '#checkout-addresses-step',
+
+		address_lastname:'//*[@id="delivery-address"]/div/section/div[1]/div[1]/input',
+		address_firstname:'//*[@id="delivery-address"]/div/section/div[2]/div[1]/input',
+		address_delivery:'//*[@id="delivery-address"]/div/section/div[5]/div[1]/input',
+		post_code:'//*[@id="delivery-address"]/div/section/div[7]/div[1]/input',
+		city:'//*[@id="delivery-address"]/div/section/div[8]/div[1]/input',
+		country:'//*[@id="delivery-address"]/div/section/div[9]/div[1]/select',
+		checkbox:'//*[@id="delivery-address"]/div/section/div[11]/div/input',
+
 		checkout_step2_continue_button: '[name="confirm-addresses"]',
 		check_out_step3: '#checkout-delivery-step',
 		clic_title:'//*[@id="checkout-delivery-step"]',
