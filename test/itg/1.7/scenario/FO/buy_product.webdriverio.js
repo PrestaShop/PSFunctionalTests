@@ -73,12 +73,20 @@ describe('buy_product', function(){
 				})
 				.getText(this.selector.command_product_price).then(function(text) {
 					var command_price_check = text;
+					console.log(text);
 					should(command_price_check).be.equal(my_price);
 				})
 				.click(this.selector.command_button_checkout)
 
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
+
+
+                .getText(this.selector.address).then(function(text) {
+					var address_delivery = text;
+					console.log(text);
+				})
+                .click(this.selector.radio)
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
 
