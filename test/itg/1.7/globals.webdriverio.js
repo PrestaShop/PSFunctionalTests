@@ -108,7 +108,7 @@ module.exports = {
 		create_account_password: '[name="password"]',
 		create_account_info_validate: '[data-link-action="save-customer"]',
 		address: '//*[@id="id-address-delivery-address-1"]/header/label/div',
-        mode_livraison:'//*[@id="js-delivery"]/div/div[1]/div[1]/label/div/div[1]/div/div/span',
+        mode_livraison:'//*[@id="js-delivery"]/div/div[1]/div[1]/label/div/div[2]',
 
 
 
