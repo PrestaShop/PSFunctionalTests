@@ -81,15 +81,23 @@ describe('buy_product', function(){
                 .getText(this.selector.address).then(function(text) {
                     console.log(text);
                 })
+                .waitForExist(this.selector.edit, 90000)
+				.click(this.selector.edit)
+				.setValue(this.selector.post_code, "75002")
+                .setValue(this.selector.city, "Paris")
+                .selectByIndex(this.selector.country, 1)
 
-				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
-				.click(this.selector.checkout_step2_continue_button)
+                .waitForExist(this.selector.continue_btn, 90000)
+				.click(this.selector.continue_btn)
+
+				//.waitForExist(this.selector.checkout_step2_continue_button, 90000)
+				//.click(this.selector.checkout_step2_continue_button)
 				///////////////////error
 				.waitForExist(this.selector.clic_title, 90000)
 				.click(this.selector.clic_title)
-				.getText(this.selector.alert).then(function(text) {
+				/*.getText(this.selector.alert).then(function(text) {
                     console.log(text);
-                })
+                })*/
 
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)

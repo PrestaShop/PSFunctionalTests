@@ -107,7 +107,7 @@ module.exports = {
 		create_account_email: '[name="email"]',
 		create_account_password: '[name="password"]',
 		create_account_info_validate: '[data-link-action="save-customer"]',
-		address: '//*[@id="id-address-delivery-address-4"]/header/label/div',
+		address: '//*[@id="id-address-delivery-address-6"]/header/label/div',
         mode_livraison:'//*[@id="js-delivery"]/div/div[1]/div[1]/label/div/div[1]/div/div/span',
         alert:'//*[@id="checkout-delivery-step"]/div/div[2]/p',
 
@@ -135,7 +135,7 @@ module.exports = {
 
 		check_out_step1: '#checkout-personal-information-step',
 		check_out_step2: '#checkout-addresses-step',
-        edit:'//*[@id="id-address-delivery-address-8"]/footer/a[1]',
+        edit:'//*[@id="id-address-delivery-address-6"]/footer/a[1]',
 		address_lastname:'//*[@id="delivery-address"]/div/section/div[1]/div[1]/input',
 		address_firstname:'//*[@id="delivery-address"]/div/section/div[2]/div[1]/input',
 		address_delivery:'//*[@id="delivery-address"]/div/section/div[5]/div[1]/input',
@@ -143,7 +143,7 @@ module.exports = {
 		city:'//*[@id="delivery-address"]/div/section/div[8]/div[1]/input',
 		country:'//*[@id="delivery-address"]/div/section/div[9]/div[1]/select',
 		checkbox:'//*[@id="delivery-address"]/div/section/div[11]/div/input',
-
+        continue_btn:'//*[@id="delivery-address"]/div/footer/button',
         address_title:'//*[@id="checkout-addresses-step"]',
         checkout_step2_continue_button:'//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
 
