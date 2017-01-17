@@ -107,9 +107,9 @@ module.exports = {
 		create_account_email: '[name="email"]',
 		create_account_password: '[name="password"]',
 		create_account_info_validate: '[data-link-action="save-customer"]',
-		address: '//*[@id="id-address-delivery-address-1"]/header/label/div',
-        mode_livraison:'//*[@id="js-delivery"]/div/div[1]/div[2]/label/div/div[1]/div/div[2]',
-
+		address: '//*[@id="id-address-delivery-address-4"]/header/label/div',
+        mode_livraison:'//*[@id="js-delivery"]/div/div[1]/div[1]/label/div/div[1]/div/div/span',
+        alert:'//*[@id="checkout-delivery-step"]/div/div[2]/p',
 
 
         radio:'//*[@id="id-address-delivery-address-1"]/header/label/span[1]/input',
