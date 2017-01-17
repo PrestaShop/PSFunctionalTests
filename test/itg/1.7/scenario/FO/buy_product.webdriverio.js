@@ -133,7 +133,6 @@ describe('buy_product', function(){
 				.waitForExist(this.selector.order_confirmation_ref, 90000)
 				.getText(this.selector.order_confirmation_ref).then(function(text) {
 					var my_ref=text.split(': ')
-					console.log(text);
 					global.order_reference=my_ref[1];
 				})
 				.call(done);
