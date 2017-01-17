@@ -87,6 +87,10 @@ describe('buy_product', function(){
 				///////////////////error
 				.waitForExist(this.selector.clic_title, 90000)
 				.click(this.selector.clic_title)
+				.getText(this.selector.mode_livraison).then(function(text) {
+                    console.log(text);
+                })
+
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
