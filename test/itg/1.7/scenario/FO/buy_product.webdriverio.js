@@ -77,25 +77,24 @@ describe('buy_product', function(){
 					should(command_price_check).be.equal(my_price);
 				})
 				.click(this.selector.command_button_checkout)
+				.waitForExist(this.selector.address, 90000)
+                .getText(this.selector.address).then(function(text) {
+                    console.log(text);
+                })
 
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
-
-
-                .getText(this.selector.address).then(function(text) {
-					var address_delivery = text;
-					console.log(text);
-				})
-                .click(this.selector.radio)
+				///////////////////error
+				.waitForExist(this.selector.clic_title, 90000)
+				.click(this.selector.clic_title)
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
-
-				/*.getText(this.selector.checkout_total).then(function(text) {
+				.waitForExist(this.selector.checkout_step4_payment, 90000)
+				.getText(this.selector.checkout_total).then(function(text) {
 					var checkout_total = text;
 					console.log(text);
 					should(checkout_total).be.equal(my_price);
-				})*/
-				.waitForExist(this.selector.checkout_step4_payment, 90000)
+				})
 				.click(this.selector.checkout_step4_payment)
 				.waitForExist(this.selector.checkout_step4_cgv, 90000)
 				.click(this.selector.checkout_step4_cgv)
@@ -104,21 +103,25 @@ describe('buy_product', function(){
 				.waitForExist(this.selector.order_confirmation_name, 90000)
 				.getText(this.selector.order_confirmation_name).then(function(text) {
 					var command_confirmation_my_name = text;
+					console.log(text);
 					command_confirmation_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
 				})
 				.waitForExist(this.selector.order_confirmation_price1, 90000)
 				.getText(this.selector.order_confirmation_price1).then(function(text) {
 					var order_confirmation_price1 = text;
+					console.log(text);
 					should(order_confirmation_price1).be.equal(my_price);
 				})
 				.waitForExist(this.selector.order_confirmation_price2, 90000)
 				.getText(this.selector.order_confirmation_price2).then(function(text) {
 					var order_confirmation_price2 = text;
+					console.log(text);
 					should(order_confirmation_price2).be.equal(my_price);
 				})
 				.waitForExist(this.selector.order_confirmation_ref, 90000)
 				.getText(this.selector.order_confirmation_ref).then(function(text) {
 					var my_ref=text.split(': ')
+					console.log(text);
 					global.order_reference=my_ref[1];
 				})
 				.call(done);
