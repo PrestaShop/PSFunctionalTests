@@ -22,7 +22,7 @@ describe('Allscenario', function(){
 		require('./scenario/BO/install_module.js');
 	}
 	//install prestashop
-	//require('./install_prestashop.js');
+	require('./install_prestashop.js');
 
 	//create a product in BO and check it in FO
 	require('./scenario/BO/create_product.webdriverio');

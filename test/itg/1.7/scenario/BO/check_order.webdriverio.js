@@ -23,14 +23,19 @@ describe('check the order in BO', function(){
 			.waitForExist(this.selector.menu, 90000)
 			.click(this.selector.orders)
 			.waitForExist(this.selector.orders_form, 90000)
+
 			.call(done);
 	});
 	
 	it('check_order', function(done){
 			var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
 			this.client
+
 			.waitForExist(my_selector, 90000)
 			.click(my_selector)
+            .click(this.selector.close_error)
+            .pause(5000)
+            .scroll(this.selector.order_product_name,20,0)
 			.waitForExist(this.selector.order_product_name, 90000)
 			.getText(this.selector.order_product_name).then(function(text) {
 				var my_order_product_name = text;
