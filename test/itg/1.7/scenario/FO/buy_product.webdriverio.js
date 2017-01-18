@@ -85,7 +85,7 @@ describe('buy_product', function(){
                 .getText(this.selector.address2).then(function(text) {
                     console.log(text);
                 })
-                .click(this.selector.address2)
+                //.click(this.selector.address2)
                 /*.waitForExist(this.selector.edit, 90000)
 				.click(this.selector.edit)
 				.setValue(this.selector.post_code, "75002")
@@ -103,7 +103,7 @@ describe('buy_product', function(){
 				/*.getText(this.selector.alert).then(function(text) {
                     console.log(text);
                 })*/
-                .click(this.selector.payment_free)
+                //.click(this.selector.payment_free)
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
