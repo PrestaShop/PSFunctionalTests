@@ -111,7 +111,7 @@ module.exports = {
 		address2:'//*[@id="id-address-delivery-address-4"]/header/label/div',
         mode_livraison:'//*[@id="js-delivery"]/div/div[1]/div[1]/label/div/div[1]/div/div/span',
         alert:'//*[@id="checkout-delivery-step"]/div/div[2]/p',
-
+        payment_free:'//*[@id="js-delivery"]/div/div[1]/div[1]/label/div/div[1]/div/div/span',
 
 		logo_home_pageFO: '.logo.img-responsive',
 		first_product_home_page: '.thumbnail.product-thumbnail',

@@ -103,9 +103,12 @@ describe('buy_product', function(){
 				/*.getText(this.selector.alert).then(function(text) {
                     console.log(text);
                 })*/
+                .click(this.selector.payment_free)
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
+
+
 				.getText(this.selector.checkout_total).then(function(text) {
 					var checkout_total = text;
 					console.log(text);
