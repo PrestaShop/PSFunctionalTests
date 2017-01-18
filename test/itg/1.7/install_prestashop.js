@@ -10,15 +10,9 @@ describe('install_prestashop', function(){
 	});
 	after(common.after);
 
-	    it('open install', function(done){
+	    it('installation', function(done){
 			this.client
-				.localhost()
-				.waitForExist(this.selector.english, 300000)
-				.call(done);
-		});
-
-	    it('install', function(done){
-			this.client
+			.localhost()
 			.waitForExist(this.selector.english, 300000)
 			.click(this.selector.english)
 			.selectByIndex(this.selector.english,3)
