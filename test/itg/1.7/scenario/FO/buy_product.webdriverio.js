@@ -68,50 +68,22 @@ describe('buy_product', function(){
 				.waitForExist(this.selector.command_button_checkout, 90000)
 				.getText(this.selector.command_product_name).then(function(text) {
 					var command_my_name = text;
-					console.log(text);
 					command_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
 				})
 				.getText(this.selector.command_product_price).then(function(text) {
 					var command_price_check = text;
-					console.log(text);
 					should(command_price_check).be.equal(my_price);
 				})
 				.click(this.selector.command_button_checkout)
-				.waitForExist(this.selector.address, 90000)
-                .getText(this.selector.address).then(function(text) {
-                    console.log(text);
-                })
-                .waitForExist(this.selector.address2, 90000)
-                .getText(this.selector.address2).then(function(text) {
-                    console.log(text);
-                })
-                //.click(this.selector.address2)
-                /*.waitForExist(this.selector.edit, 90000)
-				.click(this.selector.edit)
-				.setValue(this.selector.post_code, "75002")
-                .setValue(this.selector.city, "Paris")
-                .selectByIndex(this.selector.country, 1)
 
-                .scroll(this.selector.country,20,0)
-                .waitForExist(this.selector.continue_btn, 90000)
-				.click(this.selector.continue_btn)*/
 
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
-				.waitForExist(this.selector.clic_title, 90000)
-				.click(this.selector.clic_title)
-				/*.getText(this.selector.alert).then(function(text) {
-                    console.log(text);
-                })*/
-                //.click(this.selector.payment_free)
 				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
-
-
 				.getText(this.selector.checkout_total).then(function(text) {
 					var checkout_total = text;
-					console.log(text);
 					should(checkout_total).be.equal(my_price);
 				})
 				.click(this.selector.checkout_step4_payment)
@@ -122,19 +94,16 @@ describe('buy_product', function(){
 				.waitForExist(this.selector.order_confirmation_name, 90000)
 				.getText(this.selector.order_confirmation_name).then(function(text) {
 					var command_confirmation_my_name = text;
-					console.log(text);
 					command_confirmation_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
 				})
 				.waitForExist(this.selector.order_confirmation_price1, 90000)
 				.getText(this.selector.order_confirmation_price1).then(function(text) {
 					var order_confirmation_price1 = text;
-					console.log(text);
 					should(order_confirmation_price1).be.equal(my_price);
 				})
 				.waitForExist(this.selector.order_confirmation_price2, 90000)
 				.getText(this.selector.order_confirmation_price2).then(function(text) {
 					var order_confirmation_price2 = text;
-					console.log(text);
 					should(order_confirmation_price2).be.equal(my_price);
 				})
 				.waitForExist(this.selector.order_confirmation_ref, 90000)
