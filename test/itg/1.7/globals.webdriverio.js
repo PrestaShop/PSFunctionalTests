@@ -19,6 +19,7 @@ module.exports = {
 	    next:'//*[@id="btNext"]',
 	    agree_checkbox:'//*[@id="set_license"]',
         shop_name:'//*[@id="infosShop"]',
+        country_fo:'//*[@id="infosCountry_chosen"]/a/span',
         first_name:'//*[@id="infosFirstname"]',
         last_name:'//*[@id="infosName"]',
         email_address:'//*[@id="infosEmail"]',
