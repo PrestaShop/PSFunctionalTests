@@ -100,7 +100,6 @@ describe('buy_product', function(){
 				.getText(this.selector.alert).then(function(text) {
                     console.log(text);
                 })
-
 				/*.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
