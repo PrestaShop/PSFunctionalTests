@@ -114,6 +114,7 @@ module.exports = {
 
 
         radio:'//*[@id="id-address-delivery-address-1"]/header/label/span[1]/input',
+
 		logo_home_pageFO: '.logo.img-responsive',
 		first_product_home_page: '.thumbnail.product-thumbnail',
 		add_to_cart: '.btn.btn-primary.add-to-cart',
