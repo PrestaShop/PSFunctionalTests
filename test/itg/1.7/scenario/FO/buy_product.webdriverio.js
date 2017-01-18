@@ -85,8 +85,7 @@ describe('buy_product', function(){
                 .getText(this.selector.address2).then(function(text) {
                     console.log(text);
                 })
-                .click(this.selector.address)
-                .click(this.selector.radio)
+                .click(this.selector.address2)
                 /*.waitForExist(this.selector.edit, 90000)
 				.click(this.selector.edit)
 				.setValue(this.selector.post_code, "75002")
