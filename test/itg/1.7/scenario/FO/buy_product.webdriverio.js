@@ -81,6 +81,10 @@ describe('buy_product', function(){
                 .getText(this.selector.address).then(function(text) {
                     console.log(text);
                 })
+                .waitForExist(this.selector.address2, 90000)
+                .getText(this.selector.address2).then(function(text) {
+                    console.log(text);
+                })
                 .click(this.selector.address)
 
                 /*.waitForExist(this.selector.edit, 90000)
