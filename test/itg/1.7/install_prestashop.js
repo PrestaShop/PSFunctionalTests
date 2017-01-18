@@ -33,7 +33,8 @@ describe('install_prestashop', function(){
 			.waitForExist(this.selector.shop_name, 300000)
 			.setValue(this.selector.shop_name, "prestashop_1.7.0.3")
 			.click(this.selector.country_fo)
-			.selectByIndex(this.selector.country_fo,1)
+			.click(this.selector.country_france)
+
 
 
 
