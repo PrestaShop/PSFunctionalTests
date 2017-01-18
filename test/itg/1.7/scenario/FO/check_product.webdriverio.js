@@ -46,7 +46,7 @@ describe('check_product', function(){
 				})
 				.getText(this.selector.product_price_details).then(function(text) {
 					var my_price2 = text;
-					should(my_price2).be.equal("€5.00");
+					should(my_price2).be.equal("€6.00");
 				})
 				.call(done);
 		});
