@@ -97,11 +97,11 @@ describe('buy_product', function(){
 				.click(this.selector.checkout_step2_continue_button)
 				.waitForExist(this.selector.clic_title, 90000)
 				.click(this.selector.clic_title)
-				/*.getText(this.selector.alert).then(function(text) {
+				.getText(this.selector.alert).then(function(text) {
                     console.log(text);
-                })*/
+                })
 
-				.waitForExist(this.selector.checkout_step3_continue_button, 90000)
+				/*.waitForExist(this.selector.checkout_step3_continue_button, 90000)
 				.click(this.selector.checkout_step3_continue_button)
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
 				.getText(this.selector.checkout_total).then(function(text) {
@@ -136,7 +136,7 @@ describe('buy_product', function(){
 				.getText(this.selector.order_confirmation_ref).then(function(text) {
 					var my_ref=text.split(': ')
 					global.order_reference=my_ref[1];
-				})
+				})*/
 				.call(done);
 		});
 		
