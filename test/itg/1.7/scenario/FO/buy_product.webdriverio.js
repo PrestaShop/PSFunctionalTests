@@ -95,7 +95,6 @@ describe('buy_product', function(){
 
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
-				///////////////////error
 				.waitForExist(this.selector.clic_title, 90000)
 				.click(this.selector.clic_title)
 				/*.getText(this.selector.alert).then(function(text) {
