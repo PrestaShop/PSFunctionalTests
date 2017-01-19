@@ -33,7 +33,7 @@ describe('install_module', function(){
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
-				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
+				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
 				.waitForExist(this.selector.green_validation, 90000)
 				.call(done);
 		});
