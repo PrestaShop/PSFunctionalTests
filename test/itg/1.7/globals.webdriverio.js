@@ -92,6 +92,7 @@ module.exports = {
 		modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 		close_sf_toolbar:'//a[@class="hide-button"]',
 		finish:'//*[@id="install_process_success"]/div[1]/h2',
+		closetoolbar:'[class="hide-button"]',
 		
 	//FO
 		access_loginFO:'div.user-info > a',

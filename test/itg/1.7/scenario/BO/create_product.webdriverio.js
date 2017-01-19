@@ -80,6 +80,8 @@ describe('create_product', function(){
 					})
 				.setValue('textarea#form_step1_description_1', "this the description")
 				.click(this.selector.product_online)
+				.waitForExist(this.selector.closetoolbar, 90000)
+				.click(this.selector.closetoolbar)
 			    .waitForExist(this.selector.save_product, 90000)
 			    .click(this.selector.save_product)
 				//.waitForExist(this.selector.close_green_validation, 90000)
@@ -90,6 +92,7 @@ describe('create_product', function(){
 
 		it('check_catalogue', function(done){
 			this.client
+			    .pause(5000)
 			    .waitForExist(this.selector.more_option, 90000)
                 .click(this.selector.more_option)
 			    .waitForExist(this.selector.go_to_catalog, 90000)
