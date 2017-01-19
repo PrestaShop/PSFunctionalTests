@@ -79,9 +79,9 @@ describe('create_product', function(){
 					document.querySelector('textarea#form_step1_description_1').style="";
 					})
 				.setValue('textarea#form_step1_description_1', "this the description")
-				.click(this.selector.product_online)
 				.waitForExist(this.selector.closetoolbar, 90000)
 				.click(this.selector.closetoolbar)
+				.click(this.selector.product_online)
 			    .waitForExist(this.selector.save_product, 90000)
 			    .click(this.selector.save_product)
 				//.waitForExist(this.selector.close_green_validation, 90000)
