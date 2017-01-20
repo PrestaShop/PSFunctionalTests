@@ -30,6 +30,9 @@ describe('install_module', function(){
 		
 		it('install_module', function(done){			
 				this.client
+				/*.isExisting("//*[@class=\"alert alert-danger\"]").then(function(present) {
+					should(present).be.equal(false);
+				})*/
 				.setValue(this.selector.modules_search, module_tech_name)
 				.waitForExist('//table[@id="module-list"]/tbody/tr[not(@style)]//span[text()="' + module_tech_name+ '"]', 60000)
 				.click('//i[@class="icon-plus-sign-alt" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]')
