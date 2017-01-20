@@ -6,7 +6,7 @@ var path = require('path');
 var toUpload = path.join(__dirname, '../..', 'datas', 'image_test.jpg');
 var devMode = false;
 
-describe('create_product', function(){
+describe('Create product', function(){
 	common.initMocha.call(this);
 
 	before(function(done){
@@ -15,7 +15,7 @@ describe('create_product', function(){
 	});
 	after(common.after);
 
-		it('loggin BO', function(done){
+		it('Loggin BO', function(done){
 			this.client
 				.signinBO()
 				//.waitForExist(this.selector.exit_welcome, 90000)
@@ -24,7 +24,7 @@ describe('create_product', function(){
 		});	
 
 		
-		it('go_to_new_product', function(done){
+		it('Go to new product', function(done){
 			this.client
 				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.products)
@@ -37,7 +37,7 @@ describe('create_product', function(){
 		});
 		
 		
-		it('check_dev_mode', function(done) {
+		it('Check dev mode', function(done) {
 			if (devMode == true){
 				this.client
 				.waitForExist('//a[@class="hide-button"]', 90000)
@@ -47,7 +47,7 @@ describe('create_product', function(){
 		});
 	
 		
-		it('create_new_product', function(done){	
+		it('Create new product', function(done){
 				this.client
 				.click(this.selector.new_product)
 				.waitForExist(this.selector.product_name, 90000)
@@ -90,7 +90,7 @@ describe('create_product', function(){
 		});
 		
 
-		it('check_catalogue', function(done){
+		it('Check catalogue', function(done){
 			this.client
 			    .pause(5000)
 			    .waitForExist(this.selector.more_option, 90000)
@@ -108,7 +108,7 @@ describe('create_product', function(){
 				.call(done);
 		});
 				
-		it('generate_picture_url', function(done){
+		it('Generate picture url', function(done){
 			global.picture_url = "/img/p";
 			for (var i = 0, len = image_data_id.length; i < len; i++) {
 				picture_url= picture_url + "/" + image_data_id[i];
@@ -117,7 +117,7 @@ describe('create_product', function(){
 			this.client.call(done);
 		});
 				
-		it('check_product', function(done){		
+		it('Check product', function(done){
 				this.client
 				.getValue(this.selector.product_name).then(function(text) {
 					var my_name = text;
@@ -156,7 +156,7 @@ describe('create_product', function(){
 				.call(done);
 		});
 		
-		it('logout BO', function(done){
+		it('Logout BO', function(done){
 			this.client
 				.signoutBO2()
 				.call(done);

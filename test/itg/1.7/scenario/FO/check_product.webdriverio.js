@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('check_product', function(){
+describe('Check product', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,13 +13,13 @@ describe('check_product', function(){
 
 	after(common.after);
 		
-		it('open FO', function(done){
+		it('Open FO', function(done){
 			this.client
 				.url('http://' + URL + '/en/')
 				.call(done);
 		});
 		
-		it('open_the_product', function(done){
+		it('Open the product', function(done){
 			this.client
 				.waitForExist(this.selector.search_product, 90000)
 				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)

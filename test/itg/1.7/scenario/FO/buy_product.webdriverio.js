@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('buy_product', function(){
+describe('Buy product', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,7 +13,7 @@ describe('buy_product', function(){
 
 	after(common.after);
 		
-		it('loggin FO', function(done){
+		it('Loggin FO', function(done){
 			this.client
 			.url('http://' + URL)
 			.waitForExist(this.selector.access_loginFO, 90000)
@@ -26,7 +26,7 @@ describe('buy_product', function(){
 			
 		});
 		
-		it('add_product_to_cart', function(done){
+		it('Add product to cart', function(done){
 			this.client
 				.click(this.selector.logo_home_pageFO)
 				.waitForExist(this.selector.first_product_home_page, 90000)
@@ -63,7 +63,7 @@ describe('buy_product', function(){
 				.call(done);
 		});
 		
-		it('validate_the_cart', function(done){
+		it('Validate the cart', function(done){
 			this.client			
 				.waitForExist(this.selector.command_button_checkout, 90000)
 				.getText(this.selector.command_product_name).then(function(text) {
@@ -114,7 +114,7 @@ describe('buy_product', function(){
 				.call(done);
 		});
 		
-		it('order_id', function(done){
+		it('Order id', function(done){
 			this.client
 				.url().then(function(res) {
 						var current_url = res.value;
@@ -125,7 +125,7 @@ describe('buy_product', function(){
 				.call(done);
 		});
 		
-		it('logout FO', function(done){
+		it('Logout FO', function(done){
 			this.client
 			.waitForExist(this.selector.logoutFO, 90000)
 			.click(this.selector.logoutFO)

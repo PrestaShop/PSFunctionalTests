@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('uninstall_module', function(){
+describe('Uninstall module', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,14 +13,14 @@ describe('uninstall_module', function(){
 	after(common.after);
 
 	
-		it('loggin BO', function(done){
+		it('Loggin BO', function(done){
 			this.client
 				.signinBO()
 				.call(done);
 		});	
 
 		
-		it('go_to_module', function(done){
+		it('Go to module', function(done){
 			this.client
 				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.modules_menu)
@@ -28,7 +28,7 @@ describe('uninstall_module', function(){
 				.call(done);
 		});
 		
-		it('uninstall_module', function(done){			
+		it('Uninstall module', function(done){
 			this.client
 				.click(this.selector.modules_installed)
 				.waitForExist(this.selector.modules_page_loaded, 90000)
@@ -44,7 +44,7 @@ describe('uninstall_module', function(){
 				.call(done);
 		});
 		
-				it('logout_BO', function(done){
+				it('Logout BO', function(done){
 			this.client
 				.signoutBO()
 				.call(done);

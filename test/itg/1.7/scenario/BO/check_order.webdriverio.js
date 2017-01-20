@@ -12,13 +12,13 @@ describe('check the order in BO', function(){
 	});
 	after(common.after);
 	
-	it('loggin BO', function(done){
+	it('Loggin BO', function(done){
 		this.client
 			.signinBO()
 			.call(done);
 	});
 	
-	it('go_to_order', function(done){
+	it('Go to order', function(done){
 		this.client
 			.waitForExist(this.selector.menu, 90000)
 			.click(this.selector.orders)
@@ -27,7 +27,7 @@ describe('check the order in BO', function(){
 			.call(done);
 	});
 	
-	it('check_order', function(done){
+	it('Check order', function(done){
 			var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
 			this.client
 
@@ -60,7 +60,7 @@ describe('check the order in BO', function(){
 			.call(done);
 	});
 	
-	it('logout BO', function(done){
+	it('Logout BO', function(done){
 		this.client
 			.signoutBO()
 			.call(done);

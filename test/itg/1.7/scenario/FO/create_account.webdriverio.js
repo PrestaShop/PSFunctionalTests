@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('create_account', function(){
+describe('Create account', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,7 +13,7 @@ describe('create_account', function(){
 
 	after(common.after);
 		
-		it('create customer account FO', function(done){
+		it('Create customer account FO', function(done){
 			this.client
 				.url('http://' + URL)
 				.waitForExist(this.selector.access_loginFO, 90000)
@@ -31,7 +31,7 @@ describe('create_account', function(){
 				.call(done);
 		});
 		
-		it('logout FO ...', function(done){
+		it('Logout FO ...', function(done){
 			this.client
 				.signoutFO()
 				.call(done);
@@ -50,7 +50,7 @@ describe('create_account', function(){
 				.call(done);
 		});
 		
-		it('logout FO', function(done){
+		it('Logout FO', function(done){
 			this.client
 				.signoutFO()
 				.call(done);

@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('install_and_uninstall_module', function(){
+describe('Install and uninstall module', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,14 +13,14 @@ describe('install_and_uninstall_module', function(){
 	after(common.after);
 
 	
-		it('loggin BO', function(done){
+		it('Loggin BO', function(done){
 			this.client
 				.signinBO()
 				.call(done);
 		});	
 
 		
-		it('go_to_module', function(done){
+		it('Go to module', function(done){
 			this.client
 				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.modules_menu)
@@ -28,7 +28,7 @@ describe('install_and_uninstall_module', function(){
 				.call(done);
 		});
 		
-		it('install_module', function(done){			
+		it('Install_module', function(done){
 			this.client
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
@@ -39,7 +39,7 @@ describe('install_and_uninstall_module', function(){
 		});
 		
 				
-		it('uninstall_module', function(done){			
+		it('Uninstall_module', function(done){
 			this.client
 				.click(this.selector.modules_installed)
 				.waitForExist(this.selector.modules_page_loaded, 90000)
@@ -55,7 +55,7 @@ describe('install_and_uninstall_module', function(){
 				.call(done);
 		});
 		
-		it('logout_BO', function(done){
+		it('Logout_BO', function(done){
 			this.client
 				.signoutBO()
 				.call(done);

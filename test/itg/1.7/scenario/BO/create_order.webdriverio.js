@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('check the order in BO', function(){
+describe('Check the order in BO', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,13 +13,13 @@ describe('check the order in BO', function(){
 	after(common.after);
 	
 	try{
-		it('loggin BO', function(done){
+		it('Loggin BO', function(done){
 			this.client
 				.signinBO()
 				.call(done);
 		});
 		
-		it('go_to_order', function(done){
+		it('Go to order', function(done){
 			this.client
 				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.orders)
@@ -27,7 +27,7 @@ describe('check the order in BO', function(){
 				.call(done);
 		});
 		
-		it('check_order', function(done){
+		it('Check order', function(done){
 				var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
 				this.client
 				.waitForExist(my_selector, 90000)
@@ -53,7 +53,7 @@ describe('check the order in BO', function(){
 				.call(done);
 		});
 		
-		it('logout BO', function(done){
+		it('Logout BO', function(done){
 			this.client
 				.signoutBO()
 				.call(done);

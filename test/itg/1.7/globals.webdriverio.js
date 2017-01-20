@@ -34,15 +34,19 @@ module.exports = {
         database_server_address:'//*[@id="dbServer"]',
         test_conection:'#btTestDB',
         dbResultCheck:'//*[@id="dbResultCheck"]',
-        create_file_parameter:'//*[@id="process_step_generateSettingsFile"]',
-        create_database:'//*[@id="process_step_installDatabase"]',
-        create_default_shop:'//*[@id="process_step_installDefaultData"]',
-        create_database_table:'//*[@id="process_step_populateDatabase"]',
-        create_shop_informations:'//*[@id="process_step_configureShop"]',
-        create_demonstration_data:'//*[@id="process_step_installFixtures"]',
-        install_module:'//*[@id="process_step_installModules"]',
-        install_addons_modules:'//*[@id="process_step_installModulesAddons"]',
-        install_theme:'//*[@id="process_step_installTheme"]',
+
+        step_success:'[class:"class="process_step success"]',
+
+        create_file_parameter:'//li[@id="process_step_generateSettingsFile" and @class="process_step success"]',
+        create_database:'//li[@id="process_step_installDatabase" and @class="process_step success"]',
+        create_default_shop:'//li[@id="process_step_installDefaultData" and @class="process_step success"]',
+        create_database_table:'//li[@id="process_step_populateDatabase" and @class="process_step success"]',
+        create_shop_informations:'//li[@id="process_step_configureShop" and @class="process_step success"]',
+        create_demonstration_data:'//li[@id="process_step_installFixtures" and @class="process_step success"]',
+        install_module:'//li[@id="process_step_installModules" and @class="process_step success"]',
+        install_addons_modules:'//li[@id="process_step_installModulesAddons" and @class="process_step success"]',
+        install_theme:'//li[@id="process_step_installTheme" and @class="process_step success"]',
+
 
 
 	 //BO
