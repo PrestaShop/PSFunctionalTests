@@ -28,7 +28,7 @@ describe('install_module', function(){
 				.call(done);
 		});
 		
-		it('Install_module', function(done){
+		it('Install module', function(done){
 				this.client
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
@@ -38,7 +38,7 @@ describe('install_module', function(){
 				.call(done);
 		});
 		
-		it('Logout_BO', function(done){
+		it('Logout BO', function(done){
 			this.client
 				.signoutBO()
 				.call(done);

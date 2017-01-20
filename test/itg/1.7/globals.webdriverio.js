@@ -15,7 +15,7 @@ global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 module.exports = {
     selector: {
 	//Installation
-	    langage:'//*[@id="langList"]',
+	    language:'//*[@id="langList"]',
 	    next_step:'//*[@id="btNext"]',
 	    agree_checkbox:'//*[@id="set_license"]',
 	    test_result_compatibility:'//*[@id="sheet_"]/h3',
@@ -37,15 +37,16 @@ module.exports = {
 
         step_success:'[class:"class="process_step success"]',
 
-        create_file_parameter:'//li[@id="process_step_generateSettingsFile" and @class="process_step success"]',
-        create_database:'//li[@id="process_step_installDatabase" and @class="process_step success"]',
-        create_default_shop:'//li[@id="process_step_installDefaultData" and @class="process_step success"]',
-        create_database_table:'//li[@id="process_step_populateDatabase" and @class="process_step success"]',
-        create_shop_informations:'//li[@id="process_step_configureShop" and @class="process_step success"]',
-        create_demonstration_data:'//li[@id="process_step_installFixtures" and @class="process_step success"]',
-        install_module:'//li[@id="process_step_installModules" and @class="process_step success"]',
-        install_addons_modules:'//li[@id="process_step_installModulesAddons" and @class="process_step success"]',
-        install_theme:'//li[@id="process_step_installTheme" and @class="process_step success"]',
+        create_file_parameter_step:'//li[@id="process_step_generateSettingsFile" and @class="process_step success"]',
+        create_database_step:'//li[@id="process_step_installDatabase" and @class="process_step success"]',
+        create_default_shop_step:'//li[@id="process_step_installDefaultData" and @class="process_step success"]',
+        create_database_table_step:'//li[@id="process_step_populateDatabase" and @class="process_step success"]',
+        create_shop_informations_step:'//li[@id="process_step_configureShop" and @class="process_step success"]',
+        create_demonstration_data_step:'//li[@id="process_step_installFixtures" and @class="process_step success"]',
+        install_module_step:'//li[@id="process_step_installModules" and @class="process_step success"]',
+        install_addons_modules_step:'//li[@id="process_step_installModulesAddons" and @class="process_step success"]',
+        install_theme_step:'//li[@id="process_step_installTheme" and @class="process_step success"]',
+        finish_step:'//*[@id="install_process_success"]/div[1]/h2',
 
 
 
@@ -94,7 +95,6 @@ module.exports = {
 		modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
 		modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 		close_sf_toolbar:'//a[@class="hide-button"]',
-		finish:'//*[@id="install_process_success"]/div[1]/h2',
 		closetoolbar:'[class="hide-button"]',
 		
 	//FO

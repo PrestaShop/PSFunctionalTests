@@ -17,8 +17,8 @@ function runScenario() {
         it('choose english language', function(done){
             this.client
             .localhost()
-            .waitForExist(this.selector.langage, 300000)
-            .selectByIndex(this.selector.langage,3)
+            .waitForExist(this.selector.language, 300000)
+            .selectByIndex(this.selector.language,3)
             .waitForExist(this.selector.next_step, 300000)
             .click(this.selector.next_step)
             .call(done);
@@ -87,52 +87,52 @@ function runScenario() {
 	 describe('Step 6 : Store installation', function(){
 		it('Create file parameter', function(done){
 		    this.client
-			.waitForVisible(this.selector.create_file_parameter, 300000)
+			.waitForVisible(this.selector.create_file_parameter_step, 300000)
 			.call(done);
 		});
 		it('Create database', function(done){
 		    this.client
-			.waitForVisible(this.selector.create_database, 9000000)
+			.waitForVisible(this.selector.create_database_step, 9000000)
 			.call(done);
 		});
 		it('Create default shop', function(done){
 		    this.client
-			.waitForVisible(this.selector.create_default_shop, 9000000)
+			.waitForVisible(this.selector.create_default_shop_step, 9000000)
 			.call(done);
 		});
 		it('Create database table', function(done){
 		    this.client
-			.waitForVisible(this.selector.create_database_table, 9000000)
+			.waitForVisible(this.selector.create_database_table_step, 9000000)
 			.call(done);
 		});
 		it('Create shop information', function(done){
 		    this.client
-			.waitForVisible(this.selector.create_shop_informations, 9000000)
+			.waitForVisible(this.selector.create_shop_informations_step, 9000000)
 			.call(done);
 		});
 		it('Create demonstration data', function(done){
 		    this.client
-			.waitForVisible(this.selector.create_demonstration_data, 9000000)
+			.waitForVisible(this.selector.create_demonstration_data_step, 9000000)
 			.call(done);
 		});
 		it('Create install module', function(done){
 		    this.client
-			.waitForVisible(this.selector.install_module, 9000000)
+			.waitForVisible(this.selector.install_module_step, 9000000)
 			.call(done);
 		});
 		it('Create addons modules', function(done){
 		    this.client
-			.waitForVisible(this.selector.install_addons_modules, 9000000)
+			.waitForVisible(this.selector.install_addons_modules_step, 9000000)
 			.call(done);
 		});
 		it('Create install theme', function(done){
 		    this.client
-			.waitForVisible(this.selector.install_theme, 9000000)
+			.waitForVisible(this.selector.install_theme_step, 9000000)
 			.call(done);
 		});
 		it('Finish', function(done){
 		    this.client
-            .waitForVisible(this.selector.finish, 90000000)
+            .waitForVisible(this.selector.finish_step, 90000000)
             .call(done);
 		});
 	 });
