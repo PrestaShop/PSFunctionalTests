@@ -28,7 +28,7 @@ describe('Install and uninstall module', function(){
 				.call(done);
 		});
 		
-		it('Install_module', function(done){
+		it('Install module', function(done){
 			this.client
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
@@ -39,7 +39,7 @@ describe('Install and uninstall module', function(){
 		});
 		
 				
-		it('Uninstall_module', function(done){
+		it('Uninstall module', function(done){
 			this.client
 				.click(this.selector.modules_installed)
 				.waitForExist(this.selector.modules_page_loaded, 90000)
@@ -55,7 +55,7 @@ describe('Install and uninstall module', function(){
 				.call(done);
 		});
 		
-		it('Logout_BO', function(done){
+		it('Logout BO', function(done){
 			this.client
 				.signoutBO()
 				.call(done);
