@@ -55,7 +55,7 @@ module.exports = {
 		password: '#passwd',
 		login_btn: '[name="submitLogin"]',
 		exit_welcome:'/html/body/div[1]/div/div/i',
-		clic:'//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
+		click_outside:'//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
 		profil: '#employee_infos',
 		new_profil: '.employee-dropdown.dropdown > div',
 		logout: '#header_logout',
