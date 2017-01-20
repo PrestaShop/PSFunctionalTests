@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('check_the_order_in_BO', function(){
+describe('The Check of the order in Back Office', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,46 +13,67 @@ describe('check_the_order_in_BO', function(){
 	after(common.after);
 	
 	try{
-		it('loggin_BO', function(done){
-			this.client
-				.signinBO()
-				.call(done);
-		});
+		describe('Log in in Back Office', function(done){
+            it('should log in successfully in BO', function(done){
+                this.client
+                    .signinBO()
+                    .call(done);
+            });
+        });
+
+		describe('Check the order', function(done){
+            it('should go to the orders page', function(done){
+                this.client
+                    .waitForExist(this.selector.menu, 60000)
+                    .click(this.selector.orders)
+                    .waitForExist(this.selector.orders_form, 60000)
+                    .call(done);
+            });
 		
-		it('go_to_order', function(done){
-			this.client
-				.waitForExist(this.selector.menu, 60000)
-				.click(this.selector.orders)
-				.waitForExist(this.selector.orders_form, 60000)
-				.call(done);
+            it('should go to the order', function(done){
+                var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
+                this.client
+                .waitForExist(my_selector, 60000)
+                .click(my_selector)
+                .waitForExist(this.selector.order_product_name, 60000)
+                .call(done);
+            });
+
+            it('should check the product name', function(done){
+                this.client
+                .getText(this.selector.order_product_name).then(function(text) {
+                    var my_order_product_name = text;
+                    should(my_order_product_name).be.equal(my_name);
+                })
+                .call(done);
+            });
+
+            it('should check the product quantity', function(done){
+                this.client
+                .getText(this.selector.order_quantity).then(function(text) {
+                    var my_order_quantity = text;
+                    should(my_order_quantity).be.equal(my_quantity);
+                })
+                .call(done);
+            });
+
+            it('should check the product total price', function(done){
+                this.client
+                .getText(this.selector.order_total).then(function(text) {
+                    var my_order_total = text;
+                    should(my_order_total).be.equal(my_price);
+                })
+                .call(done);
+            });
 		});
-		
-		it('check_order', function(done){
-				var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
-				this.client
-				.waitForExist(my_selector, 60000)
-				.click(my_selector)
-				.waitForExist(this.selector.order_product_name, 60000)
-				.getText(this.selector.order_product_name).then(function(text) {
-					var my_order_product_name = text;
-					should(my_order_product_name).be.equal(my_name);
-				})
-				.getText(this.selector.order_quantity).then(function(text) {
-					var my_order_quantity = text;
-					should(my_order_quantity).be.equal(my_quantity);
-				})
-				.getText(this.selector.order_total).then(function(text) {
-					var my_order_total = text;
-					should(my_order_total).be.equal(my_price);
-				})
-				.call(done);
-		});
-		
-		it('logout_BO', function(done){
-			this.client
-				.signoutBO()
-				.call(done);
-		});
+
+		describe('Log out in Back Office', function(done){
+            it('should log out successfully in BO', function(done){
+                this.client
+                    .signoutBO()
+                    .call(done);
+            });
+        });
 	}catch(e){
 	};
 });
