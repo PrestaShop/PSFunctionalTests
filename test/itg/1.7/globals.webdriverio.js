@@ -15,9 +15,10 @@ global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 module.exports = {
     selector: {
 	//Installation
-	    english:'//*[@id="langList"]',
-	    next:'//*[@id="btNext"]',
+	    langage:'//*[@id="langList"]',
+	    next_step:'//*[@id="btNext"]',
 	    agree_checkbox:'//*[@id="set_license"]',
+	    test_result_compatibility:'//*[@id="sheet_"]/h3',
         shop_name:'//*[@id="infosShop"]',
         country_fo:'//*[@id="infosCountry_chosen"]',
         country_france:'//*[@id="infosCountry_chosen"]/div/ul/li[2]',
@@ -32,7 +33,7 @@ module.exports = {
         database_password:'//*[@id="dbPassword"]',
         database_server_address:'//*[@id="dbServer"]',
         test_conection:'#btTestDB',
-
+        dbResultCheck:'//*[@id="dbResultCheck"]',
         create_file_parameter:'//*[@id="process_step_generateSettingsFile"]',
         create_database:'//*[@id="process_step_installDatabase"]',
         create_default_shop:'//*[@id="process_step_installDefaultData"]',
@@ -56,8 +57,6 @@ module.exports = {
 		products: '#subtab-AdminCatalog',
 		go_to_catalog: '//*[@id="form"]/div[4]/div[2]/div/div[2]/a[2]',
 		more_option:'[class="btn btn-primary dropdown-toggle"]',
-
-
 		new_product: '#page-header-desc-configuration-add',
 		menu: '#nav-sidebar',
 		product_name: '#form_step1_name_1',
@@ -100,7 +99,6 @@ module.exports = {
 		passwordFO: '[name="password"]',
 		login_btnFO: '//footer[@class="form-footer text-xs-center clearfix"]/button[@type="submit" and @class="btn btn-primary"]',
 		logoutFO: '.logout',
-		
 		//create_account: '#email_create',
 		create_account_button: '[data-link-action="display-register-form"]',
 		create_account_firstname: '[name="firstname"]',
@@ -108,8 +106,6 @@ module.exports = {
 		create_account_email: '[name="email"]',
 		create_account_password: '[name="password"]',
 		create_account_info_validate: '[data-link-action="save-customer"]',
-
-
 		logo_home_pageFO: '.logo.img-responsive',
 		first_product_home_page: '.thumbnail.product-thumbnail',
 		add_to_cart: '.btn.btn-primary.add-to-cart',
@@ -126,16 +122,10 @@ module.exports = {
 		//command_product_quantity: '//div[@class="product-line-grid-body col-md-5 col-xs-5"]/div[5]',
 		command_product_name: '(//div[@class="product-line-info"])[1]/a',
 		command_product_price: '(//div[@class="product-line-info"])[2]/span',
-
 		command_button_checkout: '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a',
-
-
 		check_out_step1: '#checkout-personal-information-step',
 		check_out_step2: '#checkout-addresses-step',
         checkout_step2_continue_button:'//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
-
-
-
 		check_out_step3: '#checkout-delivery-step',
 		checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
 		check_out_step4: '#checkout-payment-step',

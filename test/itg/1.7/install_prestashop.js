@@ -10,25 +10,37 @@ describe('install_prestashop', function(){
 	});
 	after(common.after);
 
-	    it('installation', function(done){
+	    it('step1_Choose_your_language', function(done){
 			this.client
 			.localhost()
-			.waitForExist(this.selector.english, 300000)
-			.click(this.selector.english)
-			.selectByIndex(this.selector.english,3)
-			.waitForExist(this.selector.next, 300000)
-			.click(this.selector.next)
+	        .waitForExist(this.selector.langage, 300000)
+			//.click(this.selector.langage)
+			.selectByIndex(this.selector.langage,3)
+			.waitForExist(this.selector.next_step, 300000)
+			.click(this.selector.next_step)
+            .call(done);
+		});
+	    it('step2_License_agreements', function(done){
+			this.client
 			.waitForExist(this.selector.agree_checkbox, 300000)
 			.click(this.selector.agree_checkbox)
-			.waitForExist(this.selector.next, 300000)
-			.click(this.selector.next)
-			.waitForExist(this.selector.next, 300000)
-			.click(this.selector.next)
+			.waitForExist(this.selector.next_step, 300000)
+			.click(this.selector.next_step)
+		    .call(done);
+		});
+		it('step3_System_compatibility', function(done){
+			this.client
+			.waitForExist(this.selector.test_result_compatibility, 300000)
+			.waitForExist(this.selector.next_step, 300000)
+			.click(this.selector.next_step)
+			.call(done);
+		});
+		it('step4_Store_information', function(done){
+			this.client
 			.waitForExist(this.selector.shop_name, 300000)
 			.setValue(this.selector.shop_name, "prestashop_1.7.0.3")
 			.click(this.selector.country_fo)
 			.click(this.selector.country_france)
-
 			.waitForExist(this.selector.first_name, 300000)
 			.setValue(this.selector.first_name, "demo")
 			.waitForExist(this.selector.last_name, 300000)
@@ -39,9 +51,12 @@ describe('install_prestashop', function(){
 			.setValue(this.selector.shop_password, "prestashop_demo")
 			.waitForExist(this.selector.retype_password, 300000)
 			.setValue(this.selector.retype_password, "prestashop_demo")
-			.waitForExist(this.selector.next, 300000)
-			.click(this.selector.next)
-
+			.waitForExist(this.selector.next_step, 300000)
+			.click(this.selector.next_step)
+            .call(done);
+		});
+		it('step5_System_configuration', function(done){
+			this.client
 			.waitForExist(this.selector.database_address, 300000)
 			.setValue(this.selector.database_address, "mysql")
 			.waitForExist(this.selector.database_name, 300000)
@@ -52,9 +67,13 @@ describe('install_prestashop', function(){
 			.setValue(this.selector.database_password, "doge")
 			.waitForExist(this.selector.test_conection, 300000)
 			.click(this.selector.test_conection)
-			.waitForExist(this.selector.next, 300000)
-			.click(this.selector.next)
-
+			.waitForExist(this.selector.dbResultCheck, 300000)
+			.waitForExist(this.selector.next_step, 300000)
+			.click(this.selector.next_step)
+            .call(done);
+		});
+		it('step6_Store_installation', function(done){
+			this.client
 			.waitForVisible(this.selector.create_file_parameter, 300000)
 			.waitForVisible(this.selector.create_database, 9000000)
 			.waitForVisible(this.selector.create_default_shop, 9000000)

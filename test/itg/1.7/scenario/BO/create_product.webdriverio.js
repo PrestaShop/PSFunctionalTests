@@ -84,8 +84,8 @@ describe('create_product', function(){
 				.click(this.selector.product_online)
 			    .waitForExist(this.selector.save_product, 90000)
 			    .click(this.selector.save_product)
-				//.waitForExist(this.selector.close_green_validation, 90000)
-				//.click(this.selector.close_green_validation)
+				.waitForExist(this.selector.close_green_validation, 90000)
+				.click(this.selector.close_green_validation)
 				.call(done);
 		});
 		
