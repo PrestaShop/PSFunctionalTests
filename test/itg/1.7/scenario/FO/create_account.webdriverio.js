@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('Create account', function(){
+describe('The creation of an account in Front Office', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,31 +13,42 @@ describe('Create account', function(){
 
 	after(common.after);
 		
-		it('Create customer account FO', function(done){
+	describe('Create a customer account in FO', function(done){
+		it('should acces to the account creation interface', function(done){
 			this.client
 				.url('http://' + URL)
 				.waitForExist(this.selector.access_loginFO, 90000)
 				.click(this.selector.access_loginFO)
 				.waitForExist(this.selector.create_account_button, 90000)
 				.click(this.selector.create_account_button)
+				.call(done);
+		});
+		it('should fill the form', function(done){
+			this.client
 				.waitForExist(this.selector.create_account_firstname,60000)
 				.setValue(this.selector.create_account_firstname, 'my firstname')
 				.setValue(this.selector.create_account_lastname, 'my lastname')
 				.setValue(this.selector.create_account_email, new_customer_email)
 				.setValue(this.selector.create_account_password, '123456789')
 				.pause(2000)
+			    .call(done);
+		});
+		it('should validate the creation of the account', function(done){
+			this.client
 				.click(this.selector.create_account_info_validate)
 				.waitForExist(this.selector.logo_home_pageFO, 90000)
 				.call(done);
 		});
+	});
 		
-		it('Logout FO ...', function(done){
+	describe('Log out and Log in again', function(done){
+		it('should log out', function(done){
 			this.client
 				.signoutFO()
 				.call(done);
 		});
 		
-		it('... and login again', function(done){
+		it('should log in again', function(done){
 			this.client
 				.url('http://' + URL)
 				.waitForExist(this.selector.access_loginFO, 90000)
@@ -49,11 +60,14 @@ describe('Create account', function(){
 				.waitForExist(this.selector.logo_home_pageFO, 90000)
 				.call(done);
 		});
+	});
 		
-		it('Logout FO', function(done){
+	describe('Log out in Front Office', function(done){
+		it('should logout successfully in FO', function(done){
 			this.client
 				.signoutFO()
 				.call(done);
 		});
+	});
 		
 });

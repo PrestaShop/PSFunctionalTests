@@ -3,7 +3,8 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('install_module', function(){
+
+describe('The Install of a Module', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,14 +14,17 @@ describe('install_module', function(){
 	after(common.after);
 
 	
-		it('Loggin BO', function(done){
+	describe('Log in in Back Office', function(done){
+        it('should log in successfully in BO', function(done){
 			this.client
 				.signinBO()
 				.call(done);
-		});	
+		});
+	});
 
 		
-		it('Go to module', function(done){
+	describe('Install module', function(done){
+        it('sould go to the module', function(done){
 			this.client
 				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.modules_menu)
@@ -28,7 +32,7 @@ describe('install_module', function(){
 				.call(done);
 		});
 		
-		it('Install module', function(done){
+		it('should install the module', function(done){
 				this.client
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
@@ -37,11 +41,14 @@ describe('install_module', function(){
 				.waitForExist(this.selector.green_validation, 90000)
 				.call(done);
 		});
+	});
 		
-		it('Logout BO', function(done){
+	describe('Log out in Back Office', function(done){
+        it('should log out successfully in BO', function(done){
 			this.client
 				.signoutBO()
 				.call(done);
 		});
+	});
 
 });	
