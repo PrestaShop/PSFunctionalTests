@@ -99,32 +99,42 @@ function runScenario() {
 			.waitForExist(this.selector.database_address, 300000)
 			.setValue(this.selector.database_address, "mysql")
 			.click(this.selector.test_conection)
+			.call(done);
 		});
 		it('should enter the database name', function(done){
 		    this.client
 			.waitForExist(this.selector.database_name, 300000)
 			.setValue(this.selector.database_name, "prestashop")
 			.click(this.selector.test_conection)
+			.call(done);
 		});
 		it('should enter the database login', function(done){
             this.client
             .waitForExist(this.selector.database_login, 300000)
 			.setValue(this.selector.database_login, "root")
 			.click(this.selector.test_conection)
+			.call(done);
+		});
 		it('should enter the database password', function(done){
 			this.client
 			.waitForExist(this.selector.database_password, 300000)
 			.setValue(this.selector.database_password, "doge")
 			.click(this.selector.test_conection)
+			.call(done);
+		});
 		it('should retype the database address', function(done){
 			this.client
 			.waitForExist(this.selector.test_conection, 300000)
 			.click(this.selector.test_conection)
 			.click(this.selector.test_conection)
+			.call(done);
+		});
 		it('should validate the connection', function(done){
 			this.client
 			.waitForExist(this.selector.dbResultCheck, 300000)
 			.click(this.selector.test_conection)
+			.call(done);
+			});
 		it('should click on button next step', function(done){
 			this.client
 			.waitForExist(this.selector.next_step, 300000)
