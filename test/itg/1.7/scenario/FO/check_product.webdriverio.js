@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('check_product', function(){
+describe('The Check of the Product in Front Office', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -13,26 +13,41 @@ describe('check_product', function(){
 
 	after(common.after);
 		
-		it('open FO', function(done){
+	describe('Open the shop', function(done){
+		it('should acces to the Front Office', function(done){
 			this.client
 				.url('http://' + URL + '/en/')
 				.call(done);
 		});
+	});
 		
-		it('open_the_product', function(done){
+	describe('Check the product', function(done){
+		it('should search for the product', function(done){
 			this.client
 				.waitForExist(this.selector.search_product, 90000)
 				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
 				.click(this.selector.search_product_button)
+				.call(done);
+		});
+        it('should check the product name', function(done){
+			this.client
 				.waitForExist(this.selector.search_product_result_name, 90000)
 				.getText(this.selector.search_product_result_name).then(function(text) {
 					var my_name = text;
 					should(my_name.toLowerCase()).be.equal('test_nodejs_' + product_id);
 				})
+				.call(done);
+		});
+		it('should check the product price', function(done){
+			this.client
 				.getText(this.selector.search_product_result_price).then(function(text) {
 					var my_price = text;
 					should(my_price).be.equal("€6.00");
 				})
+				.call(done);
+		});
+		it('should check the product details', function(done){
+			this.client
 				.click(this.selector.search_product_result_name)
 				.waitForExist(this.selector.product_name_details, 90000)
 				.getText(this.selector.product_name_details).then(function(text) {
@@ -51,4 +66,5 @@ describe('check_product', function(){
 				.call(done);
 		});
 
+    });
 });

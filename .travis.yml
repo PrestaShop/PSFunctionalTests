@@ -2,6 +2,7 @@ language: php
 
 services:
   - docker
+  - mysql
 
 addons:
     apt:
@@ -31,7 +32,7 @@ before_install:
   - sudo dpkg -i google-chrome*.deb
 
 before_script:
-  - docker run --name=mysql -e MYSQL_ROOT_PASSWORD=doge -tid mysql
+  - docker run --name=mysql -e MYSQL_ROOT_PASSWORD=doge -e MYSQL_DATABASE=prestashop -tid mysql
   - docker run --link mysql -e DB_SERVER=mysql -e DB_PASSWD=doge -e PS_INSTALL_AUTO=1 -e PS_COUNTRY=fr -e PS_DEV_MODE=0 -e PS_FOLDER_INSTALL=install-dev -e PS_FOLDER_ADMIN=admin-dev -e PS_HANDLE_DYNAMIC_DOMAIN=1 -p 80:80 -tid --name=prestashop prestashop/$DOCKER_IMG:$TAG
   - docker exec prestashop rm -f /var/www/html/app/config/parameters.yml
   - npm install selenium-standalone@latest
@@ -47,7 +48,7 @@ before_script:
   - sleep 25
 
 script:
-  - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost --MODULE=$MODULE_TECHNICAL_NAME --SAUCELABS=$SAUCELABS -t 200000
+  - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost --MODULE=$MODULE_TECHNICAL_NAME --SAUCELABS=$SAUCELABS -t 300000
   - curl http://localhost/
 
 after_script:

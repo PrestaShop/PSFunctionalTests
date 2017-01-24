@@ -27,6 +27,14 @@ var options2 = {
 }; 
 
 function initCommands(client) {
+
+    client.addCommand('localhost', function(cb) {
+		this.selector = globals.selector;
+		client
+			.url('http://' + URL )
+			.call(cb);
+    });
+
     client.addCommand('signinBO', function(cb) {
 		this.selector = globals.selector;
 		client
@@ -102,7 +110,7 @@ module.exports = {
             done();
     },
     initMocha: function () {
-        this.timeout(120000);
+        this.timeout(900000000);
         this.slow(45000);
     }
 };
