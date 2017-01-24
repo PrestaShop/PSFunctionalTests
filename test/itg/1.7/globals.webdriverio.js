@@ -95,7 +95,6 @@ module.exports = {
 		modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
 		modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 		close_sf_toolbar:'//a[@class="hide-button"]',
-		closetoolbar:'[class="hide-button"]',
 		
 	//FO
 		access_loginFO:'div.user-info > a',

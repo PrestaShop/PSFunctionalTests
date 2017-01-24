@@ -37,7 +37,7 @@ describe('The Product Creation', function(){
 				.call(done);
 		});
 
-		it('Should choose dev mode', function(done) {
+		it('should choose dev mode', function(done) {
 			if (devMode == true){
 				this.client
 				.waitForExist('//a[@class="hide-button"]', 90000)
@@ -102,13 +102,16 @@ describe('The Product Creation', function(){
 			    .call(done);
 	    });
 	    it('should close toolbar', function(done){
-		    this.client
-				.waitForExist(this.selector.closetoolbar, 90000)
-				.click(this.selector.closetoolbar)
-			    .call(done);
+		   	if (devMode == true){
+				this.client
+				.waitForExist('//a[@class="hide-button"]', 90000)
+				.click('//a[@class="hide-button"]');
+			}
+			this.client.call(done);
 	    });
 	    it('should select product online', function(done){
 	        this.client
+	            .pause(1000)
 				.click(this.selector.product_online)
 			    .call(done);
 		});
