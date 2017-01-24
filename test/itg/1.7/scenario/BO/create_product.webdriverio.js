@@ -151,6 +151,7 @@ describe('The Product Creation', function(){
         });
         it('should select the product name', function(done){
             this.client
+                .pause(1000)
 				.waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 90000)
 				.click('//a[text()="test_nodejs_' + product_id + '"]')
 				.waitForExist(this.selector.product_name, 90000)
