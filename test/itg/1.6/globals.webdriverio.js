@@ -19,7 +19,7 @@ module.exports = {
 	//BO
 		login: '#email',
 		password: '#passwd',
-		login_btn: '#login_form > div.form-group.row-padding-top > button',
+		login_btn: '[name="submitLogin"]',
         profil: '#employee_infos',
 		logout: '#header_logout',
 		products: '#maintab-AdminCatalog > a',
