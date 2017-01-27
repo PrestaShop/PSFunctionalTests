@@ -21,7 +21,6 @@ describe('The Install of a Module and its Uninstall', function(){
         });
     });
 
-
     describe('Install module', function(done){
         it('sould go to the module', function(done){
             this.client

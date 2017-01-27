@@ -47,7 +47,7 @@ function initCommands(client) {
         client
 			.url('http://' + URL)
 			.waitForExist(this.selector.access_loginFO, 90000)
-			.doubleClick(this.selector.access_loginFO)
+			.click(this.selector.access_loginFO)
 			.waitForExist(this.selector.loginFO, 90000)
             .setValue(this.selector.loginFO, 'pub@prestashop.com')
             .setValue(this.selector.passwordFO, '123456789')
@@ -121,7 +121,7 @@ module.exports = {
             client = webdriverio
 					.remote(options)
 					.init()
-					.windowHandleMaximize()			
+					.windowHandleMaximize()
 			}
             initCommands(client);
 
