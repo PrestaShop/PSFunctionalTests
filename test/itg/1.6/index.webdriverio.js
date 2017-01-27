@@ -20,7 +20,6 @@ describe('Allscenario', function(){
 	if (typeof module_tech_name !== 'undefined' && module_tech_name != "None"){
 		require('./scenario/BO/install_and_uninstall_module.js');
 		require('./scenario/BO/install_module.js');
-		require('./scenario/BO/uninstall_module.js');
 	}
 
 	//create a product in BO and check it in FO
