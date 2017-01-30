@@ -84,6 +84,7 @@ module.exports = {
 		first_product_home_page: '.product_img_link',
 		details_first_product_home_page: '.button.lnk_view.btn.btn-default',
 		add_to_cart: '[name="Submit"]',
+		cart_label: '#columns > div.breadcrumb.clearfix',
 		first_product_home_page_name: '.product-name',
 		product_name_details: '[itemprop="name"]',
 		product_price_details: '#our_price_display',

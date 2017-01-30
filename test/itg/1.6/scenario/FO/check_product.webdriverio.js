@@ -18,6 +18,7 @@ describe('The Check of the Product in Front Office', function(){
 		it('should acces to the Front Office', function(done){
 			this.client
 				.url('http://' + URL)
+				.waitForExist(this.selector.logo_home_pageFO, 60000)
 				.call(done);
 		});
 	});
@@ -30,12 +31,12 @@ describe('The Check of the Product in Front Office', function(){
 				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
 				.pause(1000)
 				.click(this.selector.search_product_button)
+				.waitForExist(this.selector.search_product_result_name, 60000)
 				.call(done);
 		});
 
 		it('should check the product name', function(done){
 			this.client
-				.waitForExist(this.selector.search_product_result_name, 60000)
 				.getText(this.selector.search_product_result_name).then(function(text) {
 					var my_name = text;
 					should(my_name[1]).be.equal('test_nodejs_' + product_id);

@@ -15,13 +15,21 @@ describe('The Uninstall of a Module', function(){
 	describe('Log in in Back Office', function(done){
         it('should log in successfully in BO', function(done){
             this.client
-                .signinBO()
+                //.signinBO()
+                .url('http://' + URL + '/admin-dev')
+                .waitForExist(this.selector.login, 120000)
+                .setValue(this.selector.login, 'demo@prestashop.com')
+                .waitForExist(this.selector.password, 120000)
+                .setValue(this.selector.password, 'prestashop_demo')
+                .waitForExist(this.selector.login_btn, 90000)
+                .click(this.selector.login_btn)
+                .waitForExist(this.selector.menu, 60000)
                 .call(done);
         });
     });
 
 	describe('Uninstall module', function(done){
-        it('should go to the module', function(done){
+        it('should go to modules page', function(done){
             this.client
                 .waitForExist(this.selector.menu, 60000)
                 .click(this.selector.modules_menu)
@@ -29,7 +37,7 @@ describe('The Uninstall of a Module', function(){
                 .call(done);
         });
 
-        it('should uninstall_module', function(done){
+        it('should uninstall the module', function(done){
                 this.client
                 /*.isExisting("//*[@class=\"alert alert-danger\"]").then(function(present) {
                     should(present).be.equal(false);
@@ -48,7 +56,8 @@ describe('The Uninstall of a Module', function(){
     describe('Log out in Back Office', function(done){
         it('should log out successfully in BO', function(done){
             this.client
-                .signoutBO()
+                //.signoutBO()
+                .deleteCookie()
                 .call(done);
         });
     });

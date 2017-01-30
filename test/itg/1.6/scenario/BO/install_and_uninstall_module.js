@@ -60,7 +60,7 @@ describe('The Install of a Module and its Uninstall', function(){
                 .call(done);
         });
 
-        it('should uninstall_module', function(done){
+        it('should uninstall the module', function(done){
                 this.client
                 /*.isExisting("//*[@class=\"alert alert-danger\"]").then(function(present) {
                     should(present).be.equal(false);
