@@ -35,7 +35,7 @@ describe('The Check of the order in Back Office', function(){
 			this.client
 			.waitForExist(my_selector, 90000)
 			.click(my_selector)
-            .click(this.selector.close_error)
+            //.click(this.selector.close_error)
             .pause(5000)
             .call(done);
         });

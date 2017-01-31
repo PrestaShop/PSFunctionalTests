@@ -18,7 +18,7 @@ describe('Allscenario', function(){
 	});
 
     //install prestashop
-	require('./install_prestashop.js');
+	//require('./install_prestashop.js');
 
 	//install and uninstall module
 	if (typeof module_tech_name !== 'undefined' && module_tech_name != "None"){
