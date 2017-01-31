@@ -10,7 +10,6 @@ addons:
         - postfix
         - libappindicator1
         - fonts-liberation
-    sauce_connect: true
 
 cache:
   directories:
