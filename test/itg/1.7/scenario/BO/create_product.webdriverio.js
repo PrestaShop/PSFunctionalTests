@@ -5,6 +5,7 @@ var globals = require('../../globals.webdriverio.js');
 var path = require('path');
 var toUpload = path.join(__dirname, '../..', 'datas', 'image_test.jpg');
 var devMode = false;
+var exit_welcome = false;
 
 describe('The Product Creation', function(){
 	common.initMocha.call(this);
@@ -18,15 +19,21 @@ describe('The Product Creation', function(){
 		it('should log in successfully in BO', function(done){
 			this.client
 				.signinBO()
-				//.waitForExist(this.selector.exit_welcome, 90000)
-				//.click(this.selector.exit_welcome)
-				.call(done);
+				.isVisible(this.selector.exit_welcome).then(function(isVisible) {
+					exit_welcome = true;
+				})
+			    .call(done);
 		});
 	});
-
 	 describe('Create new product', function(done){
         it("should click on the <add new product> button", function(done){
+            if (exit_welcome == true){
+				    this.client
+				    .waitForExist(this.selector.exit_welcome, 90000)
+				    .click(this.selector.exit_welcome);
+			}
 			this.client
+			    .pause(5000)
 				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.products)
 				.waitForExist(this.selector.new_product, 90000)
@@ -45,14 +52,24 @@ describe('The Product Creation', function(){
 			}
 			this.client.call(done);
 		});
-	
-		
+
+
 		it('should enter the name of product', function(done){
 			this.client
 				.click(this.selector.new_product)
 				.waitForExist(this.selector.product_name, 90000)
 				.setValue(this.selector.product_name, 'test_nodejs_' + product_id)
 				.call(done);
+		});
+		it('should enter the quantity of product', function(done){
+			this.client
+				.waitForExist(this.selector.quantity_shortcut, 90000)
+				.clearElement(this.selector.quantity_shortcut)
+				.addValue(this.selector.quantity_shortcut, "99")
+				.getValue(this.selector.quantity_shortcut).then(function(text) {
+					var my_quantity = text;
+				})
+			.call(done);
 		});
 		it('should enter the price of product', function(done){
 			this.client
@@ -62,12 +79,6 @@ describe('The Product Creation', function(){
 					})
 				.setValue(this.selector.priceTE_shortcut, "5")
 				.call(done);
-		});
-		it('should enter the quantity of product', function(done){
-			this.client
-				.waitForExist(this.selector.quantity_shortcut, 90000)
-				.addValue(this.selector.quantity_shortcut, "10")
-			.call(done);
 		});
 		it('should upload the picture of product', function(done){
 		    this.client
@@ -125,11 +136,12 @@ describe('The Product Creation', function(){
 	        this.client
 				.waitForExist(this.selector.close_green_validation, 90000)
 				.click(this.selector.close_green_validation)
+				.getValue(this.selector.quantity_shortcut).then(function(text) {
+					var my_quantity = text;
+				})
 				.call(done);
 		});
      });
-		
-
 	 describe('Check the product in the catalog', function(done){
         it('should go to the catalog', function(done){
 			this.client
@@ -211,7 +223,7 @@ describe('The Product Creation', function(){
                 this.client
 				.getValue(this.selector.quantity_shortcut).then(function(text) {
 					var my_quantity = text;
-					should(parseInt(my_quantity)).be.equal(parseInt("10"));
+					should(parseInt(my_quantity)).be.equal(parseInt("99"));
 				})
 				.call(done);
 			});
