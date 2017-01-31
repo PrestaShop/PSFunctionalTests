@@ -65,10 +65,7 @@ describe('The Product Creation', function(){
 			this.client
 				.waitForExist(this.selector.quantity_shortcut, 90000)
 				.clearElement(this.selector.quantity_shortcut)
-				.addValue(this.selector.quantity_shortcut, "99")
-				.getValue(this.selector.quantity_shortcut).then(function(text) {
-					var my_quantity = text;
-				})
+				.addValue(this.selector.quantity_shortcut, "10")
 			.call(done);
 		});
 		it('should enter the price of product', function(done){
@@ -136,9 +133,6 @@ describe('The Product Creation', function(){
 	        this.client
 				.waitForExist(this.selector.close_green_validation, 90000)
 				.click(this.selector.close_green_validation)
-				.getValue(this.selector.quantity_shortcut).then(function(text) {
-					var my_quantity = text;
-				})
 				.call(done);
 		});
      });
@@ -223,7 +217,7 @@ describe('The Product Creation', function(){
                 this.client
 				.getValue(this.selector.quantity_shortcut).then(function(text) {
 					var my_quantity = text;
-					should(parseInt(my_quantity)).be.equal(parseInt("99"));
+					should(parseInt(my_quantity)).be.equal(parseInt("10"));
 				})
 				.call(done);
 			});
