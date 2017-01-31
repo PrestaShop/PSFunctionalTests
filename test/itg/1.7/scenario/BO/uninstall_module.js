@@ -17,6 +17,7 @@ describe('The Uninstall of a Module', function(){
         it('should log in successfully in BO', function(done){
 			this.client
 				.signinBO()
+				.waitForExist(this.selector.menu, 90000)
 				.call(done);
 		});
 	});
@@ -25,7 +26,6 @@ describe('The Uninstall of a Module', function(){
 	describe('Uninstall module', function(done){
         it('should go to the module', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.modules_menu)
 				.waitForExist(this.selector.modules_page_loaded, 90000)
 				.call(done);

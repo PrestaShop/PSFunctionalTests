@@ -22,6 +22,7 @@ describe('The Product Creation', function(){
 				.isVisible(this.selector.exit_welcome).then(function(isVisible) {
 					exit_welcome = true;
 				})
+				.waitForExist(this.selector.menu, 90000)
 			    .call(done);
 		});
 	});
