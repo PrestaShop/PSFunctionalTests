@@ -14,10 +14,15 @@ describe('The creation of an account in Front Office', function(){
 	after(common.after);
 
 	describe('Create a customer account in FO', function(done){
-		it('should acces to the account creation interface', function(done){
+		it('should acces to the Front Office', function(done){
 			this.client
 				.url('http://' + URL)
 				.waitForExist(this.selector.access_loginFO, 60000)
+				.call(done)
+		});
+
+		it('should acces to the account creation interface', function(done){
+			this.client
 				.click(this.selector.access_loginFO)
 				.waitForExist(this.selector.create_account, 60000)
 				.setValue(this.selector.create_account, new_customer_email)
@@ -47,9 +52,9 @@ describe('The creation of an account in Front Office', function(){
 	describe('Log out and Log in again', function(done){
 		it('should log out', function(done){
 			this.client
-				.signoutFO()
-				.url('http://' + URL)
-				.waitForExist(this.selector.access_loginFO, 60000)
+				.waitForExist(this.selector.logoutFO, 90000)
+                .click(this.selector.logoutFO)
+                .waitForExist(this.selector.access_loginFO, 90000)
 				.call(done);
 		});
 

@@ -17,24 +17,37 @@ describe('The Product Creation', function(){
     describe('Log in in Back Office', function(done){
         it('should log in successfully in BO', function(done){
             this.client
-                .signinBO()
+                //.signinBO()
+                .url('http://' + URL + '/admin-dev')
+                .waitForExist(this.selector.login, 120000)
+                .setValue(this.selector.login, 'demo@prestashop.com')
+                .waitForExist(this.selector.password, 120000)
+                .setValue(this.selector.password, 'prestashop_demo')
+                .waitForExist(this.selector.login_btn, 90000)
+                .click(this.selector.login_btn)
+                .waitForExist(this.selector.menu, 60000)
                 .call(done);
         });
     });
 
     describe('Create new product', function(done){
-        it("should click on the <add new product> button", function(done){
+        it("should go to the products page", function(done){
             this.client
-                .waitForExist(this.selector.menu, 120000)
                 .click(this.selector.products)
                 .waitForExist(this.selector.new_product, 120000)
+                .call(done);
+        });
+
+        it("should click on the <add new product> button", function(done){
+            this.client
+                .waitForExist(this.selector.new_product, 120000)
                 .click(this.selector.new_product)
+                .waitForExist(this.selector.product_name, 60000)
                 .call(done);
         });
 
         it('should enter the product name', function(done){
             this.client
-                .waitForExist(this.selector.product_name, 60000)
                 .setValue(this.selector.product_name, 'test_nodejs_' + product_id)
                 .pause(60000)
                 .call(done);
@@ -45,7 +58,7 @@ describe('The Product Creation', function(){
                 .frame(this.selector.summary, function (err, result){
                     if (err) console.log(err);
                     })
-                .setValue("#tinymce", "this the summary")
+                .setValue("#tinymce", "this is the summary")
                 .frameParent()
                 .pause(2000)
                 .call(done);
@@ -59,22 +72,39 @@ describe('The Product Creation', function(){
                 .setValue("#tinymce", "this is the description")
                 .frameParent()
                 .pause(2000)
+                .call(done);
+        });
+
+        it('should save and stay in the poduct page', function(done){
+            this.client
                 .click(this.selector.save_and_stay_product)
                 .waitForExist(this.selector.close_green_validation, 60000)
                 .click(this.selector.close_green_validation)
                 .call(done);
         });
 
-        it('should enter the product price information', function(done){
+        it('should go to the product prices form', function(done){
             this.client
+                .waitForExist(this.selector.product_price, 60000)
                 .click(this.selector.product_price)
                 .waitForExist(this.selector.wholesale_price, 60000)
+                .call(done);
+        });
+
+        it('should enter the product price information', function(done){
+            this.client
                 .click(this.selector.wholesale_price)
                 .pause(2000)
                 .setValue(this.selector.wholesale_price, "2")
                 .click(this.selector.priceTE)
                 .pause(2000)
                 .setValue(this.selector.priceTE, "5")
+                .call(done);
+
+        });
+
+        it('should save and stay in the product page', function(done){
+            this.client
                 .waitForExist(this.selector.save_and_stay_price, 60000)
                 .click(this.selector.save_and_stay_price)
                 .waitForExist(this.selector.close_green_validation, 60000)
@@ -82,19 +112,29 @@ describe('The Product Creation', function(){
                 .call(done);
         });
 
-        it('should enter the product quantity', function(done){
+        it('should go to the product quantity form', function(done){
             this.client
                 .click(this.selector.product_quantity)
                 .waitForExist(this.selector.quantity, 60000)
+                .call(done);
+        });
+
+        it('should enter the product quantity', function(done){
+            this.client
                 .click(this.selector.quantity)
                 .addValue(this.selector.quantity, "1000")
                 .call(done);
         });
 
-        it('should set the product image', function(done){
+        it('should go to the product image settings', function(done){
             this.client
                 .click(this.selector.product_picture)
                 .waitForExist(this.selector.picture, 60000)
+                .call(done);
+        });
+
+        it('should set the product image', function(done){
+            this.client
                 .execute(function() {
                     document.getElementById("file").style="";
                     })
@@ -117,21 +157,27 @@ describe('The Product Creation', function(){
         it('should go to the catalog', function(done){
             this.client
                 .click(this.selector.products)
-                .call(done);
+                .waitForExist(this.selector.catalogue_filter_by_name, 60000)
+                .call(done)
         });
 
         it('should search the product by name', function(done){
             this.client
-                .waitForExist(this.selector.catalogue_filter_by_name, 60000)
                 .setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
                 .click(this.selector.catalogue_submit_filter)
-                .click(this.selector.edit_product)
-                .waitForExist(this.selector.product_name, 60000)
+                .waitForExist(this.selector.edit_product, 60000)
                 .call(done);
         });
     });
 
-    describe('Check the product in Back Office', function(done){
+    describe('Check the product details in Back Office', function(done){
+        it('should acces to the product page', function(done){
+            this.client
+                .click(this.selector.edit_product)
+                .waitForExist(this.selector.product_name, 60000)
+                .call(done);
+        });
+
         it('should check the product name', function(done){
             this.client
                 .getValue(this.selector.product_name).then(function(text) {
@@ -149,7 +195,7 @@ describe('The Product Creation', function(){
                     })
                 .getText("#tinymce").then(function(text) {
                     var my_summary = text;
-                    should(my_summary).be.equal("this the summary");
+                    should(my_summary).be.equal("this is the summary");
                 })
                 .frameParent()
                 .call(done);
@@ -168,10 +214,15 @@ describe('The Product Creation', function(){
                 .call(done);
         });
 
-        it('should check the product price', function(done){
+        it('should go to the product prices form', function(done){
             this.client
                 .click(this.selector.product_price)
                 .waitForExist(this.selector.wholesale_price, 60000)
+                .call(done);
+        });
+
+        it('should check the product price', function(done){
+            this.client
                 .getValue(this.selector.wholesale_price).then(function(text) {
                     var my_wholesale_price = text;
                     should(parseInt(my_wholesale_price)).be.equal(parseInt("2"));
@@ -183,10 +234,15 @@ describe('The Product Creation', function(){
                 .call(done);
             });
 
-        it('should check the product quantity', function(done){
+        it('should go to the product quantity form', function(done){
             this.client
                 .click(this.selector.product_quantity)
                 .waitForExist(this.selector.quantity, 60000)
+                .call(done);
+        });
+
+        it('should check the product quantity', function(done){
+            this.client
                 .getValue(this.selector.quantity).then(function(text) {
                     var my_quantity = text;
                     should(parseInt(my_quantity)).be.equal(parseInt("1000"))
@@ -194,10 +250,15 @@ describe('The Product Creation', function(){
                 .call(done);
         });
 
-        it('should check the product image', function(done){
+        it('should go to the product image settings', function(done){
             this.client
                 .click(this.selector.product_picture)
                 .waitForExist(this.selector.upload_file_button, 60000)
+                .call(done);
+        });
+
+        it('should check the product image', function(done){
+            this.client
                 .getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
                     var my_src_temp = text[0];
                     var my_src_temp2 = my_src_temp.split("/img");
@@ -211,7 +272,8 @@ describe('The Product Creation', function(){
     describe('Log out in Back Office', function(done){
         it('should log out successfully in BO', function(done){
             this.client
-                .signoutBO()
+                //.signoutBO()
+                .deleteCookie()
                 .call(done);
         });
     });

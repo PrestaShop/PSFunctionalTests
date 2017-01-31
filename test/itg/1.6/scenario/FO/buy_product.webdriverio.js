@@ -21,10 +21,15 @@ describe('The Purchase of a product', function(){
 		});*/
 
 	describe('Add product to cart', function(done){
-		it('should go to the product details', function(done){
-			this.client
+		it('should access to the Front Office', function(done){
+		    this.client
 			    .url('http://' + URL)
                 .waitForExist(this.selector.logo_home_pageFO, 60000)
+                .call(done);
+		});
+
+		it('should go to the product details page', function(done){
+			this.client
 				.click(this.selector.logo_home_pageFO)
 				.waitForExist(this.selector.first_product_home_page, 60000)
 				.getText(this.selector.first_product_home_page_name).then(function(text) {
@@ -69,6 +74,7 @@ describe('The Purchase of a product', function(){
 		it('should checkout', function(done){
 			this.client
 				.click(this.selector.layer_cart_command_button)
+				.waitForExist(this.selector.cart_label,60000)
 				.call(done);
 		});
     });
