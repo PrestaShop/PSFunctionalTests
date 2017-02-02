@@ -41,5 +41,5 @@ describe('Allscenario', function(){
 	if (typeof module_tech_name !== 'undefined' && module_tech_name != "None"){
 		require('./scenario/BO/uninstall_module.js');
 	}
-	
+
 });

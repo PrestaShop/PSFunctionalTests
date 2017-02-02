@@ -31,7 +31,7 @@ function initCommands(client) {
     client.addCommand('localhost', function(cb) {
 		this.selector = globals.selector;
 		client
-			.url('http://' + URL )
+			.url('http://' + URL + 'admin-dev')
 			.call(cb);
     });
 
@@ -43,6 +43,7 @@ function initCommands(client) {
             .setValue(this.selector.login, 'demo@prestashop.com')
             .setValue(this.selector.password, 'prestashop_demo')
             .click(this.selector.login_btn)
+            .waitForExist(this.selector.menu, 90000)
 			.call(cb);
     });
 	
