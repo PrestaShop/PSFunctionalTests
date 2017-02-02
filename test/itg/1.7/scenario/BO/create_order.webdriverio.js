@@ -17,13 +17,13 @@ describe('Check the order in BO', function(){
 		    it('should log in successfully in BO', function(done){
 			    this.client
 				.signinBO()
+				.waitForExist(this.selector.menu, 90000)
 				.call(done);
 			});
 		});
 		describe('Create order', function(done){
 		    it('should go to order', function(done){
 			    this.client
-				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.orders)
 				.waitForExist(this.selector.orders_form, 90000)
 				.call(done);

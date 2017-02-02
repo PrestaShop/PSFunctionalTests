@@ -16,6 +16,7 @@ describe('The Check of the order in Back Office', function(){
         it('should log in successfully in BO', function(done){
 		    this.client
 			.signinBO()
+			.waitForExist(this.selector.menu, 90000)
 			.call(done);
 		});
 	});
@@ -23,7 +24,6 @@ describe('The Check of the order in Back Office', function(){
 	describe('Check the order', function(done){
         it('should go to the orders page', function(done){
 		    this.client
-			.waitForExist(this.selector.menu, 90000)
 			.click(this.selector.orders)
 			.waitForExist(this.selector.orders_form, 90000)
 			.call(done);

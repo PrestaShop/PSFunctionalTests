@@ -18,6 +18,7 @@ describe('The Install of a Module', function(){
         it('should log in successfully in BO', function(done){
 			this.client
 				.signinBO()
+				.waitForExist(this.selector.menu, 90000)
 				.call(done);
 		});
 	});
@@ -26,7 +27,6 @@ describe('The Install of a Module', function(){
 	describe('Install module', function(done){
         it('sould go to the module', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.modules_menu)
 				.waitForExist(this.selector.modules_page_loaded, 90000)
 				.call(done);
@@ -37,7 +37,7 @@ describe('The Install of a Module', function(){
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
-				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
+				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
 				.waitForExist(this.selector.green_validation, 90000)
 				.call(done);
 		});

@@ -34,9 +34,7 @@ module.exports = {
         database_server_address:'//*[@id="dbServer"]',
         test_conection:'#btTestDB',
         dbResultCheck:'//*[@id="dbResultCheck"]',
-
         step_success:'[class:"class="process_step success"]',
-
         create_file_parameter_step:'//li[@id="process_step_generateSettingsFile" and @class="process_step success"]',
         create_database_step:'//li[@id="process_step_installDatabase" and @class="process_step success"]',
         create_default_shop_step:'//li[@id="process_step_installDefaultData" and @class="process_step success"]',
@@ -54,7 +52,7 @@ module.exports = {
 		login: '#email',
 		password: '#passwd',
 		login_btn: '[name="submitLogin"]',
-		exit_welcome:'/html/body/div[1]/div/div/i',
+		exit_welcome:'[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
 		click_outside:'//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
 		profil: '#employee_infos',
 		new_profil: '.employee-dropdown.dropdown > div',
@@ -95,7 +93,7 @@ module.exports = {
 		modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
 		modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 		close_sf_toolbar:'//a[@class="hide-button"]',
-		
+
 	//FO
 		access_loginFO:'div.user-info > a',
 		loginFO: '[name="email"]',

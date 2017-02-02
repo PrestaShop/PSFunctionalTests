@@ -17,6 +17,7 @@ describe('The Uninstall of a Module', function(){
         it('should log in successfully in BO', function(done){
 			this.client
 				.signinBO()
+				.waitForExist(this.selector.menu, 90000)
 				.call(done);
 		});
 	});
@@ -25,7 +26,6 @@ describe('The Uninstall of a Module', function(){
 	describe('Uninstall module', function(done){
         it('should go to the module', function(done){
 			this.client
-				.waitForExist(this.selector.menu, 90000)
 				.click(this.selector.modules_menu)
 				.waitForExist(this.selector.modules_page_loaded, 90000)
 				.call(done);
@@ -39,8 +39,8 @@ describe('The Uninstall of a Module', function(){
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
 				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]')
-				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]', 90000)
-				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]')
+				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@class="dropdown-item module_action_menu_uninstall"]', 90000)
+				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@class="dropdown-item module_action_menu_uninstall"]')
 				.waitForExist('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]', 30000)
 				.click('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]')
 				.waitForExist(this.selector.green_validation, 90000)
