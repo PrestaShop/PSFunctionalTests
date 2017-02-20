@@ -7,16 +7,17 @@ var options = {
     logLevel: 'silent',
     waitForTimeout: 30000,
     desiredCapabilities: {
-        browserName: 'chrome',
+        browserName: 'firefox',
+        firefox_binary: '/usr/local/bin/firefox'
 	},
 	port: 4444
-}; 
+};
 
 var options2 = {
     logLevel: 'silent',
     waitForTimeout: 30000,
     desiredCapabilities: {
-        browserName: 'chrome',
+        browserName: 'firefox',
 		'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
 		username: process.env.SAUCE_USERNAME,
 		access_key: process.env.SAUCE_ACCESS_KEY,
@@ -24,7 +25,7 @@ var options2 = {
 		platform: "Windows 7",
 	},
 	port: 4445
-}; 
+};
 
 function initCommands(client) {
 
@@ -46,7 +47,7 @@ function initCommands(client) {
             .waitForExist(this.selector.menu, 90000)
 			.call(cb);
     });
-	
+
 	client.addCommand('signinFO', function(cb) {
 		this.selector = globals.selector;
         client
@@ -66,14 +67,14 @@ function initCommands(client) {
 			.deleteCookie()
 			.call(cb);
 	});
-	
+
 	client.addCommand('signoutBO2', function(cb) {
 		this.selector = globals.selector;
 		client
 			.deleteCookie()
 			.call(cb);
 	});
-	
+
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
@@ -83,8 +84,8 @@ function initCommands(client) {
 			.deleteCookie()
 			.call(cb);
 	});
-	
-		
+
+
 }
 module.exports = {
     getClient: function () {
@@ -95,12 +96,12 @@ module.exports = {
 				client = webdriverio
 					.remote(options2)
 					.init()
-					.windowHandleMaximize()			
+					.windowHandleMaximize()
 			}else{
             client = webdriverio
 					.remote(options)
 					.init()
-					.windowHandleMaximize()			
+					.windowHandleMaximize()
 			}
             initCommands(client);
 
