@@ -7,6 +7,9 @@ cache:
   directories:
     - $HOME/.npm
 
+addons:
+  firefox: "latest"
+
 sudo: required
 dist: trusty
 group: edge
@@ -17,9 +20,6 @@ env:
 
 matrix:
   fast_finish: true
-
-before_install:
-  - wget https://ftp.mozilla.org/pub/firefox/releases/49.0/linux-x86_64/en-US/firefox-49.0.tar.bz2 && tar xjf firefox-49.0.tar.bz2 && mv firefox /opt/firefox49 && sudo  ln -s /opt/firefox49/firefox /usr/bin/firefox
 
 before_script:
   - docker run --name=mysql -e MYSQL_ROOT_PASSWORD=doge -e MYSQL_DATABASE=prestashop -tid mysql
