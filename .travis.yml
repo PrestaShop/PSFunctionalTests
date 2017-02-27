@@ -3,13 +3,6 @@ language: php
 services:
   - docker
 
-addons:
-   apt:
-     packages:
-       - postfix
-       - libappindicator1
-       - fonts-liberation
-
 cache:
   directories:
     - $HOME/.npm
