@@ -17,8 +17,10 @@ env:
 matrix:
   fast_finish: true
 
-before_script:
+before_install:
   - wget https://ftp.mozilla.org/pub/firefox/releases/49.0/linux-x86_64/en-US/firefox-49.0.tar.bz2 && tar xjf firefox-49.0.tar.bz2 && mv firefox /opt/firefox49 && sudo  ln -s /opt/firefox49/firefox /usr/bin/firefox
+
+before_script:
   - docker run --name=mysql -e MYSQL_ROOT_PASSWORD=doge -e MYSQL_DATABASE=prestashop -tid mysql
   - docker run --link mysql -e DB_SERVER=mysql -e DB_PASSWD=doge -e PS_INSTALL_AUTO=1 -e PS_COUNTRY=fr -e PS_DEV_MODE=0 -e PS_FOLDER_INSTALL=install-dev -e PS_FOLDER_ADMIN=admin-dev -e PS_HANDLE_DYNAMIC_DOMAIN=1 -p 80:80 -tid --name=prestashop prestashop/$DOCKER_IMG:$TAG
   - docker exec prestashop rm -f /var/www/html/app/config/parameters.yml
