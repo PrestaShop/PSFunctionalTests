@@ -8,7 +8,6 @@ var options = {
     waitForTimeout: 30000,
     desiredCapabilities: {
         browserName: 'firefox',
-        firefox_binary: '/usr/local/bin/firefox'
 	},
 	port: 4444
 };
