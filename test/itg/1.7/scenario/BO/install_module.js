@@ -2,7 +2,7 @@
 var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
-
+var green_validation_is_visible = false;
 
 describe('The Install of a Module', function(){
 	common.initMocha.call(this);
@@ -38,8 +38,21 @@ describe('The Install of a Module', function(){
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
 				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
-				.waitForExist(this.selector.green_validation, 90000)
-				.call(done);
+				.pause(2000)
+				.isVisible(this.selector.red_validation).then(function(isVisible){
+			        global.red_validation_is_visible = isVisible;
+				})
+				.pause(1000)
+                .isVisible(this.selector.green_validation).then(function(isVisible) {
+				    green_validation_is_visible = isVisible;
+				    if (red_validation_is_visible == true){
+				        done(new Error("There is a red popup"));
+				    }else if (green_validation_is_visible == true){
+				        done();
+				    }else{
+				        done();
+				    }
+				 })
 		});
 	});
 		
