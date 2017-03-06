@@ -11,7 +11,7 @@ var options = {
 	},
 	host: 'localhost',
 	port: 4444
-}; 
+};
 
 var options2 = {
     logLevel: 'silent',
@@ -25,7 +25,7 @@ var options2 = {
 		platform: "Windows 7",
 	},
 	port: 4444
-}; 
+};
 
 function initCommands(client) {
 
@@ -41,7 +41,7 @@ function initCommands(client) {
             .click(this.selector.login_btn)
 			.call(cb);
     });
-	
+
 	client.addCommand('signinFO', function(done) {
 		this.selector = globals.selector;
         client
@@ -60,8 +60,8 @@ function initCommands(client) {
 			.deleteCookie()
 		    .call(cb);
 	});
-	
-	
+
+
 	client.addCommand('signoutFO', function(cb) {
 		this.selector = globals.selector;
         client
@@ -70,7 +70,7 @@ function initCommands(client) {
 			.waitForExist(this.selector.access_loginFO, 90000)
 			.call(cb);
 	});
-	
+
 	client.addCommand('click2', function(cb, done){
 		client.click(cb, function(err){
 			if (err){
@@ -85,7 +85,7 @@ function initCommands(client) {
 		});
 		client.call(done);
 	});
-	
+
 	client.addCommand('setValue2', function(element,value, done){
 		client.setValue(element,value, function(err){
 			if (err){
@@ -105,7 +105,7 @@ function initCommands(client) {
 	    var date_time = new Date().getTime();
 	    client.saveScreenshot(__dirname + '/screenshots/' + date_time + '_'+n+'.png');
 	});
-	
+
 }
 module.exports = {
     getClient: function () {
@@ -116,7 +116,7 @@ module.exports = {
 				client = webdriverio
 					.remote(options2)
 					.init()
-					.windowHandleMaximize()			
+					.windowHandleMaximize()
 			}else{
             client = webdriverio
 					.remote(options)

@@ -33,7 +33,7 @@ describe('The Install of a Module', function(){
 		});
 		
 		it('should install the module', function(done){
-				this.client
+			this.client
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
