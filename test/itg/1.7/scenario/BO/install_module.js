@@ -45,9 +45,9 @@ describe('The Install of a Module', function(){
 				.pause(1000)
                 .isVisible(this.selector.green_validation).then(function(isVisible) {
 				    green_validation_is_visible = isVisible;
-				    if (red_validation_is_visible == true){
+				    if (red_validation_is_visible){
 				        done(new Error("There is a red popup"));
-				    }else if (green_validation_is_visible == true){
+				    }else if (green_validation_is_visible){
 				        done();
 				    }else{
 				        done();

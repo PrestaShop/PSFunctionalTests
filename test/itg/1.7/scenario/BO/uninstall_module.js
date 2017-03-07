@@ -32,7 +32,7 @@ describe('The Uninstall of a Module', function(){
 		});
 		
 		 it('should uninstall_module', function(done){
-		    if (red_validation_is_visible == true){
+		    if (red_validation_is_visible){
 		        done(new Error("Unavailable module"));
 		    }else {
                 this.client
