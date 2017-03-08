@@ -31,29 +31,36 @@ describe('The Install of a Module', function(){
 				.waitForExist(this.selector.modules_page_loaded, 90000)
 				.call(done);
 		});
-		
-		it('should install the module', function(done){
+
+		it('should click on install button', function(done){
 			this.client
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
 				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
 				.pause(2000)
-				.isVisible(this.selector.red_validation).then(function(isVisible){
+				.isVisible(this.selector.red_validation).then(function(isVisible) {
 			        global.red_validation_is_visible = isVisible;
 				})
 				.pause(1000)
                 .isVisible(this.selector.green_validation).then(function(isVisible) {
 				    green_validation_is_visible = isVisible;
-				    if (red_validation_is_visible){
-				        done(new Error("There is a red popup"));
-				    }else if (green_validation_is_visible){
-				        done();
-				    }else{
-				        done();
-				    }
-				 })
+				})
+				.call(done);
 		});
+
+		it('should check the installation',function(done){
+            if (red_validation_is_visible){
+                this.client
+            	    .getText('//*[@id="growls"]/div/div[3]').then(function(text) {
+                        done(new Error(text));
+                    })
+            }else if (green_validation_is_visible){
+                done();
+            }else{
+                done();
+            }
+	    });
 	});
 		
 	describe('Log out in Back Office', function(done){
