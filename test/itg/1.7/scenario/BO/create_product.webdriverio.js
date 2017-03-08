@@ -28,7 +28,7 @@ describe('The Product Creation', function(){
 	});
 	 describe('Create new product', function(done){
         it("should click on the <add new product> button", function(done){
-            if (exit_welcome == true){
+            if (exit_welcome){
 				    this.client
 				    .waitForExist(this.selector.exit_welcome, 90000)
 				    .click(this.selector.exit_welcome);
@@ -46,7 +46,7 @@ describe('The Product Creation', function(){
 		});
 
 		it('should choose dev mode', function(done) {
-			if (devMode == true){
+			if (devMode){
 				this.client
 				.waitForExist('//a[@class="hide-button"]', 90000)
 				.click('//a[@class="hide-button"]');
@@ -111,7 +111,7 @@ describe('The Product Creation', function(){
 			    .call(done);
 	    });
 	    it('should close toolbar', function(done){
-		   	if (devMode == true){
+		   	if (devMode){
 				this.client
 				.waitForExist('//a[@class="hide-button"]', 90000)
 				.click('//a[@class="hide-button"]');
