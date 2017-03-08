@@ -60,27 +60,38 @@ describe('The Install of a Module', function(){
 				.call(done);
 		});
 
-		it('should check the installation',function(done){
-		    if (install_anyway_is_visible == true){
-		        this.client.click('//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]');
-			}
-
-			this.client
-				.pause(2000)
+        it('should click on "proceed install anyway" button if popup appears',function(done){
+		        if (install_anyway_is_visible)
+                {
+                    this.client.click('//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]');
+                }
+                this.client
+                .pause(2000)
                 .isVisible('//div[@class="alert alert-danger"]').then(function(isVisible) {
                     global.red_validation_is_visible = isVisible;
                 })
-                .pause(1000)
-                .isVisible('//div[@class="alert alert-success"]').then(function(isVisible) {
-                    green_validation_is_visible = isVisible;
-                    if (red_validation_is_visible == true){
-                        done(new Error("There is a red popup"));
-                    }else if (green_validation_is_visible == true){
-                        done();
-                    }else{
-                        done();
-                    }
-                })
+                .call(done);
+        });
+
+		it('should check the installation',function(done){
+		    if (red_validation_is_visible){
+                this.client
+                    .getText('//*[@id="content"]/div[3]/div').then(function(text) {
+                        done(new Error(text));
+                    })
+             }else{
+                this.client
+                    .pause(1000)
+                    .isVisible('//div[@class="alert alert-success"]').then(function(isVisible) {
+                        green_validation_is_visible = isVisible;
+                        if (green_validation_is_visible){
+                            done();
+                        }else{
+                            done();
+                        }
+                    })
+            }
+
         });
     });
 
