@@ -21,7 +21,7 @@ describe('The Install of a Module and its Uninstall', function(){
 			this.client
 				.signinBO()
 				.isVisible(this.selector.exit_welcome).then(function(isVisible) {
-					exit_welcome = true;
+					exit_welcome = isVisible;
 				})
 				.waitForExist(this.selector.menu, 90000)
 				.call(done);
@@ -31,7 +31,7 @@ describe('The Install of a Module and its Uninstall', function(){
 	describe('Install module', function(done){
         it('sould go to the module', function(done){
             if (exit_welcome){
-				    this.client
+		        this.client
 				    .waitForExist(this.selector.exit_welcome, 90000)
 				    .click(this.selector.exit_welcome);
 			}
