@@ -20,7 +20,7 @@ describe('The Product Creation', function(){
 			this.client
 				.signinBO()
 				.isVisible(this.selector.exit_welcome).then(function(isVisible) {
-					exit_welcome = true;
+					exit_welcome = isVisible;
 				})
 				.waitForExist(this.selector.menu, 90000)
 			    .call(done);
@@ -29,7 +29,7 @@ describe('The Product Creation', function(){
 	 describe('Create new product', function(done){
         it("should click on the <add new product> button", function(done){
             if (exit_welcome){
-				    this.client
+		        this.client
 				    .waitForExist(this.selector.exit_welcome, 90000)
 				    .click(this.selector.exit_welcome);
 			}
