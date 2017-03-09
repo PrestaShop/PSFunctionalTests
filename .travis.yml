@@ -21,7 +21,7 @@ group: edge
 
 env:
     - PS_VERSION=1.6 DOCKER_IMG=prestashop TAG=1.6 MODULE_TECHNICAL_NAME=None SAUCELABS=None
-    - PS_VERSION=1.7 DOCKER_IMG=prestashop TAG=1.7 MODULE_TECHNICAL_NAME=etranslation SAUCELABS=None
+    - PS_VERSION=1.7 DOCKER_IMG=prestashop TAG=1.7 MODULE_TECHNICAL_NAME=None SAUCELABS=None
 
 matrix:
   fast_finish: true
