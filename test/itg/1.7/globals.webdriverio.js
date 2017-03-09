@@ -65,9 +65,9 @@ module.exports = {
 		product_name: '#form_step1_name_1',
 		save_product: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
 		catalog_list: '#product_catalog_list',
-		green_validation: '.growl.growl-notice.growl-medium',
+		green_validation: '#main-div > div.content-div > div > div > div.flash-message-list.alert.alert-success > ul > li',
 		close_green_validation: '.growl-close',
-		red_validation:'.growl.growl-error.growl-medium',
+		red_validation:'#main-div > div.content-div > div > div > div.flash-message-list.alert.alert-danger > ul > li',
 		summary_button: '[href="#description_short"]',
 		summary: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
 		description_button: '[href="#description"]',

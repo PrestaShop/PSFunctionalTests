@@ -5,6 +5,7 @@ var globals = require('../../globals.webdriverio.js');
 var exit_welcome = false;
 var green_validation_is_visible = false;
 var red_validation_is_visible = false;
+var modal_confirm_uninstall_is_visible = false;
 
 
 describe('The Install of a Module and its Uninstall', function(){
@@ -63,7 +64,7 @@ describe('The Install of a Module and its Uninstall', function(){
             if (red_validation_is_visible)
             {
                 this.client
-            	    .getText('//*[@id="growls"]/div/div[3]').then(function(text) {
+            	    .getText(this.selector.red_validation).then(function(text) {
                         done(new Error(text));
                     })
             }
@@ -88,7 +89,7 @@ describe('The Install of a Module and its Uninstall', function(){
 				.call(done);
 		});
 
-		it('should uninstall_module', function(done){
+		it('should click on uninstall button', function(done){
 		    if (red_validation_is_visible){
 		        done(new Error("Unavailable module"));
 		    }else{
@@ -97,13 +98,26 @@ describe('The Install of a Module and its Uninstall', function(){
                     .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]')
                     .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]', 90000)
                     .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]')
-                    .waitForExist('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]', 30000)
-                    .click('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]')
-                    .waitForExist(this.selector.green_validation, 90000)
+                    .isVisible('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]').then(function(isVisible) {
+				    	modal_confirm_uninstall_is_visible = isVisible;
+				    })
                     .call(done);
 		    }
+		});
 
+		it('should check the uninstall', function(done){
+		    if(red_validation_is_visible){
+		        done(new Error("Unavailable module"));
+		    }else{
+		        if (modal_confirm_uninstall_is_visible){
+		            this.client
+				        .click('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]');
+			    }
 
+		        this.client
+                    .waitForExist(this.selector.green_validation, 90000)
+                    .call(done);
+            }
 		});
 	})
 		

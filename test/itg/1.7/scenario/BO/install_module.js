@@ -52,7 +52,7 @@ describe('The Install of a Module', function(){
 		it('should check the installation',function(done){
             if (red_validation_is_visible){
                 this.client
-            	    .getText('//*[@id="growls"]/div/div[3]').then(function(text) {
+            	    .getText(this.selector.red_validation).then(function(text) {
                         done(new Error(text));
                     })
             }else if (green_validation_is_visible){
