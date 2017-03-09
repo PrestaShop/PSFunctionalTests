@@ -37,7 +37,7 @@ describe('The Install of a Module', function(){
 				.setValue(this.selector.modules_search, module_tech_name)
 				.click(this.selector.modules_search_button)
 				.waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
-				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//a[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
+				.click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
 				.pause(2000)
 				.isVisible(this.selector.red_validation).then(function(isVisible) {
 			        global.red_validation_is_visible = isVisible;
@@ -52,7 +52,7 @@ describe('The Install of a Module', function(){
 		it('should check the installation',function(done){
             if (red_validation_is_visible){
                 this.client
-            	    .getText('//*[@id="growls"]/div/div[3]').then(function(text) {
+            	    .getText(this.selector.red_validation).then(function(text) {
                         done(new Error(text));
                     })
             }else if (green_validation_is_visible){
