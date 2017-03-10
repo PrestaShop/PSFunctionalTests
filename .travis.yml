@@ -53,7 +53,7 @@ script:
 after_script:
   - docker logs prestashop
   - pwd
-  - ll
+  - cd ../../..
   - chmod 777 bin/upload.sh
   - ./bin/upload.sh
   - google-chrome --version
