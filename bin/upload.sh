@@ -1,7 +1,10 @@
 #!/bin/sh
 
-FIXED_BRANCH=$(echo $BRANCH | sed 's/\//-/g')
-ARCHIVE=$REPO_NAME-$FIXED_BRANCH-$(date +%Y-%m-%d_%H_%M_%S)-$COMMIT.tar.bz2
+FIXED_BRANCH=$(echo $TRAVIS_BRANCH | sed 's/\//-/g')
+echo $FIXED_BRANCH
+echo $TRAVIS_PULL_REQUEST_SLUG
+echo $TRAVIS_COMMIT
+ARCHIVE=$TRAVIS_PULL_REQUEST_SLUG-$FIXED_BRANCH-$(date +%Y-%m-%d_%H_%M_%S)-$TRAVIS_COMMIT.tar.bz2
 echo "Creating archive $ARCHIVE"
 tar cfj $ARCHIVE dist
 FILESIZE=$(stat -c%s "$ARCHIVE")
