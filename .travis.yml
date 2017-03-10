@@ -52,7 +52,9 @@ script:
 
 after_script:
   - docker logs prestashop
-  - chmod 777 $TRAVIS_BUILD_DIR/bin/upload.sh
+  - pwd
+  - ll
+  - chmod 777 bin/upload.sh
   - ./bin/upload.sh
   - google-chrome --version
 
