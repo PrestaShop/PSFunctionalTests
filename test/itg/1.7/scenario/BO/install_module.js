@@ -52,6 +52,7 @@ describe('The Install of a Module', function(){
 		it('should check the installation',function(done){
             if (red_validation_is_visible){
                 this.client
+                    .saveScreenshot(__dirname + '/../../screenshots/googleScreenshot.png')
             	    .getText(this.selector.red_validation).then(function(text) {
                         done(new Error(text));
                     })
