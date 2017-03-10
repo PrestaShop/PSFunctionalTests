@@ -3,7 +3,7 @@
 FIXED_BRANCH=$(echo $TRAVIS_BRANCH | sed 's/\//-/g')
 ARCHIVE=$FIXED_BRANCH-$(date +%Y-%m-%d_%H_%M_%S)-$TRAVIS_COMMIT.tar.bz2
 echo "Creating archive $ARCHIVE"
-tar cfj $ARCHIVE test/itg/1.7/screenshots
+tar -cjf test.tar.bz2 -C test/itg/$PS_VERSION/screenshots .
 FILESIZE=$(stat -c%s "$ARCHIVE")
 echo "Finished archive (size $FILESIZE), starting Google Drive upload"
 ./bin/gdrive-linux-x64 upload --refresh-token $GDRIVE_REFRESH_TOKEN --parent $GDRIVE_DIR "$ARCHIVE"
