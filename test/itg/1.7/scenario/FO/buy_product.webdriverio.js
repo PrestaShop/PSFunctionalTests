@@ -10,24 +10,27 @@ describe('The Purchase of a product', function(){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
-
+    process.on('uncaughtException', common.take_screenshot);
+    process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
-		
+
 		it('Open the shop and loggin FO', function(done){
+		    global.fctname= this.test.title;
 			this.client
-			.url('http://' + URL)
-			.waitForExist(this.selector.access_loginFO, 90000)
-			.click(this.selector.access_loginFO)
-			.waitForExist(this.selector.loginFO, 90000)
-            .setValue(this.selector.loginFO, 'pub@prestashop.com')
-            .setValue(this.selector.passwordFO, '123456789')
-            .click(this.selector.login_btnFO)
-            .call(done);
-			
+                .url('http://' + URL)
+                .waitForExist(this.selector.access_loginFO, 90000)
+                .click(this.selector.access_loginFO)
+                .waitForExist(this.selector.loginFO, 90000)
+                .setValue(this.selector.loginFO, 'pub@prestashop.com')
+                .setValue(this.selector.passwordFO, '123456789')
+                .click(this.selector.login_btnFO)
+                .call(done);
+
 		});
-		
+
 	describe('Add product to cart', function(done){
 		it('should go to the product details', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.click(this.selector.logo_home_pageFO)
 				.waitForExist(this.selector.first_product_home_page, 90000)
@@ -47,7 +50,7 @@ describe('The Purchase of a product', function(){
 					global.my_quantity = text;
 				})
 				.click(this.selector.add_to_cart)
-				.waitForExist(this.selector.layer_cart, 90000)			
+				.waitForExist(this.selector.layer_cart, 90000)
 				.getText(this.selector.layer_cart_name_details).then(function(text) {
 					var my_cart_name_check = text;
 					my_cart_name_check.toLowerCase().should.containEql(my_name.toLowerCase())
@@ -62,16 +65,19 @@ describe('The Purchase of a product', function(){
 				})
 			    .call(done);
 		});
+
 		it('should click add to cart button ', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.click(this.selector.layer_cart_command_button)
 				.call(done);
 		});
 	});
-		
+
 	describe('Validate the cart', function(){
 		it('should validate name of product', function(done){
-			this.client			
+		    global.fctname= this.test.title;
+			this.client
 				.waitForExist(this.selector.command_button_checkout, 90000)
 				.getText(this.selector.command_product_name).then(function(text) {
 					var command_my_name = text;
@@ -79,7 +85,9 @@ describe('The Purchase of a product', function(){
 				})
 				.call(done);
 		});
+
 		it('should validate price of product', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.getText(this.selector.command_product_price).then(function(text) {
 					var command_price_check = text;
@@ -88,11 +96,14 @@ describe('The Purchase of a product', function(){
 				.call(done);
 		});
 		it('should click checkout button', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.click(this.selector.command_button_checkout)
 				.call(done);
 		});
+
         it('should select the address step-2', function(done){
+            global.fctname= this.test.title;
 			this.client
 				.waitForExist(this.selector.checkout_step2_continue_button, 90000)
 				.click(this.selector.checkout_step2_continue_button)
@@ -100,7 +111,9 @@ describe('The Purchase of a product', function(){
 				.click(this.selector.checkout_step3_continue_button)
 				.call(done);
 		});
+
 		it('should select the payment step-3', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.waitForExist(this.selector.checkout_step4_payment, 90000)
 				.getText(this.selector.checkout_total).then(function(text) {
@@ -110,7 +123,9 @@ describe('The Purchase of a product', function(){
 				.click(this.selector.checkout_step4_payment)
 			    .call(done);
 		});
+
 		it('should select the shipping method step-4', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.waitForExist(this.selector.checkout_step4_cgv, 90000)
 				.click(this.selector.checkout_step4_cgv)
@@ -118,7 +133,9 @@ describe('The Purchase of a product', function(){
 				.click(this.selector.checkout_step4_order)
 			    .call(done);
 		});
+
 		it('should confirm the order', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.waitForExist(this.selector.order_confirmation_name, 90000)
 				.getText(this.selector.order_confirmation_name).then(function(text) {
@@ -142,26 +159,28 @@ describe('The Purchase of a product', function(){
 				})
 				.call(done);
 		});
-		
+
 		it('should get the order id', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.url().then(function(res) {
 						var current_url = res.value;
-						var temp1 = current_url.split("id_order=");	
+						var temp1 = current_url.split("id_order=");
 						var temp2 = temp1[1].split("&");
 						global.order_id=temp2[0];
 					})
 				.call(done);
 		});
 	});
-		
+
 	describe('Log out in Front Office', function(done){
 		it('should logout successfully in FO', function(done){
+		    global.fctname= this.test.title;
 			this.client
-			.waitForExist(this.selector.logoutFO, 90000)
-			.click(this.selector.logoutFO)
-			.waitForExist(this.selector.access_loginFO, 90000)
-			.call(done);
+                .waitForExist(this.selector.logoutFO, 90000)
+                .click(this.selector.logoutFO)
+                .waitForExist(this.selector.access_loginFO, 90000)
+                .call(done);
 		
 		});
 	});

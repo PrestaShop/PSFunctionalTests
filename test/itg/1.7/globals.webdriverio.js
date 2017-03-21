@@ -3,8 +3,8 @@ var common = require('./common.webdriverio');
 var path = require('path');
 var should = require('should');
 var argv = require('minimist')(process.argv.slice(2));
-var date_time = new Date().getTime();
 
+global.date_time = new Date().getTime();
 global.URL = argv.URL;
 global.module_tech_name = argv.MODULE;
 global.saucelabs = argv.SAUCELABS;
@@ -65,7 +65,7 @@ module.exports = {
 		product_name: '#form_step1_name_1',
 		save_product: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
 		catalog_list: '#product_catalog_list',
-		green_validation: '#main-div > div.content-div > div > div > div.flash-message-list.alert.alert-success > ul > li',
+		green_validation: '#main-div > div.content-div > div.row > div > div.flash-message-list.alert.alert-success > ul > li',
 		close_green_validation: '.growl-close',
 		red_validation:'#main-div > div.content-div > div > div > div.flash-message-list.alert.alert-danger > ul > li',
 		summary_button: '[href="#description_short"]',
