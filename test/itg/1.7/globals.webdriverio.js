@@ -103,7 +103,7 @@ module.exports = {
 		logoutFO: '.logout',
 		//create_account: '#email_create',
 		create_account_button: '[data-link-action="display-register-form"]',
-		create_account_firstname: '[name="firstnameerror"]',
+		create_account_firstname: '[name="firstname"]',
 		create_account_lastname: '[name="lastname"]',
 		create_account_email: '[name="email"]',
 		create_account_password: '[name="password"]',
