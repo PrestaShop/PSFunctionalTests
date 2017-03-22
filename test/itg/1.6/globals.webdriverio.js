@@ -16,7 +16,7 @@ global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 module.exports = {
     selector: {
 	//BO
-		login: '#emailhhh',
+		login: '#email',
 		password: '#passwd',
 		login_btn: '#login_form > div.form-group.row-padding-top > button',
         profil: '#employee_infos',
