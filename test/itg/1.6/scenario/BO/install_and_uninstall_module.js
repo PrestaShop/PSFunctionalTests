@@ -13,11 +13,14 @@ describe('The Install of a Module and its Uninstall', function(){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
+	process.on('uncaughtException', common.take_screenshot);
+	process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
 
-	
+
     describe('Log in in Back Office', function(done){
         it('should log in successfully in BO', function(done){
+            global.fctname= this.test.title;
             this.client
                 //.signinBO()
                 .url('http://' + URL + '/admin-dev')
@@ -34,6 +37,7 @@ describe('The Install of a Module and its Uninstall', function(){
 
     describe('Install module', function(done){
         it('sould go to modules page', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.modules_menu)
                 .waitForExist(this.selector.modules_search, 60000)
@@ -41,6 +45,7 @@ describe('The Install of a Module and its Uninstall', function(){
         });
 
         it('should search for the module', function(done){
+            global.fctname= this.test.title;
             this.client
                 /*.isExisting("//*[@class=\"alert alert-danger\"]").then(function(present) {
                     should(present).be.equal(false);
@@ -51,38 +56,41 @@ describe('The Install of a Module and its Uninstall', function(){
         });
 
         it('should click on install button',function(done){
+            global.fctname= this.test.title;
             this.client
                 .click('//i[@class="icon-plus-sign-alt" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]')
                 .pause(2000)
-				.isVisible('//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]').then(function(isVisible){
+				.isVisible(this.selector.proceed_installation_anyway_button).then(function(isVisible){
                     install_anyway_popup_is_visible = isVisible;
 				})
 				.call(done);
 		});
 
         it('should click on "proceed install anyway" button if popup appears',function(done){
-		        if (install_anyway_popup_is_visible)
-                {
-                    this.client.click('//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]');
-                }
-                this.client
+            global.fctname= this.test.title;
+            if (install_anyway_popup_is_visible)
+            {
+                this.client.click(this.selector.proceed_installation_anyway_button);
+            }
+            this.client
                 .pause(2000)
-                .isVisible('//div[@class="alert alert-danger"]').then(function(isVisible) {
+                .isVisible(this.selector.red_validation).then(function(isVisible) {
                     red_validation_is_visible = isVisible;
                 })
                 .call(done);
         });
 
 		it('should check the installation',function(done){
+		    global.fctname= this.test.title;
 		    if (red_validation_is_visible){
                 this.client
-                    .getText('//*[@id="content"]/div[3]/div').then(function(text) {
+                    .getText(this.selector.red_validation).then(function(text) {
                         done(new Error(text));
                     })
              }else{
                 this.client
                     .pause(1000)
-                    .isVisible('//div[@class="alert alert-success"]').then(function(isVisible) {
+                    .isVisible(this.selector.green_validation).then(function(isVisible) {
                         green_validation_is_visible = isVisible;
                         if (green_validation_is_visible){
                             done();
@@ -91,13 +99,13 @@ describe('The Install of a Module and its Uninstall', function(){
                         }
                     })
             }
-
         });
 
     });
 
     describe('Uninstall module', function(done){
         it('should go to modules page', function(done){
+            global.fctname= this.test.title;
             this.client
                 .waitForExist(this.selector.menu, 60000)
                 .click(this.selector.modules_menu)
@@ -106,27 +114,29 @@ describe('The Install of a Module and its Uninstall', function(){
         });
 
         it('should uninstall the module', function(done){
-             if (red_validation_is_visible == true){
-		        done(new Error("Unavailable module"));
-		     }else {
-		        this.client
-                /*.isExisting("//*[@class=\"alert alert-danger\"]").then(function(present) {
-                    should(present).be.equal(false);
-                })*/
-                .setValue(this.selector.modules_search, module_tech_name)
-                .waitForExist('//table[@id="module-list"]/tbody/tr[not(@style)]//span[text()="' + module_tech_name+ '"]', 60000)
-                .click('//button[@class="btn btn-default dropdown-toggle" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]')
-                .waitForExist('//ul[@class="dropdown-menu" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]/li/a[@title="Uninstall"]', 60000)
-                .click('//ul[@class="dropdown-menu" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]/li/a[@title="Uninstall"]')
-                .alertAccept()
-                .waitForExist('//div[@class="alert alert-success"]', 60000)
-                .call(done);
-		     }
+            global.fctname= this.test.title;
+            if (red_validation_is_visible){
+                done(new Error("Unavailable module"));
+            }else {
+                this.client
+                    /*.isExisting("//*[@class=\"alert alert-danger\"]").then(function(present) {
+                        should(present).be.equal(false);
+                    })*/
+                    .setValue(this.selector.modules_search, module_tech_name)
+                    .waitForExist('//table[@id="module-list"]/tbody/tr[not(@style)]//span[text()="' + module_tech_name+ '"]', 60000)
+                    .click('//button[@class="btn btn-default dropdown-toggle" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]')
+                    .waitForExist('//ul[@class="dropdown-menu" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]/li/a[@title="Uninstall"]', 60000)
+                    .click('//ul[@class="dropdown-menu" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]/li/a[@title="Uninstall"]')
+                    .alertAccept()
+                    .waitForExist(this.selector.green_validation, 60000)
+                    .call(done);
+            }
         });
     });
 
     describe('Log out in Back Office', function(done){
         it('should log out successfully in BO', function(done){
+            global.fctname= this.test.title;
             this.client
                // .signoutBO()
                 .deleteCookie()
