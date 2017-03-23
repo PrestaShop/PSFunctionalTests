@@ -48,6 +48,8 @@ before_script:
 
 script:
   - mkdir screenshots
+  - pwd
+  - ls -la
   - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost --MODULE=$MODULE_TECHNICAL_NAME --SAUCELABS=$SAUCELABS -t 300000
   - curl http://localhost/
 
