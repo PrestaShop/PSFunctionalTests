@@ -12,10 +12,13 @@ describe('The Product Creation', function(){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
+	process.on('uncaughtException', common.take_screenshot);
+	process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
-	
+
     describe('Log in in Back Office', function(done){
         it('should log in successfully in BO', function(done){
+            global.fctname= this.test.title;
             this.client
                 //.signinBO()
                 .url('http://' + URL + '/admin-dev')
@@ -32,6 +35,7 @@ describe('The Product Creation', function(){
 
     describe('Create new product', function(done){
         it("should go to the products page", function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.products)
                 .waitForExist(this.selector.new_product, 120000)
@@ -47,6 +51,7 @@ describe('The Product Creation', function(){
         });
 
         it('should enter the product name', function(done){
+            global.fctname= this.test.title;
             this.client
                 .setValue(this.selector.product_name, 'test_nodejs_' + product_id)
                 .pause(60000)
@@ -54,6 +59,7 @@ describe('The Product Creation', function(){
         });
 
         it('should enter the product summary', function(done){
+            global.fctname= this.test.title;
             this.client
                 .frame(this.selector.summary, function (err, result){
                     if (err) console.log(err);
@@ -65,6 +71,7 @@ describe('The Product Creation', function(){
         });
 
         it('should enter the product description', function(done){
+            global.fctname= this.test.title;
             this.client
                 .frame(this.selector.description, function (err, result){
                     if (err) console.log(err);
@@ -76,6 +83,7 @@ describe('The Product Creation', function(){
         });
 
         it('should save and stay in the poduct page', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.save_and_stay_product)
                 .waitForExist(this.selector.close_green_validation, 60000)
@@ -84,6 +92,7 @@ describe('The Product Creation', function(){
         });
 
         it('should go to the product prices form', function(done){
+            global.fctname= this.test.title;
             this.client
                 .waitForExist(this.selector.product_price, 60000)
                 .click(this.selector.product_price)
@@ -92,6 +101,7 @@ describe('The Product Creation', function(){
         });
 
         it('should enter the product price information', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.wholesale_price)
                 .pause(2000)
@@ -104,6 +114,7 @@ describe('The Product Creation', function(){
         });
 
         it('should save and stay in the product page', function(done){
+            global.fctname= this.test.title;
             this.client
                 .waitForExist(this.selector.save_and_stay_price, 60000)
                 .click(this.selector.save_and_stay_price)
@@ -120,6 +131,7 @@ describe('The Product Creation', function(){
         });
 
         it('should enter the product quantity', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.quantity)
                 .addValue(this.selector.quantity, "1000")
@@ -127,6 +139,7 @@ describe('The Product Creation', function(){
         });
 
         it('should go to the product image settings', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.product_picture)
                 .waitForExist(this.selector.picture, 60000)
@@ -134,6 +147,7 @@ describe('The Product Creation', function(){
         });
 
         it('should set the product image', function(done){
+            global.fctname= this.test.title;
             this.client
                 .execute(function() {
                     document.getElementById("file").style="";
@@ -155,6 +169,7 @@ describe('The Product Creation', function(){
 
     describe('Check the product in the catalog', function(done){
         it('should go to the catalog', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.products)
                 .waitForExist(this.selector.catalogue_filter_by_name, 60000)
@@ -172,6 +187,7 @@ describe('The Product Creation', function(){
 
     describe('Check the product details in Back Office', function(done){
         it('should acces to the product page', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.edit_product)
                 .waitForExist(this.selector.product_name, 60000)
@@ -179,6 +195,7 @@ describe('The Product Creation', function(){
         });
 
         it('should check the product name', function(done){
+            global.fctname= this.test.title;
             this.client
                 .getValue(this.selector.product_name).then(function(text) {
                     var my_name = text;
@@ -189,6 +206,7 @@ describe('The Product Creation', function(){
         });
 
         it('should check the product summary', function(done){
+            global.fctname= this.test.title;
             this.client
                 .frame(this.selector.summary, function (err, result){
                     if (err) console.log(err);
@@ -202,6 +220,7 @@ describe('The Product Creation', function(){
         });
 
         it('should check the product description', function(done){
+            global.fctname= this.test.title;
             this.client
                 .frame(this.selector.description, function (err, result){
                     if (err) console.log(err);
@@ -215,6 +234,7 @@ describe('The Product Creation', function(){
         });
 
         it('should go to the product prices form', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.product_price)
                 .waitForExist(this.selector.wholesale_price, 60000)
@@ -222,6 +242,7 @@ describe('The Product Creation', function(){
         });
 
         it('should check the product price', function(done){
+            global.fctname= this.test.title;
             this.client
                 .getValue(this.selector.wholesale_price).then(function(text) {
                     var my_wholesale_price = text;
@@ -242,6 +263,7 @@ describe('The Product Creation', function(){
         });
 
         it('should check the product quantity', function(done){
+            global.fctname= this.test.title;
             this.client
                 .getValue(this.selector.quantity).then(function(text) {
                     var my_quantity = text;
@@ -258,6 +280,7 @@ describe('The Product Creation', function(){
         });
 
         it('should check the product image', function(done){
+            global.fctname= this.test.title;
             this.client
                 .getAttribute('img[title=' + 'test_nodejs_' + product_id + ']', "src").then(function(text) {
                     var my_src_temp = text[0];
@@ -271,6 +294,7 @@ describe('The Product Creation', function(){
 
     describe('Log out in Back Office', function(done){
         it('should log out successfully in BO', function(done){
+            global.fctname= this.test.title;
             this.client
                 //.signoutBO()
                 .deleteCookie()

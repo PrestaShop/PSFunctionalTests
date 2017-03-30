@@ -6,16 +6,19 @@ var modal_confirm_uninstall_is_visible = false;
 
 describe('The Uninstall of a Module', function(){
 	common.initMocha.call(this);
-	
+
 	before(function(done){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
+	process.on('uncaughtException', common.take_screenshot);
+	process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
 
-	
+
 	describe('Log in in Back Office', function(done){
         it('should log in successfully in BO', function(done){
+            global.fctname= this.test.title;
 			this.client
 				.signinBO()
 				.waitForExist(this.selector.menu, 90000)
@@ -23,9 +26,10 @@ describe('The Uninstall of a Module', function(){
 		});
 	});
 
-		
+
 	describe('Uninstall module', function(done){
         it('should go to the module', function(done){
+            global.fctname= this.test.title;
 			this.client
 			    .click(this.selector.modules_menu)
 			    .waitForExist(this.selector.modules_installed)
@@ -35,8 +39,9 @@ describe('The Uninstall of a Module', function(){
 				.click(this.selector.modules_search_button)
 				.call(done);
 		});
-		
+
 		it('should click on uninstall button', function(done){
+		    global.fctname= this.test.title;
 		    if (red_validation_is_visible){
 		        done(new Error("Unavailable module"));
 		    }else{
@@ -53,6 +58,7 @@ describe('The Uninstall of a Module', function(){
 		});
 
 		it('should check the uninstall', function(done){
+		    global.fctname= this.test.title;
 		    if (red_validation_is_visible){
 		        done(new Error("Unavailable module"));
 		    }else{
@@ -60,16 +66,16 @@ describe('The Uninstall of a Module', function(){
                     this.client
                         .click('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]');
                 }
-
-                this.client
+               this.client
                     .waitForExist(this.selector.green_validation, 90000)
                     .call(done);
             }
 		});
 	});
-		
+
 	describe('Log out in Back Office', function(done){
         it('should log out successfully in BO', function(done){
+            global.fctname= this.test.title;
 			this.client
 				.signoutBO()
 				.call(done);

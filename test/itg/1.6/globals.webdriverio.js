@@ -3,9 +3,8 @@ var common = require('./common.webdriverio');
 var path = require('path');
 var should = require('should');
 var argv = require('minimist')(process.argv.slice(2));
-var date_time = new Date().getTime();
 
-
+global.date_time = new Date().getTime();
 global.URL = argv.URL;
 global.module_tech_name = argv.MODULE;
 global.saucelabs = argv.SAUCELABS;
@@ -28,7 +27,10 @@ module.exports = {
 		save_and_stay_product: '[name="submitAddproductAndStay"]',
 		save_button: '[name="submitAddproduct"]',
 		green_validation: '.alert.alert-success',
+		red_validation: '.alert.alert-danger',
 		close_green_validation: '.alert.alert-success > .close',
+		proceed_installation_anyway_button: '//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]',
+		//red_validation_message:
 		menu: '#nav-sidebar',
 		number_of_products: ".badge",
 		summary: 'description_short_1_ifr', //not declare like an id because using into function "frame" that not need this information;

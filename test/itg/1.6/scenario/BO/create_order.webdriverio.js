@@ -11,24 +11,29 @@ describe('check the order in BO', function(){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
+	process.on('uncaughtException', common.take_screenshot);
+	process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
-	
+
 	it('loggin BO', function(done){
+	    global.fctname= this.test.title;
 		this.client
 			.signinBO()
 			.call(done);
 	});
-	
+
 	it('go_to_order', function(done){
+	    global.fctname= this.test.title;
 		this.client
 			.waitForExist(this.selector.menu, 60000)
 			.click(this.selector.orders)
 			.waitForExist(this.selector.orders_form, 60000)
 			.call(done);
 	});
-	
-	
+
+
 	it('create_order', function(done){
+	    global.fctname= this.test.title;
 		this.client
 			.waitForExist(this.selector.new_order, 60000)
 			.click(this.selector.new_order)
@@ -44,50 +49,53 @@ describe('check the order in BO', function(){
 			})
 			.call(done);
 	});
-	
+
 	it('save_informations', function(done){
-			if(combination == true){
-				this.client.getText(this.selector.new_order_product_combination_1).then(function(text) {
-					var idx = text.lastIndexOf("-");
-					global.product_combination=text.slice(0, idx);
-					global.product_price=text.split("-").pop(-1);
-				});
-				this.client.getText(this.selector.new_order_product_name_choose).then(function(text) {
-					global.product_name=text;
-				});
-			}else{
-				this.client.getText(this.selector.new_order_product_name_choose).then(function(text) {
-					var idx = text.lastIndexOf("-");
-					global.product_price=text.split("-").pop(-1);
-					global.product_name=text.slice(0, idx);
-				});
-			}	
-			this.client.call(done);
+	    global.fctname= this.test.title;
+        if(combination == true){
+            this.client.getText(this.selector.new_order_product_combination_1).then(function(text) {
+                var idx = text.lastIndexOf("-");
+                global.product_combination=text.slice(0, idx);
+                global.product_price=text.split("-").pop(-1);
+            });
+            this.client.getText(this.selector.new_order_product_name_choose).then(function(text) {
+                global.product_name=text;
+            });
+        }else{
+            this.client.getText(this.selector.new_order_product_name_choose).then(function(text) {
+                var idx = text.lastIndexOf("-");
+                global.product_price=text.split("-").pop(-1);
+                global.product_name=text.slice(0, idx);
+            });
+        }
+        this.client.call(done);
 	});
-	
-	
+
+
 	it('check_order', function(done){
-			var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
-			this.client
-			.waitForExist(my_selector, 60000)
-			.click(my_selector)
-			.waitForExist(this.selector.order_product_name, 60000)
-			.getText(this.selector.order_product_name).then(function(text) {
-				var my_order_product_name = text;
-				should(my_order_product_name).be.equal(my_name);
-			})
-			.getText(this.selector.order_quantity).then(function(text) {
-				var my_order_quantity = text;
-				should(my_order_quantity).be.equal(my_quantity);
-			})
-			.getText(this.selector.order_total).then(function(text) {
-				var my_order_total = text;
-				should(my_order_total).be.equal(my_price);
-			})
-			.call(done);
+	    global.fctname= this.test.title;
+        var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
+        this.client
+        .waitForExist(my_selector, 60000)
+        .click(my_selector)
+        .waitForExist(this.selector.order_product_name, 60000)
+        .getText(this.selector.order_product_name).then(function(text) {
+            var my_order_product_name = text;
+            should(my_order_product_name).be.equal(my_name);
+        })
+        .getText(this.selector.order_quantity).then(function(text) {
+            var my_order_quantity = text;
+            should(my_order_quantity).be.equal(my_quantity);
+        })
+        .getText(this.selector.order_total).then(function(text) {
+            var my_order_total = text;
+            should(my_order_total).be.equal(my_price);
+        })
+        .call(done);
 	});
-	
+
 	it('logout BO', function(done){
+	    global.fctname= this.test.title;
 		this.client
 			.signoutBO()
 			.call(done);

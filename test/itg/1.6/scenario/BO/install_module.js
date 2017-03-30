@@ -13,10 +13,13 @@ describe('The Install of a Module', function(){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
+	process.on('uncaughtException', common.take_screenshot);
+	process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
 
 	describe('Log in in Back Office', function(done){
         it('should log in successfully in BO', function(done){
+            global.fctname= this.test.title;
             this.client
                 //.signinBO()
                 .url('http://' + URL + '/admin-dev')
@@ -34,6 +37,7 @@ describe('The Install of a Module', function(){
 
     describe('Install module', function(done){
         it('sould go to modules page', function(done){
+            global.fctname= this.test.title;
             this.client
                 .click(this.selector.modules_menu)
                 .waitForExist(this.selector.modules_search, 60000)
@@ -41,6 +45,7 @@ describe('The Install of a Module', function(){
         });
 
         it('should search the module', function(done){
+            global.fctname= this.test.title;
             this.client
                 /*.isExisting("//*[@class=\"alert alert-danger\"]").then(function(present) {
                     should(present).be.equal(false);
@@ -51,38 +56,41 @@ describe('The Install of a Module', function(){
         });
 
         it('should click on install button',function(done){
+            global.fctname= this.test.title;
             this.client
                 .click('//i[@class="icon-plus-sign-alt" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name+ '"]]')
                 .pause(2000)
-				.isVisible('//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]').then(function(isVisible){
+				.isVisible(this.selector.proceed_installation_anyway_button).then(function(isVisible){
                     install_anyway_is_visible = isVisible;
 				})
 				.call(done);
 		});
 
         it('should click on "proceed install anyway" button if popup appears',function(done){
-		        if (install_anyway_is_visible)
-                {
-                    this.client.click('//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]');
-                }
-                this.client
-                .pause(2000)
-                .isVisible('//div[@class="alert alert-danger"]').then(function(isVisible) {
-                    global.red_validation_is_visible = isVisible;
-                })
-                .call(done);
+            global.fctname= this.test.title;
+            if (install_anyway_is_visible)
+            {
+                this.client.click(this.selector.proceed_installation_anyway_button);
+            }
+            this.client
+            .pause(2000)
+            .isVisible(this.selector.red_validation).then(function(isVisible) {
+                global.red_validation_is_visible = isVisible;
+            })
+            .call(done);
         });
 
 		it('should check the installation',function(done){
+		    global.fctname= this.test.title;
 		    if (red_validation_is_visible){
                 this.client
-                    .getText('//*[@id="content"]/div[3]/div').then(function(text) {
+                    .getText(this.selector.red_validation).then(function(text) {
                         done(new Error(text));
                     })
              }else{
                 this.client
                     .pause(1000)
-                    .isVisible('//div[@class="alert alert-success"]').then(function(isVisible) {
+                    .isVisible(this.selector.green_validation).then(function(isVisible) {
                         green_validation_is_visible = isVisible;
                         if (green_validation_is_visible){
                             done();
@@ -97,6 +105,7 @@ describe('The Install of a Module', function(){
 
 	describe('Log out in Back Office', function(done){
         it('should log out successfully in BO', function(done){
+            global.fctname= this.test.title;
             this.client
                 //.signoutBO()
                 .deleteCookie()

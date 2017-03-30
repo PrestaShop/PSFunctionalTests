@@ -5,31 +5,36 @@ var globals = require('../../globals.webdriverio.js');
 
 describe('The Check of the Product in Front Office', function(){
 	common.initMocha.call(this);
-	
+
 	before(function(done){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
-
+    process.on('uncaughtException', common.take_screenshot);
+    process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
-		
+
 	describe('Open the shop', function(done){
 		it('should acces to the Front Office', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.url('http://' + URL + '/en/')
 				.call(done);
 		});
 	});
-		
+
 	describe('Check the product', function(done){
 		it('should search for the product', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.waitForExist(this.selector.search_product, 90000)
 				.setValue(this.selector.search_product, 'test_nodejs_' + product_id)
 				.click(this.selector.search_product_button)
 				.call(done);
 		});
+
         it('should check the product name', function(done){
+            global.fctname= this.test.title;
 			this.client
 				.waitForExist(this.selector.search_product_result_name, 90000)
 				.getText(this.selector.search_product_result_name).then(function(text) {
@@ -38,7 +43,9 @@ describe('The Check of the Product in Front Office', function(){
 				})
 				.call(done);
 		});
+
 		it('should check the product price', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.getText(this.selector.search_product_result_price).then(function(text) {
 					var my_price = text;
@@ -46,7 +53,9 @@ describe('The Check of the Product in Front Office', function(){
 				})
 				.call(done);
 		});
+
 		it('should check the product details', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.click(this.selector.search_product_result_name)
 				.waitForExist(this.selector.product_name_details, 90000)

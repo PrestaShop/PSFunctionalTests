@@ -10,11 +10,14 @@ describe('The Check of the order in Back Office', function(){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
+	process.on('uncaughtException', common.take_screenshot);
+	process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
-	
+
 	try{
 		describe('Log in in Back Office', function(done){
             it('should log in successfully in BO', function(done){
+                global.fctname= this.test.title;
                 this.client
                     //.signinBO()
                     .url('http://' + URL + '/admin-dev')
@@ -32,14 +35,16 @@ describe('The Check of the order in Back Office', function(){
 
 		describe('Check the order', function(done){
             it('should go to the orders page', function(done){
+                global.fctname= this.test.title;
                 this.client
                     .waitForExist(this.selector.menu, 60000)
                     .click(this.selector.orders)
                     .waitForExist(this.selector.orders_form, 60000)
                     .call(done);
             });
-		
+
             it('should go to the order', function(done){
+                global.fctname= this.test.title;
                 var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
                 this.client
                     .waitForExist(my_selector, 60000)
@@ -58,6 +63,7 @@ describe('The Check of the order in Back Office', function(){
             });
 
             it('should check the product quantity', function(done){
+                global.fctname= this.test.title;
                 this.client
                     .getText(this.selector.order_quantity).then(function(text) {
                         var my_order_quantity = text;
@@ -67,6 +73,7 @@ describe('The Check of the order in Back Office', function(){
             });
 
             it('should check the product total price', function(done){
+                global.fctname= this.test.title;
                 this.client
                     .getText(this.selector.order_total).then(function(text) {
                         var my_order_total = text;
@@ -78,6 +85,7 @@ describe('The Check of the order in Back Office', function(){
 
 		describe('Log out in Back Office', function(done){
             it('should log out successfully in BO', function(done){
+                global.fctname= this.test.title;
                 this.client
                     //.signoutBO()
                     .deleteCookie()

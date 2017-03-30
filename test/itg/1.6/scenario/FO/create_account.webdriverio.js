@@ -10,11 +10,13 @@ describe('The creation of an account in Front Office', function(){
 		this.selector = globals.selector;
 		this.client.call(done);
 	});
-
+    process.on('uncaughtException', common.take_screenshot);
+	process.on('ReferenceError', common.take_screenshot);
 	after(common.after);
 
 	describe('Create a customer account in FO', function(done){
 		it('should acces to the Front Office', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.url('http://' + URL)
 				.waitForExist(this.selector.access_loginFO, 60000)
@@ -22,6 +24,7 @@ describe('The creation of an account in Front Office', function(){
 		});
 
 		it('should acces to the account creation interface', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.click(this.selector.access_loginFO)
 				.waitForExist(this.selector.create_account, 60000)
@@ -32,6 +35,7 @@ describe('The creation of an account in Front Office', function(){
 		});
 
 		it('should fill the form', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.setValue(this.selector.create_account_firstname, 'my firstname')
 				.setValue(this.selector.create_account_lastname, 'my lastname')
@@ -42,6 +46,7 @@ describe('The creation of an account in Front Office', function(){
 		});
 
 		it('should validate the creation of the account', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.click(this.selector.create_account_info_validate)
 				.waitForExist('.alert.alert-success', 60000)
@@ -51,6 +56,7 @@ describe('The creation of an account in Front Office', function(){
 
 	describe('Log out and Log in again', function(done){
 		it('should log out', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.waitForExist(this.selector.logoutFO, 90000)
                 .click(this.selector.logoutFO)
@@ -59,6 +65,7 @@ describe('The creation of an account in Front Office', function(){
 		});
 
 		it('should log in again', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.click(this.selector.access_loginFO)
 				.waitForExist(this.selector.loginFO, 60000)
@@ -72,6 +79,7 @@ describe('The creation of an account in Front Office', function(){
 
 	describe('Log out in Front Office', function(done){
 		it('should logout successfully in FO', function(done){
+		    global.fctname= this.test.title;
 			this.client
 				.waitForExist(this.selector.logoutFO, 60000)
 			    .click(this.selector.logoutFO)
