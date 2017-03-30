@@ -74,6 +74,7 @@ describe('The Install of a Module and its Uninstall', function(){
 		});
 
 		it('should check the installation',function(done){
+		    global.fctname= this.test.title;
             if (red_validation_is_visible){
                 this.client
             	    .getText(this.selector.red_validation).then(function(text) {
@@ -141,6 +142,7 @@ describe('The Install of a Module and its Uninstall', function(){
 		
 	describe('Log out in Back Office', function(done){
         it('should log out successfully in BO', function(done){
+            global.fctname= this.test.title;
 			this.client
 				.signoutBO()
 				.call(done);

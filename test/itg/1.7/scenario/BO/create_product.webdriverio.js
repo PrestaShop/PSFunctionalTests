@@ -165,7 +165,7 @@ describe('The Product Creation', function(){
      });
 	 describe('Check the product in the catalog', function(done){
         it('should go to the catalog', function(done){
-        global.fctname= this.test.title;
+            global.fctname= this.test.title;
 			this.client
 			    .pause(5000)
 			    .waitForExist(this.selector.more_option, 90000)
@@ -197,6 +197,7 @@ describe('The Product Creation', function(){
 		});
 
 		it('Should generate picture url', function(done){
+		    global.fctname= this.test.title;
 			global.picture_url = "/img/p";
 			for (var i = 0, len = image_data_id.length; i < len; i++) {
 				picture_url= picture_url + "/" + image_data_id[i];
