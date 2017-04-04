@@ -3,6 +3,8 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 var modal_confirm_uninstall_is_visible = false;
+var uninstall_red_validation_is_visible = false;
+var green_validation_is_visible = false;
 
 describe('The Uninstall of a Module', function(){
 	common.initMocha.call(this);
@@ -53,6 +55,13 @@ describe('The Uninstall of a Module', function(){
                     .isVisible('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]').then(function(isVisible) {
 				    	modal_confirm_uninstall_is_visible = isVisible;
 				    })
+				    .pause(5000)
+				    .isVisible(this.selector.red_validation).then(function(isVisible) {
+				        uninstall_red_validation_is_visible = isVisible;
+				    })
+				    .isVisible(this.selector.green_validation).then(function(isVisible) {
+				        green_validation_is_visible = isVisible;
+				    })
                     .call(done);
 		    }
 		});
@@ -66,9 +75,14 @@ describe('The Uninstall of a Module', function(){
                     this.client
                         .click('//div[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]');
                 }
-               this.client
-                    .waitForExist(this.selector.green_validation, 90000)
-                    .call(done);
+                if (uninstall_red_validation_is_visible){
+                    this.client
+                        .getText(this.selector.red_validation).then(function(text) {
+                            done(new Error(text));
+                        })
+                }else if (green_validation_is_visible){
+                    this.client.call(done);
+                }
             }
 		});
 	});
