@@ -132,7 +132,7 @@ module.exports = {
             done();
     },
     take_screenshot: function (done) {
-        client.saveScreenshot(__dirname +'/screenshots/' + client.desiredCapabilities.browserName + '_exception' + '_' + global.date_time + '_' + fctname + '.png');
+        client.saveScreenshot(__dirname +'/screenshots/' + client.desiredCapabilities.browserName + '_exception' + '_' + global.date_time + '_' + global.fctname + '.png');
     },
     initMocha: function () {
         this.timeout(100000);
