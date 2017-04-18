@@ -87,7 +87,7 @@ describe('The Install of a Module', function(){
                     .getText(this.selector.red_validation).then(function(text) {
                         done(new Error(text));
                     })
-             }else{
+            }else{
                 this.client
                     .pause(1000)
                     .isVisible(this.selector.green_validation).then(function(isVisible) {
