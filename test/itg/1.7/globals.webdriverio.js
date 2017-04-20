@@ -58,7 +58,8 @@ module.exports = {
 		new_profil: '.employee-dropdown.dropdown > div',
 		logout: '#header_logout',
 		products: '#subtab-AdminCatalog',
-		go_to_catalog: '//*[@id="form"]/div[4]/div[2]/div/div[2]/a[2]',
+		//go_to_catalog: '//*[@id="form"]/div[4]/div[2]/div/div[2]/a[2]',
+		go_to_catalog: '#form > div.product-footer > div.col-lg-6.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
 		more_option:'[class="btn btn-primary dropdown-toggle"]',
 		new_product: '#page-header-desc-configuration-add',
 		menu: '#nav-sidebar',
@@ -99,9 +100,9 @@ module.exports = {
 
 	//FO
 		access_loginFO:'div.user-info > a',
-		loginFO: '[name="email"]',
-		passwordFO: '[name="password"]',
-		login_btnFO: '//footer[@class="form-footer text-xs-center clearfix"]/button[@type="submit" and @class="btn btn-primary"]',
+		loginFO: '//*[@id="login-form"]/section/div[1]/div[1]/input',
+		passwordFO: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
+		login_btnFO: '//*[@id="login-form"]/footer/button',
 		logoutFO: '.logout',
 		//create_account: '#email_create',
 		create_account_button: '[data-link-action="display-register-form"]',
@@ -122,7 +123,7 @@ module.exports = {
 		layer_cart_name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
 		layer_cart_price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
 		layer_cart_quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
-		layer_cart_command_button: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/a',
+		layer_cart_command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
 		//for 1.7.1.0
 		//layer_cart_command_button: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
 		//command_product_quantity: '//div[@class="product-line-grid-body col-md-5 col-xs-5"]/div[5]',
