@@ -103,8 +103,8 @@ describe('The Install of a Module and its Uninstall', function(){
                     .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]')
                     .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]', 90000)
                     .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]')
-                    .pause(5000)
-                    .isVisible('#module-modal-confirm-ps_bestsellers-uninstall > div > div > div.modal-footer > a').then(function(isVisible) {
+                    .pause(2000)
+                    .isVisible('//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]').then(function(isVisible) {
 				    	modal_confirm_uninstall_is_visible = isVisible;
 				    })
 				    .pause(5000)
@@ -119,7 +119,7 @@ describe('The Install of a Module and its Uninstall', function(){
 		    }
 
         });
-
+        
         it('should check the uninstall', function(done){
 		    global.fctname= this.test.title;
 		    if(red_validation_is_visible){
@@ -127,7 +127,8 @@ describe('The Install of a Module and its Uninstall', function(){
 		    }else{
                 if (modal_confirm_uninstall_is_visible){
                     this.client
-                        .click('#module-modal-confirm-ps_bestsellers-uninstall > div > div > div.modal-footer > a');
+                        .click('//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]')
+                        .call(done);
                 }
                 if (uninstall_red_validation_is_visible){
                     this.client
@@ -137,6 +138,7 @@ describe('The Install of a Module and its Uninstall', function(){
                 }else if (green_validation_is_visible){
                     this.client.call(done);
                 }
+
             }
 		});
 	})
