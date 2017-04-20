@@ -2,6 +2,8 @@
 var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
+var uninstall_red_validation_is_visible = false;
+var green_validation_is_visible = false;
 
 describe('The Uninstall of a Module', function(){
 	common.initMocha.call(this);

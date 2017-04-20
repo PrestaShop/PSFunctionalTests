@@ -5,6 +5,7 @@ var globals = require('../../globals.webdriverio.js');
 var green_validation_is_visible = false;
 var red_validation_is_visible = false;
 var install_anyway_popup_is_visible = false ;
+var uninstall_red_validation_is_visible = false;
 
 describe('The Install of a Module and its Uninstall', function(){
 	common.initMocha.call(this);
