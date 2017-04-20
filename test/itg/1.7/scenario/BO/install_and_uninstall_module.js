@@ -39,7 +39,7 @@ describe('The Install of a Module and its Uninstall', function(){
 	  });
 
 	describe('Install module', function(done){
-        it('sould go to the module', function(done){
+        it('should go to the module', function(done){
             global.fctname= this.test.title;
 
             if (exit_welcome){
@@ -119,7 +119,7 @@ describe('The Install of a Module and its Uninstall', function(){
 		    }
 
         });
-        
+
         it('should check the uninstall', function(done){
 		    global.fctname= this.test.title;
 		    if(red_validation_is_visible){

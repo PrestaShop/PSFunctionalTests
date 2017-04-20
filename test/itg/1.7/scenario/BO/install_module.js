@@ -29,7 +29,7 @@ describe('The Install of a Module', function(){
 
 
 	describe('Install module', function(done){
-        it('sould go to the module', function(done){
+        it('should go to the module', function(done){
             global.fctname= this.test.title;
 			this.client
 				.click(this.selector.modules_menu)
