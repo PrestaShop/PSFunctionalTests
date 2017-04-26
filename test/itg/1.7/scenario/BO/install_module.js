@@ -57,7 +57,7 @@ describe('The Install of a Module', function () {
 
         it('should check the installation', function (done) {
             global.fctname = this.test.title;
-            if (red_validation_is_visible) {
+            if (global.red_validation_is_visible) {
                 this.client
                     .getText(this.selector.red_validation).then(function (text) {
                     done(new Error(text));
