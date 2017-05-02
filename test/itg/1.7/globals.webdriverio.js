@@ -65,8 +65,6 @@ module.exports = {
         product_name: '#form_step1_name_1',
         save_product: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
         catalog_list: '#product_catalog_list',
-        //green_validation: '#main-div > div.content-div > div.row > div > div.flash-message-list.alert.alert-success > ul > li',
-        //for 1.7.1.0
         green_validation: '[class="growl growl-notice growl-medium"]',
         close_green_validation: '.growl-close',
         red_validation: '[class="growl growl-error growl-medium"]',
@@ -124,8 +122,6 @@ module.exports = {
         layer_cart_price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
         layer_cart_quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
         layer_cart_command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
-        //for 1.7.1.0
-        //layer_cart_command_button: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
         //command_product_quantity: '//div[@class="product-line-grid-body col-md-5 col-xs-5"]/div[5]',
         command_product_name: '(//div[@class="product-line-info"])[1]/a',
         command_product_price: '(//div[@class="product-line-info"])[2]/span',
