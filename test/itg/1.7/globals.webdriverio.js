@@ -7,7 +7,6 @@ var argv = require('minimist')(process.argv.slice(2));
 global.date_time = new Date().getTime();
 global.URL = argv.URL;
 global.module_tech_name = argv.MODULE;
-global.browser = argv.browser;
 global.saucelabs = argv.SAUCELABS;
 global._projectdir = path.join(__dirname, '..', '..');
 global.product_id = new Date().getTime();
@@ -58,7 +57,8 @@ module.exports = {
         new_profil: '.employee-dropdown.dropdown > div',
         logout: '#header_logout',
         products: '#subtab-AdminCatalog',
-        go_to_catalog: '//*[@id="form"]/div[4]/div[2]/div/div[2]/a[2]',
+        //go_to_catalog: '//*[@id="form"]/div[4]/div[2]/div/div[2]/a[2]',
+        go_to_catalog: '#form > div.product-footer > div.col-lg-6.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
         more_option: '[class="btn btn-primary dropdown-toggle"]',
         new_product: '#page-header-desc-configuration-add',
         menu: '#nav-sidebar',
@@ -68,7 +68,6 @@ module.exports = {
         green_validation: '[class="growl growl-notice growl-medium"]',
         close_green_validation: '.growl-close',
         red_validation: '[class="growl growl-error growl-medium"]',
-        msg_validation: '//*[@id="growls"]/div/div[3]',
         summary_button: '[href="#description_short"]',
         summary: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
         description_button: '[href="#description"]',
@@ -95,6 +94,11 @@ module.exports = {
         modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
         modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
         close_sf_toolbar: '//a[@class="hide-button"]',
+        module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
+        install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
+        uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
+        uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
+        modal_confirm_uninstall : '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 
         //FO
         access_loginFO: 'div.user-info > a',
@@ -122,6 +126,8 @@ module.exports = {
         layer_cart_price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
         layer_cart_quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
         layer_cart_command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
+        //for 1.7.1.0
+        //layer_cart_command_button: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
         //command_product_quantity: '//div[@class="product-line-grid-body col-md-5 col-xs-5"]/div[5]',
         command_product_name: '(//div[@class="product-line-info"])[1]/a',
         command_product_price: '(//div[@class="product-line-info"])[2]/span',
@@ -143,7 +149,7 @@ module.exports = {
         search_product: '.ui-autocomplete-input',
         search_product_button: '.material-icons.search',
         search_product_result_image: '.thumbnail.product-thumbnail',
-        search_product_result_name: '//*[@id="js-product-list"]/div[1]/article[1]/div/div[1]/h1/a',
+        search_product_result_name: '.h3.product-title > a',
         search_product_result_price: '[itemprop="price"]',
         close_error: '//*[@id="error-modal"]/div/div/button',
 
