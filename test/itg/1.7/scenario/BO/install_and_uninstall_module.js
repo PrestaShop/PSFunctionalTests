@@ -39,7 +39,7 @@ describe('The Install of a Module and its Uninstall', function () {
     });
 
     describe('Install module', function (done) {
-        it('should go to the module', function (done) {
+        it('should go to modules page', function (done) {
             global.fctname = this.test.title;
 
             if (exit_welcome) {
@@ -54,19 +54,25 @@ describe('The Install of a Module and its Uninstall', function () {
                 .call(done);
         });
 
-        it('should click on install button', function (done) {
+        it('should go to the module', function (done) {
             global.fctname = this.test.title;
-            
+
             this.client
                 .setValue(this.selector.modules_search, module_tech_name)
                 .click(this.selector.modules_search_button)
                 .waitForExist(this.selector.module_tech_name, 90000)
+                .call(done);
+        });
+
+        it('should click on install button', function (done) {
+            global.fctname = this.test.title;
+
+            this.client
                 .click(this.selector.install_module_btn)
-                .pause(2000)
+                .waitForExist(this.selector.close_validation, 90000)
                 .isVisible(this.selector.red_validation).then(function (isVisible) {
                 red_validation_is_visible = isVisible;
             })
-                .pause(1000)
                 .isVisible(this.selector.green_validation).then(function (isVisible) {
                 green_validation_is_visible = isVisible;
             })
@@ -83,7 +89,7 @@ describe('The Install of a Module and its Uninstall', function () {
             } else if (green_validation_is_visible) {
                 done();
             } else {
-                done();
+                done(new Error('There is no install validation alert!'));
             }
         });
     });
@@ -111,7 +117,7 @@ describe('The Install of a Module and its Uninstall', function () {
             }
         });
 
-        it('should check green/red validation', function (done) {
+        it('should check modal confirm uninstall', function (done) {
             global.fctname = this.test.title;
             if (red_validation_is_visible) {
                 done(new Error("Unavailable module"));
@@ -122,7 +128,7 @@ describe('The Install of a Module and its Uninstall', function () {
                         .click(this.selector.modal_confirm_uninstall)
                 }
                 this.client
-                    .pause(3000)
+                    .waitForExist(this.selector.close_validation, 90000)
                     .isVisible(this.selector.red_validation).then(function (isVisible) {
                     uninstall_red_validation_is_visible = isVisible;
                 })
@@ -145,6 +151,8 @@ describe('The Install of a Module and its Uninstall', function () {
                     })
                 } else if (green_validation_is_visible) {
                     done();
+                } else {
+                    done(new Error('There is no uninstall validation alert!'))
                 }
             }
         });

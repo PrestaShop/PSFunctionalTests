@@ -30,15 +30,22 @@ describe('The Uninstall of a Module', function () {
 
 
     describe('Uninstall module', function (done) {
-        it('should go to the module', function (done) {
+        it('should go to modules page', function (done) {
             global.fctname = this.test.title;
             this.client
                 .click(this.selector.modules_menu)
                 .waitForExist(this.selector.modules_installed)
                 .click(this.selector.modules_installed)
                 .waitForExist(this.selector.modules_page_loaded, 90000)
+                .call(done);
+        });
+
+        it('should go to the module', function (done) {
+            global.fctname = this.test.title;
+            this.client
                 .setValue(this.selector.modules_search, module_tech_name)
                 .click(this.selector.modules_search_button)
+                .waitForExist(this.selector.module_tech_name, 90000)
                 .call(done);
         });
 
@@ -48,29 +55,29 @@ describe('The Uninstall of a Module', function () {
                 done(new Error("Unavailable module"));
             } else {
                 this.client
-                    .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
-                    .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]')
-                    .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]', 90000)
-                    .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]')
+                    .waitForExist(this.selector.module_tech_name, 90000)
+                    .click(this.selector.uninstall_module_list)
+                    .waitForExist(this.selector.uninstall_module_btn, 90000)
+                    .click(this.selector.uninstall_module_btn)
                     .pause(2000)
-                    .isVisible('//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall"and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]').then(function (isVisible) {
+                    .isVisible(this.selector.modal_confirm_uninstall).then(function (isVisible) {
                     modal_confirm_uninstall_is_visible = isVisible;
                 })
                     .call(done);
             }
         });
 
-        it('should check green/red validation', function (done) {
+        it('should check modal confirm uninstall', function (done) {
             global.fctname = this.test.title;
             if (red_validation_is_visible) {
                 done(new Error("Unavailable module"));
             } else {
                 if (modal_confirm_uninstall_is_visible) {
                     this.client
-                        .click('//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]')
+                        .click(this.selector.modal_confirm_uninstall)
                 }
                 this.client
-                    .pause(3000)
+                    .waitForExist(this.selector.close_validation, 90000)
                     .isVisible(this.selector.red_validation).then(function (isVisible) {
                     uninstall_red_validation_is_visible = isVisible;
                 })
@@ -93,6 +100,8 @@ describe('The Uninstall of a Module', function () {
                     })
                 } else if (green_validation_is_visible) {
                     done();
+                } else {
+                    done(new Error('There is no uninstall validation alert!'))
                 }
             }
         });
