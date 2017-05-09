@@ -42,11 +42,15 @@ describe('The Uninstall of a Module', function () {
 
         it('should go to the module', function (done) {
             global.fctname = this.test.title;
-            this.client
-                .setValue(this.selector.modules_search, module_tech_name)
-                .click(this.selector.modules_search_button)
-                .waitForExist(this.selector.module_tech_name, 90000)
-                .call(done);
+            if (red_validation_is_visible) {
+                done(new Error("Unavailable module"));
+            } else {
+                this.client
+                    .setValue(this.selector.modules_search, module_tech_name)
+                    .click(this.selector.modules_search_button)
+                    .waitForExist(this.selector.module_tech_name, 90000)
+                    .call(done);
+            }
         });
 
         it('should click on uninstall button', function (done) {
@@ -95,7 +99,7 @@ describe('The Uninstall of a Module', function () {
             } else {
                 if (uninstall_red_validation_is_visible) {
                     this.client
-                        .getText(this.selector.red_validation).then(function (text) {
+                        .getText(this.selector.validation_msg).then(function (text) {
                         done(new Error(text));
                     })
                 } else if (green_validation_is_visible) {

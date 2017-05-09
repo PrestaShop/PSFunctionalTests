@@ -65,7 +65,7 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             if (global.red_validation_is_visible) {
                 this.client
-                    .getText(this.selector.red_validation).then(function (text) {
+                    .getText(this.selector.validation_msg).then(function (text) {
                     done(new Error(text));
                 })
             } else if (green_validation_is_visible) {

@@ -67,6 +67,7 @@ module.exports = {
         catalog_list: '#product_catalog_list',
         green_validation: '[class="growl growl-notice growl-medium"]',
         close_validation: '.growl-close',
+        validation_msg : '//*[@id="growls"]/div/div[3]',
         red_validation: '[class="growl growl-error growl-medium"]',
         summary_button: '[href="#description_short"]',
         summary: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
