@@ -157,8 +157,8 @@ describe('The Product Creation', function () {
         it('should close green validation', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.close_green_validation, 90000)
-                .click(this.selector.close_green_validation)
+                .waitForExist(this.selector.close_validation, 90000)
+                .click(this.selector.close_validation)
                 .call(done);
         });
     });
