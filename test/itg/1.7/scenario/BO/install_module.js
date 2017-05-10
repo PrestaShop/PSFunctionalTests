@@ -3,6 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 var green_validation_is_visible = false;
+global.red_validation_is_visible = false;
 
 
 describe('The Install of a Module', function () {
