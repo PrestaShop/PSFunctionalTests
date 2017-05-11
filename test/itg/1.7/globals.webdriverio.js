@@ -67,7 +67,7 @@ module.exports = {
         catalog_list: '#product_catalog_list',
         green_validation: '[class="growl growl-notice growl-medium"]',
         close_validation: '.growl-close',
-        validation_msg : '//*[@id="growls"]/div/div[3]',
+        validation_msg: '//*[@id="growls"]/div/div[3]',
         red_validation: '[class="growl growl-error growl-medium"]',
         summary_button: '[href="#description_short"]',
         summary: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
@@ -94,6 +94,7 @@ module.exports = {
         modules_page_loaded: '.module-search-result-wording',
         modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
         modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
+        nbr_module: '[class="module-sorting-search-wording"]',
         close_sf_toolbar: '//a[@class="hide-button"]',
         module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
         install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',

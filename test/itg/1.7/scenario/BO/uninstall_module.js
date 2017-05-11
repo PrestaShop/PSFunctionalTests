@@ -42,53 +42,68 @@ describe('The Uninstall of a Module', function () {
 
         it('should go to the module', function (done) {
             global.fctname = this.test.title;
-            if (red_validation_is_visible) {
-                done(new Error("Unavailable module"));
-            } else {
-                this.client
-                    .setValue(this.selector.modules_search, module_tech_name)
-                    .click(this.selector.modules_search_button)
-                    .waitForExist(this.selector.module_tech_name, 90000)
-                    .call(done);
+            if (global.nbr == '0') {
+                done(new Error('The module you are searching for does not exist!'));
+            }
+            else {
+                if (red_validation_is_visible) {
+                    done(new Error("Unavailable module"));
+                } else {
+                    this.client
+                        .setValue(this.selector.modules_search, module_tech_name)
+                        .click(this.selector.modules_search_button)
+                        .waitForExist(this.selector.module_tech_name, 90000)
+                        .call(done);
+                }
             }
         });
 
         it('should click on uninstall button', function (done) {
             global.fctname = this.test.title;
-            if (red_validation_is_visible) {
-                done(new Error("Unavailable module"));
-            } else {
-                this.client
-                    .waitForExist(this.selector.module_tech_name, 90000)
-                    .click(this.selector.uninstall_module_list)
-                    .waitForExist(this.selector.uninstall_module_btn, 90000)
-                    .click(this.selector.uninstall_module_btn)
-                    .pause(2000)
-                    .isVisible(this.selector.modal_confirm_uninstall).then(function (isVisible) {
-                    modal_confirm_uninstall_is_visible = isVisible;
-                })
-                    .call(done);
+            if (global.nbr == '0') {
+                done(new Error('The module you are searching for does not exist!'));
+            }
+            else {
+                if (red_validation_is_visible) {
+                    done(new Error("Unavailable module"));
+                } else {
+                    this.client
+                        .waitForExist(this.selector.module_tech_name, 90000)
+                        .click(this.selector.uninstall_module_list)
+                        .waitForExist(this.selector.uninstall_module_btn, 90000)
+                        .click(this.selector.uninstall_module_btn)
+                        .pause(2000)
+                        .isVisible(this.selector.modal_confirm_uninstall).then(function (isVisible) {
+                        modal_confirm_uninstall_is_visible = isVisible;
+                    })
+                        .call(done);
+                }
             }
         });
 
         it('should check modal confirm uninstall', function (done) {
             global.fctname = this.test.title;
-            if (red_validation_is_visible) {
-                done(new Error("Unavailable module"));
-            } else {
-                if (modal_confirm_uninstall_is_visible) {
+            if (global.nbr == '0') {
+                done(new Error('The module you are searching for does not exist!'));
+            }
+            else {
+                if (red_validation_is_visible) {
+                    done(new Error("Unavailable module"));
+                } else {
+                    if (modal_confirm_uninstall_is_visible) {
+                        this.client
+                            .click(this.selector.modal_confirm_uninstall)
+                    }
                     this.client
-                        .click(this.selector.modal_confirm_uninstall)
+                        .waitForExist(this.selector.close_validation, 90000)
+                        .isVisible(this.selector.red_validation).then(function (isVisible) {
+                        uninstall_red_validation_is_visible = isVisible;
+                    })
+                        .isVisible(this.selector.green_validation).then(function (isVisible) {
+                        green_validation_is_visible = isVisible;
+                    })
+                        .call(done);
                 }
-                this.client
-                    .waitForExist(this.selector.close_validation, 90000)
-                    .isVisible(this.selector.red_validation).then(function (isVisible) {
-                    uninstall_red_validation_is_visible = isVisible;
-                })
-                    .isVisible(this.selector.green_validation).then(function (isVisible) {
-                    green_validation_is_visible = isVisible;
-                })
-                    .call(done);
             }
         });
 
@@ -105,7 +120,11 @@ describe('The Uninstall of a Module', function () {
                 } else if (green_validation_is_visible) {
                     done();
                 } else {
-                    done(new Error('There is no uninstall validation alert!'))
+                    if (global.nbr == '0') {
+                        done(new Error('The module you are searching for does not exist!'));
+                    } else {
+                        done(new Error('There is no install validation alert!'));
+                    }
                 }
             }
         });
