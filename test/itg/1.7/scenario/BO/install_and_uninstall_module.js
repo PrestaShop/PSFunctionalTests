@@ -8,7 +8,7 @@ var red_validation_is_visible = false;
 var modal_confirm_uninstall_is_visible = false;
 var uninstall_red_validation_is_visible = false;
 var only_filename = __filename.slice(__dirname.length + 1, -3);
-global.nbr = "-1";
+global.nbr = -1;
 
 
 describe('The Install of a Module and its Uninstall', function () {
@@ -62,8 +62,8 @@ describe('The Install of a Module and its Uninstall', function () {
                 .setValue(this.selector.modules_search, module_tech_name)
                 .click(this.selector.modules_search_button)
                 .getText(this.selector.nbr_module).then(function (text) {
-                global.nbr = text[0];
-                if (global.nbr == '0') {
+                global.nbr = parseInt(text[0]);
+                if (global.nbr == 0) {
                     done(new Error('The module you are searching for does not exist!'));
                 }
                 else
@@ -74,7 +74,7 @@ describe('The Install of a Module and its Uninstall', function () {
         it('should click on install button', function (done) {
             global.fctname = this.test.title;
 
-            if (global.nbr == '0') {
+            if (global.nbr == 0) {
                 done(new Error('The module you are searching for does not exist!'));
             }
             else {
@@ -102,7 +102,7 @@ describe('The Install of a Module and its Uninstall', function () {
             } else if (green_validation_is_visible) {
                 done();
             } else {
-                if (global.nbr == '0') {
+                if (global.nbr == 0) {
                     done(new Error('The module you are searching for does not exist!'));
                 } else {
                     done(new Error('There is no install validation alert!'));
@@ -115,7 +115,7 @@ describe('The Install of a Module and its Uninstall', function () {
         it('should go to the module and click on uninstall button', function (done) {
             global.fctname = this.test.title;
 
-            if (global.nbr == '0') {
+            if (global.nbr == 0) {
                 done(new Error('The module you are searching for does not exist!'));
             }
             else {
@@ -143,7 +143,7 @@ describe('The Install of a Module and its Uninstall', function () {
         it('should check modal confirm uninstall', function (done) {
             global.fctname = this.test.title;
 
-            if (global.nbr == '0') {
+            if (global.nbr == 0) {
                 done(new Error('The module you are searching for does not exist!'));
             } else {
                 if (red_validation_is_visible) {
@@ -180,7 +180,7 @@ describe('The Install of a Module and its Uninstall', function () {
                 } else if (green_validation_is_visible) {
                     done();
                 } else {
-                    if (global.nbr == '0') {
+                    if (global.nbr == 0) {
                         done(new Error('The module you are searching for does not exist!'));
                     } else {
                         done(new Error('There is no install validation alert!'));

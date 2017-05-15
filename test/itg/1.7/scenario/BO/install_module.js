@@ -41,7 +41,7 @@ describe('The Install of a Module', function () {
 
         it('should go to the module', function (done) {
             global.fctname = this.test.title;
-            if (global.nbr == '0') {
+            if (global.nbr == 0) {
                 done(new Error('The module you are searching for does not exist!'));
             }
             else {
@@ -54,7 +54,7 @@ describe('The Install of a Module', function () {
 
         it('should click on install button', function (done) {
             global.fctname = this.test.title;
-            if (global.nbr == '0') {
+            if (global.nbr == 0) {
                 done(new Error('The module you are searching for does not exist!'));
             }
             else {
@@ -82,7 +82,7 @@ describe('The Install of a Module', function () {
             } else if (green_validation_is_visible) {
                 done();
             } else {
-                if (global.nbr == '0') {
+                if (global.nbr == 0) {
                     done(new Error('The module you are searching for does not exist!'));
                 } else {
                     done(new Error('There is no install validation alert!'));
