@@ -3,6 +3,8 @@ version: '3'
 services:
   tests:
     build: .
+    environment:
+      - SELENIUM_HOST=selenium-chrome
     depends_on:
       - "prestashop"
       - "selenium-chrome"
@@ -33,7 +35,9 @@ services:
     ports:
       - 4444:4444
     networks:
-      - default
+      default:
+          aliases:
+              - selenium-chrome
 
   db:
     image: mysql
@@ -44,4 +48,3 @@ services:
 
 networks:
   default:
-

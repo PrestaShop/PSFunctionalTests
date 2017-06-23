@@ -11,6 +11,9 @@ var options = {
     },
     port: 4444
 };
+if (process.env.SELENIUM_HOST) {
+    options.host= process.env.SELENIUM_HOST;
+}
 
 var options2 = {
     logLevel: 'silent',

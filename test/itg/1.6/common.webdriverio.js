@@ -9,9 +9,11 @@ var options = {
     desiredCapabilities: {
         browserName: 'chrome',
     },
-    host: 'localhost',
     port: 4444
 };
+if (process.env.SELENIUM_HOST) {
+    options.host = process.env.SELENIUM_HOST;
+}
 
 var options2 = {
     logLevel: 'silent',
