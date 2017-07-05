@@ -102,6 +102,10 @@ module.exports = {
         uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
         modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 
+        onboarding_popup: '.onboarding-popup',
+        onboarding_popup_close_btn: '.onboarding-button-shut-down',
+        onboarding_stop: '.onboarding-button-stop',
+
         //FO
         access_loginFO: 'div.user-info > a',
         loginFO: '//*[@id="login-form"]/section/div[1]/div[1]/input',
