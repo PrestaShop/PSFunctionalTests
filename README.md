@@ -13,7 +13,7 @@ This will
 - start a prestashop container and launch prestashop installation
 - start the tests container and launch the test in /tmp/test/itg/1.7/index.webdriverio.js
 
-Environnement variable can be use to override
+Environnement variable can be used to override
 PS_VERSION=1.6|1.7 (Default:1.7)
 URL=domain name where prestashop is running (default:prestashop)
 MODULE= to install a module (default:)
@@ -26,8 +26,8 @@ After docker-compose up when db, selenium-chrome and prestashop are running you 
 docker-compose run tests -e MODULE=data-tech-name
 
 
-# Run test without docker 
-Information: To use the following test suites, you need to install a PrestaShop in English in country France. 
+# Run test without docker
+Information: To use the following test suites, you need to install a PrestaShop in English in country France.
 (or you may change some assertions like the separator “,” or “.”, “€” or “$” or “£” or …)
 You need to create a user in Back Office with SuperAdmin rights and the following information’s:
 Login: demo@prestashop.com
@@ -58,16 +58,16 @@ b)	How to launch tests
 -	Go to the folder of the version you want to test (in \test\itg, go into folder 1.6 or 1.7) and execute one of the following lines:
 
 -        Launch tests without module installation :
-mocha index.webdriverio.js --URL=localhost/1.7.0.0 
+mocha index.webdriverio.js --URL=localhost/1.7.0.0
 
 -           Launch tests with module installation:
-mocha index.webdriverio.js --URL=localhost/1.7.0.0 --MODULE=statsbestmanufacturers 
+mocha index.webdriverio.js --URL=localhost/1.7.0.0 --MODULE=statsbestmanufacturers
 
 -        Launch tests without module installation :
 mocha index.webdriverio.js --URL=localhost/1.7.0.0 –SAUCELABS=true
 
 
- 
+
 -	URL: Front office URL of your prestashop website (without the “http://”)
 -	MODULE (optional) : « data-tech-name »  of the module
 -	SAUCELABS (optional): Turn it to « true » to use SauceLabs (you need to provide yours SauceLabs ID in your Travis folder)
