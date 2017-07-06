@@ -24,22 +24,27 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             this.client
                 .signinBO()
-                .isVisible(this.selector.exit_welcome).then(function (isVisible) {
-                exit_welcome = isVisible;
-            })
                 .waitForExist(this.selector.menu, 90000)
                 .call(done);
+        });
+    });
+
+    describe('Module "Welcome"', function (done) {
+        it("should close the onboarding if displayed", function (done) {
+            global.fctname = this.test.title;
+            if (this.client.isVisible(this.selector.onboarding_popup)) {
+                this.client
+                    .click(this.selector.onboarding_popup_close_btn)
+                    .pause(1000)
+                    .click(this.selector.onboarding_stop);
+            };
+            this.client.call(done);
         });
     });
 
     describe('Create new product', function (done) {
         it("should click on the <add new product> button", function (done) {
             global.fctname = this.test.title;
-            if (exit_welcome) {
-                this.client
-                    .waitForExist(this.selector.exit_welcome, 90000)
-                    .click(this.selector.exit_welcome);
-            }
             this.client
                 .pause(5000)
                 .waitForExist(this.selector.menu, 90000)

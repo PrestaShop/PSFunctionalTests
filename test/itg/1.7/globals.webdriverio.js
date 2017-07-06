@@ -8,6 +8,7 @@ global.date_time = new Date().getTime();
 global.URL = argv.URL;
 global.module_tech_name = argv.MODULE;
 global.saucelabs = argv.SAUCELABS;
+global.selenium_url = argv.SELENIUM;
 global._projectdir = path.join(__dirname, '..', '..');
 global.product_id = new Date().getTime();
 global.new_customer_email = 'pub' + date_time + '@prestashop.com';
@@ -101,6 +102,10 @@ module.exports = {
         uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
         uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
         modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
+
+        onboarding_popup: '.onboarding-popup',
+        onboarding_popup_close_btn: '.onboarding-button-shut-down',
+        onboarding_stop: '.onboarding-button-stop',
 
         //FO
         access_loginFO: 'div.user-info > a',
