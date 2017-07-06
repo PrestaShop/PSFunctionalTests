@@ -11,8 +11,8 @@ var options = {
     },
     port: 4444
 };
-if (process.env.SELENIUM_HOST) {
-    options.host = process.env.SELENIUM_HOST;
+if (typeof global.selenium_url !== 'undefined') {
+    options.host = global.selenium_url;
 }
 
 var options2 = {
