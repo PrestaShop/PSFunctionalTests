@@ -170,10 +170,13 @@ describe('The Product Creation', function () {
     describe('Check the product in the catalog', function (done) {
         it('should go to the catalog', function (done) {
             global.fctname = this.test.title;
+            // We handle here two methods for responsiveness of the page
+            if (this.client.isVisible(this.selector.more_option)) {
+                this.client
+                    .pause(5000)
+                    .click(this.selector.more_option);
+            }
             this.client
-                .pause(5000)
-                .waitForExist(this.selector.more_option, 90000)
-                .click(this.selector.more_option)
                 .waitForExist(this.selector.go_to_catalog, 90000)
                 .click(this.selector.go_to_catalog)
                 .call(done);
