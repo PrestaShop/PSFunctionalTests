@@ -45,6 +45,17 @@ describe('The Check of the order in Back Office', function () {
                 .call(done);
         });
 
+
+        it('should check the order reference', function (done) {
+            global.fctname = this.test.title;
+            this.client
+                .getText(this.selector.order_reference).then(function (text) {
+                var my_order_reference = text;
+                should(my_order_reference).be.equal(order_reference);
+            })
+                .call(done);
+        });
+
         it('should check the product name', function (done) {
             global.fctname = this.test.title;
             this.client
@@ -75,17 +86,6 @@ describe('The Check of the order in Back Office', function () {
                 .getText(this.selector.order_total).then(function (text) {
                 var my_order_total = text;
                 should(my_order_total).be.equal(my_price);
-            })
-                .call(done);
-        });
-
-        it('should check the order reference', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .waitForExist(this.selector.order_reference, 90000)
-                .getText(this.selector.order_reference).then(function (text) {
-                var my_order_reference = text;
-                should(my_order_reference).be.equal(order_reference);
             })
                 .pause(5000)
                 .call(done);
