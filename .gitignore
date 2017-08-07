@@ -1,4 +1,6 @@
 node_modules/*
+test/itg/1.6/mochawesome-report/*
+test/itg/1.7/mochawesome-report/*
 .DS_Store
 .idea/*
 **/screenshots
