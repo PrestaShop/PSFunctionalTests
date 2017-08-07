@@ -104,6 +104,7 @@ module.exports = {
                     .remote(options)
                     .init()
                 //.windowHandleMaximize()
+
             }
             initCommands(client);
 
