@@ -118,6 +118,7 @@ module.exports = {
                 client = webdriverio
                     .remote(options2)
                     .init()
+
             } else {
                 client = webdriverio
                     .remote(options)
