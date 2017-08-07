@@ -42,6 +42,7 @@ before_script:
   - DISPLAY=:10 ./selenium-standalone start &> /dev/null &
   - cd ../../..
   - npm install
+  - npm install mochawesome
   - cd test/itg/$PS_VERSION
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_10.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :10 -ac -screen 0 1280x1024x16"
   - docker exec prestashop rm -rf /var/www/html/modules/welcome
