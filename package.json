@@ -27,5 +27,8 @@
     "should": "^9.0",
     "webdriverio": "^4.0",
     "window": "^1.0"
+  },
+  "devDependencies": {
+    "nodemailer": "^4.0.1"
   }
 }
