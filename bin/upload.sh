@@ -16,7 +16,7 @@ else
     echo "$DIR is empty"
 fi
 
-
+# uploading mochareporter to Gdrive
 echo "Creating archive of test report $ARCHIVE_REPORTER"
 ARCHIVE_REPORTER=TestReport-$FIXED_BRANCH-$(date +%Y-%m-%d_%H_%M_%S)-$TRAVIS_COMMIT.zip
 zip -r $ARCHIVE_REPORTER test/itg/$PS_VERSION/mochawesome-report/*
