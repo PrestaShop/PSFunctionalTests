@@ -3,3 +3,4 @@ node_modules/*
 .idea/*
 **/screenshots
 **.log
+Supprimerait node_modules/
