@@ -22,8 +22,8 @@ describe('The Uninstall of a Module', function () {
             this.client
             //.signinBO()
                 .url('http://' + URL + '/admin-dev')
-                .waitForExist(this.selector.login, 120000)
-                .setValue(this.selector.login, 'demo@prestashop.com')
+                .waitForExist(this.selector.BO.login, 120000)
+                .setValue(this.selector.BO.login, 'demo@prestashop.com')
                 .waitForExist(this.selector.password, 120000)
                 .setValue(this.selector.password, 'prestashop_demo')
                 .waitForExist(this.selector.login_btn, 90000)
