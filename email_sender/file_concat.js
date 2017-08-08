@@ -13,6 +13,7 @@ while (i < 2) {
 
     console.log(Version[i])
 
+    // concatenate css and js files in a single html file
     function  processFile () {
         jsfile="<script type='text/javascript'>"+jsfile+"</script></body>";
         cssfile="<style type='text/css'>"+cssfile+"</style>";
@@ -30,14 +31,16 @@ while (i < 2) {
 
     }
 
+    // read content of Js file
     jsfile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/assets/app.js').toString();
+
+    // read content of CSS file
     cssfile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/assets/app.css').toString();
+
+    // read content of Html file
     htmlfile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/mochawesome.html').toString();
 
     processFile();
-
-
-
 
     i++;
 }

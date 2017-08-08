@@ -44,3 +44,5 @@ transporter.sendMail({
     ]
 });
 
+console.log('Email has been sent');
+
