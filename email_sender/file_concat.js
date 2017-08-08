@@ -10,7 +10,7 @@ while (i < 2) {
     var cssfile = '';
     var jsfile = '';
     var htmlfile= '';
-    console.log(version[i])
+
 
     // read the content of JS file
     fs.readFile('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/assets/app.js', 'utf8', function(err, data) {
