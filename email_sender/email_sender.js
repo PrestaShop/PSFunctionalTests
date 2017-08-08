@@ -34,8 +34,13 @@ transporter.sendMail({
     ' <br>cordialement</br>', // html body
     attachments: [
         {
-            path: 'rapport_test_'+Version[0]+'.html,rapport_test_'+Version[1]+'.html', // stream this file,
+            path: 'rapport_test_'+Version[0]+'.html' // stream this file,
+        },
+        {
+            path: 'rapport_test_'+Version[1]+'.html' // stream this file,
         }
+
+
     ]
 });
 
