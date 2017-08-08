@@ -3,6 +3,7 @@ var fs = require('fs');
 
 
 var i =0 ;
+var Version = new Array();
 version = [1.6,1.7];
 
 while (i < 2) {

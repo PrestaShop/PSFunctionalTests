@@ -7,6 +7,7 @@ var dateFormat = require('dateformat');
 var Sender_Email   = process.env.Sender_Email;
 var Sender_Email_password   = process.env.Sender_Email_password;
 var Recipient_Email = process.env.Recipient_Email;
+
 var Version = new Array();
 Version = [1.6,1.7];
 
