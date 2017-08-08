@@ -18,12 +18,12 @@ describe('The Purchase of a product', function () {
         global.fctname = this.test.title;
         this.client
             .url('http://' + URL)
-            .waitForExist(this.selector.access_loginFO, 90000)
-            .click(this.selector.access_loginFO)
-            .waitForExist(this.selector.loginFO, 90000)
-            .setValue(this.selector.loginFO, 'pub@prestashop.com')
-            .setValue(this.selector.passwordFO, '123456789')
-            .click(this.selector.login_btnFO)
+            .waitForExist(this.selector.FO.access_login, 90000)
+            .click(this.selector.FO.access_login)
+            .waitForExist(this.selector.FO.login, 90000)
+            .setValue(this.selector.FO.login, 'pub@prestashop.com')
+            .setValue(this.selector.FO.password, '123456789')
+            .click(this.selector.FO.login_btn)
             .call(done);
 
     });
@@ -177,9 +177,9 @@ describe('The Purchase of a product', function () {
         it('should logout successfully in FO', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.logoutFO, 90000)
-                .click(this.selector.logoutFO)
-                .waitForExist(this.selector.access_loginFO, 90000)
+                .waitForExist(this.selector.FO.logout, 90000)
+                .click(this.selector.FO.logout)
+                .waitForExist(this.selector.FO.access_login, 90000)
                 .call(done);
 
         });
