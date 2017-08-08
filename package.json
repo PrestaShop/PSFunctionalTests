@@ -29,6 +29,7 @@
     "window": "^1.0"
   },
   "devDependencies": {
+    "dateformat": "^2.0.0",
     "nodemailer": "^4.0.1"
   }
 }
