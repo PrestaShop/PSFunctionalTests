@@ -3,4 +3,5 @@ node_modules/*
 .idea/*
 **/screenshots
 **.log
-email_sender/rapport_test.html
+email_sender/rapport_test_1.7.html
+email_sender/rapport_test_1.6.html
