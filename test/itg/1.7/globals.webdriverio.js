@@ -117,7 +117,7 @@ module.exports = {
                 lastname: '[name="lastname"]',
                 email: '[name="email"]',
                 password: '[name="password"]',
-                create_account_info_validate: '[data-link-action="save-customer"]',
+                create_account_info_validate: '[data-link-action="save-customer"]'
             },
 
             //Buy Product Pages
@@ -157,10 +157,9 @@ module.exports = {
 
             search_product: '.ui-autocomplete-input',
             search_product_button: '.material-icons.search',
-            search_product_result_image: '.thumbnail.product-thumbnail',
             search_product_result_name: '.h3.product-title > a',
             search_product_result_price: '[itemprop="price"]',
-            close_error: '//*[@id="error-modal"]/div/div/button'
+
 
         }
 
