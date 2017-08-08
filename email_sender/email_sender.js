@@ -34,7 +34,7 @@ transporter.sendMail({
     ' <br>cordialement</br>', // html body
     attachments: [
         {
-            path: "email_sender/rapport_test_"+Version[i]+".html" // stream this file,
+            path: "email_sender/rapport_test_"+Version[0]+".html" // stream this file,
         }
 
 
