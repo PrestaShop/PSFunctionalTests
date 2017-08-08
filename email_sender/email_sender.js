@@ -35,9 +35,6 @@ transporter.sendMail({
     attachments: [
         {
             path: 'rapport_test_'+Version[0]+'.html' // stream this file,
-        },
-        {
-            path: 'rapport_test_'+Version[1]+'.html' // stream this file,
         }
 
 
