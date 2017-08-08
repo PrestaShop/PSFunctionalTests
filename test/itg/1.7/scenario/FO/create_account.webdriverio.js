@@ -21,19 +21,19 @@ describe('The Creation of an Account in Front Office', function () {
                 .url('http://' + URL)
                 .waitForExist(this.selector.FO.access_login, 90000)
                 .click(this.selector.FO.access_login)
-                .waitForExist(this.selector.FO.create_account_button, 90000)
-                .click(this.selector.FO.create_account_button)
+                .waitForExist(this.selector.FO.Account_page.create_button, 90000)
+                .click(this.selector.FO.Account_page.create_button)
                 .call(done);
         });
 
         it('should fill the form', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.create_account_firstname, 60000)
-                .setValue(this.selector.create_account_firstname, 'my firstname')
-                .setValue(this.selector.create_account_lastname, 'my lastname')
-                .setValue(this.selector.create_account_email, new_customer_email)
-                .setValue(this.selector.create_account_password, '123456789')
+                .waitForExist(this.selector.FO.Account_page.firstname, 60000)
+                .setValue(this.selector.FO.Account_page.firstname, 'my firstname')
+                .setValue(this.selector.FO.Account_page.lastname, 'my lastname')
+                .setValue(this.selector.FO.Account_page.email, new_customer_email)
+                .setValue(this.selector.FO.Account_page.password, '123456789')
                 .pause(2000)
                 .call(done);
         });
@@ -41,8 +41,8 @@ describe('The Creation of an Account in Front Office', function () {
         it('should validate the creation of the account', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.create_account_info_validate)
-                .waitForExist(this.selector.logo_home_pageFO, 90000)
+                .click(this.selector.FO.Account_page.create_account_info_validate)
+                .waitForExist(this.selector.FO.logo_home_page, 90000)
                 .call(done);
         });
     });
@@ -65,7 +65,7 @@ describe('The Creation of an Account in Front Office', function () {
                 .setValue(this.selector.FO.login, new_customer_email)
                 .setValue(this.selector.FO.password, '123456789')
                 .click(this.selector.FO.login_btn)
-                .waitForExist(this.selector.logo_home_pageFO, 90000)
+                .waitForExist(this.selector.FO.logo_home_page, 90000)
                 .call(done);
         });
     });
