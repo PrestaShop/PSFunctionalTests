@@ -32,34 +32,34 @@ describe('The Purchase of a product', function () {
         it('should go to the product details', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.logo_home_pageFO)
-                .waitForExist(this.selector.first_product_home_page, 90000)
-                .getText(this.selector.first_product_home_page_name).then(function (text) {
+                .click(this.selector.FO.logo_home_page)
+                .waitForExist(this.selector.FO.BuyProduct.first_product_home_page, 90000)
+                .getText(this.selector.FO.BuyProduct.first_product_home_page_name).then(function (text) {
                 global.my_name = text[1].split('...')[0];
             })
-                .click(this.selector.first_product_home_page)
-                .waitForExist(this.selector.product_image, 90000)
-                .getText(this.selector.product_name_details).then(function (text) {
+                .click(this.selector.FO.BuyProduct.first_product_home_page)
+                .waitForExist(this.selector.FO.BuyProduct.product_image, 90000)
+                .getText(this.selector.FO.BuyProduct.product_name_details).then(function (text) {
                 var my_name_check = text;
                 my_name_check.pop(-1).toLowerCase().should.containEql(my_name.toLowerCase());
             })
-                .getText(this.selector.product_price_details).then(function (text) {
+                .getText(this.selector.FO.BuyProduct.product_price_details).then(function (text) {
                 global.my_price = text;
             })
-                .getValue(this.selector.product_quantity_details).then(function (text) {
+                .getValue(this.selector.FO.BuyProduct.product_quantity_details).then(function (text) {
                 global.my_quantity = text;
             })
-                .click(this.selector.add_to_cart)
-                .waitForExist(this.selector.layer_cart, 90000)
-                .getText(this.selector.layer_cart_name_details).then(function (text) {
+                .click(this.selector.FO.BuyProduct.add_to_cart)
+                .waitForExist(this.selector.FO.layer_cart.layer_cart, 90000)
+                .getText(this.selector.FO.layer_cart.name_details).then(function (text) {
                 var my_cart_name_check = text;
                 my_cart_name_check.toLowerCase().should.containEql(my_name.toLowerCase())
             })
-                .getText(this.selector.layer_cart_price_details).then(function (text) {
+                .getText(this.selector.FO.layer_cart.price_details).then(function (text) {
                 var my_cart_price_check = text;
                 should(my_cart_price_check).be.equal(my_price);
             })
-                .getText(this.selector.layer_cart_quantity_details).then(function (text) {
+                .getText(this.selector.FO.layer_cart.quantity_details).then(function (text) {
                 var my_cart_quantity_check = text.split(': ');
                 should(my_cart_quantity_check[1]).be.equal(my_quantity);
             })
@@ -69,7 +69,7 @@ describe('The Purchase of a product', function () {
         it('should click add to cart button ', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.layer_cart_command_button)
+                .click(this.selector.FO.layer_cart.command_button)
                 .call(done);
         });
     });
@@ -78,8 +78,8 @@ describe('The Purchase of a product', function () {
         it('should validate name of product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.command_button_checkout, 90000)
-                .getText(this.selector.command_product_name).then(function (text) {
+                .waitForExist(this.selector.FO.Command.button_checkout, 90000)
+                .getText(this.selector.FO.Command.product_name).then(function (text) {
                 var command_my_name = text;
                 command_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
             })
@@ -89,7 +89,7 @@ describe('The Purchase of a product', function () {
         it('should validate price of product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getText(this.selector.command_product_price).then(function (text) {
+                .getText(this.selector.FO.Command.product_price).then(function (text) {
                 var command_price_check = text;
                 should(command_price_check).be.equal(my_price);
             })
@@ -98,62 +98,62 @@ describe('The Purchase of a product', function () {
         it('should click checkout button', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.command_button_checkout)
+                .click(this.selector.FO.Command.button_checkout)
                 .call(done);
         });
 
         it('should select the address step-2', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.checkout_step2_continue_button, 90000)
-                .click(this.selector.checkout_step2_continue_button)
-                .waitForExist(this.selector.checkout_step3_continue_button, 90000)
-                .click(this.selector.checkout_step3_continue_button)
+                .waitForExist(this.selector.FO.Command.checkout_step2_continue_button, 90000)
+                .click(this.selector.FO.Command.checkout_step2_continue_button)
+                .waitForExist(this.selector.FO.Command.checkout_step3_continue_button, 90000)
+                .click(this.selector.FO.Command.checkout_step3_continue_button)
                 .call(done);
         });
 
         it('should select the payment step-3', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.checkout_step4_payment, 90000)
-                .getText(this.selector.checkout_total).then(function (text) {
+                .waitForExist(this.selector.FO.Command.checkout_step4_payment, 90000)
+                .getText(this.selector.FO.Command.checkout_total).then(function (text) {
                 var checkout_total = text;
                 should(checkout_total).be.equal(my_price);
             })
-                .click(this.selector.checkout_step4_payment)
+                .click(this.selector.FO.Command.checkout_step4_payment)
                 .call(done);
         });
 
         it('should select the shipping method step-4', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.checkout_step4_cgv, 90000)
-                .click(this.selector.checkout_step4_cgv)
-                .waitForExist(this.selector.checkout_step4_order, 90000)
-                .click(this.selector.checkout_step4_order)
+                .waitForExist(this.selector.FO.Command.checkout_step4_cgv, 90000)
+                .click(this.selector.FO.Command.checkout_step4_cgv)
+                .waitForExist(this.selector.FO.Command.checkout_step4_order, 90000)
+                .click(this.selector.FO.Command.checkout_step4_order)
                 .call(done);
         });
 
         it('should confirm the order', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.order_confirmation_name, 90000)
-                .getText(this.selector.order_confirmation_name).then(function (text) {
+                .waitForExist(this.selector.FO.Command.order_confirmation_name, 90000)
+                .getText(this.selector.FO.Command.order_confirmation_name).then(function (text) {
                 var command_confirmation_my_name = text;
                 command_confirmation_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
             })
-                .waitForExist(this.selector.order_confirmation_price1, 90000)
-                .getText(this.selector.order_confirmation_price1).then(function (text) {
+                .waitForExist(this.selector.FO.Command.order_confirmation_price1, 90000)
+                .getText(this.selector.FO.Command.order_confirmation_price1).then(function (text) {
                 var order_confirmation_price1 = text;
                 should(order_confirmation_price1).be.equal(my_price);
             })
-                .waitForExist(this.selector.order_confirmation_price2, 90000)
-                .getText(this.selector.order_confirmation_price2).then(function (text) {
+                .waitForExist(this.selector.FO.Command.order_confirmation_price2, 90000)
+                .getText(this.selector.FO.Command.order_confirmation_price2).then(function (text) {
                 var order_confirmation_price2 = text;
                 should(order_confirmation_price2).be.equal(my_price);
             })
-                .waitForExist(this.selector.order_confirmation_ref, 90000)
-                .getText(this.selector.order_confirmation_ref).then(function (text) {
+                .waitForExist(this.selector.FO.Command.order_confirmation_ref, 90000)
+                .getText(this.selector.FO.Command.order_confirmation_ref).then(function (text) {
                 var my_ref = text.split(': ')
                 global.order_reference = my_ref[1];
             })
