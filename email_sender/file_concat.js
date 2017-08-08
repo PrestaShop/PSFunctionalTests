@@ -11,32 +11,8 @@ while (i < 2) {
     var jsfile = '';
     var htmlfile= '';
 
+    console.log(Version[i])
 
-    // read the content of JS file
-    fs.readFile('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/assets/app.js', 'utf8', function(err, data) {
-        if (err) throw err;
-        jsfile = data;
-
-        // read the content of CSS file
-        fs.readFile('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/assets/app.css', 'utf8', function(err, data) {
-            if (err) throw err;
-            cssfile = data;
-
-            // read the content of HTML file
-            fs.readFile('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/mochawesome.html', 'utf8', function(err, data) {
-                if (err) throw err;
-                htmlfile = data;
-
-                processFile();
-
-            });
-
-        });
-
-    });
-
-
-// Concatenation of all file in single HTML file [1.6]
     function  processFile () {
         jsfile="<script type='text/javascript'>"+jsfile+"</script></body>";
         cssfile="<style type='text/css'>"+cssfile+"</style>";
@@ -53,6 +29,12 @@ while (i < 2) {
         });
 
     }
+
+    jsfile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/assets/app.js').toString();
+    cssfile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/assets/app.css').toString();
+    htmlfile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/mochawesome.html').toString();
+
+    processFile();
 
 
 
