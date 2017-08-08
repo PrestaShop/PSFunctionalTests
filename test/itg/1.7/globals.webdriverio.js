@@ -15,7 +15,7 @@ global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 
 module.exports = {
     selector: {
-        //Installation
+        //Installation selector
         Installation : {
             language: '//*[@id="langList"]',
             next_step: '//*[@id="btNext"]',
@@ -47,7 +47,7 @@ module.exports = {
             finish_step: '//*[@id="install_process_success"]/div[1]/h2'
         },
 
-        // Back office
+        // Back office selector
         BO:{
             login: '#email',
             password: '#passwd',
@@ -94,7 +94,7 @@ module.exports = {
             uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
             modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 
-            // Popup - boutique first launch
+            // Popup - boutique first launch selector
             Firstlaunch:{
                 onboarding_popup: '.onboarding-popup',
                 onboarding_popup_close_btn: '.onboarding-button-shut-down',
@@ -102,7 +102,7 @@ module.exports = {
             }
         },
 
-        //Front-office
+        //Front-office selector
         FO:{
             access_login: 'div.user-info > a',
             login: '//*[@id="login-form"]/section/div[1]/div[1]/input',
@@ -111,6 +111,7 @@ module.exports = {
             logout: '.logout',
             logo_home_page: '.logo.img-responsive',
 
+            //Account page selector
             Account_page: {
                 create_button: '[data-link-action="display-register-form"]',
                 firstname: '[name="firstname"]',
@@ -120,7 +121,7 @@ module.exports = {
                 create_account_info_validate: '[data-link-action="save-customer"]'
             },
 
-            //Buy Product Pages
+            //Buy Product Pages selector
             BuyProduct: {
                 first_product_home_page: '.thumbnail.product-thumbnail',
                 add_to_cart: '.btn.btn-primary.add-to-cart',
