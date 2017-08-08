@@ -19,7 +19,7 @@ describe('The Check of the order in Back Office', function () {
             global.fctname = this.test.title;
             this.client
                 .signinBO()
-                .waitForExist(this.selector.menu, 90000)
+                .waitForExist(this.selector.BO.menu, 90000)
                 .call(done);
         });
     });
