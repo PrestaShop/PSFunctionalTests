@@ -30,7 +30,7 @@ transporter.sendMail({
     to: Recipient_Email, // list of receivers
     subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
     html: 'Bonjour,</br>' +
-    '<br> Les résultats de l exécution des tests automatisés (Python & Node.js) lancés avec les navigateurs Chrome et Firefox sont en Pièce jointe .</br> ' +
+    '<br> Les résultats de l exécution des tests automatisés (Node.js) lancés avec les navigateurs Chrome et Firefox sont en Pièce jointe .</br> ' +
     ' <br>cordialement</br>', // html body
     attachments: [
         {
