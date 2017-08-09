@@ -52,7 +52,6 @@ module.exports = {
             login: '#email',
             password: '#passwd',
             login_btn: '[name="submitLogin"]',
-
             exit_welcome: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
             click_outside: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
             logout: '#header_logout',
