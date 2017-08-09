@@ -35,12 +35,12 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL + '/admin-dev')
-            .waitForExist(this.selector.BO.login, 120000)
-            .setValue(this.selector.BO.login, 'demo@prestashop.com')
-            .waitForExist(this.selector.BO.password, 120000)
-            .setValue(this.selector.BO.password, 'prestashop_demo')
-            .waitForExist(this.selector.BO.login_btn, 120000)
-            .click(this.selector.BO.login_btn)
+            .waitForExist(this.selector.BO.Access.login, 120000)
+            .setValue(this.selector.BO.Access.login, 'demo@prestashop.com')
+            .waitForExist(this.selector.BO.Access.password, 120000)
+            .setValue(this.selector.BO.Access.password, 'prestashop_demo')
+            .waitForExist(this.selector.BO.Access.login_btn, 120000)
+            .click(this.selector.BO.Access.login_btn)
             .call(cb);
     });
 
@@ -50,10 +50,10 @@ function initCommands(client) {
             .url('http://' + URL)
             .waitForExist(this.selector.FO.Access.login, 90000)
             .click(this.selector.FO.Access.login)
-            .waitForExist(this.selector.FO.login, 90000)
-            .setValue(this.selector.FO.login, 'pub@prestashop.com')
-            .setValue(this.selector.FO.password, '123456789')
-            .click(this.selector.FO.login_btn)
+            .waitForExist(this.selector.FO.Access.login, 90000)
+            .setValue(this.selector.FO.Access.login, 'pub@prestashop.com')
+            .setValue(this.selector.FO.Access.password, '123456789')
+            .click(this.selector.FO.Access.login_btn)
             .call(done);
     });
 
@@ -67,8 +67,8 @@ function initCommands(client) {
     client.addCommand('signoutFO', function (cb) {
         this.selector = globals.selector;
         client
-            .waitForExist(this.selector.FO.logout, 90000)
-            .click(this.selector.FO.logout)
+            .waitForExist(this.selector.FO.Access.logout, 90000)
+            .click(this.selector.FO.Access.logout)
             .waitForExist(this.selector.FO.Access.login, 90000)
             .call(cb);
     });
