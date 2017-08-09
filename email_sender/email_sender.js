@@ -1,7 +1,6 @@
 'use strict';
-var common = require('../test/itg/1.7/common.webdriverio');
-var globals = require('../test/itg/1.7/globals.webdriverio');
 
+var fs = require('fs');
 
 // create reusable transporter object using the default SMTP transport
 var nodemailer = require('nodemailer');
