@@ -25,9 +25,7 @@ env:
     - SAUCELABS=None
     - MODULE_TECHNICAL_NAME=None
   matrix:
-    - PS_VERSION=1.6 TAG=1.6
     - PS_VERSION=1.7 TAG=1.7
-    - PS_VERSION=1.6 TAG=1.6 MODULE_TECHNICAL_NAME=autoupgrade
     - PS_VERSION=1.7 TAG=1.7 MODULE_TECHNICAL_NAME=autoupgrade
 
 matrix:

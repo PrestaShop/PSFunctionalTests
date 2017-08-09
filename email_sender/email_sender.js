@@ -1,4 +1,8 @@
 'use strict';
+var common = require('../test/itg/1.7/common.webdriverio');
+var globals = require('../test/itg/1.7/globals.webdriverio');
+
+
 // create reusable transporter object using the default SMTP transport
 var nodemailer = require('nodemailer');
 var dateFormat = require('dateformat');
@@ -21,9 +25,8 @@ var transporter = nodemailer.createTransport({
 
 console.log('Sending Email .....');
 
+
 var day=dateFormat( "yyyy-mm-dd h:MM:ss");
-
-
 
 transporter.sendMail({
     from: Sender_Email, // sender address
