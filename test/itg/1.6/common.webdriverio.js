@@ -35,12 +35,12 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL + '/admin-dev')
-            .waitForExist(this.selector.login, 120000)
-            .setValue(this.selector.login, 'demo@prestashop.com')
-            .waitForExist(this.selector.password, 120000)
-            .setValue(this.selector.password, 'prestashop_demo')
-            .waitForExist(this.selector.login_btn, 120000)
-            .click(this.selector.login_btn)
+            .waitForExist(this.selector.BO.login, 120000)
+            .setValue(this.selector.BO.login, 'demo@prestashop.com')
+            .waitForExist(this.selector.BO.password, 120000)
+            .setValue(this.selector.BO.password, 'prestashop_demo')
+            .waitForExist(this.selector.BO.login_btn, 120000)
+            .click(this.selector.BO.login_btn)
             .call(cb);
     });
 
@@ -50,10 +50,10 @@ function initCommands(client) {
             .url('http://' + URL)
             .waitForExist(this.selector.access_loginFO, 90000)
             .click(this.selector.access_loginFO)
-            .waitForExist(this.selector.loginFO, 90000)
-            .setValue(this.selector.loginFO, 'pub@prestashop.com')
+            .waitForExist(this.selector.BO.loginFO, 90000)
+            .setValue(this.selector.BO.loginFO, 'pub@prestashop.com')
             .setValue(this.selector.passwordFO, '123456789')
-            .click(this.selector.login_btnFO)
+            .click(this.selector.BO.login_btnFO)
             .call(done);
     });
 
