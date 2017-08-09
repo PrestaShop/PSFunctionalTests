@@ -67,7 +67,7 @@ module.exports = {
 
             Module:{
                 menu: '.icon-AdminParentModules',
-                modules_search: '#moduleQuicksearch',
+                search: '#moduleQuicksearch',
             }
          },
 
