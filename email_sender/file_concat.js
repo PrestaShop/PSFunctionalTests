@@ -34,7 +34,6 @@ while (i < 2) {
 
         }
 
-
         // read content of Js file
         jsFile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report/assets/app.js').toString();
 
