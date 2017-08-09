@@ -23,13 +23,13 @@ describe('The Install of a Module', function () {
             this.client
             //.signinBO()
                 .url('http://' + URL + '/admin-dev')
-                .waitForExist(this.selector.BO.login, 120000)
-                .setValue(this.selector.BO.login, 'demo@prestashop.com')
-                .waitForExist(this.selector.BO.password, 120000)
-                .setValue(this.selector.BO.password, 'prestashop_demo')
-                .waitForExist(this.selector.BO.login_btn, 90000)
-                .click(this.selector.BO.login_btn)
-                .waitForExist(this.selector.menu, 60000)
+                .waitForExist(this.selector.BO.Access.login, 120000)
+                .setValue(this.selector.BO.Access.login, 'demo@prestashop.com')
+                .waitForExist(this.selector.BO.Access.password, 120000)
+                .setValue(this.selector.BO.Access.password, 'prestashop_demo')
+                .waitForExist(this.selector.BO.Access.login_btn, 90000)
+                .click(this.selector.BO.Access.login_btn)
+                .waitForExist(this.selector.BO.Products.menu, 60000)
                 .call(done);
         });
     });
@@ -39,8 +39,8 @@ describe('The Install of a Module', function () {
         it('sould go to modules page', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.modules_menu)
-                .waitForExist(this.selector.modules_search, 60000)
+                .click(this.selector.BO.Module.menu)
+                .waitForExist(this.selector.BO.Module.search, 60000)
                 .call(done);
         });
 
@@ -50,7 +50,7 @@ describe('The Install of a Module', function () {
             /*.isExisting("//*[@class=\"alert alert-danger\"]").then(function(present) {
              should(present).be.equal(false);
              })*/
-                .setValue(this.selector.modules_search, module_tech_name)
+                .setValue(this.selector.BO.Module.search, module_tech_name)
                 .waitForExist('//table[@id="module-list"]/tbody/tr[not(@style)]//span[text()="' + module_tech_name + '"]', 60000)
                 .call(done);
         });
@@ -60,7 +60,7 @@ describe('The Install of a Module', function () {
             this.client
                 .click('//i[@class="icon-plus-sign-alt" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name + '"]]')
                 .pause(2000)
-                .isVisible(this.selector.proceed_installation_anyway_button).then(function (isVisible) {
+                .isVisible(this.selector.BO.Products.proceed_installation_anyway_button).then(function (isVisible) {
                 install_anyway_is_visible = isVisible;
             })
                 .call(done);
@@ -69,11 +69,11 @@ describe('The Install of a Module', function () {
         it('should click on "proceed install anyway" button if popup appears', function (done) {
             global.fctname = this.test.title;
             if (install_anyway_is_visible) {
-                this.client.click(this.selector.proceed_installation_anyway_button);
+                this.client.click(this.selector.BO.Products.proceed_installation_anyway_button);
             }
             this.client
                 .pause(2000)
-                .isVisible(this.selector.red_validation).then(function (isVisible) {
+                .isVisible(this.selector.BO.Products.red_validation).then(function (isVisible) {
                 global.red_validation_is_visible = isVisible;
             })
                 .call(done);
@@ -83,13 +83,13 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             if (red_validation_is_visible) {
                 this.client
-                    .getText(this.selector.red_validation).then(function (text) {
+                    .getText(this.selector.BO.Products.red_validation).then(function (text) {
                     done(new Error(text));
                 })
             } else {
                 this.client
                     .pause(1000)
-                    .isVisible(this.selector.green_validation).then(function (isVisible) {
+                    .isVisible(this.selector.BO.Products.green_validation).then(function (isVisible) {
                     green_validation_is_visible = isVisible;
                     if (green_validation_is_visible) {
                         done();
