@@ -28,24 +28,62 @@ console.log('Sending Email .....');
 
 var day=dateFormat( "yyyy-mm-dd h:MM:ss");
 
-transporter.sendMail({
-    from: Sender_Email, // sender address
-    to: Recipient_Email, // list of receivers
-    subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
-    html: 'Bonjour,</br>' +
-    '<br> Les résultats de l exécution des tests automatisés (Node.js) lancés avec les navigateurs Chrome et Firefox sont en Pièce jointe .</br> ' +
-    ' <br>cordialement</br>', // html body
-    attachments: [
-        {
-            path: "email_sender/rapport_test_"+Version[0]+".html" // stream this file,
-        },{
-            filename:  "rapport_test_"+Version[1]+".html",
-            path:  "email_sender/rapport_test_"+Version[1]+".html"
-        }
+
+if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.existsSync("email_sender/rapport_test_"+Version[1]+".html")) ) {
+    transporter.sendMail({
+        from: Sender_Email, // sender address
+        to: Recipient_Email, // list of receivers
+        subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
+        html: 'Bonjour,</br>' +
+        '<br> Les résultats de l exécution des tests automatisés (Node.js) lancés avec les navigateurs Chrome et Firefox sont en Pièce jointe .</br> ' +
+        ' <br>cordialement</br>', // html body
+        attachments: [
+            {
+                path: "email_sender/rapport_test_"+Version[0]+".html" // stream this file,
+            },{
+                filename:  "rapport_test_"+Version[1]+".html",
+                path:  "email_sender/rapport_test_"+Version[1]+".html"
+            }
 
 
-    ]
-});
+        ]
+    });
+}else if(fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")){
+    transporter.sendMail({
+        from: Sender_Email, // sender address
+        to: Recipient_Email, // list of receivers
+        subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
+        html: 'Bonjour,</br>' +
+        '<br> Les résultats de l exécution des tests automatisés (Node.js) lancés avec les navigateurs Chrome et Firefox sont en Pièce jointe .</br> ' +
+        ' <br>cordialement</br>', // html body
+        attachments: [
+            {
+                path: "email_sender/rapport_test_"+Version[0]+".html" // stream this file,
+            }
+
+
+        ]
+    });
+}else{
+    transporter.sendMail({
+        from: Sender_Email, // sender address
+        to: Recipient_Email, // list of receivers
+        subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
+        html: 'Bonjour,</br>' +
+        '<br> Les résultats de l exécution des tests automatisés (Node.js) lancés avec les navigateurs Chrome et Firefox sont en Pièce jointe .</br> ' +
+        ' <br>cordialement</br>', // html body
+        attachments: [
+            {
+                path: "email_sender/rapport_test_"+Version[1]+".html" // stream this file,
+            }
+
+
+        ]
+    });
+}
+
+
+
 
 console.log('Email has been sent');
 

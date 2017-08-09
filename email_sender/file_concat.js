@@ -13,7 +13,7 @@ Version = [1.6,1.7];
 
 while (i < 2) {
 
-
+// Verify the existence of Mocha Reporter
     if (fs.existsSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+Version[i]+'/mochawesome-report')) {
         var cssfile = '';
         var jsfile = '';
