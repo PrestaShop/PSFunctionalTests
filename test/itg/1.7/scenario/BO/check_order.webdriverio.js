@@ -59,9 +59,9 @@ describe('The Check of the order in Back Office', function () {
         it('should check the product name', function (done) {
             global.fctname = this.test.title;
             this.client
-                .scroll(this.selector.BO.product_name, 20, 0)
-                .waitForExist(this.selector.BO.product_name, 90000)
-                .getText(this.selector.BO.product_name).then(function (text) {
+                .scroll(this.selector.BO.Orders.order_product_name, 20, 0)
+                .waitForExist(this.selector.BO.Orders.order_product_name, 90000)
+                .getText(this.selector.BO.Orders.order_product_name).then(function (text) {
                 var my_order_product_name = text;
                 my_order_product_name.toLowerCase().should.containEql(my_name.toLowerCase());
             })
