@@ -26,8 +26,8 @@ describe('Check the order in BO', function () {
             it('should go to order', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .click(this.selector.BO.orders)
-                    .waitForExist(this.selector.BO.orders_form, 90000)
+                    .click(this.selector.BO.Orders.orders)
+                    .waitForExist(this.selector.BO.Orders.form, 90000)
                     .call(done);
             });
 
@@ -42,8 +42,8 @@ describe('Check the order in BO', function () {
             it('should check product name', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .waitForExist(this.selector.BO.order_product_name, 90000)
-                    .getText(this.selector.BO.order_product_name).then(function (text) {
+                    .waitForExist(this.selector.BO.Orders.product_name, 90000)
+                    .getText(this.selector.BO.Orders.product_name).then(function (text) {
                     var my_order_product_name = text;
                     my_order_product_name.toLowerCase().should.containEql(my_name.toLowerCase());
                 })
@@ -52,7 +52,7 @@ describe('Check the order in BO', function () {
             it('should check product quantity', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.BO.order_quantity).then(function (text) {
+                    .getText(this.selector.BO.Orders.quantity).then(function (text) {
                     var my_order_quantity = text;
                     should(my_order_quantity).be.equal(my_quantity);
                 })
@@ -61,7 +61,7 @@ describe('Check the order in BO', function () {
             it('should check product price', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.BO.order_total).then(function (text) {
+                    .getText(this.selector.BO.Orders.total).then(function (text) {
                     var my_order_total = text;
                     should(my_order_total).be.equal(my_price);
                 })
@@ -70,7 +70,7 @@ describe('Check the order in BO', function () {
             it('should check product reference', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.BO.order_reference).then(function (text) {
+                    .getText(this.selector.BO.Orders.reference).then(function (text) {
                     var my_order_reference = text;
                     should(my_order_reference).be.equal(order_reference);
                 })
