@@ -7,7 +7,7 @@ var options = {
     logLevel: 'silent',
     waitForTimeout: 30000,
     desiredCapabilities: {
-        browserName: 'firefox',
+        browserName: 'chrome',
     },
     port: 4444
 };
