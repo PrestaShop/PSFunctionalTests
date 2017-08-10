@@ -7,7 +7,7 @@ var options = {
     logLevel: 'silent',
     waitForTimeout: 30000,
     desiredCapabilities: {
-        browserName: 'chrome',
+        browserName: 'firefox',
     },
     port: 4444
 };
@@ -119,5 +119,8 @@ module.exports = {
     initMocha: function () {
         this.timeout(900000000);
         this.slow(45000);
+    },
+    browser:function () {
+        return options.desiredCapabilities.browserName
     }
 };

@@ -1,6 +1,12 @@
 'use strict';
 
 var fs = require('fs');
+var optionsBrowserOld = require('../test/itg/1.6/common.webdriverio');
+var optionsBrowserNew = require('../test/itg/1.7/common.webdriverio');
+
+
+console.log();
+console.log(optionsBrowserNew.browser());
 
 // create reusable transporter object using the default SMTP transport
 var nodeMailer = require('nodemailer');
@@ -34,7 +40,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
         to: RECIPIENT_EMAIL, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br> Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur <navigateur> sont en pièce jointe.</br> " +
+        "<br> Les résultats de l'exécution des tests automatisés (Node.js) sur les navigateur (" +optionsBrowserOld.browser()+","+optionsBrowserNew.browser()+") sont en pièce jointe.</br> " +
         '<br>Bien à vous,</br>'+
         '<br>Equipe QA</br>', // html body
         attachments: [
@@ -54,7 +60,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
         to: RECIPIENT_EMAIL, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        '<br> Les résultats de l exécution des tests automatisés (Node.js) lancés avec les navigateurs Chrome et Firefox sont en Pièce jointe .</br> ' +
+        "<br> Les résultats de l'exécution des tests automatisés (Node.js) lancés avec les navigateurs " +optionsBrowserOld.browser()+" sont en Pièce jointe .</br> " +
         ' <br>cordialement</br>', // html body
         attachments: [
             {
@@ -70,7 +76,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
         to: RECIPIENT_EMAIL, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        '<br> Les résultats de l exécution des tests automatisés (Node.js) lancés avec les navigateurs Chrome et Firefox sont en Pièce jointe .</br> ' +
+        "<br> Les résultats de l'exécution des tests automatisés (Node.js) lancés avec les navigateurs " +optionsBrowserNew.browser()+" sont en Pièce jointe .</br> " +
         ' <br>cordialement</br>', // html body
         attachments: [
             {

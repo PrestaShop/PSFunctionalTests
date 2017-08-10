@@ -141,5 +141,8 @@ module.exports = {
     initMocha: function () {
         this.timeout(100000);
         this.slow(50000);
+    },
+    browser:function () {
+        return options.desiredCapabilities.browserName
     }
 };
