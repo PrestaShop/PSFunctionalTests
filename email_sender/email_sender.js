@@ -60,7 +60,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
         to: RECIPIENT_EMAIL, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br> Les résultats de l'exécution des tests automatisés (Node.js) lancés avec les navigateurs " +optionsBrowserOld.browser()+" sont en Pièce jointe .</br> " +
+        "<br> Les résultats de l'exécution des tests automatisés (Node.js) lancés avec le navigateur " +optionsBrowserOld.browser()+" sont en Pièce jointe .</br> " +
         ' <br>cordialement</br>', // html body
         attachments: [
             {
@@ -76,7 +76,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
         to: RECIPIENT_EMAIL, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br> Les résultats de l'exécution des tests automatisés (Node.js) lancés avec les navigateurs " +optionsBrowserNew.browser()+" sont en Pièce jointe .</br> " +
+        "<br> Les résultats de l'exécution des tests automatisés (Node.js) lancés avec le navigateur " +optionsBrowserNew.browser()+" sont en Pièce jointe .</br> " +
         ' <br>cordialement</br>', // html body
         attachments: [
             {
