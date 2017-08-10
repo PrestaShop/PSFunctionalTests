@@ -60,8 +60,9 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
         to: RECIPIENT_EMAIL, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br> Les résultats de l'exécution des tests automatisés (Node.js) lancés avec le navigateur " +optionsBrowserOld.browser()+" sont en Pièce jointe .</br> " +
-        ' <br>cordialement</br>', // html body
+        "<br> Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateu (" +optionsBrowserOld.browser()+") sont en pièce jointe.</br> " +
+        '<br>Bien à vous,</br>'+
+        '<br>Equipe QA</br>', // html body
         attachments: [
             {
                 path: "email_sender/rapport_test_"+Version[0]+".html" // stream this file,
@@ -76,8 +77,9 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
         to: RECIPIENT_EMAIL, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br> Les résultats de l'exécution des tests automatisés (Node.js) lancés avec le navigateur " +optionsBrowserNew.browser()+" sont en Pièce jointe .</br> " +
-        ' <br>cordialement</br>', // html body
+        "<br> Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateu (" +optionsBrowserNew.browser()+") sont en pièce jointe.</br> " +
+        '<br>Bien à vous,</br>'+
+        '<br>Equipe QA</br>', // html body
         attachments: [
             {
                 path: "email_sender/rapport_test_"+Version[1]+".html" // stream this file,
