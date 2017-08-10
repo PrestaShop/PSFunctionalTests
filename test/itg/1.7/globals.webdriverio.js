@@ -49,9 +49,12 @@ module.exports = {
 
         // Back office selector
         BO:{
-            login: '#email',
-            password: '#passwd',
-            login_btn: '[name="submitLogin"]',
+            Access:{
+                login: '#email',
+                password: '#passwd',
+                login_btn: '[name="submitLogin"]',
+            },
+
             exit_welcome: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
             click_outside: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
             logout: '#header_logout',
@@ -76,23 +79,31 @@ module.exports = {
             product_online: '.switch-input ',
             catalogue_filter_by_name: '//input[@name="filter_column_name"]',
             catalogue_submit_filter: '//button[@name="products_filter_submit"]',
-            orders: '#subtab-AdminParentOrders',
-            orders_form: '#form-order',
-            order_product_name: '.productName',
-            order_quantity: '.product_quantity_show',
-            order_total: '#total_order > td.amount.text-right.nowrap',
-            order_reference: '((//div[@class="panel-heading"])[1]/span)[1]',
-            modules_menu: '#subtab-AdminParentModulesSf',
-            modules_search: '.pstaggerAddTagInput.module-tags-input',
-            modules_search_button: '.input-group-addon.module-search-icon',
-            modules_page_loaded: '.module-search-result-wording',
-            modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
-            nbr_module: '[class="module-sorting-search-wording"]',
-            module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
-            install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
-            uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
-            uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
-            modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
+
+            //Order selector
+            Orders:{
+                orders: '#subtab-AdminParentOrders',
+                form: '#form-order',
+                order_product_name: '.productName',
+                quantity: '.product_quantity_show',
+                total: '#total_order > td.amount.text-right.nowrap',
+                reference: '((//div[@class="panel-heading"])[1]/span)[1]',
+            },
+
+            //Modules selector
+            Modules:{
+                modules_menu: '#subtab-AdminParentModulesSf',
+                search: '.pstaggerAddTagInput.module-tags-input',
+                search_button: '.input-group-addon.module-search-icon',
+                page_loaded: '.module-search-result-wording',
+                installed: '(//div[@class="page-head-tabs"]/a)[2]',
+                nbr_module: '[class="module-sorting-search-wording"]',
+                tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
+                install_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
+                uninstall_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
+                uninstall_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
+                modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
+            },
 
             // Popup - boutique first launch selector
             Firstlaunch:{
@@ -104,14 +115,14 @@ module.exports = {
 
         //Front-office selector
         FO:{
-
-            access_login: 'div.user-info > a',
-            login: '//*[@id="login-form"]/section/div[1]/div[1]/input',
-            password: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
-            login_btn: '//*[@id="login-form"]/footer/button',
-            logout: '.logout',
-            logo_home_page: '.logo.img-responsive',
-
+            Access:{
+                login: 'div.user-info > a',
+                login_input: '//*[@id="login-form"]/section/div[1]/div[1]/input',
+                password: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
+                login_btn: '//*[@id="login-form"]/footer/button',
+                logout: '.logout',
+                logo_home_page: '.logo.img-responsive',
+            },
             //Account page selector
             Account_page: {
                 create_button: '[data-link-action="display-register-form"]',
@@ -132,7 +143,7 @@ module.exports = {
                 product_price_details: '[itemprop="price"]',
                 product_quantity_details: '#quantity_wanted'
             },
-
+            //cart Pages selector
             layer_cart: {
                 layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
                 name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
@@ -140,7 +151,7 @@ module.exports = {
                 quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
                 command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a'
             },
-
+            //Buy Command Pages selector
             Command: {
                 product_name: '(//div[@class="product-line-info"])[1]/a',
                 product_price: '//span[@class="price"]',
@@ -156,12 +167,13 @@ module.exports = {
                 order_confirmation_price2: '#content-hook_payment_return > div > div > div > dl > dd:nth-child(2)',
                 order_confirmation_ref: '(//div[@id="order-details"]/ul/li)[1]'
             },
-
-            search_product: '.ui-autocomplete-input',
-            search_product_button: '.material-icons.search',
-            search_product_result_name: '.h3.product-title > a',
-            search_product_result_price: '[itemprop="price"]',
-
+            //Search selector
+            Search:{
+                product: '.ui-autocomplete-input',
+                product_button: '.material-icons.search',
+                product_result_name: '.h3.product-title > a',
+                product_result_price: '[itemprop="price"]',
+            }
 
         }
 

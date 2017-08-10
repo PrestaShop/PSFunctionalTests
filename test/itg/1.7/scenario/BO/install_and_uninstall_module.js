@@ -50,8 +50,8 @@ describe('The Install of a Module and its Uninstall', function () {
             }
             this.client
                 .pause(5000)
-                .click(this.selector.BO.modules_menu)
-                .waitForExist(this.selector.BO.modules_page_loaded, 90000)
+                .click(this.selector.BO.Modules.modules_menu)
+                .waitForExist(this.selector.BO.Modules.page_loaded, 90000)
                 .call(done);
         });
 
@@ -59,9 +59,9 @@ describe('The Install of a Module and its Uninstall', function () {
             global.fctname = this.test.title;
 
             this.client
-                .setValue(this.selector.BO.modules_search, module_tech_name)
-                .click(this.selector.BO.modules_search_button)
-                .getText(this.selector.BO.nbr_module).then(function (text) {
+                .setValue(this.selector.BO.Modules.search, module_tech_name)
+                .click(this.selector.BO.Modules.search_button)
+                .getText(this.selector.BO.Modules.nbr_module).then(function (text) {
                 global.nbr = parseInt(text[0]);
                 if (global.nbr == 0) {
                     done(new Error('The module you are searching for does not exist!'));
@@ -80,7 +80,7 @@ describe('The Install of a Module and its Uninstall', function () {
             else {
                 this.client
                     .waitForExist(this.selector.BO.module_tech_name, 90000)
-                    .click(this.selector.BO.install_module_btn)
+                    .click(this.selector.BO.Modules.install_btn)
                     .waitForExist(this.selector.BO.close_validation, 90000)
                     .isVisible(this.selector.BO.red_validation).then(function (isVisible) {
                     red_validation_is_visible = isVisible;
@@ -123,16 +123,16 @@ describe('The Install of a Module and its Uninstall', function () {
                     done(new Error("Unavailable module"));
                 } else {
                     this.client
-                        .click(this.selector.BO.modules_installed)
-                        .waitForExist(this.selector.BO.modules_page_loaded, 90000)
-                        .setValue(this.selector.BO.modules_search, module_tech_name)
-                        .click(this.selector.BO.modules_search_button)
+                        .click(this.selector.BO.Modules.installed)
+                        .waitForExist(this.selector.BO.Modules.page_loaded, 90000)
+                        .setValue(this.selector.BO.Modules.search, module_tech_name)
+                        .click(this.selector.BO.Modules.search_button)
                         .waitForExist(this.selector.BO.module_tech_name, 90000)
-                        .click(this.selector.BO.uninstall_module_list)
-                        .waitForExist(this.selector.BO.uninstall_module_btn, 90000)
-                        .click(this.selector.BO.uninstall_module_btn)
+                        .click(this.selector.BO.Modules.uninstall_list)
+                        .waitForExist(this.selector.BO.Modules.uninstall_btn, 90000)
+                        .click(this.selector.BO.Modules.uninstall_btn)
                         .pause(2000)
-                        .isVisible(this.selector.BO.modal_confirm_uninstall).then(function (isVisible) {
+                        .isVisible(this.selector.BO.Modules.modal_confirm_uninstall).then(function (isVisible) {
                         modal_confirm_uninstall_is_visible = isVisible;
                     })
                         .call(done);
@@ -152,7 +152,7 @@ describe('The Install of a Module and its Uninstall', function () {
                 else {
                     if (modal_confirm_uninstall_is_visible) {
                         this.client
-                            .click(this.selector.BO.modal_confirm_uninstall)
+                            .click(this.selector.BO.Modules.modal_confirm_uninstall)
                     }
                     this.client
                         .waitForExist(this.selector.BO.close_validation, 90000)

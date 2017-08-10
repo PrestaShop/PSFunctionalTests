@@ -46,8 +46,8 @@ describe('The Install of a Module', function () {
             }
             else {
                 this.client
-                    .setValue(this.selector.BO.modules_search, module_tech_name)
-                    .click(this.selector.BO.modules_search_button)
+                    .setValue(this.selector.BO.Modules.search, module_tech_name)
+                    .click(this.selector.BO.Modules.search_button)
                     .call(done);
             }
         });
@@ -60,7 +60,7 @@ describe('The Install of a Module', function () {
             else {
                 this.client
                     .waitForExist(this.selector.BO.module_tech_name, 90000)
-                    .click(this.selector.BO.install_module_btn)
+                    .click(this.selector.BO.Modules.install_btn)
                     .waitForExist(this.selector.BO.close_validation, 90000)
                     .isVisible(this.selector.BO.red_validation).then(function (isVisible) {
                     global.red_validation_is_visible = isVisible;

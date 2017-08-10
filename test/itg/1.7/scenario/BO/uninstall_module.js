@@ -69,11 +69,11 @@ describe('The Uninstall of a Module', function () {
                 } else {
                     this.client
                         .waitForExist(this.selector.BO.module_tech_name, 90000)
-                        .click(this.selector.BO.uninstall_module_list)
-                        .waitForExist(this.selector.BO.uninstall_module_btn, 90000)
-                        .click(this.selector.BO.uninstall_module_btn)
+                        .click(this.selector.BO.Modules.uninstall_list)
+                        .waitForExist(this.selector.BO.Modules.uninstall_btn, 90000)
+                        .click(this.selector.BO.Modules.uninstall_btn)
                         .pause(2000)
-                        .isVisible(this.selector.BO.modal_confirm_uninstall).then(function (isVisible) {
+                        .isVisible(this.selector.BO.Modules.modal_confirm_uninstall).then(function (isVisible) {
                         modal_confirm_uninstall_is_visible = isVisible;
                     })
                         .call(done);
@@ -92,7 +92,7 @@ describe('The Uninstall of a Module', function () {
                 } else {
                     if (modal_confirm_uninstall_is_visible) {
                         this.client
-                            .click(this.selector.BO.modal_confirm_uninstall)
+                            .click(this.selector.BO.Modules.modal_confirm_uninstall)
                     }
                     this.client
                         .waitForExist(this.selector.BO.close_validation, 90000)

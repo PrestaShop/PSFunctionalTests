@@ -18,12 +18,12 @@ describe('The Purchase of a product', function () {
         global.fctname = this.test.title;
         this.client
             .url('http://' + URL)
-            .waitForExist(this.selector.FO.access_login, 90000)
-            .click(this.selector.FO.access_login)
-            .waitForExist(this.selector.FO.login, 90000)
-            .setValue(this.selector.FO.login, 'pub@prestashop.com')
-            .setValue(this.selector.FO.password, '123456789')
-            .click(this.selector.FO.login_btn)
+            .waitForExist(this.selector.FO.Access.login, 90000)
+            .click(this.selector.FO.Access.login)
+            .waitForExist(this.selector.FO.Access.login_input, 90000)
+            .setValue(this.selector.FO.Access.login_input, 'pub@prestashop.com')
+            .setValue(this.selector.FO.Access.password, '123456789')
+            .click(this.selector.FO.Access.login_btn)
             .call(done);
 
     });
@@ -32,7 +32,7 @@ describe('The Purchase of a product', function () {
         it('should go to the product details', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.FO.logo_home_page)
+                .click(this.selector.FO.Access.logo_home_page)
                 .waitForExist(this.selector.FO.BuyProduct.first_product_home_page, 90000)
                 .getText(this.selector.FO.BuyProduct.first_product_home_page_name).then(function (text) {
                 global.my_name = text[1].split('...')[0];
@@ -177,9 +177,9 @@ describe('The Purchase of a product', function () {
         it('should logout successfully in FO', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.logout, 90000)
-                .click(this.selector.FO.logout)
-                .waitForExist(this.selector.FO.access_login, 90000)
+                .waitForExist(this.selector.FO.Access.logout, 90000)
+                .click(this.selector.FO.Access.logout)
+                .waitForExist(this.selector.FO.Access.login, 90000)
                 .call(done);
 
         });
