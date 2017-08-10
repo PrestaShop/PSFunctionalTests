@@ -34,8 +34,8 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             this.client
                 .pause(5000)
-                .click(this.selector.BO.modules_menu)
-                .waitForExist(this.selector.BO.modules_page_loaded, 90000)
+                .click(this.selector.BO.Modules.modules_menu)
+                .waitForExist(this.selector.BO.Modules.page_loaded, 90000)
                 .call(done);
         });
 

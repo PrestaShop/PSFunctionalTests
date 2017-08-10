@@ -79,7 +79,7 @@ describe('The Install of a Module and its Uninstall', function () {
             }
             else {
                 this.client
-                    .waitForExist(this.selector.BO.module_tech_name, 90000)
+                    .waitForExist(this.selector.BO.Modules.tech_name, 90000)
                     .click(this.selector.BO.Modules.install_btn)
                     .waitForExist(this.selector.BO.close_validation, 90000)
                     .isVisible(this.selector.BO.red_validation).then(function (isVisible) {
