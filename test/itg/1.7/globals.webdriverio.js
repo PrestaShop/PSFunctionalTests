@@ -52,7 +52,7 @@ module.exports = {
             Access:{
                 login: '#email',
                 password: '#passwd',
-                login_btn: '[name="submitLogin"]',
+                login_btn: '[name="submitLogin"]'
             },
 
             exit_welcome: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
