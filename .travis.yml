@@ -25,7 +25,8 @@ env:
     - SAUCELABS=None
     - MODULE_TECHNICAL_NAME=None
   matrix:
-    - PS_VERSION=1.7 TAG=1.7 MODULE_TECHNICAL_NAME=autoupgrade
+    - PS_VERSION=1.6 TAG=1.6
+    - PS_VERSION=1.7 TAG=1.7
 
 matrix:
   fast_finish: true
@@ -40,6 +41,7 @@ before_script:
   - DISPLAY=:10 ./selenium-standalone start &> /dev/null &
   - cd ../../..
   - npm install
+  - npm install mochawesome
   - cd test/itg/$PS_VERSION
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_10.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :10 -ac -screen 0 1280x1024x16"
   - docker exec prestashop rm -rf /var/www/html/modules/welcome
@@ -53,8 +55,6 @@ script:
 after_script:
   - docker logs prestashop
   - cd ../../.. && chmod 777 bin/upload.sh && ./bin/upload.sh
-  - node email_sender/file_concat.js
-  - node email_sender/email_sender.js
   - google-chrome --version
 
 after_failure:
