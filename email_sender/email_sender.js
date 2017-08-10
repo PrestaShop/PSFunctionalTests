@@ -29,10 +29,7 @@ var transporter = nodeMailer.createTransport({
 });
 
 console.log('Sending Email .....');
-
-
 var day=dateFormat( "yyyy-mm-dd h:MM:ss");
-
 
 if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.existsSync("email_sender/rapport_test_"+Version[1]+".html")) ) {
     transporter.sendMail({
@@ -50,8 +47,6 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
                 filename:  "rapport_test_"+Version[1]+".html",
                 path:  "email_sender/rapport_test_"+Version[1]+".html"
             }
-
-
         ]
     });
 }else if(fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")){
@@ -67,8 +62,6 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
             {
                 path: "email_sender/rapport_test_"+Version[0]+".html" // stream this file,
             }
-
-
         ]
     });
 }else{
@@ -84,8 +77,6 @@ if ( (fs.existsSync("email_sender/rapport_test_"+Version[0]+".html")) && (fs.exi
             {
                 path: "email_sender/rapport_test_"+Version[1]+".html" // stream this file,
             }
-
-
         ]
     });
 }
