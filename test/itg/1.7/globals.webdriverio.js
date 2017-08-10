@@ -123,6 +123,7 @@ module.exports = {
                 logout: '.logout',
                 logo_home_page: '.logo.img-responsive',
             },
+
             //Account page selector
             Account_page: {
                 create_button: '[data-link-action="display-register-form"]',
@@ -143,6 +144,7 @@ module.exports = {
                 product_price_details: '[itemprop="price"]',
                 product_quantity_details: '#quantity_wanted'
             },
+
             //cart Pages selector
             layer_cart: {
                 layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
@@ -151,6 +153,7 @@ module.exports = {
                 quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
                 command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a'
             },
+
             //Buy Command Pages selector
             Command: {
                 product_name: '(//div[@class="product-line-info"])[1]/a',
@@ -167,6 +170,7 @@ module.exports = {
                 order_confirmation_price2: '#content-hook_payment_return > div > div > div > dl > dd:nth-child(2)',
                 order_confirmation_ref: '(//div[@id="order-details"]/ul/li)[1]'
             },
+
             //Search selector
             Search:{
                 product: '.ui-autocomplete-input',
@@ -174,11 +178,7 @@ module.exports = {
                 product_result_name: '.h3.product-title > a',
                 product_result_price: '[itemprop="price"]',
             }
-
         }
-
-
-
 
     },
     shouldExist: function (err, existing) {
