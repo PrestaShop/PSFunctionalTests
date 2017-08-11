@@ -4,7 +4,7 @@ var i =0 ;
 var version = new Array();
 version = [1.6,1.7];
 
-console.log("diractory"+process.env.TRAVIS_BUILD_DIR)
+var workSpace = process.env.TRAVIS_BUILD_DIR
 
 
 while (i < 2) {
@@ -36,13 +36,13 @@ while (i < 2) {
         }
 
         // read content of Js file
-        jsFile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+version[i]+'/mochawesome-report/assets/app.js').toString();
+        jsFile = fs.readFileSync(workSpace+'/test/itg/'+version[i]+'/mochawesome-report/assets/app.js').toString();
 
         // read content of CSS file
-        cssFile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+version[i]+'/mochawesome-report/assets/app.css').toString();
+        cssFile = fs.readFileSync(workSpace+'/test/itg/'+version[i]+'/mochawesome-report/assets/app.css').toString();
 
         // read content of Html file
-        htmlFile = fs.readFileSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+version[i]+'/mochawesome-report/mochawesome.html').toString();
+        htmlFile = fs.readFileSync(workSpace+'/test/itg/'+version[i]+'/mochawesome-report/mochawesome.html').toString();
 
         processFile();
 
