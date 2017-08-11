@@ -11,6 +11,7 @@ var options = {
     },
     port: 4444
 };
+
 if (typeof global.selenium_url !== 'undefined') {
     options.host = global.selenium_url;
 }

@@ -4,5 +4,4 @@ node_modules/*
 **/screenshots
 **.log
 **/mochawesome-report
-email_sender/rapport_test_1.7.html
-email_sender/rapport_test_1.6.html
+email_sender/rapport_test_*.html

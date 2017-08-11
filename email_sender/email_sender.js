@@ -1,9 +1,8 @@
 'use strict';
 
 var fs = require('fs');
-var optionsBrowserOld = require('../test/itg/1.6/common.webdriverio');
-var optionsBrowserNew = require('../test/itg/1.7/common.webdriverio');
-
+var optionsBrowser_16 = require('../test/itg/1.6/common.webdriverio');
+var optionsBrowser_17 = require('../test/itg/1.7/common.webdriverio');
 
 // create reusable transporter object using the default SMTP transport
 var nodeMailer = require('nodemailer');
@@ -34,7 +33,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+prestaVersion[0]+".html")) && (
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur les navigateur (" +optionsBrowserOld.browser()+","+optionsBrowserNew.browser()+") sont en pièce jointe.</br> " +
+        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur les navigateur (" +optionsBrowser_16.browser()+","+optionsBrowser_17.browser()+") sont en pièce jointe.</br> " +
         '<br>Bien à vous,</br>'+
         '<br>Equipe QA</br>', // html body
         attachments: [
@@ -52,7 +51,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+prestaVersion[0]+".html")) && (
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur (" +optionsBrowserOld.browser()+") sont en pièce jointe.</br> " +
+        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur (" +optionsBrowser_16.browser()+") sont en pièce jointe.</br> " +
         '<br>Bien à vous,</br>'+
         '<br>Equipe QA</br>', // html body
         attachments: [
@@ -67,7 +66,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+prestaVersion[0]+".html")) && (
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur (" +optionsBrowserNew.browser()+") sont en pièce jointe.</br> " +
+        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur (" +optionsBrowser_17.browser()+") sont en pièce jointe.</br> " +
         '<br>Bien à vous,</br>'+
         '<br>Equipe QA</br>', // html body
         attachments: [
