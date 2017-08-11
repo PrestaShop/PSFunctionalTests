@@ -58,6 +58,9 @@ after_script:
   - docker logs prestashop
   - cd ../../.. && chmod 777 bin/upload.sh && ./bin/upload.sh
   - node email_sender/file_concat.js
+  - cd email_sender
+  - ls
+  - cd ..
   - node email_sender/email_sender.js
   - google-chrome --version
 

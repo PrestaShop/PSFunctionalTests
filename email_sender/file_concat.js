@@ -1,16 +1,14 @@
 var fs = require('fs');
-
 var i =0 ;
 var version = new Array();
 version = [1.6,1.7];
 
 var workSpace = process.env.TRAVIS_BUILD_DIR
 
-
 while (i < 2) {
 
 // Verify the existence of Mocha Reporter
-    if (fs.existsSync('/home/travis/build/fouratachour/PSFunctionalTests/test/itg/'+version[i]+'/mochawesome-report')) {
+    if (fs.existsSync(workSpace+'/test/itg/'+version[i]+'/mochawesome-report')) {
         var cssFile = '';
         var jsFile = '';
         var htmlFile= '';
