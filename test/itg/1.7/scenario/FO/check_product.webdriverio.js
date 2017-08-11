@@ -58,8 +58,8 @@ describe('The Check of the Product in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .click(this.selector.FO.Search.product_result_name)
-                .waitForExist(this.selector.FO.BuyProduct.product_name_details, 90000)
-                .getText(this.selector.FO.BuyProduct.product_name_details).then(function (text) {
+                .waitForExist(this.selector.FO.Order.product_name_details, 90000)
+                .getText(this.selector.FO.Order.product_name_details).then(function (text) {
                 var my_name_check = text[2];
                 should(my_name_check.toLowerCase()).be.equal('test_nodejs_' + product_id);
             })
@@ -68,7 +68,7 @@ describe('The Check of the Product in Front Office', function () {
                 var my_src_temp = text;
                 my_src_temp.should.containEql(image_data_id + '-large_default');
             })
-                .getText(this.selector.FO.BuyProduct.product_price_details).then(function (text) {
+                .getText(this.selector.FO.Order.product_price_details).then(function (text) {
                 var my_price2 = text;
                 should(my_price2).be.equal("€6.00");
             })

@@ -46,7 +46,7 @@ function initCommands(client) {
             .setValue(this.selector.BO.Access.login, 'demo@prestashop.com')
             .setValue(this.selector.BO.Access.password, 'prestashop_demo')
             .click(this.selector.BO.Access.login_btn)
-            .waitForExist(this.selector.BO.menu, 90000)
+            .waitForExist(this.selector.BO.CreateProduct.menu, 90000)
             .call(cb);
     });
 
@@ -80,8 +80,8 @@ function initCommands(client) {
     client.addCommand('signoutFO', function (cb) {
         this.selector = globals.selector;
         client
-        /*.waitForExist(this.selector.FO.Access.logout, 90000)
-         .click(this.selector.FO.Access.logout)
+        /*.waitForExist(this.selector.FO.Access.Access.logout, 90000)
+         .click(this.selector.FO.Access.Access.logout)
          .waitForExist(this.selector.FO.Access.login, 90000)*/
             .deleteCookie()
             .call(cb);
