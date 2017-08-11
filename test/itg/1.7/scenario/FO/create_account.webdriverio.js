@@ -21,19 +21,19 @@ describe('The Creation of an Account in Front Office', function () {
                 .url('http://' + URL)
                 .waitForExist(this.selector.FO.Access.login, 90000)
                 .click(this.selector.FO.Access.login)
-                .waitForExist(this.selector.FO.Account_page.create_button, 90000)
-                .click(this.selector.FO.Account_page.create_button)
+                .waitForExist(this.selector.FO.Account.create_button, 90000)
+                .click(this.selector.FO.Account.create_button)
                 .call(done);
         });
 
         it('should fill the form', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Account_page.firstname, 60000)
-                .setValue(this.selector.FO.Account_page.firstname, 'my firstname')
-                .setValue(this.selector.FO.Account_page.lastname, 'my lastname')
-                .setValue(this.selector.FO.Account_page.email, new_customer_email)
-                .setValue(this.selector.FO.Account_page.password, '123456789')
+                .waitForExist(this.selector.FO.Account.firstname, 60000)
+                .setValue(this.selector.FO.Account.firstname, 'my firstname')
+                .setValue(this.selector.FO.Account.lastname, 'my lastname')
+                .setValue(this.selector.FO.Account.email, new_customer_email)
+                .setValue(this.selector.FO.Account.password, '123456789')
                 .pause(2000)
                 .call(done);
         });
@@ -41,7 +41,7 @@ describe('The Creation of an Account in Front Office', function () {
         it('should validate the creation of the account', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.FO.Account_page.create_account_info_validate)
+                .click(this.selector.FO.Account.create_account_info_validate)
                 .waitForExist(this.selector.FO.Access.logo_home_page, 90000)
                 .call(done);
         });

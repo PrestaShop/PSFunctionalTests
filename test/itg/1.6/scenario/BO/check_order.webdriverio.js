@@ -27,7 +27,7 @@ describe('The Check of the order in Back Office', function () {
                     .setValue(this.selector.BO.Access.password, 'prestashop_demo')
                     .waitForExist(this.selector.BO.Access.login_btn, 90000)
                     .click(this.selector.BO.Access.login_btn)
-                    .waitForExist(this.selector.BO.Products.menu, 60000)
+                    .waitForExist(this.selector.BO.Product.menu, 60000)
                     .call(done);
             });
         });
@@ -37,7 +37,7 @@ describe('The Check of the order in Back Office', function () {
             it('should go to the orders page', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .waitForExist(this.selector.BO.Products.menu, 60000)
+                    .waitForExist(this.selector.BO.Product.menu, 60000)
                     .click(this.selector.BO.Order.orders)
                     .waitForExist(this.selector.BO.Order.form, 60000)
                     .call(done);

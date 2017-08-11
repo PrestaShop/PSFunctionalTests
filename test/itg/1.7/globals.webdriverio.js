@@ -16,7 +16,7 @@ global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 module.exports = {
     selector: {
         //Installation selector
-        Installation : {
+        Install : {
             language: '//*[@id="langList"]',
             next_step: '//*[@id="btNext"]',
             agree_checkbox: '//*[@id="set_license"]',
@@ -54,34 +54,35 @@ module.exports = {
                 password: '#passwd',
                 login_btn: '[name="submitLogin"]'
             },
-
-            exit_welcome: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
-            click_outside: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
-            logout: '#header_logout',
-            products: '#subtab-AdminCatalog',
-            go_to_catalog: '#form > div.product-footer > div.col-lg-6.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
-            more_option: '[class="btn btn-primary dropdown-toggle"]',
-            new_product: '#page-header-desc-configuration-add',
-            menu: '#nav-sidebar',
-            product_name: '#form_step1_name_1',
-            save_product: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
-            green_validation: '[class="growl growl-notice growl-medium"]',
-            close_validation: '.growl-close',
-            validation_msg: '//*[@id="growls"]/div/div[3]',
-            red_validation: '[class="growl growl-error growl-medium"]',
-            summary: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
-            description_button: '[href="#description"]',
-            description: 'form_step1_description_1_ifr',//not declare than an id because using into function "frame" that not need this information;
-            priceTE_shortcut: '#form_step1_price_shortcut',
-            quantity_shortcut: '#form_step1_qty_0_shortcut',
-            picture: '[class="dz-hidden-input"]',
-            picture_cover: '.iscover',
-            product_online: '.switch-input ',
-            catalogue_filter_by_name: '//input[@name="filter_column_name"]',
-            catalogue_submit_filter: '//button[@name="products_filter_submit"]',
+            CreateProduct:{
+                exit_welcome: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
+                click_outside: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
+                logout: '#header_logout',
+                products: '#subtab-AdminCatalog',
+                go_to_catalog: '#form > div.product-footer > div.col-lg-6.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
+                more_option: '[class="btn btn-primary dropdown-toggle"]',
+                new_product: '#page-header-desc-configuration-add',
+                menu: '#nav-sidebar',
+                product_name: '#form_step1_name_1',
+                save_product: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
+                green_validation: '[class="growl growl-notice growl-medium"]',
+                close_validation: '.growl-close',
+                validation_msg: '//*[@id="growls"]/div/div[3]',
+                red_validation: '[class="growl growl-error growl-medium"]',
+                summary: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
+                description_button: '[href="#description"]',
+                description: 'form_step1_description_1_ifr',//not declare than an id because using into function "frame" that not need this information;
+                priceTE_shortcut: '#form_step1_price_shortcut',
+                quantity_shortcut: '#form_step1_qty_0_shortcut',
+                picture: '[class="dz-hidden-input"]',
+                picture_cover: '.iscover',
+                product_online: '.switch-input ',
+                catalogue_filter_by_name: '//input[@name="filter_column_name"]',
+                catalogue_submit_filter: '//button[@name="products_filter_submit"]',
+            },
 
             //Order selector
-            Orders:{
+            Order:{
                 orders: '#subtab-AdminParentOrders',
                 form: '#form-order',
                 order_product_name: '.productName',
@@ -90,8 +91,8 @@ module.exports = {
                 reference: '((//div[@class="panel-heading"])[1]/span)[1]',
             },
 
-            //Modules selector
-            Modules:{
+            //Module selector
+            Module:{
                 modules_menu: '#subtab-AdminParentModulesSf',
                 search: '.pstaggerAddTagInput.module-tags-input',
                 search_button: '.input-group-addon.module-search-icon',
@@ -105,11 +106,11 @@ module.exports = {
                 modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
             },
 
-            // Popup - boutique first launch selector
-            Firstlaunch:{
-                onboarding_popup: '.onboarding-popup',
-                onboarding_popup_close_btn: '.onboarding-button-shut-down',
-                onboarding_stop: '.onboarding-button-stop'
+            // Popup - boutique Onboarding selector
+            Onboarding:{
+                popup: '.onboarding-popup',
+                popup_close_btn: '.onboarding-button-shut-down',
+                stop: '.onboarding-button-stop'
             }
         },
 
@@ -125,7 +126,7 @@ module.exports = {
             },
 
             //Account page selector
-            Account_page: {
+            Account: {
                 create_button: '[data-link-action="display-register-form"]',
                 firstname: '[name="firstname"]',
                 lastname: '[name="lastname"]',
@@ -134,28 +135,15 @@ module.exports = {
                 create_account_info_validate: '[data-link-action="save-customer"]'
             },
 
-            //Buy Product Pages selector
-            BuyProduct: {
+            //Order Pages selector
+            Order: {
                 first_product_home_page: '.thumbnail.product-thumbnail',
                 add_to_cart: '.btn.btn-primary.add-to-cart',
                 first_product_home_page_name: '[itemprop="name"]',
                 product_image: '#content',
                 product_name_details: '[itemprop="name"]',
                 product_price_details: '[itemprop="price"]',
-                product_quantity_details: '#quantity_wanted'
-            },
-
-            //cart Pages selector
-            layer_cart: {
-                layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
-                name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
-                price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
-                quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
-                command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a'
-            },
-
-            //Buy Command Pages selector
-            Command: {
+                product_quantity_details: '#quantity_wanted',
                 product_name: '(//div[@class="product-line-info"])[1]/a',
                 product_price: '//span[@class="price"]',
                 button_checkout: '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a',
@@ -169,6 +157,15 @@ module.exports = {
                 order_confirmation_price1: '#order-items > div > table > tbody > tr:nth-child(1) > td:nth-child(2)',
                 order_confirmation_price2: '#content-hook_payment_return > div > div > div > dl > dd:nth-child(2)',
                 order_confirmation_ref: '(//div[@id="order-details"]/ul/li)[1]'
+            },
+
+            //cart Pages selector
+            layer_cart: {
+                layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
+                name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
+                price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
+                quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
+                command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a'
             },
 
             //Search selector

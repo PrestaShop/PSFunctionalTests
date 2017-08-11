@@ -23,7 +23,7 @@ module.exports = {
                 password: '#passwd',
                 login_btn: '#login_form > div.form-group.row-padding-top > button',
             },
-            Products:{
+            Product:{
                 products: '#maintab-AdminCatalog > a',
                 new_product: '#page-header-desc-product-new_product',
                 product_name: '#name_1',
@@ -112,7 +112,7 @@ module.exports = {
                 command_button: '.btn.btn-default.button.button-medium'
             },
 
-            Command:{
+            Order:{
                 button_checkout: '.button.btn.btn-default.standard-checkout.button-medium',
                 button_checkout_step3: '//button[@name="processAddress"]',
                 cgv: '#cgv',

@@ -25,7 +25,7 @@ describe('check the order in BO', function () {
     it('go_to_order', function (done) {
         global.fctname = this.test.title;
         this.client
-            .waitForExist(this.selector.BO.Products.menu, 60000)
+            .waitForExist(this.selector.BO.Product.menu, 60000)
             .click(this.selector.BO.Order.orders)
             .waitForExist(this.selector.BO.Order.form, 60000)
             .call(done);

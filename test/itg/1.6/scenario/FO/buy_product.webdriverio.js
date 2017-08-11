@@ -88,8 +88,8 @@ describe('The Purchase of a product', function () {
         it('should validate the summary step (step 1)', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Command.button_checkout, 60000)
-                .click(this.selector.FO.Command.button_checkout)
+                .waitForExist(this.selector.FO.Order.button_checkout, 60000)
+                .click(this.selector.FO.Order.button_checkout)
                 .pause(3000)
                 .waitForExist(this.selector.FO.Access.login_email, 90000)
                 .call(done);
@@ -102,46 +102,46 @@ describe('The Purchase of a product', function () {
                 .click(this.selector.FO.Access.login_btn)
                 /*.waitForExist(this.selector.FO.validate_address, 60000)
                  .click(this.selector.FO.validate_address)*/
-                .waitForExist(this.selector.FO.Command.button_checkout_step3, 60000)
+                .waitForExist(this.selector.FO.Order.button_checkout_step3, 60000)
                 .call(done);
         });
 
         it('should validate the adresses step (step 3)', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.FO.Command.button_checkout_step3)
-                .waitForExist(this.selector.FO.Command.cgv, 60000)
+                .click(this.selector.FO.Order.button_checkout_step3)
+                .waitForExist(this.selector.FO.Order.cgv, 60000)
                 .call(done);
         });
 
         it('should validate the shipping step (step 4)', function (done) {
             this.client
-                .click(this.selector.FO.Command.cgv)
-                .click(this.selector.FO.Command.button_checkout)
-                .waitForExist(this.selector.FO.Command.product_name_step5, 60000)
+                .click(this.selector.FO.Order.cgv)
+                .click(this.selector.FO.Order.button_checkout)
+                .waitForExist(this.selector.FO.Order.product_name_step5, 60000)
                 .call(done);
         });
 
         it('should validate the payment step (step 5)', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getText(this.selector.FO.Command.product_name_step5).then(function (text) {
+                .getText(this.selector.FO.Order.product_name_step5).then(function (text) {
                 var my_name_check2 = text;
                 should(my_name_check2).be.equal(my_name);
             })
-                .getText(this.selector.FO.Command.total_price).then(function (text) {
+                .getText(this.selector.FO.Order.total_price).then(function (text) {
                 var my_price_check = text;
                 should(my_price_check).be.equal(my_price);
             })
-                .click(this.selector.FO.Command.pay_bankwire)
-                .waitForExist(this.selector.FO.Command.price_step5_amout, 60000)
-                .getText(this.selector.FO.Command.price_step5_amout).then(function (text) {
+                .click(this.selector.FO.Order.pay_bankwire)
+                .waitForExist(this.selector.FO.Order.price_step5_amout, 60000)
+                .getText(this.selector.FO.Order.price_step5_amout).then(function (text) {
                 var my_price_check2 = text;
                 should(my_price_check2).be.equal(my_price);
             })
-                .click(this.selector.FO.Command.confirm_button)
-                .waitForExist(this.selector.FO.Command.success_alert, 60000)
-                .getText(this.selector.FO.Command.success_price).then(function (text) {
+                .click(this.selector.FO.Order.confirm_button)
+                .waitForExist(this.selector.FO.Order.success_alert, 60000)
+                .getText(this.selector.FO.Order.success_price).then(function (text) {
                 var my_price_check3 = text;
                 should(my_price_check3).be.equal(my_price);
             })

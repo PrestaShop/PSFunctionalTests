@@ -31,7 +31,7 @@ describe('The Install of a Module and its Uninstall', function () {
                 .setValue(this.selector.BO.Access.password, 'prestashop_demo')
                 .waitForExist(this.selector.BO.Access.login_btn, 90000)
                 .click(this.selector.BO.Access.login_btn)
-                .waitForExist(this.selector.BO.Products.menu, 60000)
+                .waitForExist(this.selector.BO.Product.menu, 60000)
                 .call(done);
         });
     });
@@ -61,7 +61,7 @@ describe('The Install of a Module and its Uninstall', function () {
             this.client
                 .click('//i[@class="icon-plus-sign-alt" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name + '"]]')
                 .pause(2000)
-                .isVisible(this.selector.BO.Products.proceed_installation_anyway_button).then(function (isVisible) {
+                .isVisible(this.selector.BO.Product.proceed_installation_anyway_button).then(function (isVisible) {
                 install_anyway_popup_is_visible = isVisible;
             })
                 .call(done);
@@ -70,11 +70,11 @@ describe('The Install of a Module and its Uninstall', function () {
         it('should click on "proceed install anyway" button if popup appears', function (done) {
             global.fctname = this.test.title;
             if (install_anyway_popup_is_visible) {
-                this.client.click(this.selector.BO.Products.proceed_installation_anyway_button);
+                this.client.click(this.selector.BO.Product.proceed_installation_anyway_button);
             }
             this.client
                 .pause(2000)
-                .isVisible(this.selector.BO.Products.red_validation).then(function (isVisible) {
+                .isVisible(this.selector.BO.Product.red_validation).then(function (isVisible) {
                 red_validation_is_visible = isVisible;
             })
                 .call(done);
@@ -84,13 +84,13 @@ describe('The Install of a Module and its Uninstall', function () {
             global.fctname = this.test.title;
             if (red_validation_is_visible) {
                 this.client
-                    .getText(this.selector.BO.Products.red_validation).then(function (text) {
+                    .getText(this.selector.BO.Product.red_validation).then(function (text) {
                     done(new Error(text));
                 })
             } else {
                 this.client
                     .pause(1000)
-                    .isVisible(this.selector.BO.Products.green_validation).then(function (isVisible) {
+                    .isVisible(this.selector.BO.Product.green_validation).then(function (isVisible) {
                     green_validation_is_visible = isVisible;
                     if (green_validation_is_visible) {
                         done();
@@ -107,7 +107,7 @@ describe('The Install of a Module and its Uninstall', function () {
         it('should go to modules page', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.BO.Products.menu, 60000)
+                .waitForExist(this.selector.BO.Product.menu, 60000)
                 .click(this.selector.BO.Module.menu)
                 .waitForExist(this.selector.BO.Module.search, 60000)
                 .call(done);
@@ -128,10 +128,10 @@ describe('The Install of a Module and its Uninstall', function () {
                     .waitForExist('//ul[@class="dropdown-menu" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name + '"]]/li/a[@title="Uninstall"]', 60000)
                     .click('//ul[@class="dropdown-menu" and ancestor::tr[not(@style)]//span[text()="' + module_tech_name + '"]]/li/a[@title="Uninstall"]')
                     .alertAccept()
-                    .isVisible(this.selector.BO.Products.red_validation).then(function (isVisible) {
+                    .isVisible(this.selector.BO.Product.red_validation).then(function (isVisible) {
                     uninstall_red_validation_is_visible = isVisible;
                 })
-                    .isVisible(this.selector.BO.Products.green_validation).then(function (isVisible) {
+                    .isVisible(this.selector.BO.Product.green_validation).then(function (isVisible) {
                     green_validation_is_visible = isVisible;
                 })
                     .call(done);
@@ -145,7 +145,7 @@ describe('The Install of a Module and its Uninstall', function () {
             } else {
                 if (uninstall_red_validation_is_visible) {
                     this.client
-                        .getText(this.selector.BO.Products.red_validation).then(function (text) {
+                        .getText(this.selector.BO.Product.red_validation).then(function (text) {
                         done(new Error(text));
                     })
                 } else if (green_validation_is_visible) {
