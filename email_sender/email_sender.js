@@ -34,7 +34,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+version[0]+".html")) && (fs.exi
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br> Les résultats de l'exécution des tests automatisés (Node.js) sur les navigateur (" +optionsBrowserOld.browser()+","+optionsBrowserNew.browser()+") sont en pièce jointe.</br> " +
+        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur les navigateur (" +optionsBrowserOld.browser()+","+optionsBrowserNew.browser()+") sont en pièce jointe.</br> " +
         '<br>Bien à vous,</br>'+
         '<br>Equipe QA</br>', // html body
         attachments: [
@@ -52,7 +52,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+version[0]+".html")) && (fs.exi
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br> Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur (" +optionsBrowserOld.browser()+") sont en pièce jointe.</br> " +
+        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur (" +optionsBrowserOld.browser()+") sont en pièce jointe.</br> " +
         '<br>Bien à vous,</br>'+
         '<br>Equipe QA</br>', // html body
         attachments: [
@@ -67,7 +67,7 @@ if ( (fs.existsSync("email_sender/rapport_test_"+version[0]+".html")) && (fs.exi
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - '+day+' ]', // Subject line
         html: 'Bonjour,</br>' +
-        "<br> Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur (" +optionsBrowserNew.browser()+") sont en pièce jointe.</br> " +
+        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur (" +optionsBrowserNew.browser()+") sont en pièce jointe.</br> " +
         '<br>Bien à vous,</br>'+
         '<br>Equipe QA</br>', // html body
         attachments: [
