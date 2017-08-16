@@ -11,7 +11,6 @@ var options = {
     },
     port: 4444
 };
-
 if (typeof global.selenium_url !== 'undefined') {
     options.host = global.selenium_url;
 }
@@ -119,12 +118,12 @@ module.exports = {
                 client = webdriverio
                     .remote(options2)
                     .init()
-                    //.windowHandleMaximize()
+                //.windowHandleMaximize()
             } else {
                 client = webdriverio
                     .remote(options)
                     .init()
-                    //.windowHandleMaximize()
+                //.windowHandleMaximize()
             }
             initCommands(client);
 
@@ -141,7 +140,7 @@ module.exports = {
         this.timeout(100000);
         this.slow(50000);
     },
-    browser:function () {
+    browser: function () {
         return options.desiredCapabilities.browserName
     }
 };
