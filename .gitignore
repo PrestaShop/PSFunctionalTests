@@ -3,3 +3,5 @@ node_modules/*
 .idea/*
 **/screenshots
 **.log
+**/mochawesome-report
+email_sender/test_report_*.html
