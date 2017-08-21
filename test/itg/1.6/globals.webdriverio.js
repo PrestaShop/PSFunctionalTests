@@ -37,7 +37,7 @@ module.exports = {
                 description_textarea: 'description_1_ifr',//not declare like an id because using into function "frame" that not need this information;
                 product_price_tab: '#link-Prices',
                 wholesale_price_input: '#wholesale_price',
-                priceTE: '#priceTE',
+                priceTE_input: '#priceTE',
                 save_and_stay_price_button: '(//div[@id="product-prices"]/div/button[@class="btn btn-default pull-right"])[2]/i[@class="process-icon-save"]',
                 product_quantity_tab: '#link-Quantities',
                 quantity_input: '[name="qty_0"]',
