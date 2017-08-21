@@ -1,5 +1,4 @@
 'use strict';
-
 var fs = require('fs');
 var optionsBrowser16 = require('../test/itg/1.6/common.webdriverio');
 var optionsBrowser17 = require('../test/itg/1.7/common.webdriverio');
@@ -9,12 +8,14 @@ var nodeMailer = require('nodemailer');
 var dateFormat = require('dateformat');
 
 // get travis env variable
+var prestaVersion = new Array();
 var senderEmail = process.env.SENDER_EMAIL;
 var senderPassword = process.env.SENDER_PASSWORD;
 var recipientEmail = process.env.RECIPIENT_EMAIL;
+prestaVersion = process.env.PRESTAVERSION;
 
-var prestaVersion = new Array();
-prestaVersion = [1.6, 1.7];
+
+
 
 var transporter = nodeMailer.createTransport({
     service: 'Gmail',
@@ -25,6 +26,7 @@ var transporter = nodeMailer.createTransport({
 });
 
 console.log('Sending Email .....');
+
 var day = dateFormat("yyyy-mm-dd h:MM:ss");
 
 if ((fs.existsSync("email_sender/test_report_" + prestaVersion[0] + ".html")) && (fs.existsSync("email_sender/test_report_" + prestaVersion[1] + ".html"))) {

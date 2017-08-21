@@ -1,13 +1,13 @@
 var fs = require('fs');
 var i = 0;
 var version = new Array();
-version = [1.6, 1.7];
-
+version =  process.env.PRESTAVERSION;
 var workSpace = process.env.TRAVIS_BUILD_DIR
 
 while (i < 2) {
 
 // Verify the existence of Mocha Reporter
+
     if (fs.existsSync(workSpace + '/test/itg/' + version[i] + '/mochawesome-report')) {
         var cssFile = '';
         var jsFile = '';
@@ -32,6 +32,7 @@ while (i < 2) {
         }
 
         // read content of Js file
+
         jsFile = fs.readFileSync(workSpace + '/test/itg/' + version[i] + '/mochawesome-report/assets/app.js').toString();
 
         // read content of CSS file
