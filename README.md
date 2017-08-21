@@ -74,3 +74,7 @@ mocha index.webdriverio.js --URL=localhost/1.7.0.0 –SAUCELABS=true
 
 
 Information: To select the module to test, we decided to use the « data-tech-name » because this variable give us only one result in the search module part, in this case we are sure to select the right module
+
+# Sending generated report via mail
+In case you want to send the generated report via mail, you should active the option "less secure apps" in the mailbox of the sender:
+https://support.google.com/accounts/answer/6010255?hl=fr

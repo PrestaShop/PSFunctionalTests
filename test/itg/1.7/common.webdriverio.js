@@ -98,12 +98,12 @@ module.exports = {
                 client = webdriverio
                     .remote(options2)
                     .init()
-                    .windowHandleMaximize()
+                //.windowHandleMaximize()
             } else {
                 client = webdriverio
                     .remote(options)
                     .init()
-                    .windowHandleMaximize()
+                //.windowHandleMaximize()
             }
             initCommands(client);
 
@@ -119,5 +119,8 @@ module.exports = {
     initMocha: function () {
         this.timeout(900000000);
         this.slow(45000);
+    },
+    browser: function () {
+        return options.desiredCapabilities.browserName
     }
 };

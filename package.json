@@ -27,5 +27,10 @@
     "should": "^9.0",
     "webdriverio": "^4.0",
     "window": "^1.0"
+  },
+  "devDependencies": {
+    "dateformat": "^2.0.0",
+    "mochawesome": "^2.3.0",
+    "nodemailer": "^4.0.1"
   }
 }

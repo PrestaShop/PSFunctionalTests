@@ -50,12 +50,14 @@ before_script:
 
 script:
   - mkdir screenshots
-  - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost --MODULE=$MODULE_TECHNICAL_NAME --SAUCELABS=$SAUCELABS -t 300000
+  - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost --MODULE=$MODULE_TECHNICAL_NAME --SAUCELABS=$SAUCELABS -t 300000 --reporter mochawesome
   - curl http://localhost/
 
 after_script:
   - docker logs prestashop
   - cd ../../.. && chmod 777 bin/upload.sh && ./bin/upload.sh
+  - node email_sender/file_concat.js
+  - node email_sender/email_sender.js
   - google-chrome --version
 
 after_failure:
