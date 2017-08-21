@@ -19,8 +19,8 @@ module.exports = {
         //Back office
         BO :{
             Access:{
-                login: '#email',
-                password: '#passwd',
+                login_input: '#email',
+                password_input: '#passwd',
                 login_btn: '#login_form > div.form-group.row-padding-top > button',
             },
             Product:{

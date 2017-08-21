@@ -35,12 +35,12 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL + '/admin-dev')
-            .waitForExist(this.selector.BO.Access.login, 120000)
-            .setValue(this.selector.BO.Access.login, 'demo@prestashop.com')
-            .waitForExist(this.selector.BO.Access.password, 120000)
-            .setValue(this.selector.BO.Access.password, 'prestashop_demo')
-            .waitForExist(this.selector.BO.Access.login_btn, 120000)
-            .click(this.selector.BO.Access.login_btn)
+            .waitForExist(this.selector.BO.Access.login_input, 120000)
+            .setValue(this.selector.BO.Access.login_input, 'demo@prestashop.com')
+            .waitForExist(this.selector.BO.Access.password_input, 120000)
+            .setValue(this.selector.BO.Access.password_input, 'prestashop_demo')
+            .waitForExist(this.selector.BO.Access.login_button, 120000)
+            .click(this.selector.BO.Access.login_button)
             .call(cb);
     });
 
