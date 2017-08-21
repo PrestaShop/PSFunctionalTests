@@ -2,7 +2,8 @@ var fs = require('fs');
 var i = 0;
 var version = new Array();
 version =  process.env.PRESTAVERSION;
-var workSpace = process.env.TRAVIS_BUILD_DIR
+version = version.split(",");
+var workSpace = process.env.TRAVIS_BUILD_DIR;
 
 console.log(version)
 
@@ -51,7 +52,6 @@ while (i < 2) {
     } else {
         i++
     }
-
 }
 
 

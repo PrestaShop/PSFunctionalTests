@@ -13,7 +13,7 @@ var senderEmail = process.env.SENDER_EMAIL;
 var senderPassword = process.env.SENDER_PASSWORD;
 var recipientEmail = process.env.RECIPIENT_EMAIL;
 prestaVersion = process.env.PRESTAVERSION;
-
+prestaVersion = prestaVersion.split(",");
 
 console.log('prestasversion'+prestaVersion)
 
