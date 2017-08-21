@@ -17,12 +17,12 @@ function runScenario() {
             it('should choose english language', function (done) {
                 this.client
                     .localhost()
-                    .waitForExist(this.selector.Install.language, 300000)
-                    .selectByIndex(this.selector.Install.language, 3)
+                    .waitForExist(this.selector.Install.language_select, 300000)
+                    .selectByIndex(this.selector.Install.language_select, 3)
                     .waitForExist(this.selector.Install.next_step, 300000)
                     .click(this.selector.Install.next_step)
                     .call(done);
-            });test_result_compatibility
+            });
         });
         describe('Step 2 : Agreeing license agreements', function () {
             it('should agree License agreements', function (done) {

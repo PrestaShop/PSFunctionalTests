@@ -17,7 +17,7 @@ module.exports = {
     selector: {
         //Installation selector
         Install : {
-            language: '//*[@id="langList"]',
+            language_select: '//*[@id="langList"]',
             next_step: '//*[@id="btNext"]',
             agree_checkbox: '//*[@id="set_license"]',
             test_result_compatibility: '//*[@id="sheet_"]/h3',
