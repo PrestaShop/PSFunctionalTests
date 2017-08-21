@@ -125,7 +125,7 @@ describe('The Product Creation', function () {
         it('should enter the description of product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.BO.Product.description_button)
+                .click(this.selector.BO.Product.description_tab)
                 .waitForExist('textarea#form_step1_description_1', 90000)
                 .execute(function () {
                     document.querySelector('textarea#form_step1_description_1').style = "";
