@@ -15,6 +15,8 @@ var recipientEmail = process.env.RECIPIENT_EMAIL;
 prestaVersion = process.env.PRESTAVERSION;
 
 
+console.log('prestasversion'+prestaVersion)
+
 
 
 var transporter = nodeMailer.createTransport({

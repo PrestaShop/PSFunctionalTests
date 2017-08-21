@@ -4,6 +4,10 @@ var version = new Array();
 version =  process.env.PRESTAVERSION;
 var workSpace = process.env.TRAVIS_BUILD_DIR
 
+console.log(version)
+
+console.log('version'+version)
+
 while (i < 2) {
 
 // Verify the existence of Mocha Reporter
