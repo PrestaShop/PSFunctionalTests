@@ -27,8 +27,8 @@ describe('The creation of an account in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .click(this.selector.FO.Access.sign_in_button)
-                .waitForExist(this.selector.FO.Account.email_input_address_input, 60000)
-                .setValue(this.selector.FO.Account.email_input_address_input, new_customer_email)
+                .waitForExist(this.selector.FO.Account.email_address_input, 60000)
+                .setValue(this.selector.FO.Account.email_address_input, new_customer_email)
                 .click(this.selector.FO.Account.create_button)
                 .waitForExist(this.selector.FO.Account.firstname_input, 60000)
                 .call(done);
