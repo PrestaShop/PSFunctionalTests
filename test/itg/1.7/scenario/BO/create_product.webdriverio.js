@@ -24,7 +24,7 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             this.client
                 .signinBO()
-                .waitForExist(this.selector.BO.CreateProduct.menu, 90000)
+                .waitForExist(this.selector.BO.Product.menu, 90000)
                 .call(done);
         });
     });
@@ -34,9 +34,9 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             if (this.client.isVisible(this.selector.BO.Onboarding.popup)) {
                 this.client
-                    .click(this.selector.BO.Onboarding.popup_close_btn)
+                    .click(this.selector.BO.Onboarding.popup_close_button)
                     .pause(1000)
-                    .click(this.selector.BO.Onboarding.stop);
+                    .click(this.selector.BO.Onboarding.stop_button);
             };
             this.client.call(done);
         });
@@ -47,9 +47,9 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             this.client
                 .pause(5000)
-                .waitForExist(this.selector.BO.CreateProduct.menu, 90000)
-                .click(this.selector.BO.CreateProduct.products)
-                .waitForExist(this.selector.BO.CreateProduct.new_product, 90000)
+                .waitForExist(this.selector.BO.Product.menu, 90000)
+                .click(this.selector.BO.Product.products_subtab)
+                .waitForExist(this.selector.BO.Product.new_product_button, 90000)
                 .waitForExist('#notifications-total', 90000)
                 .isVisible('//div[@id="debug-mode"]').then(function (isVisible) {
                 devMode = isVisible;
@@ -70,29 +70,29 @@ describe('The Product Creation', function () {
         it('should enter the name of product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.BO.CreateProduct.new_product)
-                .waitForExist(this.selector.BO.CreateProduct.product_name, 90000)
-                .setValue(this.selector.BO.CreateProduct.product_name, 'test_nodejs_' + product_id)
+                .click(this.selector.BO.Product.new_product_button)
+                .waitForExist(this.selector.BO.Product.product_name_input, 90000)
+                .setValue(this.selector.BO.Product.product_name_input, 'test_nodejs_' + product_id)
                 .call(done);
         });
 
         it('should enter the quantity of product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.BO.CreateProduct.quantity_shortcut, 90000)
-                .clearElement(this.selector.BO.CreateProduct.quantity_shortcut)
-                .addValue(this.selector.BO.CreateProduct.quantity_shortcut, "10")
+                .waitForExist(this.selector.BO.Product.quantity_shortcut_input, 90000)
+                .clearElement(this.selector.BO.Product.quantity_shortcut_input)
+                .addValue(this.selector.BO.Product.quantity_shortcut_input, "10")
                 .call(done);
         });
 
         it('should enter the price of product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.BO.CreateProduct.priceTE_shortcut, 90000)
+                .waitForExist(this.selector.BO.Product.price_te_shortcut_input, 90000)
                 .execute(function () {
                     document.querySelector('#form_step1_price_shortcut').value = "";
                 })
-                .setValue(this.selector.BO.CreateProduct.priceTE_shortcut, "5")
+                .setValue(this.selector.BO.Product.price_te_shortcut_input, "5")
                 .call(done);
         });
 
@@ -102,8 +102,8 @@ describe('The Product Creation', function () {
                 .execute(function () {
                     document.getElementsByClassName("dz-hidden-input").style = "";
                 })
-                .chooseFile(this.selector.BO.CreateProduct.picture, toUpload)
-                .waitForExist(this.selector.BO.CreateProduct.picture_cover, 90000)
+                .chooseFile(this.selector.BO.Product.picture, toUpload)
+                .waitForExist(this.selector.BO.Product.picture_cover, 90000)
                 .getAttribute('.dz-preview.dz-image-preview.ui-sortable-handle.dz-complete', "data-id").then(function (text) {
                 global.image_data_id = text;
             })
@@ -125,7 +125,7 @@ describe('The Product Creation', function () {
         it('should enter the description of product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.BO.CreateProduct.description_button)
+                .click(this.selector.BO.Product.description_button)
                 .waitForExist('textarea#form_step1_description_1', 90000)
                 .execute(function () {
                     document.querySelector('textarea#form_step1_description_1').style = "";
@@ -148,22 +148,22 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             this.client
                 .pause(1000)
-                .click(this.selector.BO.CreateProduct.product_online)
+                .click(this.selector.BO.Product.product_online_toggle)
                 .call(done);
         });
 
         it('should save product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.BO.CreateProduct.save_product, 90000)
-                .click(this.selector.BO.CreateProduct.save_product)
+                .waitForExist(this.selector.BO.Product.save_product_button, 90000)
+                .click(this.selector.BO.Product.save_product)
                 .call(done);
         });
         it('should close green validation', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.BO.CreateProduct.close_validation, 90000)
-                .click(this.selector.BO.CreateProduct.close_validation)
+                .waitForExist(this.selector.BO.Product.close_validation, 90000)
+                .click(this.selector.BO.Product.close_validation)
                 .call(done);
         });
     });
@@ -172,21 +172,21 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             this.client
                 .pause(5000)
-                .waitForExist(this.selector.BO.CreateProduct.more_option, 90000)
-                .click(this.selector.BO.CreateProduct.more_option)
-                .waitForExist(this.selector.BO.CreateProduct.go_to_catalog, 90000)
-                .click(this.selector.BO.CreateProduct.go_to_catalog)
+                .waitForExist(this.selector.BO.Product.more_option_button, 90000)
+                .click(this.selector.BO.Product.more_option_button)
+                .waitForExist(this.selector.BO.Product.go_to_catalog_button, 90000)
+                .click(this.selector.BO.Product.go_to_catalog_button)
                 .call(done);
         });
 
         it('should search the product by name', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.BO.CreateProduct.catalogue_filter_by_name, 90000)
-                .setValue(this.selector.BO.CreateProduct.catalogue_filter_by_name, 'test_nodejs_' + product_id)
-                .click(this.selector.BO.CreateProduct.click_outside)
+                .waitForExist(this.selector.BO.Product.catalogue_filter_by_name_input, 90000)
+                .setValue(this.selector.BO.Product.catalogue_filter_by_name_input, 'test_nodejs_' + product_id)
+                .click(this.selector.BO.Product.click_outside)
                 .pause(2000)
-                .click(this.selector.BO.CreateProduct.catalogue_submit_filter)
+                .click(this.selector.BO.Product.catalogue_submit_filter_button)
                 .call(done);
         });
 
@@ -196,7 +196,7 @@ describe('The Product Creation', function () {
                 .pause(1000)
                 .waitForExist('//a[text()="test_nodejs_' + product_id + '"]', 90000)
                 .click('//a[text()="test_nodejs_' + product_id + '"]')
-                .waitForExist(this.selector.BO.CreateProduct.product_name, 90000)
+                .waitForExist(this.selector.BO.Product.product_name_input, 90000)
                 .call(done);
         });
 
@@ -215,7 +215,7 @@ describe('The Product Creation', function () {
         it('should check the product name', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getValue(this.selector.BO.CreateProduct.product_name).then(function (text) {
+                .getValue(this.selector.BO.Product.product_name_input).then(function (text) {
                 var my_name = text;
                 should(my_name).be.equal('test_nodejs_' + product_id);
             })
@@ -238,7 +238,7 @@ describe('The Product Creation', function () {
         it('should check the product description', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.BO.CreateProduct.description_button)
+                .click(this.selector.BO.Product.description_tab)
                 .execute(function () {
                     document.querySelector('textarea#form_step1_description_1').style = "";
                 })
@@ -252,7 +252,7 @@ describe('The Product Creation', function () {
         it('should check the product price', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getValue(this.selector.BO.CreateProduct.priceTE_shortcut).then(function (text) {
+                .getValue(this.selector.BO.Product.price_te_shortcut_input).then(function (text) {
                 var my_priceTE = text;
                 should(parseInt(my_priceTE)).be.equal(parseInt("5"));
             })
@@ -262,7 +262,7 @@ describe('The Product Creation', function () {
         it('should check the product quantity', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getValue(this.selector.BO.CreateProduct.quantity_shortcut).then(function (text) {
+                .getValue(this.selector.BO.Product.quantity_shortcut_input).then(function (text) {
                 var my_quantity = text;
                 should(parseInt(my_quantity)).be.equal(parseInt("10"));
             })

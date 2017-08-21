@@ -42,11 +42,11 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL + '/admin-dev')
-            .waitForExist(this.selector.BO.Access.login, 90000)
-            .setValue(this.selector.BO.Access.login, 'demo@prestashop.com')
-            .setValue(this.selector.BO.Access.password, 'prestashop_demo')
-            .click(this.selector.BO.Access.login_btn)
-            .waitForExist(this.selector.BO.CreateProduct.menu, 90000)
+            .waitForExist(this.selector.BO.Access.login_input, 90000)
+            .setValue(this.selector.BO.Access.login_input, 'demo@prestashop.com')
+            .setValue(this.selector.BO.Access.password_input, 'prestashop_demo')
+            .click(this.selector.BO.Access.login_button)
+            .waitForExist(this.selector.BO.Product.menu, 90000)
             .call(cb);
     });
 
@@ -54,12 +54,12 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL)
-            .waitForExist(this.selector.FO.Access.login, 90000)
-            .click(this.selector.FO.Access.login)
+            .waitForExist(this.selector.FO.Access.sign_in_button, 90000)
+            .click(this.selector.FO.Access.sign_in_button)
             .waitForExist(this.selector.FO.Access.login_input, 90000)
             .setValue(this.selector.FO.Access.login_input, 'pub@prestashop.com')
-            .setValue(this.selector.FO.Access.password, '123456789')
-            .click(this.selector.FO.Access.login_btn)
+            .setValue(this.selector.FO.Access.password_input, '123456789')
+            .click(this.selector.FO.Access.login_button)
             .call(cb);
     });
 

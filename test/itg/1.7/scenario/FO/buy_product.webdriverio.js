@@ -18,12 +18,12 @@ describe('The Purchase of a product', function () {
         global.fctname = this.test.title;
         this.client
             .url('http://' + URL)
-            .waitForExist(this.selector.FO.Access.login, 90000)
-            .click(this.selector.FO.Access.login)
+            .waitForExist(this.selector.FO.Access.sign_in_button, 90000)
+            .click(this.selector.FO.Access.sign_in_button)
             .waitForExist(this.selector.FO.Access.login_input, 90000)
             .setValue(this.selector.FO.Access.login_input, 'pub@prestashop.com')
-            .setValue(this.selector.FO.Access.password, '123456789')
-            .click(this.selector.FO.Access.login_btn)
+            .setValue(this.selector.FO.Access.password_input, '123456789')
+            .click(this.selector.FO.Access.login_button)
             .call(done);
 
     });
@@ -49,17 +49,17 @@ describe('The Purchase of a product', function () {
                 .getValue(this.selector.FO.Order.product_quantity_details).then(function (text) {
                 global.my_quantity = text;
             })
-                .click(this.selector.FO.Order.add_to_cart)
-                .waitForExist(this.selector.FO.layer_cart.layer_cart, 90000)
-                .getText(this.selector.FO.layer_cart.name_details).then(function (text) {
+                .click(this.selector.FO.Order.add_to_cart_button)
+                .waitForExist(this.selector.FO.LayerCart.layer_cart, 90000)
+                .getText(this.selector.FO.LayerCart.name_details).then(function (text) {
                 var my_cart_name_check = text;
                 my_cart_name_check.toLowerCase().should.containEql(my_name.toLowerCase())
             })
-                .getText(this.selector.FO.layer_cart.price_details).then(function (text) {
+                .getText(this.selector.FO.LayerCart.price_details).then(function (text) {
                 var my_cart_price_check = text;
                 should(my_cart_price_check).be.equal(my_price);
             })
-                .getText(this.selector.FO.layer_cart.quantity_details).then(function (text) {
+                .getText(this.selector.FO.LayerCart.quantity_details).then(function (text) {
                 var my_cart_quantity_check = text.split(': ');
                 should(my_cart_quantity_check[1]).be.equal(my_quantity);
             })
@@ -69,7 +69,7 @@ describe('The Purchase of a product', function () {
         it('should click add to cart button ', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.FO.layer_cart.command_button)
+                .click(this.selector.FO.LayerCart.command_button)
                 .call(done);
         });
     });
@@ -78,7 +78,7 @@ describe('The Purchase of a product', function () {
         it('should validate name of product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Order.button_checkout, 90000)
+                .waitForExist(this.selector.FO.Order.proceed_to_checkout_button, 90000)
                 .getText(this.selector.FO.Order.product_name).then(function (text) {
                 var command_my_name = text;
                 command_my_name.toLowerCase().should.containEql(my_name.toLowerCase());
@@ -98,7 +98,7 @@ describe('The Purchase of a product', function () {
         it('should click checkout button', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.FO.Order.button_checkout)
+                .click(this.selector.FO.Order.proceed_to_checkout_button)
                 .call(done);
         });
 
@@ -115,22 +115,22 @@ describe('The Purchase of a product', function () {
         it('should select the payment step-3', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Order.checkout_step4_payment, 90000)
+                .waitForExist(this.selector.FO.Order.checkout_step4_payment_radio, 90000)
                 .getText(this.selector.FO.Order.checkout_total).then(function (text) {
                 var checkout_total = text;
                 should(checkout_total).be.equal(my_price);
             })
-                .click(this.selector.FO.Order.checkout_step4_payment)
+                .click(this.selector.FO.Order.checkout_step4_payment_radio)
                 .call(done);
         });
 
         it('should select the shipping method step-4', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Order.checkout_step4_cgv, 90000)
-                .click(this.selector.FO.Order.checkout_step4_cgv)
-                .waitForExist(this.selector.FO.Order.checkout_step4_order, 90000)
-                .click(this.selector.FO.Order.checkout_step4_order)
+                .waitForExist(this.selector.FO.Order.checkout_step4_cgv_checkbox, 90000)
+                .click(this.selector.FO.Order.checkout_step4_cgv_checkbox)
+                .waitForExist(this.selector.FO.Order.checkout_step4_order_button, 90000)
+                .click(this.selector.FO.Order.checkout_step4_order_button)
                 .call(done);
         });
 
@@ -177,9 +177,9 @@ describe('The Purchase of a product', function () {
         it('should logout successfully in FO', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Access.logout, 90000)
-                .click(this.selector.FO.Access.logout)
-                .waitForExist(this.selector.FO.Access.login, 90000)
+                .waitForExist(this.selector.FO.Access.sign_out_button, 90000)
+                .click(this.selector.FO.Access.sign_out_button)
+                .waitForExist(this.selector.FO.Access.sign_in_button, 90000)
                 .call(done);
 
         });

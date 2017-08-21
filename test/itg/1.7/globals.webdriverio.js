@@ -18,23 +18,23 @@ module.exports = {
         //Installation selector
         Install : {
             language_select: '//*[@id="langList"]',
-            next_step: '//*[@id="btNext"]',
+            next_step_button: '//*[@id="btNext"]',
             agree_checkbox: '//*[@id="set_license"]',
-            test_result_compatibility: '//*[@id="sheet_"]/h3',
-            shop_name: '//*[@id="infosShop"]',
-            country_fo: '//*[@id="infosCountry_chosen"]',
-            country_france: '//*[@id="infosCountry_chosen"]/div/ul/li[2]',
-            first_name: '//*[@id="infosFirstname"]',
-            last_name: '//*[@id="infosName"]',
-            email_address: '//*[@id="infosEmail"]',
-            shop_password: '//*[@id="infosPassword"]',
-            retype_password: '//*[@id="infosPasswordRepeat"]',
-            database_address: '//*[@id="dbServer"]',
-            database_name: '//*[@id="dbName"]',
-            database_login: '//*[@id="dbLogin"]',
-            database_password: '//*[@id="dbPassword"]',
-            test_conection: '#btTestDB',
-            dbResultCheck: '//*[@id="dbResultCheck"]',
+            test_result_compatibility_green_block: '//*[@id="sheet_"]/h3',
+            shop_name_input: '//*[@id="infosShop"]',
+            country_select: '//*[@id="infosCountry_chosen"]',
+            country_france_option: '//*[@id="infosCountry_chosen"]/div/ul/li[2]',
+            first_name_input: '//*[@id="infosFirstname"]',
+            last_name_input: '//*[@id="infosName"]',
+            email_address_input: '//*[@id="infosEmail"]',
+            shop_password_input: '//*[@id="infosPassword"]',
+            retype_password_input: '//*[@id="infosPasswordRepeat"]',
+            database_address_input: '//*[@id="dbServer"]',
+            database_name_input: '//*[@id="dbName"]',
+            database_login_input: '//*[@id="dbLogin"]',
+            database_password_input: '//*[@id="dbPassword"]',
+            test_conection_button: '#btTestDB',
+            dbResultCheck_green_block: '//*[@id="dbResultCheck"]',
             create_file_parameter_step: '//li[@id="process_step_generateSettingsFile" and @class="process_step success"]',
             create_database_step: '//li[@id="process_step_installDatabase" and @class="process_step success"]',
             create_default_shop_step: '//li[@id="process_step_installDefaultData" and @class="process_step success"]',
@@ -50,95 +50,95 @@ module.exports = {
         // Back office selector
         BO:{
             Access:{
-                login: '#email',
-                password: '#passwd',
-                login_btn: '[name="submitLogin"]'
+                login_input: '#email',
+                password_input: '#passwd',
+                login_button: '[name="submitLogin"]'
             },
-            CreateProduct:{
-                exit_welcome: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
+            Product:{
+                exit_welcome_button: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
                 click_outside: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
                 logout: '#header_logout',
-                products: '#subtab-AdminCatalog',
-                go_to_catalog: '#form > div.product-footer > div.col-lg-6.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
-                more_option: '[class="btn btn-primary dropdown-toggle"]',
-                new_product: '#page-header-desc-configuration-add',
+                products_subtab: '#subtab-AdminCatalog',
+                go_to_catalog_button: '#form > div.product-footer > div.col-lg-6.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
+                more_option_button: '[class="btn btn-primary dropdown-toggle"]',
+                new_product_button: '#page-header-desc-configuration-add',
                 menu: '#nav-sidebar',
-                product_name: '#form_step1_name_1',
-                save_product: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
-                green_validation: '[class="growl growl-notice growl-medium"]',
-                close_validation: '.growl-close',
+                product_name_input: '#form_step1_name_1',
+                save_product_button: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
+                green_validation_notice: '[class="growl growl-notice growl-medium"]',
+                close_validation_button: '.growl-close',
                 validation_msg: '//*[@id="growls"]/div/div[3]',
-                red_validation: '[class="growl growl-error growl-medium"]',
-                summary: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
-                description_button: '[href="#description"]',
-                description: 'form_step1_description_1_ifr',//not declare than an id because using into function "frame" that not need this information;
-                priceTE_shortcut: '#form_step1_price_shortcut',
-                quantity_shortcut: '#form_step1_qty_0_shortcut',
+                red_validation_notice: '[class="growl growl-error growl-medium"]',
+                summary_textarea: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
+                description_tab: '[href="#description"]',
+                description_textarea: 'form_step1_description_1_ifr',//not declare than an id because using into function "frame" that not need this information;
+                price_te_shortcut_input: '#form_step1_price_shortcut',
+                quantity_shortcut_input: '#form_step1_qty_0_shortcut',
                 picture: '[class="dz-hidden-input"]',
                 picture_cover: '.iscover',
-                product_online: '.switch-input ',
-                catalogue_filter_by_name: '//input[@name="filter_column_name"]',
-                catalogue_submit_filter: '//button[@name="products_filter_submit"]',
+                product_online_toggle: '.switch-input ',
+                catalogue_filter_by_name_input: '//input[@name="filter_column_name"]',
+                catalogue_submit_filter_button: '//button[@name="products_filter_submit"]',
             },
 
             //Order selector
             Order:{
-                orders: '#subtab-AdminParentOrders',
+                orders_subtab: '#subtab-AdminParentOrders',
                 form: '#form-order',
-                order_product_name: '.productName',
-                quantity: '.product_quantity_show',
-                total: '#total_order > td.amount.text-right.nowrap',
-                reference: '((//div[@class="panel-heading"])[1]/span)[1]',
+                order_product_name_span: '.productName',
+                order_product_quantity_span: '.product_quantity_show',
+                order_product_total: '#total_order > td.amount.text-right.nowrap',
+                order_reference_span: '((//div[@class="panel-heading"])[1]/span)[1]',
             },
 
             //Module selector
             Module:{
-                modules_menu: '#subtab-AdminParentModulesSf',
-                search: '.pstaggerAddTagInput.module-tags-input',
+                modules_subtab: '#subtab-AdminParentModulesSf',
+                search_input: '.pstaggerAddTagInput.module-tags-input',
                 search_button: '.input-group-addon.module-search-icon',
                 page_loaded: '.module-search-result-wording',
-                installed: '(//div[@class="page-head-tabs"]/a)[2]',
-                nbr_module: '[class="module-sorting-search-wording"]',
-                tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
-                install_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
+                installed_modules_tabs: '(//div[@class="page-head-tabs"]/a)[2]',
+                module_number_span: '[class="module-sorting-search-wording"]',
+                tech_name_attribute: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
+                install_button: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
                 uninstall_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
-                uninstall_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
+                uninstall_button: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
                 modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
             },
 
             // Popup - boutique Onboarding selector
             Onboarding:{
                 popup: '.onboarding-popup',
-                popup_close_btn: '.onboarding-button-shut-down',
-                stop: '.onboarding-button-stop'
+                popup_close_button: '.onboarding-button-shut-down',
+                stop_button: '.onboarding-button-stop'
             }
         },
 
         //Front-office selector
         FO:{
             Access:{
-                login: 'div.user-info > a',
+                sign_in_button: 'div.user-info > a',
                 login_input: '//*[@id="login-form"]/section/div[1]/div[1]/input',
-                password: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
-                login_btn: '//*[@id="login-form"]/footer/button',
-                logout: '.logout',
+                password_input: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
+                login_button: '//*[@id="login-form"]/footer/button',
+                sign_out_button: '.logout',
                 logo_home_page: '.logo.img-responsive',
             },
 
             //Account page selector
             Account: {
                 create_button: '[data-link-action="display-register-form"]',
-                firstname: '[name="firstname"]',
-                lastname: '[name="lastname"]',
-                email: '[name="email"]',
-                password: '[name="password"]',
-                create_account_info_validate: '[data-link-action="save-customer"]'
+                firstname_input: '[name="firstname"]',
+                lastname_input: '[name="lastname"]',
+                email_input: '[name="email"]',
+                password_input: '[name="password"]',
+                save_account_button: '[data-link-action="save-customer"]'
             },
 
             //Order Pages selector
             Order: {
                 first_product_home_page: '.thumbnail.product-thumbnail',
-                add_to_cart: '.btn.btn-primary.add-to-cart',
+                add_to_cart_button: '.btn.btn-primary.add-to-cart',
                 first_product_home_page_name: '[itemprop="name"]',
                 product_image: '#content',
                 product_name_details: '[itemprop="name"]',
@@ -146,12 +146,12 @@ module.exports = {
                 product_quantity_details: '#quantity_wanted',
                 product_name: '(//div[@class="product-line-info"])[1]/a',
                 product_price: '//span[@class="price"]',
-                button_checkout: '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a',
+                proceed_to_checkout_button: '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a',
                 checkout_step2_continue_button: '//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
                 checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
-                checkout_step4_payment: '//*[@id="payment-option-2"]',
-                checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
-                checkout_step4_order: '#payment-confirmation >div > button',
+                checkout_step4_payment_radio: '//*[@id="payment-option-2"]',
+                checkout_step4_cgv_checkbox: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
+                checkout_step4_order_button: '#payment-confirmation >div > button',
                 checkout_total: '//div[@class="cart-summary-line cart-total"]/span[2]',
                 order_confirmation_name: '#order-items > div > div > div.col-sm-4.col-xs-9.details > span',
                 order_confirmation_price1: '#order-items > div > table > tbody > tr:nth-child(1) > td:nth-child(2)',
@@ -160,7 +160,7 @@ module.exports = {
             },
 
             //cart Pages selector
-            layer_cart: {
+            LayerCart: {
                 layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
                 name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
                 price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
@@ -170,8 +170,8 @@ module.exports = {
 
             //Search selector
             Search:{
-                product: '.ui-autocomplete-input',
-                product_button: '.material-icons.search',
+                product_search_input: '.ui-autocomplete-input',
+                product_search_button: '.material-icons.search',
                 product_result_name: '.h3.product-title > a',
                 product_result_price: '[itemprop="price"]',
             }

@@ -23,7 +23,7 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             this.client
                 .signinBO()
-                .waitForExist(this.selector.BO.CreateProduct.menu, 90000)
+                .waitForExist(this.selector.BO.Product.menu, 90000)
                 .call(done);
         });
     });
@@ -34,7 +34,7 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             this.client
                 .pause(5000)
-                .click(this.selector.BO.Module.modules_menu)
+                .click(this.selector.BO.Module.modules_subtab)
                 .waitForExist(this.selector.BO.Module.page_loaded, 90000)
                 .call(done);
         });
@@ -46,7 +46,7 @@ describe('The Install of a Module', function () {
             }
             else {
                 this.client
-                    .setValue(this.selector.BO.Module.search, module_tech_name)
+                    .setValue(this.selector.BO.Module.search_input, module_tech_name)
                     .click(this.selector.BO.Module.search_button)
                     .call(done);
             }
@@ -60,12 +60,12 @@ describe('The Install of a Module', function () {
             else {
                 this.client
                     .waitForExist(this.selector.BO.module_tech_name, 90000)
-                    .click(this.selector.BO.Module.install_btn)
-                    .waitForExist(this.selector.BO.CreateProduct.close_validation, 90000)
-                    .isVisible(this.selector.BO.CreateProduct.red_validation).then(function (isVisible) {
+                    .click(this.selector.BO.Module.install_button)
+                    .waitForExist(this.selector.BO.Product.close_validation_button, 90000)
+                    .isVisible(this.selector.BO.Product.red_validation_notice).then(function (isVisible) {
                     global.red_validation_is_visible = isVisible;
                 })
-                    .isVisible(this.selector.BO.CreateProduct.green_validation).then(function (isVisible) {
+                    .isVisible(this.selector.BO.Product.green_validation_notice).then(function (isVisible) {
                     green_validation_is_visible = isVisible;
                 })
                     .call(done);
@@ -76,7 +76,7 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             if (global.red_validation_is_visible) {
                 this.client
-                    .getText(this.selector.BO.CreateProduct.validation_msg).then(function (text) {
+                    .getText(this.selector.BO.Product.validation_msg).then(function (text) {
                     done(new Error(text));
                 })
             } else if (green_validation_is_visible) {

@@ -73,7 +73,7 @@ describe('The Product Creation', function () {
         it('should enter the product description', function (done) {
             global.fctname = this.test.title;
             this.client
-                .frame(this.selector.BO.Product.description, function (err, result) {
+                .frame(this.selector.BO.Product.description_tab, function (err, result) {
                     if (err) console.log(err);
                 })
                 .setValue("#tinymce", "this is the description")
@@ -222,7 +222,7 @@ describe('The Product Creation', function () {
         it('should check the product description', function (done) {
             global.fctname = this.test.title;
             this.client
-                .frame(this.selector.BO.Product.description, function (err, result) {
+                .frame(this.selector.BO.Product.description_textarea, function (err, result) {
                     if (err) console.log(err);
                 })
                 .getText("#tinymce").then(function (text) {

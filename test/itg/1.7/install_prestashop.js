@@ -19,8 +19,8 @@ function runScenario() {
                     .localhost()
                     .waitForExist(this.selector.Install.language_select, 300000)
                     .selectByIndex(this.selector.Install.language_select, 3)
-                    .waitForExist(this.selector.Install.next_step, 300000)
-                    .click(this.selector.Install.next_step)
+                    .waitForExist(this.selector.Install.next_step_button, 300000)
+                    .click(this.selector.Install.next_step_button)
                     .call(done);
             });
         });
@@ -29,106 +29,106 @@ function runScenario() {
                 this.client
                     .waitForExist(this.selector.Install.agree_checkbox, 300000)
                     .click(this.selector.Install.agree_checkbox)
-                    .waitForExist(this.selector.Install.next_step, 300000)
-                    .click(this.selector.Install.next_step)
+                    .waitForExist(this.selector.Install.next_step_button, 300000)
+                    .click(this.selector.Install.next_step_button)
                     .call(done);
             });
         });
         describe('Step 3 : Checking system compatibility', function () {
             it('should test compatibility ', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.test_result_compatibility, 300000)
-                    .waitForExist(this.selector.Install.next_step, 300000)
-                    .click(this.selector.Install.next_step)
+                    .waitForExist(this.selector.Install.test_result_compatibility_green_block, 300000)
+                    .waitForExist(this.selector.Install.next_step_button, 300000)
+                    .click(this.selector.Install.next_step_button)
                     .call(done);
             });
         });
         describe('Step 4 : Inserting the shop information', function () {
             it('should enter the name of the shop', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.shop_name, 300000)
-                    .setValue(this.selector.Install.shop_name, "prestashop_1.7.0.3")
+                    .waitForExist(this.selector.Install.shop_name_input, 300000)
+                    .setValue(this.selector.Install.shop_name_input, "prestashop_1.7.0.3")
                     .call(done);
             });
             it('should enter the country', function (done) {
                 this.client
-                    .click(this.selector.Install.country_fo)
-                    .click(this.selector.Install.country_france)
+                    .click(this.selector.Install.country_select)
+                    .click(this.selector.Install.country_france_option)
                     .call(done);
             });
             it('should enter the firstname', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.first_name, 300000)
-                    .setValue(this.selector.Install.first_name, "demo")
+                    .waitForExist(this.selector.Install.first_name_input, 300000)
+                    .setValue(this.selector.Install.first_name_input, "demo")
                     .call(done);
             });
             it('should enter the lastname', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.last_name, 300000)
-                    .setValue(this.selector.Install.last_name, "prestashop")
+                    .waitForExist(this.selector.Install.last_name_input, 300000)
+                    .setValue(this.selector.Install.last_name_input, "prestashop")
                     .call(done);
             });
             it('should enter the email address', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.email_address, 300000)
-                    .setValue(this.selector.Install.email_address, "demo@prestashop.com")
+                    .waitForExist(this.selector.Install.email_address_input, 300000)
+                    .setValue(this.selector.Install.email_address_input, "demo@prestashop.com")
                     .call(done);
             });
             it('should enter the shop password', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.shop_password, 300000)
-                    .setValue(this.selector.Install.shop_password, "prestashop_demo")
+                    .waitForExist(this.selector.Install.shop_password_input, 300000)
+                    .setValue(this.selector.Install.shop_password_input, "prestashop_demo")
                     .call(done);
             });
             it('should retype password', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.retype_password, 300000)
-                    .setValue(this.selector.Install.retype_password, "prestashop_demo")
+                    .waitForExist(this.selector.Install.retype_password_input, 300000)
+                    .setValue(this.selector.Install.retype_password_input, "prestashop_demo")
                     .call(done);
             });
             it('should click on button next step', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.next_step, 300000)
-                    .click(this.selector.Install.next_step)
+                    .waitForExist(this.selector.Install.next_step_button, 300000)
+                    .click(this.selector.Install.next_step_button)
                     .call(done);
             });
         });
         describe('Step 5 : Setting the BD configuration', function () {
             it('should enter the database address', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.database_address, 300000)
-                    .setValue(this.selector.Install.database_address, "mysql")
+                    .waitForExist(this.selector.Install.database_address_input, 300000)
+                    .setValue(this.selector.Install.database_address_input, "mysql")
                     .call(done);
             });
             it('should enter the database name', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.database_name, 300000)
-                    .setValue(this.selector.Install.database_name, "prestashop")
+                    .waitForExist(this.selector.Install.database_name_input, 300000)
+                    .setValue(this.selector.Install.database_name_input, "prestashop")
                     .call(done);
             });
             it('should enter the database login', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.database_login, 300000)
-                    .setValue(this.selector.Install.database_login, "root")
+                    .waitForExist(this.selector.Install.database_login_input, 300000)
+                    .setValue(this.selector.Install.database_login_input, "root")
                     .call(done);
             });
             it('should enter the database password', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.database_password, 300000)
-                    .setValue(this.selector.Install.database_password, "doge")
+                    .waitForExist(this.selector.Install.database_password_input, 300000)
+                    .setValue(this.selector.Install.database_password_input, "doge")
                     .call(done);
             });
             it('should validate the connection', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.test_conection, 300000)
-                    .click(this.selector.Install.test_conection)
-                    .waitForExist(this.selector.Install.dbResultCheck, 300000)
+                    .waitForExist(this.selector.Install.test_conection_button, 300000)
+                    .click(this.selector.Install.test_conection_button)
+                    .waitForExist(this.selector.Install.dbResultCheck_green_block, 300000)
                     .call(done);
             });
             it('should click on button next step', function (done) {
                 this.client
-                    .waitForExist(this.selector.Install.next_step, 300000)
-                    .click(this.selector.Install.next_step)
+                    .waitForExist(this.selector.Install.next_step_button, 300000)
+                    .click(this.selector.Install.next_step_button)
                     .call(done);
             });
         });

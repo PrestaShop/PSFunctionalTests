@@ -27,9 +27,9 @@ describe('The Check of the Product in Front Office', function () {
         it('should search for the product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Search.product, 90000)
-                .setValue(this.selector.FO.Search.product, 'test_nodejs_' + product_id)
-                .click(this.selector.FO.Search.product_button)
+                .waitForExist(this.selector.FO.Search.product_search_input, 90000)
+                .setValue(this.selector.FO.Search.product_search_input, 'test_nodejs_' + product_id)
+                .click(this.selector.FO.Search.product_search_button)
                 .call(done);
         });
 

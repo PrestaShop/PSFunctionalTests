@@ -19,8 +19,8 @@ describe('The Creation of an Account in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .url('http://' + URL)
-                .waitForExist(this.selector.FO.Access.login, 90000)
-                .click(this.selector.FO.Access.login)
+                .waitForExist(this.selector.FO.Access.sign_in_button, 90000)
+                .click(this.selector.FO.Access.sign_in_button)
                 .waitForExist(this.selector.FO.Account.create_button, 90000)
                 .click(this.selector.FO.Account.create_button)
                 .call(done);
@@ -29,11 +29,11 @@ describe('The Creation of an Account in Front Office', function () {
         it('should fill the form', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Account.firstname, 60000)
-                .setValue(this.selector.FO.Account.firstname, 'my firstname')
-                .setValue(this.selector.FO.Account.lastname, 'my lastname')
-                .setValue(this.selector.FO.Account.email, new_customer_email)
-                .setValue(this.selector.FO.Account.password, '123456789')
+                .waitForExist(this.selector.FO.Account.firstname_input, 60000)
+                .setValue(this.selector.FO.Account.firstname_input, 'my firstname')
+                .setValue(this.selector.FO.Account.lastname_input, 'my lastname')
+                .setValue(this.selector.FO.Account.email_input, new_customer_email)
+                .setValue(this.selector.FO.Account.password_input, '123456789')
                 .pause(2000)
                 .call(done);
         });
@@ -41,7 +41,7 @@ describe('The Creation of an Account in Front Office', function () {
         it('should validate the creation of the account', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.FO.Account.create_account_info_validate)
+                .click(this.selector.FO.Account.save_account_button)
                 .waitForExist(this.selector.FO.Access.logo_home_page, 90000)
                 .call(done);
         });
@@ -59,12 +59,12 @@ describe('The Creation of an Account in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .url('http://' + URL)
-                .waitForExist(this.selector.FO.Access.login, 90000)
-                .click(this.selector.FO.Access.login)
+                .waitForExist(this.selector.FO.Access.sign_in_button, 90000)
+                .click(this.selector.FO.Access.sign_in_button)
                 .waitForExist(this.selector.FO.Access.login_input, 90000)
                 .setValue(this.selector.FO.Access.login_input, new_customer_email)
-                .setValue(this.selector.FO.Access.password, '123456789')
-                .click(this.selector.FO.Access.login_btn)
+                .setValue(this.selector.FO.Access.password_input, '123456789')
+                .click(this.selector.FO.Access.login_button)
                 .waitForExist(this.selector.FO.Access.logo_home_page, 90000)
                 .call(done);
         });

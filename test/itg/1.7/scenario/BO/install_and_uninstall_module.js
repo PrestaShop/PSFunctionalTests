@@ -31,10 +31,10 @@ describe('The Install of a Module and its Uninstall', function () {
             global.fctname = this.test.title;
             this.client
                 .signinBO()
-                .isVisible(this.selector.BO.CreateProduct.exit_welcome).then(function (isVisible) {
+                .isVisible(this.selector.BO.Product.exit_welcome_button).then(function (isVisible) {
                 exit_welcome = isVisible;
             })
-                .waitForExist(this.selector.BO.CreateProduct.menu, 90000)
+                .waitForExist(this.selector.BO.Product.menu, 90000)
                 .call(done);
         });
     });
@@ -45,12 +45,12 @@ describe('The Install of a Module and its Uninstall', function () {
 
             if (exit_welcome) {
                 this.client
-                    .waitForExist(this.selector.BO.CreateProduct.exit_welcome, 90000)
-                    .click(this.selector.BO.CreateProduct.exit_welcome);
+                    .waitForExist(this.selector.BO.Product.exit_welcome_button, 90000)
+                    .click(this.selector.BO.Product.exit_welcome_button);
             }
             this.client
                 .pause(5000)
-                .click(this.selector.BO.Module.modules_menu)
+                .click(this.selector.BO.Module.modules_subtab)
                 .waitForExist(this.selector.BO.Module.page_loaded, 90000)
                 .call(done);
         });
@@ -59,9 +59,9 @@ describe('The Install of a Module and its Uninstall', function () {
             global.fctname = this.test.title;
 
             this.client
-                .setValue(this.selector.BO.Module.search, module_tech_name)
+                .setValue(this.selector.BO.Module.search_input, module_tech_name)
                 .click(this.selector.BO.Module.search_button)
-                .getText(this.selector.BO.Module.nbr_module).then(function (text) {
+                .getText(this.selector.BO.Module.module_number_span).then(function (text) {
                 global.nbr = parseInt(text[0]);
                 if (global.nbr == 0) {
                     done(new Error('The module you are searching for does not exist!'));
@@ -79,13 +79,13 @@ describe('The Install of a Module and its Uninstall', function () {
             }
             else {
                 this.client
-                    .waitForExist(this.selector.BO.Module.tech_name, 90000)
-                    .click(this.selector.BO.Module.install_btn)
-                    .waitForExist(this.selector.BO.CreateProduct.close_validation, 90000)
-                    .isVisible(this.selector.BO.CreateProduct.red_validation).then(function (isVisible) {
+                    .waitForExist(this.selector.BO.Module.tech_name_attribute, 90000)
+                    .click(this.selector.BO.Module.install_button)
+                    .waitForExist(this.selector.BO.Product.close_validation_button, 90000)
+                    .isVisible(this.selector.BO.Product.red_validation_notice).then(function (isVisible) {
                     red_validation_is_visible = isVisible;
                 })
-                    .isVisible(this.selector.BO.CreateProduct.green_validation).then(function (isVisible) {
+                    .isVisible(this.selector.BO.Product.green_validation_notice).then(function (isVisible) {
                     green_validation_is_visible = isVisible;
                 })
                     .call(done);
@@ -96,7 +96,7 @@ describe('The Install of a Module and its Uninstall', function () {
             global.fctname = this.test.title;
             if (red_validation_is_visible) {
                 this.client
-                    .getText(this.selector.BO.CreateProduct.validation_msg).then(function (text) {
+                    .getText(this.selector.BO.Product.validation_msg).then(function (text) {
                     done(new Error(text));
                 })
             } else if (green_validation_is_visible) {
@@ -123,14 +123,14 @@ describe('The Install of a Module and its Uninstall', function () {
                     done(new Error("Unavailable module"));
                 } else {
                     this.client
-                        .click(this.selector.BO.Module.installed)
+                        .click(this.selector.BO.Module.installed_modules_tabs)
                         .waitForExist(this.selector.BO.Module.page_loaded, 90000)
-                        .setValue(this.selector.BO.Module.search, module_tech_name)
+                        .setValue(this.selector.BO.Module.search_input, module_tech_name)
                         .click(this.selector.BO.Module.search_button)
                         .waitForExist(this.selector.BO.module_tech_name, 90000)
                         .click(this.selector.BO.Module.uninstall_list)
-                        .waitForExist(this.selector.BO.Module.uninstall_btn, 90000)
-                        .click(this.selector.BO.Module.uninstall_btn)
+                        .waitForExist(this.selector.BO.Module.uninstall_button, 90000)
+                        .click(this.selector.BO.Module.uninstall_button)
                         .pause(2000)
                         .isVisible(this.selector.BO.Module.modal_confirm_uninstall).then(function (isVisible) {
                         modal_confirm_uninstall_is_visible = isVisible;
@@ -155,11 +155,11 @@ describe('The Install of a Module and its Uninstall', function () {
                             .click(this.selector.BO.Module.modal_confirm_uninstall)
                     }
                     this.client
-                        .waitForExist(this.selector.BO.CreateProduct.close_validation, 90000)
-                        .isVisible(this.selector.BO.CreateProduct.red_validation).then(function (isVisible) {
+                        .waitForExist(this.selector.BO.Product.close_validation_button, 90000)
+                        .isVisible(this.selector.BO.Product.red_validation_notice).then(function (isVisible) {
                         uninstall_red_validation_is_visible = isVisible;
                     })
-                        .isVisible(this.selector.BO.CreateProduct.green_validation).then(function (isVisible) {
+                        .isVisible(this.selector.BO.Product.green_validation_notice).then(function (isVisible) {
                         green_validation_is_visible = isVisible;
                     })
                         .call(done);
@@ -174,7 +174,7 @@ describe('The Install of a Module and its Uninstall', function () {
             } else {
                 if (uninstall_red_validation_is_visible) {
                     this.client
-                        .getText(this.selector.BO.CreateProduct.validation_msg).then(function (text) {
+                        .getText(this.selector.BO.Product.validation_msg).then(function (text) {
                         done(new Error(text));
                     })
                 } else if (green_validation_is_visible) {
