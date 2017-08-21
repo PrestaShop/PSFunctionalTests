@@ -26,7 +26,7 @@ describe('check the order in BO', function () {
         global.fctname = this.test.title;
         this.client
             .waitForExist(this.selector.BO.Product.menu, 60000)
-            .click(this.selector.BO.Order.orders)
+            .click(this.selector.BO.Order.orders_maintab)
             .waitForExist(this.selector.BO.Order.form, 60000)
             .call(done);
     });
@@ -35,14 +35,14 @@ describe('check the order in BO', function () {
     it('create_order', function (done) {
         global.fctname = this.test.title;
         this.client
-            .waitForExist(this.selector.BO.Order.new, 60000)
-            .click(this.selector.BO.Order.new)
-            .waitForExist(this.selector.BO.Order.new_client, 60000)
-            .setValue(this.selector.BO.Order.new_client, 'john')
-            .waitForExist(this.selector.BO.Order.new_client_choose, 60000)
-            .click(this.selector.BO.Order.new_client_choose)
-            .waitForExist(this.selector.BO.Order.new_product, 60000)
-            .setValue(this.selector.BO.Order.new_product, 'dress')
+            .waitForExist(this.selector.BO.Order.new_order_button, 60000)
+            .click(this.selector.BO.Order.new_order_button)
+            .waitForExist(this.selector.BO.Order.search_customer_input, 60000)
+            .setValue(this.selector.BO.Order.search_customer_input, 'john')
+            .waitForExist(this.selector.BO.Order.new_client_choose_button, 60000)
+            .click(this.selector.BO.Order.new_client_choose_button)
+            .waitForExist(this.selector.BO.Order.search_product_input, 60000)
+            .setValue(this.selector.BO.Order.search_product_input, 'dress')
             .waitForExist(this.selector.BO.Order.new_product_name_list, 60000)
             .isExisting(this.selector.BO.Order.new_product_combination_list).then(function (isExisting) {
             global.combination = isExisting;
@@ -53,7 +53,7 @@ describe('check the order in BO', function () {
     it('save_informations', function (done) {
         global.fctname = this.test.title;
         if (combination == true) {
-            this.client.getText(this.selector.BO.Order.new_product_combination_1).then(function (text) {
+            this.client.getText(this.selector.BO.Order.new_product_combination_choose).then(function (text) {
                 var idx = text.lastIndexOf("-");
                 global.product_combination = text.slice(0, idx);
                 global.product_price = text.split("-").pop(-1);
@@ -78,12 +78,12 @@ describe('check the order in BO', function () {
         this.client
             .waitForExist(my_selector, 60000)
             .click(my_selector)
-            .waitForExist(this.selector.BO.Order.product_name, 60000)
-            .getText(this.selector.BO.Order.product_name).then(function (text) {
+            .waitForExist(this.selector.BO.Order.product_name_span, 60000)
+            .getText(this.selector.BO.Order.product_name_span).then(function (text) {
             var my_order_product_name = text;
             should(my_order_product_name).be.equal(my_name);
         })
-            .getText(this.selector.BO.Order.quantity).then(function (text) {
+            .getText(this.selector.BO.Order.quantity_span).then(function (text) {
             var my_order_quantity = text;
             should(my_order_quantity).be.equal(my_quantity);
         })

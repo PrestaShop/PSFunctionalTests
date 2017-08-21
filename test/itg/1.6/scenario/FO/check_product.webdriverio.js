@@ -29,19 +29,19 @@ describe('The Check of the Product in Front Office', function () {
         it('should search for the product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Search_product.search_product, 60000)
-                .click(this.selector.FO.Search_product.search_product)
-                .setValue(this.selector.FO.Search_product.search_product, 'test_nodejs_' + product_id)
+                .waitForExist(this.selector.FO.Search.search_product_input, 60000)
+                .click(this.selector.FO.Search.search_product_input)
+                .setValue(this.selector.FO.Search.search_product_input, 'test_nodejs_' + product_id)
                 .pause(1000)
-                .click(this.selector.FO.Search_product.product_button)
-                .waitForExist(this.selector.FO.Search_product.result_name, 60000)
+                .click(this.selector.FO.Search.search_product_button)
+                .waitForExist(this.selector.FO.Search.search_result_name, 60000)
                 .call(done);
         });
 
         it('should check the product name', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getText(this.selector.FO.Search_product.result_name).then(function (text) {
+                .getText(this.selector.FO.Search.search_result_name).then(function (text) {
                 var my_name = text;
                 should(my_name[1]).be.equal('test_nodejs_' + product_id);
             })
@@ -51,7 +51,7 @@ describe('The Check of the Product in Front Office', function () {
         it('should check the product price', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getText(this.selector.FO.Search_product.result_price).then(function (text) {
+                .getText(this.selector.FO.Search.search_result_price).then(function (text) {
                 var my_price = text;
                 should(parseInt(my_price[1])).be.equal(parseInt("6"));
             })
@@ -61,9 +61,9 @@ describe('The Check of the Product in Front Office', function () {
         it('should check the product details', function (done) {
             global.fctname = this.test.title;
             this.client
-                .moveToObject(this.selector.FO.Search_product.result_name)
-                .waitForExist(this.selector.FO.Search_product.details, 60000)
-                .click(this.selector.FO.Search_product.details)
+                .moveToObject(this.selector.FO.Search.search_result_name)
+                .waitForExist(this.selector.FO.Search.details, 60000)
+                .click(this.selector.FO.Search.details)
                 .waitForExist(this.selector.FO.Product.name_details, 60000)
                 .getText(this.selector.FO.Product.name_details).then(function (text) {
                 var my_name_check = text;

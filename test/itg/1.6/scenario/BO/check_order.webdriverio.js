@@ -38,7 +38,7 @@ describe('The Check of the order in Back Office', function () {
                 global.fctname = this.test.title;
                 this.client
                     .waitForExist(this.selector.BO.Product.menu, 60000)
-                    .click(this.selector.BO.Order.orders)
+                    .click(this.selector.BO.Order.orders_maintab)
                     .waitForExist(this.selector.BO.Order.form, 60000)
                     .call(done);
             });
@@ -49,13 +49,13 @@ describe('The Check of the order in Back Office', function () {
                 this.client
                     .waitForExist(my_selector, 60000)
                     .click(my_selector)
-                    .waitForExist(this.selector.BO.Order.product_name, 60000)
+                    .waitForExist(this.selector.BO.Order.product_name_span, 60000)
                     .call(done);
             });
 
             it('should check the product name', function (done) {
                 this.client
-                    .getText(this.selector.BO.Order.product_name).then(function (text) {
+                    .getText(this.selector.BO.Order.product_name_span).then(function (text) {
                     var my_order_product_name = text;
                     should(my_order_product_name).be.equal(my_name);
                 })
@@ -65,7 +65,7 @@ describe('The Check of the order in Back Office', function () {
             it('should check the product quantity', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.BO.Order.quantity).then(function (text) {
+                    .getText(this.selector.BO.Order.quantity_span).then(function (text) {
                     var my_order_quantity = text;
                     should(my_order_quantity).be.equal(my_quantity);
                 })

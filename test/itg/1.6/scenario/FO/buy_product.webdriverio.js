@@ -58,17 +58,17 @@ describe('The Purchase of a product', function () {
                 .getValue(this.selector.FO.Product.quantity_details).then(function (text) {
                 global.my_quantity = text;
             })
-                .click(this.selector.FO.Layer_cart.add_to_cart)
-                .waitForExist(this.selector.FO.Layer_cart.layer_cart, 60000)
-                .getText(this.selector.FO.Layer_cart.name_details).then(function (text) {
+                .click(this.selector.FO.LayerCart.add_to_cart_button)
+                .waitForExist(this.selector.FO.LayerCart.layer_cart, 60000)
+                .getText(this.selector.FO.LayerCart.name_details).then(function (text) {
                 var my_cart_name_check = text;
                 should(my_cart_name_check).be.equal(my_name);
             })
-                .getText(this.selector.FO.Layer_cart.price_details).then(function (text) {
+                .getText(this.selector.FO.LayerCart.price_details).then(function (text) {
                 var my_cart_price_check = text;
                 should(my_cart_price_check).be.equal(my_price);
             })
-                .getText(this.selector.FO.Layer_cart.quantity_details).then(function (text) {
+                .getText(this.selector.FO.LayerCart.quantity_details).then(function (text) {
                 var my_cart_quantity_check = text;
                 should(my_cart_quantity_check).be.equal(my_quantity);
             })
@@ -78,8 +78,8 @@ describe('The Purchase of a product', function () {
         it('should checkout', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.FO.Layer_cart.command_button)
-                .waitForExist(this.selector.FO.Layer_cart.cart_label, 60000)
+                .click(this.selector.FO.LayerCart.command_button)
+                .waitForExist(this.selector.FO.LayerCart.cart_label, 60000)
                 .call(done);
         });
     });
@@ -91,15 +91,15 @@ describe('The Purchase of a product', function () {
                 .waitForExist(this.selector.FO.Order.button_checkout, 60000)
                 .click(this.selector.FO.Order.button_checkout)
                 .pause(3000)
-                .waitForExist(this.selector.FO.Access.login_email, 90000)
+                .waitForExist(this.selector.FO.Access.email_input, 90000)
                 .call(done);
         });
 
         it('should validate the log in step (step 2)', function (done) {
             this.client
-                .setValue(this.selector.FO.Access.login_email, 'pub@prestashop.com')
-                .setValue(this.selector.FO.Access.password, '123456789')
-                .click(this.selector.FO.Access.login_btn)
+                .setValue(this.selector.FO.Access.email_input, 'pub@prestashop.com')
+                .setValue(this.selector.FO.Access.password_input, '123456789')
+                .click(this.selector.FO.Access.login_button)
                 /*.waitForExist(this.selector.FO.validate_address, 60000)
                  .click(this.selector.FO.validate_address)*/
                 .waitForExist(this.selector.FO.Order.button_checkout_step3, 60000)
@@ -110,13 +110,13 @@ describe('The Purchase of a product', function () {
             global.fctname = this.test.title;
             this.client
                 .click(this.selector.FO.Order.button_checkout_step3)
-                .waitForExist(this.selector.FO.Order.cgv, 60000)
+                .waitForExist(this.selector.FO.Order.cgv_button, 60000)
                 .call(done);
         });
 
         it('should validate the shipping step (step 4)', function (done) {
             this.client
-                .click(this.selector.FO.Order.cgv)
+                .click(this.selector.FO.Order.cgv_button)
                 .click(this.selector.FO.Order.button_checkout)
                 .waitForExist(this.selector.FO.Order.product_name_step5, 60000)
                 .call(done);
@@ -165,9 +165,9 @@ describe('The Purchase of a product', function () {
         it('should logout successfully in FO', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.Access.logout, 60000)
-                .click(this.selector.FO.Access.logout)
-                .waitForExist(this.selector.FO.Access.login, 60000)
+                .waitForExist(this.selector.FO.Access.sign_out_button, 60000)
+                .click(this.selector.FO.Access.sign_out_button)
+                .waitForExist(this.selector.FO.Access.sign_in_button, 60000)
                 .call(done);
         });
     });

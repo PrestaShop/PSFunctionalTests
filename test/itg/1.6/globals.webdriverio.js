@@ -21,48 +21,48 @@ module.exports = {
             Access:{
                 login_input: '#email',
                 password_input: '#passwd',
-                login_btn: '#login_form > div.form-group.row-padding-top > button',
+                login_button: '#login_form > div.form-group.row-padding-top > button',
             },
             Product:{
-                products: '#maintab-AdminCatalog > a',
-                new_product: '#page-header-desc-product-new_product',
-                product_name: '#name_1',
-                save_and_stay_product: '[name="submitAddproductAndStay"]',
-                green_validation: '.alert.alert-success',
-                red_validation: '.alert.alert-danger',
-                close_green_validation: '.alert.alert-success > .close',
+                catalog_maintab: '#maintab-AdminCatalog > a',
+                new_product_button: '#page-header-desc-product-new_product',
+                product_name_input: '#name_1',
+                save_and_stay_product_button: '[name="submitAddproductAndStay"]',
+                green_validation_alert: '.alert.alert-success',
+                red_validation_alert: '.alert.alert-danger',
+                close_green_validation_button: '.alert.alert-success > .close',
                 proceed_installation_anyway_button: '//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]',
                 menu: '#nav-sidebar',
-                summary: 'description_short_1_ifr', //not declare like an id because using into function "frame" that not need this information;
-                description: 'description_1_ifr',//not declare like an id because using into function "frame" that not need this information;
-                product_price: '#link-Prices',
-                wholesale_price: '#wholesale_price',
+                summary_textarea: 'description_short_1_ifr', //not declare like an id because using into function "frame" that not need this information;
+                description_textarea: 'description_1_ifr',//not declare like an id because using into function "frame" that not need this information;
+                product_price_tab: '#link-Prices',
+                wholesale_price_input: '#wholesale_price',
                 priceTE: '#priceTE',
-                save_and_stay_price: '(//div[@id="product-prices"]/div/button[@class="btn btn-default pull-right"])[2]/i[@class="process-icon-save"]',
-                product_quantity: '#link-Quantities',
-                quantity: '[name="qty_0"]',
-                product_picture: '#link-Images',
+                save_and_stay_price_button: '(//div[@id="product-prices"]/div/button[@class="btn btn-default pull-right"])[2]/i[@class="process-icon-save"]',
+                product_quantity_tab: '#link-Quantities',
+                quantity_input: '[name="qty_0"]',
+                product_picture_tab: '#link-Images',
                 picture: '#file',
                 upload_file_button: '#file-upload-button',
-                upload_succes: '.alert.alert-success',
-                catalogue_filter_by_name: '[name="productFilter_b!name"]',
-                catalogue_submit_filter: '#submitFilterButtonproduct',
-                edit_product: '.edit.btn.btn-default',
+                upload_succes_alert: '.alert.alert-success',
+                catalogue_filter_by_name_input: '[name="productFilter_b!name"]',
+                catalogue_submit_filter_button: '#submitFilterButtonproduct',
+                edit_product_button: '.edit.btn.btn-default',
             },
             Order:{
-                orders: '#maintab-AdminParentOrders',
+                orders_maintab: '#maintab-AdminParentOrders',
                 form: '#form-order',
-                product_name: '.productName',
-                quantity: '.product_quantity_show',
+                product_name_span: '.productName',
+                quantity_span: '.product_quantity_show',
                 total: '#total_order > td.amount.text-right.nowrap',
-                new: '.process-icon-new',
-                new_client: '#customer',
-                new_client_choose: '[data-customer="1"]',
-                new_product: '#product',
+                new_order_button: '.process-icon-new',
+                search_customer_input: '#customer',
+                new_client_choose_button: '[data-customer="1"]',
+                search_product_input: '#product',
                 new_product_name_list: '#id_product',
                 new_product_name_choose: '(//select[@id="id_product"]/option)[1]',
                 new_product_combination_list: '//select[@class="id_product_attribute" and @style=""]',
-                new_product_combination_1: '(//select[@class="id_product_attribute" and @style=""]/option)[1]',
+                new_product_combination_choose: '(//select[@class="id_product_attribute" and @style=""]/option)[1]',
             },
 
             Module:{
@@ -74,22 +74,22 @@ module.exports = {
         //Front office
         FO:{
             Access:{
-                login: '.login',
-                login_email: '#email',
-                password: '#passwd',
-                login_btn: '#SubmitLogin',
-                logout: '.logout',
+                sign_in_button: '.login',
+                email_input: '#email',
+                password_input: '#passwd',
+                login_button: '#SubmitLogin',
+                sign_out_button: '.logout',
                 logo_home_page: '.logo.img-responsive'
             },
 
-            CreateAccount:{
-                account: '#email_create',
-                button: '#SubmitCreate',
-                firstname: '#customer_firstname',
-                lastname: '#customer_lastname',
-                email: '#email',
-                password: '#passwd',
-               info_validate: '#submitAccount'
+            Account:{
+                email_address_input: '#email_create',
+                create_button: '#SubmitCreate',
+                firstname_input: '#customer_firstname',
+                lastname_input: '#customer_lastname',
+                email_input: '#email',
+                password_input: '#passwd',
+                info_validate_button: '#submitAccount'
             },
 
             Product:{
@@ -101,9 +101,8 @@ module.exports = {
                 first_product_home_page_name: '.product-name'
             },
 
-
-            Layer_cart:{
-                add_to_cart: '[name="Submit"]',
+            LayerCart:{
+                add_to_cart_button: '[name="Submit"]',
                 cart_label: '#columns > div.breadcrumb.clearfix',
                 layer_cart: '//div[@id="layer_cart" and contains(@style, "display: block;")]',
                 name_details: 'span#layer_cart_product_title',
@@ -115,7 +114,7 @@ module.exports = {
             Order:{
                 button_checkout: '.button.btn.btn-default.standard-checkout.button-medium',
                 button_checkout_step3: '//button[@name="processAddress"]',
-                cgv: '#cgv',
+                cgv_button: '#cgv',
                 product_name_step5: '.cart_description > p > a',
                 total_price: '#total_price',
                 pay_bankwire: '.bankwire',
@@ -126,10 +125,10 @@ module.exports = {
             },
 
             Search_product:{
-                search_product: '#search_query_top',
-                product_button: '[name="submit_search"]',
-                result_name: '[itemprop="url"]',
-                result_price: '.price.product-price',
+                search_product_input: '#search_query_top',
+                search_product_button: '[name="submit_search"]',
+                search_result_name: '[itemprop="url"]',
+                search_result_price: '.price.product-price',
                 details: '.button.lnk_view.btn.btn-default'
             }
 
