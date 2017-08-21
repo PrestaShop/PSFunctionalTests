@@ -49,11 +49,14 @@ module.exports = {
 
         // Back office selector
         BO:{
+            // Back office login page selector
             Access:{
                 login_input: '#email',
                 password_input: '#passwd',
                 login_button: '[name="submitLogin"]'
             },
+
+            //Product selector
             Product:{
                 exit_welcome_button: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
                 click_outside: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
@@ -116,6 +119,7 @@ module.exports = {
 
         //Front-office selector
         FO:{
+            //Access page selector
             Access:{
                 sign_in_button: 'div.user-info > a',
                 login_input: '//*[@id="login-form"]/section/div[1]/div[1]/input',

@@ -156,14 +156,14 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             this.client
                 .waitForExist(this.selector.BO.Product.save_product_button, 90000)
-                .click(this.selector.BO.Product.save_product)
+                .click(this.selector.BO.Product.save_product_button)
                 .call(done);
         });
         it('should close green validation', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.BO.Product.close_validation, 90000)
-                .click(this.selector.BO.Product.close_validation)
+                .waitForExist(this.selector.BO.Product.close_validation_button, 90000)
+                .click(this.selector.BO.Product.close_validation_button)
                 .call(done);
         });
     });
@@ -171,7 +171,6 @@ describe('The Product Creation', function () {
         it('should go to the catalog', function (done) {
             global.fctname = this.test.title;
             this.client
-                .pause(5000)
                 .waitForExist(this.selector.BO.Product.more_option_button, 90000)
                 .click(this.selector.BO.Product.more_option_button)
                 .waitForExist(this.selector.BO.Product.go_to_catalog_button, 90000)

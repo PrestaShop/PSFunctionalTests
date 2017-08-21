@@ -44,7 +44,7 @@ describe('The Install of a Module and its Uninstall', function () {
             global.fctname = this.test.title;
 
             if (exit_welcome) {
-                this.client
+            this.client
                     .waitForExist(this.selector.BO.Product.exit_welcome_button, 90000)
                     .click(this.selector.BO.Product.exit_welcome_button);
             }

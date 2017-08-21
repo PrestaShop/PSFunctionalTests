@@ -35,7 +35,6 @@ describe('The Check of the order in Back Office', function () {
 
         it('should check the order id', function (done) {
             global.fctname = this.test.title;
-            this.client
             var my_selector = "//td[contains(@onclick,'&id_order=" + order_id + "&')]";
             this.client
                 .waitForExist(my_selector, 90000)

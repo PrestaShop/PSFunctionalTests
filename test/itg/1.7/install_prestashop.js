@@ -22,7 +22,7 @@ function runScenario() {
                     .waitForExist(this.selector.Install.next_step_button, 300000)
                     .click(this.selector.Install.next_step_button)
                     .call(done);
-            });
+            });test_result_compatibility
         });
         describe('Step 2 : Agreeing license agreements', function () {
             it('should agree License agreements', function (done) {
