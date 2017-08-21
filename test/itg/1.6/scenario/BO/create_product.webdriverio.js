@@ -236,6 +236,7 @@ describe('The Product Creation', function () {
         it('should go to the product prices form', function (done) {
             global.fctname = this.test.title;
             this.client
+                .waitForExist(this.selector.BO.Product.product_price_tab, 60000)
                 .click(this.selector.BO.Product.product_price_tab)
                 .waitForExist(this.selector.BO.Product.wholesale_price_input, 60000)
                 .call(done);

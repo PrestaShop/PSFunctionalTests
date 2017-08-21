@@ -47,7 +47,7 @@ module.exports = {
                 upload_succes_alert: '.alert.alert-success',
                 catalogue_filter_by_name_input: '[name="productFilter_b!name"]',
                 catalogue_submit_filter_button: '#submitFilterButtonproduct',
-                edit_product_button: '.edit.btn.btn-default',
+                edit_product_button: '.edit.btn.btn-default'
             },
             Order:{
                 orders_maintab: '#maintab-AdminParentOrders',
@@ -67,7 +67,7 @@ module.exports = {
 
             Module:{
                 menu: '.icon-AdminParentModules',
-                search: '#moduleQuicksearch',
+                search: '#moduleQuicksearch'
             }
          },
 
@@ -124,17 +124,14 @@ module.exports = {
                 success_price: '.price > strong'
             },
 
-            Search_product:{
+            Search:{
                 search_product_input: '#search_query_top',
                 search_product_button: '[name="submit_search"]',
                 search_result_name: '[itemprop="url"]',
                 search_result_price: '.price.product-price',
                 details: '.button.lnk_view.btn.btn-default'
             }
-
-            },
-
-
+        }
     },
     shouldExist: function (err, existing) {
         should(err).be.not.defined;
