@@ -29,7 +29,6 @@ while (i < 2) {
 
                 console.log("The file was saved!");
             });
-
         }
 
         // read content of Js file
@@ -49,5 +48,3 @@ while (i < 2) {
         i++
     }
 }
-
-

@@ -83,4 +83,3 @@ if ((fs.existsSync("email_sender/test_report_" + prestaVersion[0] + ".html")) &&
     });
 }
 console.log("Email successfully sent!")
-
