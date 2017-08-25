@@ -16,7 +16,7 @@ global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 module.exports = {
     selector: {
         //Installation selector
-        Install : {
+        InstallationWizardPage : {
             language_select: '//*[@id="langList"]',
             next_step_button: '//*[@id="btNext"]',
             agree_checkbox: '//*[@id="set_license"]',
@@ -50,14 +50,14 @@ module.exports = {
         // Back office selector
         BO:{
             // Back office login page selector
-            Access:{
+            AccessPage:{
                 login_input: '#email',
                 password_input: '#passwd',
                 login_button: '[name="submitLogin"]'
             },
 
             //Product selector
-            Product:{
+            AddProductPage:{
                 exit_welcome_button: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',
                 click_outside: '//*[@id="product_catalog_list"]/div[2]/div/table/thead/tr[1]/th[3]',
                 logout: '#header_logout',
@@ -85,7 +85,7 @@ module.exports = {
             },
 
             //Order selector
-            Order:{
+            OrderPage:{
                 orders_subtab: '#subtab-AdminParentOrders',
                 form: '#form-order',
                 order_product_name_span: '.productName',
@@ -95,7 +95,7 @@ module.exports = {
             },
 
             //Module selector
-            Module:{
+            ModulePage:{
                 modules_subtab: '#subtab-AdminParentModulesSf',
                 search_input: '.pstaggerAddTagInput.module-tags-input',
                 search_button: '.input-group-addon.module-search-icon',
@@ -120,7 +120,7 @@ module.exports = {
         //Front-office selector
         FO:{
             //Access page selector
-            Access:{
+            AccessPage:{
                 sign_in_button: 'div.user-info > a',
                 login_input: '//*[@id="login-form"]/section/div[1]/div[1]/input',
                 password_input: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
@@ -130,7 +130,7 @@ module.exports = {
             },
 
             //Account page selector
-            Account: {
+            AddAccountPage: {
                 create_button: '[data-link-action="display-register-form"]',
                 firstname_input: '[name="firstname"]',
                 lastname_input: '[name="lastname"]',
@@ -140,7 +140,7 @@ module.exports = {
             },
 
             //Order Pages selector
-            Order: {
+            BuyOrderPage: {
                 first_product_home_page: '.thumbnail.product-thumbnail',
                 add_to_cart_button: '.btn.btn-primary.add-to-cart',
                 first_product_home_page_name: '[itemprop="name"]',
@@ -164,7 +164,7 @@ module.exports = {
             },
 
             //cart Pages selector
-            LayerCart: {
+            LayerCartPage: {
                 layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
                 name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
                 price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
@@ -173,7 +173,7 @@ module.exports = {
             },
 
             //Search selector
-            Search:{
+            SearchProductPage:{
                 product_search_input: '.ui-autocomplete-input',
                 product_search_button: '.material-icons.search',
                 product_result_name: '.h3.product-title > a',

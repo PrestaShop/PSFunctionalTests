@@ -21,13 +21,13 @@ describe('The Check of the order in Back Office', function () {
                 this.client
                 //.signinBO()
                     .url('http://' + URL + '/admin-dev')
-                    .waitForExist(this.selector.BO.Access.login_input, 120000)
-                    .setValue(this.selector.BO.Access.login_input, 'demo@prestashop.com')
-                    .waitForExist(this.selector.BO.Access.password_input, 120000)
-                    .setValue(this.selector.BO.Access.password_input, 'prestashop_demo')
-                    .waitForExist(this.selector.BO.Access.login_button, 90000)
-                    .click(this.selector.BO.Access.login_button)
-                    .waitForExist(this.selector.BO.Product.menu, 60000)
+                    .waitForExist(this.selector.BO.AccessPage.login_input, 120000)
+                    .setValue(this.selector.BO.AccessPage.login_input, 'demo@prestashop.com')
+                    .waitForExist(this.selector.BO.AccessPage.password_input, 120000)
+                    .setValue(this.selector.BO.AccessPage.password_input, 'prestashop_demo')
+                    .waitForExist(this.selector.BO.AccessPage.login_button, 90000)
+                    .click(this.selector.BO.AccessPage.login_button)
+                    .waitForExist(this.selector.BO.AddProductPage.menu, 60000)
                     .call(done);
             });
         });
@@ -37,9 +37,9 @@ describe('The Check of the order in Back Office', function () {
             it('should go to the orders page', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .waitForExist(this.selector.BO.Product.menu, 60000)
-                    .click(this.selector.BO.Order.orders_maintab)
-                    .waitForExist(this.selector.BO.Order.form, 60000)
+                    .waitForExist(this.selector.BO.AddProductPage.menu, 60000)
+                    .click(this.selector.BO.AddProductPage.orders_maintab)
+                    .waitForExist(this.selector.BO.AddProductPage.form, 60000)
                     .call(done);
             });
 
@@ -49,13 +49,13 @@ describe('The Check of the order in Back Office', function () {
                 this.client
                     .waitForExist(my_selector, 60000)
                     .click(my_selector)
-                    .waitForExist(this.selector.BO.Order.product_name_span, 60000)
+                    .waitForExist(this.selector.BO.AddProductPage.product_name_span, 60000)
                     .call(done);
             });
 
             it('should check the product name', function (done) {
                 this.client
-                    .getText(this.selector.BO.Order.product_name_span).then(function (text) {
+                    .getText(this.selector.BO.AddProductPage.product_name_span).then(function (text) {
                     var my_order_product_name = text;
                     should(my_order_product_name).be.equal(my_name);
                 })
@@ -65,7 +65,7 @@ describe('The Check of the order in Back Office', function () {
             it('should check the product quantity', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.BO.Order.quantity_span).then(function (text) {
+                    .getText(this.selector.BO.AddProductPage.quantity_span).then(function (text) {
                     var my_order_quantity = text;
                     should(my_order_quantity).be.equal(my_quantity);
                 })
@@ -75,7 +75,7 @@ describe('The Check of the order in Back Office', function () {
             it('should check the product total price', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.BO.Order.total).then(function (text) {
+                    .getText(this.selector.BO.AddProductPage.total).then(function (text) {
                     var my_order_total = text;
                     should(my_order_total).be.equal(my_price);
                 })

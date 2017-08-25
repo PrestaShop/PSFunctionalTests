@@ -35,12 +35,12 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL + '/admin-dev')
-            .waitForExist(this.selector.BO.Access.login_input, 120000)
-            .setValue(this.selector.BO.Access.login_input, 'demo@prestashop.com')
-            .waitForExist(this.selector.BO.Access.password_input, 120000)
-            .setValue(this.selector.BO.Access.password_input, 'prestashop_demo')
-            .waitForExist(this.selector.BO.Access.login_button, 120000)
-            .click(this.selector.BO.Access.login_button)
+            .waitForExist(this.selector.BO.AccessPage.login_input, 120000)
+            .setValue(this.selector.BO.AccessPage.login_input, 'demo@prestashop.com')
+            .waitForExist(this.selector.BO.AccessPage.password_input, 120000)
+            .setValue(this.selector.BO.AccessPage.password_input, 'prestashop_demo')
+            .waitForExist(this.selector.BO.AccessPage.login_button, 120000)
+            .click(this.selector.BO.AccessPage.login_button)
             .call(cb);
     });
 
@@ -48,12 +48,12 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL)
-            .waitForExist(this.selector.FO.Access.sign_in_button, 90000)
-            .click(this.selector.FO.Access.sign_in_button)
-            .waitForExist(this.selector.FO.Access.sign_in_button, 90000)
-            .setValue(this.selector.FO.Access.sign_in_button, 'pub@prestashop.com')
-            .setValue(this.selector.FO.Access.password_input, '123456789')
-            .click(this.selector.FO.Access.login_button)
+            .waitForExist(this.selector.FO.AccessPage.sign_in_button, 90000)
+            .click(this.selector.FO.AccessPage.sign_in_button)
+            .waitForExist(this.selector.FO.AccessPage.sign_in_button, 90000)
+            .setValue(this.selector.FO.AccessPage.sign_in_button, 'pub@prestashop.com')
+            .setValue(this.selector.FO.AccessPage.password_input, '123456789')
+            .click(this.selector.FO.AccessPage.login_button)
             .call(done);
     });
 
@@ -67,9 +67,9 @@ function initCommands(client) {
     client.addCommand('signoutFO', function (cb) {
         this.selector = globals.selector;
         client
-            .waitForExist(this.selector.FO.Access.sign_out_button, 90000)
-            .click(this.selector.FO.Access.sign_out_button)
-            .waitForExist(this.selector.FO.Access.sign_in_button, 90000)
+            .waitForExist(this.selector.FO.AccessPage.sign_out_button, 90000)
+            .click(this.selector.FO.AccessPage.sign_out_button)
+            .waitForExist(this.selector.FO.AccessPage.sign_in_button, 90000)
             .call(cb);
     });
 

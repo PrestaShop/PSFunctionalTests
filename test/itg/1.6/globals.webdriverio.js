@@ -18,12 +18,12 @@ module.exports = {
     selector: {
         //Back office
         BO :{
-            Access:{
+            AccessPage:{
                 login_input: '#email',
                 password_input: '#passwd',
                 login_button: '#login_form > div.form-group.row-padding-top > button',
             },
-            Product:{
+            AddProductPage:{
                 catalog_maintab: '#maintab-AdminCatalog > a',
                 new_product_button: '#page-header-desc-product-new_product',
                 product_name_input: '#name_1',
@@ -49,7 +49,7 @@ module.exports = {
                 catalogue_submit_filter_button: '#submitFilterButtonproduct',
                 edit_product_button: '.edit.btn.btn-default'
             },
-            Order:{
+            OrderPage:{
                 orders_maintab: '#maintab-AdminParentOrders',
                 form: '#form-order',
                 product_name_span: '.productName',
@@ -65,7 +65,7 @@ module.exports = {
                 new_product_combination_choose: '(//select[@class="id_product_attribute" and @style=""]/option)[1]',
             },
 
-            Module:{
+            ModulePage:{
                 menu: '.icon-AdminParentModules',
                 search: '#moduleQuicksearch'
             }
@@ -73,7 +73,7 @@ module.exports = {
 
         //Front office
         FO:{
-            Access:{
+            AccessPage:{
                 sign_in_button: '.login',
                 email_input: '#email',
                 password_input: '#passwd',
@@ -82,7 +82,7 @@ module.exports = {
                 logo_home_page: '.logo.img-responsive'
             },
 
-            Account:{
+            CreateAccountPage:{
                 email_address_input: '#email_create',
                 create_button: '#SubmitCreate',
                 firstname_input: '#customer_firstname',
@@ -92,7 +92,7 @@ module.exports = {
                 info_validate_button: '#submitAccount'
             },
 
-            Product:{
+            ProductDetailsPage:{
                 first_product_home_page: '.product_img_link',
                 name_details: '[itemprop="name"]',
                 price_details: '#our_price_display',
@@ -101,7 +101,7 @@ module.exports = {
                 first_product_home_page_name: '.product-name'
             },
 
-            LayerCart:{
+            LayerCartPage:{
                 add_to_cart_button: '[name="Submit"]',
                 cart_label: '#columns > div.breadcrumb.clearfix',
                 layer_cart: '//div[@id="layer_cart" and contains(@style, "display: block;")]',
@@ -111,7 +111,7 @@ module.exports = {
                 command_button: '.btn.btn-default.button.button-medium'
             },
 
-            Order:{
+            BuyOrderPage:{
                 button_checkout: '.button.btn.btn-default.standard-checkout.button-medium',
                 button_checkout_step3: '//button[@name="processAddress"]',
                 cgv_button: '#cgv',
@@ -124,7 +124,7 @@ module.exports = {
                 success_price: '.price > strong'
             },
 
-            Search:{
+            SearchProductPage:{
                 search_product_input: '#search_query_top',
                 search_product_button: '[name="submit_search"]',
                 search_result_name: '[itemprop="url"]',
