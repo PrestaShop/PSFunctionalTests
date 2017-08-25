@@ -49,13 +49,13 @@ describe('The Check of the order in Back Office', function () {
                 this.client
                     .waitForExist(my_selector, 60000)
                     .click(my_selector)
-                    .waitForExist(this.selector.BO.AddProductPage.product_name_span, 60000)
+                    .waitForExist(this.selector.BO.OrderPage.product_name_span, 60000)
                     .call(done);
             });
 
             it('should check the product name', function (done) {
                 this.client
-                    .getText(this.selector.BO.AddProductPage.product_name_span).then(function (text) {
+                    .getText(this.selector.BO.OrderPage.product_name_span).then(function (text) {
                     var my_order_product_name = text;
                     should(my_order_product_name).be.equal(my_name);
                 })
@@ -65,7 +65,7 @@ describe('The Check of the order in Back Office', function () {
             it('should check the product quantity', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.BO.AddProductPage.quantity_span).then(function (text) {
+                    .getText(this.selector.BO.OrderPage.quantity_span).then(function (text) {
                     var my_order_quantity = text;
                     should(my_order_quantity).be.equal(my_quantity);
                 })
@@ -75,7 +75,7 @@ describe('The Check of the order in Back Office', function () {
             it('should check the product total price', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.BO.AddProductPage.total).then(function (text) {
+                    .getText(this.selector.BO.OrderPage.total).then(function (text) {
                     var my_order_total = text;
                     should(my_order_total).be.equal(my_price);
                 })
