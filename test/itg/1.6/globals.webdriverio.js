@@ -21,7 +21,7 @@ module.exports = {
             AccessPage:{
                 login_input: '#email',
                 password_input: '#passwd',
-                login_button: '#login_form > div.form-group.row-padding-top > button',
+                login_button: '#login_form > div.form-group.row-padding-top > button'
             },
             AddProductPage:{
                 catalog_maintab: '#maintab-AdminCatalog > a',
@@ -62,7 +62,7 @@ module.exports = {
                 new_product_name_list: '#id_product',
                 new_product_name_choose: '(//select[@id="id_product"]/option)[1]',
                 new_product_combination_list: '//select[@class="id_product_attribute" and @style=""]',
-                new_product_combination_choose: '(//select[@class="id_product_attribute" and @style=""]/option)[1]',
+                new_product_combination_choose: '(//select[@class="id_product_attribute" and @style=""]/option)[1]'
             },
 
             ModulePage:{

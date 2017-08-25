@@ -38,8 +38,8 @@ describe('The Check of the order in Back Office', function () {
                 global.fctname = this.test.title;
                 this.client
                     .waitForExist(this.selector.BO.AddProductPage.menu, 60000)
-                    .click(this.selector.BO.AddProductPage.orders_maintab)
-                    .waitForExist(this.selector.BO.AddProductPage.form, 60000)
+                    .click(this.selector.BO.OrderPage.orders_maintab)
+                    .waitForExist(this.selector.BO.OrderPage.form, 60000)
                     .call(done);
             });
 
