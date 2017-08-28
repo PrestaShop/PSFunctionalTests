@@ -33,10 +33,10 @@ describe('The Uninstall of a Module', function () {
         it('should go to modules page', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.BO.modules_menu)
-                .waitForExist(this.selector.BO.modules_installed)
-                .click(this.selector.BO.modules_installed)
-                .waitForExist(this.selector.BO.modules_page_loaded, 90000)
+                .click(this.selector.BO.ModulePage.modules_subtab)
+                .waitForExist(this.selector.BO.ModulePage.installed_modules_tabs)
+                .click(this.selector.BO.ModulePage.installed_modules_tabs)
+                .waitForExist(this.selector.BO.ModulePage.page_loaded, 90000)
                 .call(done);
         });
 
@@ -50,9 +50,9 @@ describe('The Uninstall of a Module', function () {
                     done(new Error("Unavailable module"));
                 } else {
                     this.client
-                        .setValue(this.selector.BO.modules_search, module_tech_name)
-                        .click(this.selector.BO.modules_search_button)
-                        .waitForExist(this.selector.BO.module_tech_name, 90000)
+                        .setValue(this.selector.BO.ModulePage.search_input, module_tech_name)
+                        .click(this.selector.BO.ModulePage.installed_liste_search_button)
+                        .waitForExist(this.selector.BO.ModulePage.uninstall_list, 90000)
                         .call(done);
                 }
             }
@@ -68,7 +68,7 @@ describe('The Uninstall of a Module', function () {
                     done(new Error("Unavailable module"));
                 } else {
                     this.client
-                        .waitForExist(this.selector.BO.module_tech_name, 90000)
+                        .waitForExist(this.selector.BO.ModulePage.uninstall_list, 90000)
                         .click(this.selector.BO.ModulePage.uninstall_list)
                         .waitForExist(this.selector.BO.ModulePage.uninstall_button, 90000)
                         .click(this.selector.BO.ModulePage.uninstall_button)

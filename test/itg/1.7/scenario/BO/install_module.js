@@ -59,7 +59,7 @@ describe('The Install of a Module', function () {
             }
             else {
                 this.client
-                    .waitForExist(this.selector.BO.module_tech_name, 90000)
+                    .waitForExist(this.selector.BO.ModulePage.tech_name_attribute, 90000)
                     .click(this.selector.BO.ModulePage.install_button)
                     .waitForExist(this.selector.BO.AddProductPage.close_validation_button, 90000)
                     .isVisible(this.selector.BO.AddProductPage.red_validation_notice).then(function (isVisible) {
