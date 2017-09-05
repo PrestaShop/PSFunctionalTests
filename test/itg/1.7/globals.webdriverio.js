@@ -59,7 +59,7 @@ module.exports = {
         logout: '#header_logout',
         products: '#subtab-AdminCatalog',
         //go_to_catalog: '//*[@id="form"]/div[4]/div[2]/div/div[2]/a[2]',
-        go_to_catalog: '#form > div.product-footer > div.col-lg-6.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
+        go_to_catalog: '#form > div.product-footer > div.text-lg-right > div > div.dropdown-menu > a.dropdown-item.go-catalog.js-btn-save',
         more_option: '.btn.btn-primary.dropdown-toggle',
         new_product: '#page-header-desc-configuration-add',
         menu: '#nav-sidebar',
