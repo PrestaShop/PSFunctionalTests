@@ -90,7 +90,7 @@ module.exports = {
         //order_reference: '#content > div.row > div > div:nth-child(5) > div.col-lg-7 > div:nth-child(1) > div.panel-heading > span:nth-child(2)',
         order_reference: '((//div[@class="panel-heading"])[1]/span)[1]',
         modules_menu: '#subtab-AdminParentModulesSf',
-        modules_search: '#main-div > div.content-div > div > div > div.row > div > div.module-top-menu > div > div.col-md-8 > div > div > div.pstaggerAddTagWrapper > input',
+        modules_search: 'div.pstaggerAddTagWrapper > input',
         modules_search_button: '.btn.btn-primary.pull-right.search-button',
         modules_page_loaded: '.module-search-result-wording',
         modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
