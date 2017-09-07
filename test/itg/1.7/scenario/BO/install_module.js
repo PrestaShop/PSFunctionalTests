@@ -28,7 +28,6 @@ describe('The Install of a Module', function () {
         });
     });
 
-
     describe('Install module', function (done) {
         it('should go to modules page', function (done) {
             global.fctname = this.test.title;

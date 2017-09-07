@@ -55,7 +55,6 @@ module.exports = {
                 password_input: '#passwd',
                 login_button: '[name="submitLogin"]'
             },
-
             //Product selector
             AddProductPage:{
                 exit_welcome_button: '[class="btn btn-tertiary-outline btn-lg onboarding-button-shut-down"]',

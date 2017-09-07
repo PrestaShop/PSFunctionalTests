@@ -102,8 +102,6 @@ module.exports = {
                 client = webdriverio
                     .remote(options)
                     .init()
-                //.windowHandleMaximize()
-
             }
             initCommands(client);
             return client;
