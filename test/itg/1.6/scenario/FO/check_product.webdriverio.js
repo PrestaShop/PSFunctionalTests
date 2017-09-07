@@ -20,7 +20,7 @@ describe('The Check of the Product in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .url('http://' + URL)
-                .waitForExist(this.selector.logo_home_pageFO, 60000)
+                .waitForExist(this.selector.FO.AccessPage.logo_home_page, 60000)
                 .call(done);
         });
     });
@@ -29,19 +29,19 @@ describe('The Check of the Product in Front Office', function () {
         it('should search for the product', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.search_product, 60000)
-                .click(this.selector.search_product)
-                .setValue(this.selector.search_product, 'test_nodejs_' + product_id)
+                .waitForExist(this.selector.FO.SearchProductPage.search_product_input, 60000)
+                .click(this.selector.FO.SearchProductPage.search_product_input)
+                .setValue(this.selector.FO.SearchProductPage.search_product_input, 'test_nodejs_' + product_id)
                 .pause(1000)
-                .click(this.selector.search_product_button)
-                .waitForExist(this.selector.search_product_result_name, 60000)
+                .click(this.selector.FO.SearchProductPage.search_product_button)
+                .waitForExist(this.selector.FO.SearchProductPage.search_result_name, 60000)
                 .call(done);
         });
 
         it('should check the product name', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getText(this.selector.search_product_result_name).then(function (text) {
+                .getText(this.selector.FO.SearchProductPage.search_result_name).then(function (text) {
                 var my_name = text;
                 should(my_name[1]).be.equal('test_nodejs_' + product_id);
             })
@@ -51,7 +51,7 @@ describe('The Check of the Product in Front Office', function () {
         it('should check the product price', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getText(this.selector.search_product_result_price).then(function (text) {
+                .getText(this.selector.FO.SearchProductPage.search_result_price).then(function (text) {
                 var my_price = text;
                 should(parseInt(my_price[1])).be.equal(parseInt("6"));
             })
@@ -61,11 +61,11 @@ describe('The Check of the Product in Front Office', function () {
         it('should check the product details', function (done) {
             global.fctname = this.test.title;
             this.client
-                .moveToObject(this.selector.search_product_result_name)
-                .waitForExist(this.selector.search_product_details, 60000)
-                .click(this.selector.search_product_details)
-                .waitForExist(this.selector.product_name_details, 60000)
-                .getText(this.selector.product_name_details).then(function (text) {
+                .moveToObject(this.selector.FO.SearchProductPage.search_result_name)
+                .waitForExist(this.selector.FO.SearchProductPage.details, 60000)
+                .click(this.selector.FO.SearchProductPage.details)
+                .waitForExist(this.selector.FO.ProductDetailsPage.name_details, 60000)
+                .getText(this.selector.FO.ProductDetailsPage.name_details).then(function (text) {
                 var my_name_check = text;
                 should(my_name_check).be.equal('test_nodejs_' + product_id);
             })
@@ -74,7 +74,7 @@ describe('The Check of the Product in Front Office', function () {
                 var my_name_modify = 'test_nodejs_' + product_id;
                 my_src_temp.should.be.equal(my_name_modify);
             })
-                .getText(this.selector.product_price_details).then(function (text) {
+                .getText(this.selector.FO.ProductDetailsPage.price_details).then(function (text) {
                 var my_price2 = text;
                 should(parseInt(my_price2)).be.equal(parseInt("6"));
             })
