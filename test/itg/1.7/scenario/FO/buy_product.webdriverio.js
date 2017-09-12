@@ -8,7 +8,7 @@ describe('The Purchase of a product', function () {
 
     before(function (done) {
         this.selector = globals.selector;
-        this.client.call(done);login_input
+        this.client.call(done);
     });
     process.on('uncaughtException', common.take_screenshot);
     process.on('ReferenceError', common.take_screenshot);
