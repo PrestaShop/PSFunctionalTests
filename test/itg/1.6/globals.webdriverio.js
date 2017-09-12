@@ -17,58 +17,60 @@ global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 module.exports = {
     selector: {
         //BO
-        login: '#email',
-        password: '#passwd',
-        login_btn: '#login_form > div.form-group.row-padding-top > button',
-        profil: '#employee_infos',
-        logout: '#header_logout',
-        products: '#maintab-AdminCatalog > a',
-        new_product: '#page-header-desc-product-new_product',
-        product_name: '#name_1',
-        save_and_stay_product: '[name="submitAddproductAndStay"]',
-        save_button: '[name="submitAddproduct"]',
-        green_validation: '.alert.alert-success',
-        red_validation: '.alert.alert-danger',
-        close_green_validation: '.alert.alert-success > .close',
-        proceed_installation_anyway_button: '//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]',
-        //red_validation_message:
-        menu: '#nav-sidebar',
-        number_of_products: ".badge",
-        summary: 'description_short_1_ifr', //not declare like an id because using into function "frame" that not need this information;
-        description: 'description_1_ifr',//not declare like an id because using into function "frame" that not need this information;
-        product_price: '#link-Prices',
-        wholesale_price: '#wholesale_price',
-        priceTE: '#priceTE',
-        priceTI: '#priceTI',
-        //save_and_stay_price: '#product-prices > div.panel-footer > button:nth-child(3)',
-        save_and_stay_price: '(//div[@id="product-prices"]/div/button[@class="btn btn-default pull-right"])[2]/i[@class="process-icon-save"]',
-        product_quantity: '#link-Quantities',
-        quantity: '[name="qty_0"]',
-        save_and_stay_quantity: '#product-quantities > div.panel-footer > button:nth-child(3)',
-        close_false_error: '.growl-close',
-        product_picture: '#link-Images',
-        picture: '#file',
-        upload_file_button: '#file-upload-button',
-        upload_succes: '.alert.alert-success',
-        catalogue_filter_by_name: '[name="productFilter_b!name"]',
-        catalogue_submit_filter: '#submitFilterButtonproduct',
-        edit_product: '.edit.btn.btn-default',
-        orders: '#maintab-AdminParentOrders',
-        orders_form: '#form-order',
-        order_product_name: '.productName',
-        order_quantity: '.product_quantity_show',
-        order_total: '#total_order > td.amount.text-right.nowrap',
-        new_order: '.process-icon-new',
-        new_order_client: '#customer',
-        new_order_client_choose: '[data-customer="1"]',
-        new_order_product: '#product',
-        new_order_product_name_list: '#id_product',
-        new_order_product_name_choose: '(//select[@id="id_product"]/option)[1]',
-        new_order_product_combination_list: '//select[@class="id_product_attribute" and @style=""]',
-        new_order_product_combination_1: '(//select[@class="id_product_attribute" and @style=""]/option)[1]',
-        modules_menu: '.icon-AdminParentModules',
-        modules_search: '#moduleQuicksearch',
 
+        BO :{
+            AccessPage:{
+                login_input: '#email',
+                password_input: '#passwd',
+                login_button: '#login_form > div.form-group.row-padding-top > button'
+            },
+
+            AddProductPage:{
+                catalog_maintab: '#maintab-AdminCatalog > a',
+                new_product_button: '#page-header-desc-product-new_product',
+                product_name_input: '#name_1',
+                save_and_stay_product_button: '[name="submitAddproductAndStay"]',
+                green_validation_alert: '.alert.alert-success',
+                red_validation_alert: '.alert.alert-danger',
+                close_green_validation_button: '.alert.alert-success > .close',
+                proceed_installation_anyway_button: '//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]',
+                menu: '#nav-sidebar',
+                summary_textarea: 'description_short_1_ifr', //not declare like an id because using into function "frame" that not need this information;
+                description_textarea: 'description_1_ifr',//not declare like an id because using into function "frame" that not need this information;
+                product_price_tab: '#link-Prices',
+                wholesale_price_input: '#wholesale_price',
+                priceTE_input: '#priceTE',
+                save_and_stay_price_button: '(//div[@id="product-prices"]/div/button[@class="btn btn-default pull-right"])[2]/i[@class="process-icon-save"]',
+                product_quantity_tab: '#link-Quantities',
+                quantity_input: '[name="qty_0"]',
+                product_picture_tab: '#link-Images',
+                picture: '#file',
+                upload_file_button: '#file-upload-button',
+                upload_succes_alert: '.alert.alert-success',
+                catalogue_filter_by_name_input: '[name="productFilter_b!name"]',
+                catalogue_submit_filter_button: '#submitFilterButtonproduct',
+                edit_product_button: '.edit.btn.btn-default'
+            },
+            OrderPage:{
+                orders_maintab: '#maintab-AdminParentOrders',
+                form: '#form-order',
+                product_name_span: '.productName',
+                quantity_span: '.product_quantity_show',
+                total: '#total_order > td.amount.text-right.nowrap',
+                new_order_button: '.process-icon-new',
+                search_customer_input: '#customer',
+                new_client_choose_button: '[data-customer="1"]',
+                search_product_input: '#product',
+                new_product_name_list: '#id_product',
+                new_product_name_choose: '(//select[@id="id_product"]/option)[1]',
+                new_product_combination_list: '//select[@class="id_product_attribute" and @style=""]',
+                new_product_combination_choose: '(//select[@class="id_product_attribute" and @style=""]/option)[1]'
+            },
+            ModulePage:{
+                menu: '.icon-AdminParentModules',
+                search: '#moduleQuicksearch'
+            }
+        },
 
         //FO
         access_loginFO: '.login',
