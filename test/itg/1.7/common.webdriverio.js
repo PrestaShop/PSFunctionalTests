@@ -42,10 +42,10 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL + '/admin-dev')
-            .waitForExist(this.selector.login, 90000)
-            .setValue(this.selector.login, 'demo@prestashop.com')
-            .setValue(this.selector.password, 'prestashop_demo')
-            .click(this.selector.login_btn)
+            .waitForExist(this.selector.AccessPage.login_input, 90000)
+            .setValue(this.selector.AccessPage.login_input, 'demo@prestashop.com')
+            .setValue(this.selector.BO.AccessPage.password_input, 'prestashop_demo')
+            .click(this.selector.BO.AccessPage.login_button)
             .waitForExist(this.selector.menu, 90000)
             .call(cb);
     });

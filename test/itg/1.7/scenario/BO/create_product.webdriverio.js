@@ -184,7 +184,7 @@ describe('The Product Creation', function () {
             this.client
                 .waitForExist(this.selector.catalogue_filter_by_name, 90000)
                 .setValue(this.selector.catalogue_filter_by_name, 'test_nodejs_' + product_id)
-                .click(this.selector.click_outside)
+                .click(this.selector.BO.AddProductPage.click_outside)
                 .pause(2000)
                 .click(this.selector.catalogue_submit_filter)
                 .call(done);

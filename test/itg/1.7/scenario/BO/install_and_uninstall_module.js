@@ -31,7 +31,7 @@ describe('The Install of a Module and its Uninstall', function () {
             global.fctname = this.test.title;
             this.client
                 .signinBO()
-                .isVisible(this.selector.exit_welcome).then(function (isVisible) {
+                .isVisible(this.selector.BO.AddProductPage.exit_welcome_button).then(function (isVisible) {
                 exit_welcome = isVisible;
             })
                 .waitForExist(this.selector.menu, 90000)
@@ -45,8 +45,8 @@ describe('The Install of a Module and its Uninstall', function () {
 
             if (exit_welcome) {
                 this.client
-                    .waitForExist(this.selector.exit_welcome, 90000)
-                    .click(this.selector.exit_welcome);
+                    .waitForExist(this.selector.BO.AddProductPage.exit_welcome_button, 90000)
+                    .click(this.selector.BO.AddProductPage.exit_welcome_button);
             }
             this.client
                 .pause(5000)
