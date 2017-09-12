@@ -33,7 +33,7 @@ describe('The Check of the Product in Front Office', function () {
                 .click(this.selector.FO.SearchProductPage.search_product_input)
                 .setValue(this.selector.FO.SearchProductPage.search_product_input, 'test_nodejs_' + product_id)
                 .pause(1000)
-                .click(this.selector.FO.SearchProductPage.search_product_input_button)
+                .click(this.selector.FO.SearchProductPage.search_product_button)
                 .waitForExist(this.selector.FO.SearchProductPage.search_result_name, 60000)
                 .call(done);
         });

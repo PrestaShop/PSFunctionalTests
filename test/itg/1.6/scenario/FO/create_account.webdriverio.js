@@ -28,7 +28,7 @@ describe('The creation of an account in Front Office', function () {
             this.client
                 .click(this.selector.FO.AccessPage.sign_in_button)
                 .waitForExist(this.selector.FO.CreateAccountPage.email_address_input, 60000)
-                .setValue(this.selector.create_account, new_customer_email)
+                .setValue(this.selector.CreateAccountPage.email_address_input, new_customer_email)
                 .click(this.selector.FO.CreateAccountPage.create_button)
                 .waitForExist(this.selector.FO.CreateAccountPage.firstname_input, 60000)
                 .call(done);
