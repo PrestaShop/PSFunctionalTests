@@ -73,51 +73,62 @@ module.exports = {
         },
 
         //FO
-        access_loginFO: '.login',
-        loginFO: '#email',
-        passwordFO: '#passwd',
-        login_btnFO: '#SubmitLogin',
-        logoutFO: '.logout',
-        create_account: '#email_create',
-        create_account_button: '#SubmitCreate',
-        create_account_firstname: '#customer_firstname',
-        create_account_lastname: '#customer_lastname',
-        create_account_email: '#email',
-        create_account_password: '#passwd',
-        create_account_info_validate: '#submitAccount',
-        logo_home_pageFO: '.logo.img-responsive',
-        first_product_home_page: '.product_img_link',
-        details_first_product_home_page: '.button.lnk_view.btn.btn-default',
-        add_to_cart: '[name="Submit"]',
-        cart_label: '#columns > div.breadcrumb.clearfix',
-        first_product_home_page_name: '.product-name',
-        product_name_details: '[itemprop="name"]',
-        product_price_details: '#our_price_display',
-        product_quantity_details: '#quantity_wanted',
-        layer_cart: '//div[@id="layer_cart" and contains(@style, "display: block;")]',
-        layer_cart_picture: '.layer_cart_img.img-responsive',
-        layer_cart_name_details: 'span#layer_cart_product_title',
-        layer_cart_price_details: 'span#layer_cart_product_price',
-        layer_cart_quantity_details: 'span#layer_cart_product_quantity',
-        layer_cart_command_button: '.btn.btn-default.button.button-medium',
-        command_button_checkout: '.button.btn.btn-default.standard-checkout.button-medium',
-        command_button_checkout_step3: '//button[@name="processAddress"]',
-        command_cgv: '#cgv',
-        command_product_name_step5: '.cart_description > p > a',
-        command_total_price: '#total_price',
-        command_pay_bankwire: '.bankwire',
-        command_price_step5_amout: '#amount',
-        command_confirm_button: '#cart_navigation > button',
-        command_success_alert: '.alert.alert-success',
-        command_success_price: '.price > strong',
-        search_product: '#search_query_top',
-        search_product_button: '[name="submit_search"]',
-        search_product_result_image: '[itemprop="image"]',
-        search_product_result_name: '[itemprop="url"]',
-        search_product_result_price: '.price.product-price',
-        search_product_details: '.button.lnk_view.btn.btn-default',
-        check_login_ok: '//ul[@class="myaccount-link-list"]',
-        validate_address: '//button[@id="submitAddress"]',
+
+        FO:{
+            AccessPage:{
+                sign_in_button: '.login',
+                email_input: '#email',
+                password_input: '#passwd',
+                login_button: '#SubmitLogin',
+                sign_out_button: '.logout',
+                logo_home_page: '.logo.img-responsive'
+            },
+            CreateAccountPage:{
+                email_address_input: '#email_create',
+                create_button: '#SubmitCreate',
+                firstname_input: '#customer_firstname',
+                lastname_input: '#customer_lastname',
+                email_input: '#email',
+                password_input: '#passwd',
+                info_validate_button: '#submitAccount'
+            },
+            ProductDetailsPage:{
+                first_product_home_page: '.product_img_link',
+                name_details: '[itemprop="name"]',
+                price_details: '#our_price_display',
+                quantity_details: '#quantity_wanted',
+                details_first_product_home_page: '.button.lnk_view.btn.btn-default',
+                first_product_home_page_name: '.product-name'
+            },
+            LayerCartPage:{
+                add_to_cart_button: '[name="Submit"]',
+                cart_label: '#columns > div.breadcrumb.clearfix',
+                layer_cart: '//div[@id="layer_cart" and contains(@style, "display: block;")]',
+                name_details: 'span#layer_cart_product_title',
+                price_details: 'span#layer_cart_product_price',
+                quantity_details: 'span#layer_cart_product_quantity',
+                command_button: '.btn.btn-default.button.button-medium'
+            },
+            BuyOrderPage:{
+                button_checkout: '.button.btn.btn-default.standard-checkout.button-medium',
+                button_checkout_step3: '//button[@name="processAddress"]',
+                cgv_button: '#cgv',
+                product_name_step5: '.cart_description > p > a',
+                total_price: '#total_price',
+                pay_bankwire: '.bankwire',
+                price_step5_amout: '#amount',
+                confirm_button: '#cart_navigation > button',
+                success_alert: '.alert.alert-success',
+                success_price: '.price > strong'
+            },
+            SearchProductPage:{
+                search_product_input: '#search_query_top',
+                search_product_button: '[name="submit_search"]',
+                search_result_name: '[itemprop="url"]',
+                search_result_price: '.price.product-price',
+                details: '.button.lnk_view.btn.btn-default'
+            }
+        }
     },
     shouldExist: function (err, existing) {
         should(err).be.not.defined;
