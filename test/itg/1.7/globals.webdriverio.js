@@ -84,8 +84,6 @@ module.exports = {
             catalogue_submit_filter_button: '//button[@name="products_filter_submit"]',
         },
 
-        profil: '#employee_infos',
-        new_profil: '.employee-dropdown.dropdown > div',
         logout: '#header_logout',
         products: '#subtab-AdminCatalog',
         //go_to_catalog: '//*[@id="form"]/div[4]/div[2]/div/div[2]/a[2]',

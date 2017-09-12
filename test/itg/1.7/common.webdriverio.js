@@ -42,8 +42,8 @@ function initCommands(client) {
         this.selector = globals.selector;
         client
             .url('http://' + URL + '/admin-dev')
-            .waitForExist(this.selector.AccessPage.login_input, 90000)
-            .setValue(this.selector.AccessPage.login_input, 'demo@prestashop.com')
+            .waitForExist(this.selector.BO.AccessPage.login_input, 90000)
+            .setValue(this.selector.BO.AccessPage.login_input, 'demo@prestashop.com')
             .setValue(this.selector.BO.AccessPage.password_input, 'prestashop_demo')
             .click(this.selector.BO.AccessPage.login_button)
             .waitForExist(this.selector.menu, 90000)
