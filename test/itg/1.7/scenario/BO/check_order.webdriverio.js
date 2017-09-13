@@ -19,7 +19,7 @@ describe('The Check of the order in Back Office', function () {
             global.fctname = this.test.title;
             this.client
                 .signinBO()
-                .waitForExist(this.selector.menu, 90000)
+                .waitForExist(this.selector.BO.AddProductPage.menu, 90000)
                 .call(done);
         });
     });
@@ -28,8 +28,8 @@ describe('The Check of the order in Back Office', function () {
         it('should go to the orders page', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.orders)
-                .waitForExist(this.selector.orders_form, 90000)
+                .click(this.selector.BO.OrderPage.orders_subtab)
+                .waitForExist(this.selector.BO.OrderPage.form, 90000)
                 .call(done);
         });
 
@@ -49,7 +49,7 @@ describe('The Check of the order in Back Office', function () {
         it('should check the order reference', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getText(this.selector.order_reference).then(function (text) {
+                .getText(this.selector.BO.OrderPage.order_reference_span).then(function (text) {
                 var my_order_reference = text;
                 should(my_order_reference).be.equal(order_reference);
             })
@@ -59,9 +59,9 @@ describe('The Check of the order in Back Office', function () {
         it('should check the product name', function (done) {
             global.fctname = this.test.title;
             this.client
-                .scroll(this.selector.order_product_name, 20, 0)
-                .waitForExist(this.selector.order_product_name, 90000)
-                .getText(this.selector.order_product_name).then(function (text) {
+                .scroll(this.selector.BO.OrderPage.order_product_name_span, 20, 0)
+                .waitForExist(this.selector.BO.OrderPage.order_product_name_span, 90000)
+                .getText(this.selector.BO.OrderPage.order_product_name_span).then(function (text) {
                 var my_order_product_name = text;
                 my_order_product_name.toLowerCase().should.containEql(my_name.toLowerCase());
             })
@@ -71,8 +71,8 @@ describe('The Check of the order in Back Office', function () {
         it('should check the product quantity', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.order_quantity, 90000)
-                .getText(this.selector.order_quantity).then(function (text) {
+                .waitForExist(this.selector.BO.OrderPage.order_product_quantity_span, 90000)
+                .getText(this.selector.BO.OrderPage.order_product_quantity_span).then(function (text) {
                 var my_order_quantity = text;
                 should(my_order_quantity).be.equal(my_quantity);
             })
@@ -82,8 +82,8 @@ describe('The Check of the order in Back Office', function () {
         it('should check the order total', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.order_total, 90000)
-                .getText(this.selector.order_total).then(function (text) {
+                .waitForExist(this.selector.BO.OrderPage.order_product_total, 90000)
+                .getText(this.selector.BO.OrderPage.order_product_total).then(function (text) {
                 var my_order_total = text;
                 should(my_order_total).be.equal(my_price);
             })

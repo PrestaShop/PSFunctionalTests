@@ -46,7 +46,7 @@ function initCommands(client) {
             .setValue(this.selector.BO.AccessPage.login_input, 'demo@prestashop.com')
             .setValue(this.selector.BO.AccessPage.password_input, 'prestashop_demo')
             .click(this.selector.BO.AccessPage.login_button)
-            .waitForExist(this.selector.menu, 90000)
+            .waitForExist(this.selector.BO.AddProductPage.menu, 90000)
             .call(cb);
     });
 
