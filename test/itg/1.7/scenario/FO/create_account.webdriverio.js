@@ -19,8 +19,8 @@ describe('The Creation of an Account in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .url('http://' + URL)
-                .waitForExist(this.selector.access_loginFO, 90000)
-                .click(this.selector.access_loginFO)
+                .waitForExist(this.selector.FO.AccessPage.sign_in_button, 90000)
+                .click(this.selector.FO.AccessPage.sign_in_button)
                 .waitForExist(this.selector.create_account_button, 90000)
                 .click(this.selector.create_account_button)
                 .call(done);
@@ -42,7 +42,7 @@ describe('The Creation of an Account in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .click(this.selector.create_account_info_validate)
-                .waitForExist(this.selector.logo_home_pageFO, 90000)
+                .waitForExist(this.selector.FO.AccessPage.logo_home_pageFO, 90000)
                 .call(done);
         });
     });
@@ -59,13 +59,13 @@ describe('The Creation of an Account in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .url('http://' + URL)
-                .waitForExist(this.selector.access_loginFO, 90000)
-                .click(this.selector.access_loginFO)
-                .waitForExist(this.selector.loginFO, 90000)
-                .setValue(this.selector.loginFO, new_customer_email)
-                .setValue(this.selector.passwordFO, '123456789')
-                .click(this.selector.login_btnFO)
-                .waitForExist(this.selector.logo_home_pageFO, 90000)
+                .waitForExist(this.selector.FO.AccessPage.sign_in_button, 90000)
+                .click(this.selector.FO.AccessPage.sign_in_button)
+                .waitForExist(this.selector.FO.AccessPage.login_input, 90000)
+                .setValue(this.selector.FO.AccessPage.login_input, new_customer_email)
+                .setValue(this.selector.FO.AccessPage.password_input, '123456789')
+                .click(this.selector.FO.AccessPage.login_button)
+                .waitForExist(this.selector.FO.AccessPage.logo_home_pageFO, 90000)
                 .call(done);
         });
     });

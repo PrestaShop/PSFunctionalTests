@@ -18,12 +18,12 @@ describe('The Purchase of a product', function () {
         global.fctname = this.test.title;
         this.client
             .url('http://' + URL)
-            .waitForExist(this.selector.access_loginFO, 90000)
-            .click(this.selector.access_loginFO)
-            .waitForExist(this.selector.loginFO, 90000)
-            .setValue(this.selector.loginFO, 'pub@prestashop.com')
-            .setValue(this.selector.passwordFO, '123456789')
-            .click(this.selector.login_btnFO)
+            .waitForExist(this.selector.FO.AccessPage.sign_in_button, 90000)
+            .click(this.selector.FO.AccessPage.sign_in_button)
+            .waitForExist(this.selector.FO.AccessPage.login_input, 90000)
+            .setValue(this.selector.FO.AccessPage.login_input, 'pub@prestashop.com')
+            .setValue(this.selector.FO.AccessPage.password_input, '123456789')
+            .click(this.selector.FO.AccessPage.login_button)
             .call(done);
 
     });
@@ -32,7 +32,7 @@ describe('The Purchase of a product', function () {
         it('should go to the product details', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.logo_home_pageFO)
+                .click(this.selector.FO.AccessPage.logo_home_pageFO)
                 .waitForExist(this.selector.first_product_home_page, 90000)
                 .getText(this.selector.first_product_home_page_name).then(function (text) {
                 global.my_name = text[1].split('...')[0];
@@ -177,9 +177,9 @@ describe('The Purchase of a product', function () {
         it('should logout successfully in FO', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.logoutFO, 90000)
-                .click(this.selector.logoutFO)
-                .waitForExist(this.selector.access_loginFO, 90000)
+                .waitForExist(this.selector.FO.AccessPage.login_button, 90000)
+                .click(this.selector.FO.AccessPage.login_button)
+                .waitForExist(this.selector.FO.AccessPage.sign_in_button, 90000)
                 .call(done);
 
         });
