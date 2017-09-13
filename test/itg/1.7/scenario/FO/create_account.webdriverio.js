@@ -42,7 +42,7 @@ describe('The Creation of an Account in Front Office', function () {
             global.fctname = this.test.title;
             this.client
                 .click(this.selector.FO.AddAccountPage.save_account_button)
-                .waitForExist(this.selector.FO.AccessPage.FO.AddAccountPage.logo_home_page, 90000)
+                .waitForExist(this.selector.FO.AccessPage.logo_home_page, 90000)
                 .call(done);
         });
     });

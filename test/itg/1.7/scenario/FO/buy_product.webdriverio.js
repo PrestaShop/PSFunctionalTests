@@ -32,14 +32,14 @@ describe('The Purchase of a product', function () {
         it('should go to the product details', function (done) {
             global.fctname = this.test.title;
             this.client
-                .click(this.selector.FO.AccessPage.FO.AddAccountPage.logo_home_page)
+                .click(this.selector.FO.AccessPage.logo_home_page)
                 .waitForExist(this.selector.FO.BuyOrderPage.first_product_home_page, 90000)
                 .getText(this.selector.FO.BuyOrderPage.first_product_home_page_name).then(function (text) {
                 global.my_name = text[1].split('...')[0];
             })
                 .click(this.selector.FO.BuyOrderPage.first_product_home_page)
                 .waitForExist(this.selector.FO.BuyOrderPage.product_image, 90000)
-                .getText(this.selector.FO.BuyOrderPage.FO.BuyOrderPage.product_name_details).then(function (text) {
+                .getText(this.selector.FO.BuyOrderPage.product_name_details).then(function (text) {
                 var my_name_check = text;
                 my_name_check.pop(-1).toLowerCase().should.containEql(my_name.toLowerCase());
             })
@@ -129,7 +129,7 @@ describe('The Purchase of a product', function () {
             this.client
                 .waitForExist(this.selector.FO.BuyOrderPage.checkout_step4_cgv_checkbox, 90000)
                 .click(this.selector.FO.BuyOrderPage.checkout_step4_cgv_checkbox)
-                .waitForExist(thisorder_confirmation_price2.selector.FO.BuyOrderPage.checkout_step4_order_button, 90000)
+                .waitForExist(this.selector.FO.BuyOrderPage.checkout_step4_order_button, 90000)
                 .click(this.selector.FO.BuyOrderPage.checkout_step4_order_button)
                 .call(done);
         });
@@ -177,8 +177,8 @@ describe('The Purchase of a product', function () {
         it('should logout successfully in FO', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.FO.AccessPage.login_button, 90000)
-                .click(this.selector.FO.AccessPage.login_button)
+                .waitForExist(this.selector.FO.AccessPage.sign_out_button, 90000)
+                .click(this.selector.FO.AccessPage.sign_out_button)
                 .waitForExist(this.selector.FO.AccessPage.sign_in_button, 90000)
                 .call(done);
 
