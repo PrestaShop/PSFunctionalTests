@@ -102,12 +102,6 @@ module.exports = {
                 uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle"]',
                 uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
                 modal_confirm_uninstall:  '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]'
-
-              //  tech_name_attribute: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
-               // install_button: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
-               // uninstall_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle"]',
-               // uninstall_button: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
-               // modal_confirm_uninstall:  '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]'
             },
             // Popup - boutique Onboarding selector
             Onboarding:{
@@ -128,54 +122,56 @@ module.exports = {
                 login_button: '//*[@id="login-form"]/footer/button',
                 sign_out_button: '.logout',
                 logo_home_page: '.logo.img-responsive'
+            },
+            //Account page selector
+            AddAccountPage: {
+                create_button: '[data-link-action="display-register-form"]',
+                firstname_input: '[name="firstname"]',
+                lastname_input: '[name="lastname"]',
+                email_input: '[name="email"]',
+                password_input: '[name="password"]',
+                save_account_button: '[data-link-action="save-customer"]'
+            },
+            //Order Pages selector
+            BuyOrderPage: {
+                first_product_home_page: '.thumbnail.product-thumbnail',
+                add_to_cart_button: '.btn.btn-primary.add-to-cart',
+                first_product_home_page_name: '[itemprop="name"]',
+                product_image: '#content',
+                product_name_details: '[itemprop="name"]',
+                product_price_details: '[itemprop="price"]',
+                product_quantity_details: '#quantity_wanted',
+                product_name: '(//div[@class="product-line-info"])[1]/a',
+                product_price: '//span[@class="price"]',
+                proceed_to_checkout_button: '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a',
+                checkout_step2_continue_button: '//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
+                checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
+                checkout_step4_payment_radio: '//*[@id="payment-option-2"]',
+                checkout_step4_cgv_checkbox: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
+                checkout_step4_order_button: '#payment-confirmation >div > button',
+                checkout_total: '//div[@class="cart-summary-line cart-total"]/span[2]',
+                order_confirmation_name: '#order-items > div > div > div.col-sm-4.col-xs-9.details > span',
+                order_confirmation_price1: '#order-items > div > table > tbody > tr:nth-child(1) > td:nth-child(2)',
+                order_confirmation_price2: '#content-hook_payment_return > div > div > div > dl > dd:nth-child(2)',
+                order_confirmation_ref: '(//div[@id="order-details"]/ul/li)[1]'
+            },
+            //cart Pages selector
+            LayerCartPage: {
+                layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
+                name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
+                price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
+                quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
+                command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a'
+            },
+            //Search selector
+            SearchProductPage:{
+                product_search_input: '.ui-autocomplete-input',
+                product_search_button: '.material-icons.search',
+                product_result_name: '.h3.product-title > a',
+                product_result_price: '[itemprop="price"]',
             }
         },
-        //create_account: '#email_create',
-        create_account_button: '[data-link-action="display-register-form"]',
-        create_account_firstname: '[name="firstname"]',
-        create_account_lastname: '[name="lastname"]',
-        create_account_email: '[name="email"]',
-        create_account_password: '[name="password"]',
-        create_account_info_validate: '[data-link-action="save-customer"]',
-        logo_home_pageFO: '.logo.img-responsive',
-        first_product_home_page: '.thumbnail.product-thumbnail',
-        add_to_cart: '.btn.btn-primary.add-to-cart',
-        first_product_home_page_name: '[itemprop="name"]',
-        product_image: '#content',
-        product_name_details: '[itemprop="name"]',
-        product_price_details: '[itemprop="price"]',
-        product_quantity_details: '#quantity_wanted',
-        layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
-        layer_cart_name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
-        layer_cart_price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
-        layer_cart_quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
-        layer_cart_command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
-        //for 1.7.1.0
-        //layer_cart_command_button: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
-        //command_product_quantity: '//div[@class="product-line-grid-body col-md-5 col-xs-5"]/div[5]',
-        command_product_name: '(//div[@class="product-line-info"])[1]/a',
-        command_product_price: '//span[@class="price"]',
-        command_button_checkout: '//*[@id="main"]/div/div[2]/div[1]/div[2]/div/a',
-        check_out_step1: '#checkout-personal-information-step',
-        check_out_step2: '#checkout-addresses-step',
-        checkout_step2_continue_button: '//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
-        check_out_step3: '#checkout-delivery-step',
-        checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
-        check_out_step4: '#checkout-payment-step',
-        checkout_step4_payment: '//*[@id="payment-option-2"]',
-        checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
-        checkout_step4_order: '#payment-confirmation >div > button',
-        checkout_total: '//div[@class="cart-summary-line cart-total"]/span[2]',
-        order_confirmation_name: '#order-items > div > div > div.col-sm-4.col-xs-9.details > span',
-        order_confirmation_price1: '#order-items > div > table > tbody > tr:nth-child(1) > td:nth-child(2)',
-        order_confirmation_price2: '#content-hook_payment_return > div > div > div > dl > dd:nth-child(2)',
-        order_confirmation_ref: '(//div[@id="order-details"]/ul/li)[1]',
-        search_product: '.ui-autocomplete-input',
-        search_product_button: '.material-icons.search',
-        search_product_result_image: '.thumbnail.product-thumbnail',
-        search_product_result_name: '.h3.product-title > a',
-        search_product_result_price: '[itemprop="price"]',
-        close_error: '//*[@id="error-modal"]/div/div/button',
+
 
     },
     shouldExist: function (err, existing) {
