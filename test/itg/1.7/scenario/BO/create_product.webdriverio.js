@@ -32,11 +32,11 @@ describe('The Product Creation', function () {
     describe('Module "Welcome"', function (done) {
         it("should close the onboarding if displayed", function (done) {
             global.fctname = this.test.title;
-            if (this.client.isVisible(this.selector.onboarding_popup)) {
+            if (this.client.isVisible(this.selector.BO.Onboarding.popup)) {
                 this.client
-                    .click(this.selector.onboarding_popup_close_btn)
+                    .click(this.selector.BO.Onboarding.popup_close_button)
                     .pause(1000)
-                    .click(this.selector.onboarding_stop);
+                    .click(this.selector.BO.Onboarding.stop_button);
             };
             this.client.call(done);
         });

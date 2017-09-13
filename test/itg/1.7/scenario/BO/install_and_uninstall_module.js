@@ -50,8 +50,8 @@ describe('The Install of a Module and its Uninstall', function () {
             }
             this.client
                 .pause(5000)
-                .click(this.selector.modules_menu)
-                .waitForExist(this.selector.modules_page_loaded, 90000)
+                .click(this.selector.BO.ModulePage.modules_subtab)
+                .waitForExist(this.selector.BO.ModulePage.page_loaded, 90000)
                 .call(done);
         });
 
@@ -59,9 +59,9 @@ describe('The Install of a Module and its Uninstall', function () {
             global.fctname = this.test.title;
 
             this.client
-                .setValue(this.selector.modules_search, module_tech_name)
-                .click(this.selector.modules_search_button)
-                .getText(this.selector.nbr_module).then(function (text) {
+                .setValue(this.selector.BO.ModulePage.search_input, module_tech_name)
+                .click(this.selector.BO.ModulePage.search_button)
+                .getText(this.selector.BO.ModulePage.module_number_span).then(function (text) {
                 global.nbr = parseInt(text[0]);
                 if (global.nbr == 0) {
                     done(new Error('The module you are searching for does not exist!'));
@@ -79,8 +79,8 @@ describe('The Install of a Module and its Uninstall', function () {
             }
             else {
                 this.client
-                    .waitForExist(this.selector.module_tech_name, 90000)
-                    .click(this.selector.install_module_btn)
+                    .waitForExist(this.selector.BO.ModulePage.tech_name_attribute, 90000)
+                    .click(this.selector.BO.ModulePage.install_button)
                     .waitForExist(this.selector.BO.AddProductPage.close_validation_button, 90000)
                     .isVisible(this.selector.BO.AddProductPage.red_validation_notice).then(function (isVisible) {
                     red_validation_is_visible = isVisible;
@@ -123,16 +123,16 @@ describe('The Install of a Module and its Uninstall', function () {
                     done(new Error("Unavailable module"));
                 } else {
                     this.client
-                        .click(this.selector.modules_installed)
-                        .waitForExist(this.selector.modules_page_loaded, 90000)
-                        .setValue(this.selector.modules_search, module_tech_name)
-                        .click(this.selector.modules_search_button)
-                        .waitForExist(this.selector.module_tech_name, 90000)
-                        .click(this.selector.uninstall_module_list)
-                        .waitForExist(this.selector.uninstall_module_btn, 90000)
-                        .click(this.selector.uninstall_module_btn)
+                        .click(this.selector.BO.ModulePage.installed_modules_tabs)
+                        .waitForExist(this.selector.BO.ModulePage.page_loaded, 90000)
+                        .setValue(this.selector.BO.ModulePage.search_input, module_tech_name)
+                        .click(this.selector.BO.ModulePage.search_button)
+                        .waitForExist(this.selector.BO.ModulePage.tech_name_attribute, 90000)
+                        .click(this.selector.BO.ModulePage.uninstall_list)
+                        .waitForExist(this.selector.BO.ModulePage.uninstall_button, 90000)
+                        .click(this.selector.BO.ModulePage.uninstall_button)
                         .pause(2000)
-                        .isVisible(this.selector.modal_confirm_uninstall).then(function (isVisible) {
+                        .isVisible(this.selector.BO.ModulePage.modal_confirm_uninstall).then(function (isVisible) {
                         modal_confirm_uninstall_is_visible = isVisible;
                     })
                         .call(done);
@@ -152,7 +152,7 @@ describe('The Install of a Module and its Uninstall', function () {
                 else {
                     if (modal_confirm_uninstall_is_visible) {
                         this.client
-                            .click(this.selector.modal_confirm_uninstall)
+                            .click(this.selector.BO.ModulePage.modal_confirm_uninstall)
                     }
                     this.client
                         .waitForExist(this.selector.BO.AddProductPage.close_validation_button, 90000)

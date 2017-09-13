@@ -86,27 +86,30 @@ module.exports = {
                 order_product_name_span: '.productName',
                 order_product_quantity_span: '.product_quantity_show',
                 order_product_total: '#total_order > td.amount.text-right.nowrap',
-                order_reference_span: '((//div[@class="panel-heading"])[1]/span)[1]',
+                order_reference_span: '((//div[@class="panel-heading"])[1]/span)[1]'
             },
+            //Module selector
+            ModulePage:{
+                modules_subtab: '#subtab-AdminParentModulesSf',
+                search_input: 'div.pstaggerAddTagWrapper > input',
+                search_button: '..btn.btn-primary.pull-right.search-button',
+                page_loaded: '.module-search-result-wording',
+                installed_modules_tabs: '(//div[@class="page-head-tabs"]/a)[2]',
+                module_number_span: '[class="module-sorting-search-wording"]',
+                tech_name_attribute: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
+                install_button: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
+                uninstall_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle"]',
+                uninstall_button: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
+                modal_confirm_uninstall:  '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]'
+            },
+            // Popup - boutique Onboarding selector
+            Onboarding:{
+                popup: '.onboarding-popup',
+                popup_close_button: '.onboarding-button-shut-down',
+                stop_button: '.onboarding-button-stop'
+            }
         },
 
-        modules_menu: '#subtab-AdminParentModulesSf',
-        modules_search: 'div.pstaggerAddTagWrapper > input',
-        modules_search_button: '.btn.btn-primary.pull-right.search-button',
-        modules_page_loaded: '.module-search-result-wording',
-        modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
-        modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
-        nbr_module: '[class="module-sorting-search-wording"]',
-        close_sf_toolbar: '//a[@class="hide-button"]',
-        module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
-        install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
-        uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle"]',
-        uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
-        modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
-
-        onboarding_popup: '.onboarding-popup',
-        onboarding_popup_close_btn: '.onboarding-button-shut-down',
-        onboarding_stop: '.onboarding-button-stop',
 
         //FO
         access_loginFO: 'div.user-info > a',
