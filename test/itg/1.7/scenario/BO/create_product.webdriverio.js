@@ -262,7 +262,7 @@ describe('The Product Creation', function () {
         it('should check the product quantity', function (done) {
             global.fctname = this.test.title;
             this.client
-                .getValue(this.selector.quantity_shortcut).then(function (text) {
+                .getValue(this.selector.BO.AddProductPage.quantity_shortcut_input).then(function (text) {
                 var my_quantity = text;
                 should(parseInt(my_quantity)).be.equal(parseInt("10"));
             })
