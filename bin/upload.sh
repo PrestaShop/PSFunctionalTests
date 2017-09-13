@@ -18,7 +18,8 @@ fi
 
 # uploading mochareporter to Gdrive
 echo "Creating archive of test report $ARCHIVE_REPORTER"
-ARCHIVE_REPORTER=TestReport-$FIXED_BRANCH-$(date +%Y-%m-%d_%H_%M_%S)-$TRAVIS_COMMIT.zip
-zip -r $ARCHIVE_REPORTER test/itg/$PS_VERSION/mochawesome-report/*
+ARCHIVE_REPORTER=TestReport-$PS_VERSION-$FIXED_BRANCH-$(date +%Y-%m-%d_%H_%M_%S)-$TRAVIS_COMMIT.zip
+cd test/itg/$PS_VERSION/ && \
+zip -r $ARCHIVE_REPORTER mochawesome-report/*
 ./bin/gdrive-linux-x64 upload --refresh-token $GDRIVE_REFRESH_TOKEN --parent $GDRIVE_DIR "$ARCHIVE_REPORTER"
 echo "Finished uploading test report"
