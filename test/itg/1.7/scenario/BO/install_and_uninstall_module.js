@@ -79,8 +79,8 @@ describe('The Install of a Module and its Uninstall', function () {
             }
             else {
                 this.client
-                    .waitForExist(this.selector.BO.ModulePage.tech_name_attribute, 90000)
-                    .click(this.selector.BO.ModulePage.install_button)
+                    .waitForExist(this.selector.BO.ModulePage.module_tech_name, 90000)
+                    .click(this.selector.BO.ModulePage.install_module_btn)
                     .waitForExist(this.selector.BO.AddProductPage.close_validation_button, 90000)
                     .isVisible(this.selector.BO.AddProductPage.red_validation_notice).then(function (isVisible) {
                     red_validation_is_visible = isVisible;
@@ -127,10 +127,10 @@ describe('The Install of a Module and its Uninstall', function () {
                         .waitForExist(this.selector.BO.ModulePage.page_loaded, 90000)
                         .setValue(this.selector.BO.ModulePage.search_input, module_tech_name)
                         .click(this.selector.BO.ModulePage.search_button)
-                        .waitForExist(this.selector.BO.ModulePage.tech_name_attribute, 90000)
-                        .click(this.selector.BO.ModulePage.uninstall_list)
-                        .waitForExist(this.selector.BO.ModulePage.uninstall_button, 90000)
-                        .click(this.selector.BO.ModulePage.uninstall_button)
+                        .waitForExist(this.selector.BO.ModulePage.module_tech_name, 90000)
+                        .click(this.selector.BO.ModulePage.uninstall_module_list)
+                        .waitForExist(this.selector.BO.ModulePage.uninstall_module_btn, 90000)
+                        .click(this.selector.BO.ModulePage.uninstall_module_btn)
                         .pause(2000)
                         .isVisible(this.selector.BO.ModulePage.modal_confirm_uninstall).then(function (isVisible) {
                         modal_confirm_uninstall_is_visible = isVisible;

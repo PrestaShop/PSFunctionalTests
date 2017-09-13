@@ -52,7 +52,7 @@ describe('The Uninstall of a Module', function () {
                     this.client
                         .setValue(this.selector.BO.ModulePage.search_input, module_tech_name)
                         .click(this.selector.BO.ModulePage.search_button)
-                        .waitForExist(this.selector.BO.ModulePage.tech_name_attribute, 90000)
+                        .waitForExist(this.selector.BO.ModulePage.module_tech_name, 90000)
                         .call(done);
                 }
             }
@@ -68,10 +68,10 @@ describe('The Uninstall of a Module', function () {
                     done(new Error("Unavailable module"));
                 } else {
                     this.client
-                        .waitForExist(this.selector.BO.ModulePage.tech_name_attribute, 90000)
-                        .click(this.selector.BO.ModulePage.uninstall_list)
-                        .waitForExist(this.selector.BO.ModulePage.uninstall_button, 90000)
-                        .click(this.selector.BO.ModulePage.uninstall_button)
+                        .waitForExist(this.selector.BO.ModulePage.module_tech_name, 90000)
+                        .click(this.selector.BO.ModulePage.uninstall_module_list)
+                        .waitForExist(this.selector.BO.ModulePage.uninstall_module_btn, 90000)
+                        .click(this.selector.BO.ModulePage.uninstall_module_btn)
                         .pause(2000)
                         .isVisible(this.selector.BO.ModulePage.modal_confirm_uninstall).then(function (isVisible) {
                         modal_confirm_uninstall_is_visible = isVisible;
