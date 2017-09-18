@@ -18,7 +18,7 @@ describe('Check the order in BO', function () {
                 global.fctname = this.test.title;
                 this.client
                     .signinBO()
-                    .waitForExist(this.selector.menu, 90000)
+                    .waitForExist(this.selector.BO.AddProductPage.menu, 90000)
                     .call(done);
             });
         });
@@ -26,8 +26,8 @@ describe('Check the order in BO', function () {
             it('should go to order', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .click(this.selector.orders)
-                    .waitForExist(this.selector.orders_form, 90000)
+                    .click(this.selector.BO.OrderPage.orders_subtab)
+                    .waitForExist(this.selector.BO.OrderPage.form, 90000)
                     .call(done);
             });
 
@@ -42,8 +42,8 @@ describe('Check the order in BO', function () {
             it('should check product name', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .waitForExist(this.selector.order_product_name, 90000)
-                    .getText(this.selector.order_product_name).then(function (text) {
+                    .waitForExist(this.selector.BO.OrderPage.order_product_name_span, 90000)
+                    .getText(this.selector.BO.OrderPage.order_product_name_span).then(function (text) {
                     var my_order_product_name = text;
                     my_order_product_name.toLowerCase().should.containEql(my_name.toLowerCase());
                 })
@@ -52,7 +52,7 @@ describe('Check the order in BO', function () {
             it('should check product quantity', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.order_quantity).then(function (text) {
+                    .getText(this.selector.BO.OrderPage.order_product_quantity_span).then(function (text) {
                     var my_order_quantity = text;
                     should(my_order_quantity).be.equal(my_quantity);
                 })
@@ -61,7 +61,7 @@ describe('Check the order in BO', function () {
             it('should check product price', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.order_total).then(function (text) {
+                    .getText(this.selector.BO.OrderPage.order_product_total).then(function (text) {
                     var my_order_total = text;
                     should(my_order_total).be.equal(my_price);
                 })
@@ -70,7 +70,7 @@ describe('Check the order in BO', function () {
             it('should check product reference', function (done) {
                 global.fctname = this.test.title;
                 this.client
-                    .getText(this.selector.order_reference).then(function (text) {
+                    .getText(this.selector.BO.OrderPage.order_reference_span).then(function (text) {
                     var my_order_reference = text;
                     should(my_order_reference).be.equal(order_reference);
                 })

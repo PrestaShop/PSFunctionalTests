@@ -23,7 +23,7 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             this.client
                 .signinBO()
-                .waitForExist(this.selector.menu, 90000)
+                .waitForExist(this.selector.BO.AddProductPage.menu, 90000)
                 .call(done);
         });
     });
@@ -34,8 +34,8 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             this.client
                 .pause(5000)
-                .click(this.selector.modules_menu)
-                .waitForExist(this.selector.modules_page_loaded, 90000)
+                .click(this.selector.BO.ModulePage.modules_subtab)
+                .waitForExist(this.selector.BO.ModulePage.page_loaded, 90000)
                 .call(done);
         });
 
@@ -46,8 +46,8 @@ describe('The Install of a Module', function () {
             }
             else {
                 this.client
-                    .setValue(this.selector.modules_search, module_tech_name)
-                    .click(this.selector.modules_search_button)
+                    .setValue(this.selector.BO.ModulePage.search_input, module_tech_name)
+                    .click(this.selector.BO.ModulePage.search_button)
                     .call(done);
             }
         });
@@ -59,13 +59,13 @@ describe('The Install of a Module', function () {
             }
             else {
                 this.client
-                    .waitForExist(this.selector.module_tech_name, 90000)
-                    .click(this.selector.install_module_btn)
-                    .waitForExist(this.selector.close_validation, 90000)
-                    .isVisible(this.selector.red_validation).then(function (isVisible) {
+                    .waitForExist(this.selector.BO.ModulePage.module_tech_name, 90000)
+                    .click(this.selector.BO.ModulePage.install_module_btn)
+                    .waitForExist(this.selector.BO.AddProductPage.close_validation_button, 90000)
+                    .isVisible(this.selector.BO.AddProductPage.red_validation_notice).then(function (isVisible) {
                     global.red_validation_is_visible = isVisible;
                 })
-                    .isVisible(this.selector.green_validation).then(function (isVisible) {
+                    .isVisible(this.selector.BO.AddProductPage.green_validation_notice).then(function (isVisible) {
                     green_validation_is_visible = isVisible;
                 })
                     .call(done);
@@ -76,7 +76,7 @@ describe('The Install of a Module', function () {
             global.fctname = this.test.title;
             if (global.red_validation_is_visible) {
                 this.client
-                    .getText(this.selector.validation_msg).then(function (text) {
+                    .getText(this.selector.BO.AddProductPage.validation_msg).then(function (text) {
                     done(new Error(text));
                 })
             } else if (green_validation_is_visible) {
