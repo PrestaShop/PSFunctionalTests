@@ -17,8 +17,8 @@ else
 fi
 
 # uploading mochareporter to Gdrive
-echo "Creating archive of test report $ARCHIVE_REPORTER"
 ARCHIVE_REPORTER=TestReport-$FIXED_BRANCH-$(date +%Y-%m-%d_%H_%M_%S)-$TRAVIS_COMMIT.zip
+echo "Creating archive of test report $ARCHIVE_REPORTER"
 cd test/itg/$PS_VERSION/ && \
 zip -r $ARCHIVE_REPORTER mochawesome-report/*
 cd ../../..
