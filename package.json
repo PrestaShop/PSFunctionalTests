@@ -1,5 +1,5 @@
 {
-  "name": "prestashop/PSFunctionsTests",
+  "name": "ps_functional_tests",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
