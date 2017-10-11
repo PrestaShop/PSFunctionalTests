@@ -17,8 +17,10 @@ describe('Allscenario', function () {
             .call(done);
     });
 
-    //install prestashop
-    //require('./install_prestashop.js');
+    // install PrestaShop if requested
+    if (typeof install_prestashop !== 'undefined' && install_prestashop !== 'None') {
+        require('./install_prestashop.js');
+    }
 
     //install and uninstall module
     if (typeof module_tech_name !== 'undefined' && module_tech_name != "None") {
