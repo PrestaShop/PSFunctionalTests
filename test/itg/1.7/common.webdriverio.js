@@ -34,7 +34,7 @@ function initCommands(client) {
     client.addCommand('localhost', function (cb) {
         this.selector = globals.selector;
         client
-            .url('http://' + URL + 'install-dev')
+            .url('http://' + URL + '/install-dev')
             .call(cb);
     });
 
