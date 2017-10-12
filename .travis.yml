@@ -47,6 +47,10 @@ before_script:
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_10.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :10 -ac -screen 0 1280x1024x16"
   - docker exec prestashop rm -rf /var/www/html/modules/welcome
   - sleep 25
+  - |
+    if [ $INSTALL_PRESTASHOP == "true" ]; then
+          docker exec -i mysql mysql -uroot -pdoge  <<< "DROP DATABASE IF EXISTS prestashop;CREATE DATABASE prestashop;"
+    fi
 
 script:
   - mkdir screenshots
