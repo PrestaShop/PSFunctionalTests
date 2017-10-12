@@ -17,8 +17,9 @@ function runScenario() {
             it('should choose english language', function (done) {
                 this.client
                     .localhost()
-                    .waitForExist(this.selector.InstallationWizardPage.language, 300000)
-                    .selectByIndex(this.selector.InstallationWizardPage.language, 3)
+                    .pause(2000)
+                    .waitForExist(this.selector.InstallationWizardPage.language_select, 300000)
+                    .selectByValue(this.selector.InstallationWizardPage.language_select, 'en')
                     .waitForExist(this.selector.InstallationWizardPage.next_step_button, 300000)
                     .click(this.selector.InstallationWizardPage.next_step_button)
                     .call(done);

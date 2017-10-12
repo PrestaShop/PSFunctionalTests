@@ -7,6 +7,7 @@ var argv = require('minimist')(process.argv.slice(2));
 global.date_time = new Date().getTime();
 global.URL = argv.URL;
 global.module_tech_name = argv.MODULE;
+global.install_prestashop = argv.INSTALL;
 global.saucelabs = argv.SAUCELABS;
 global.selenium_url = argv.SELENIUM;
 global._projectdir = path.join(__dirname, '..', '..');
