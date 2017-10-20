@@ -82,7 +82,13 @@ Where :
 
 -**SAUCELABS** (optional): Turn it to « true » to use SauceLabs (you need to provide yours SauceLabs ID in your Travis folder)
 
--**INSTALL** (optional, default false): Turn it to « true » to install PrestaShop before launching tests
+-**INSTALL** (optional, default to false): Turn it to « true » to install PrestaShop before launching tests
+
+-**DB_SERVER** (optional, default to mysql): To add your database server address
+
+-**DB_USER** (optional, default to root): To add your Database login
+
+-**DB_PASSWD** (optional, default doge): To add your Database password
 
 
 > **Note:** To select the module to test, we decided to use the « data-tech-name » because this variable give us only one result in the search module part, in this case we are sure to select the right module
