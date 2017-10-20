@@ -98,7 +98,7 @@ function runScenario() {
             it('should enter the database address', function (done) {
                 this.client
                     .waitForExist(this.selector.InstallationWizardPage.database_address_input, 300000)
-                    .setValue(this.selector.InstallationWizardPage.database_address_input, "mysql")
+                    .setValue(this.selector.InstallationWizardPage.database_address_input, db_server)
                     .call(done);
             });
             it('should enter the database name', function (done) {
@@ -110,13 +110,13 @@ function runScenario() {
             it('should enter the database login', function (done) {
                 this.client
                     .waitForExist(this.selector.InstallationWizardPage.database_login_input, 300000)
-                    .setValue(this.selector.InstallationWizardPage.database_login_input, "root")
+                    .setValue(this.selector.InstallationWizardPage.database_login_input, db_user)
                     .call(done);
             });
             it('should enter the database password', function (done) {
                 this.client
                     .waitForExist(this.selector.InstallationWizardPage.database_password_input, 300000)
-                    .setValue(this.selector.InstallationWizardPage.database_password_input, "doge")
+                    .setValue(this.selector.InstallationWizardPage.database_password_input, db_passwd)
                     .call(done);
             });
             it('should validate the connection', function (done) {
