@@ -144,11 +144,49 @@ describe('The Product Creation', function () {
             this.client.call(done);
         });
 
+        it('should click on preview button before enabling product', function (done) {
+            global.fctname = this.test.title;
+            this.client
+                .waitForExist(this.selector.BO.AddProductPage.preview_button, 90000)
+                .click(this.selector.BO.AddProductPage.preview_button)
+                .windowHandles().then(function (handles) {
+                return this.switchTab(handles.value[handles.value.length - 1]);
+            })
+                .waitForExist(this.selector.FO.BuyOrderPage.product_name_details, 90000)
+                .getText(this.selector.FO.BuyOrderPage.product_name_details).then(function (name) {
+                should(name[1].toLowerCase()).be.equal('test_nodejs_' + product_id)
+            })
+                .pause(3000)
+                .windowHandles().then(function (handles) {
+                return this.switchTab(handles.value[0]);
+            })
+                .call(done);
+        });
+
         it('should select product online', function (done) {
             global.fctname = this.test.title;
             this.client
                 .pause(1000)
                 .click(this.selector.BO.AddProductPage.product_online_toggle)
+                .call(done);
+        });
+
+        it('should click on preview button after enabling product', function (done) {
+            global.fctname = this.test.title;
+            this.client
+                .waitForExist(this.selector.BO.AddProductPage.preview_button, 90000)
+                .click(this.selector.BO.AddProductPage.preview_button)
+                .windowHandles().then(function (handles) {
+                return this.switchTab(handles.value[handles.value.length - 1]);
+            })
+                .waitForExist(this.selector.FO.BuyOrderPage.product_name_details, 90000)
+                .getText(this.selector.FO.BuyOrderPage.product_name_details).then(function (name) {
+                should(name[1].toLowerCase()).be.equal('test_nodejs_' + product_id)
+            })
+                .pause(3000)
+                .windowHandles().then(function (handles) {
+                return this.switchTab(handles.value[0]);
+            })
                 .call(done);
         });
 
