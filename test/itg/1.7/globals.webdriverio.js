@@ -78,7 +78,8 @@ module.exports = {
                 picture_cover: '.iscover',
                 product_online_toggle: '.switch-input ',
                 catalogue_filter_by_name_input: '//input[@name="filter_column_name"]',
-                catalogue_submit_filter_button: '//button[@name="products_filter_submit"]'
+                catalogue_submit_filter_button: '//button[@name="products_filter_submit"]',
+                preview_button: '//*[@id="product_form_preview_btn"]'
             },
             //Order selector
             OrderPage:{
