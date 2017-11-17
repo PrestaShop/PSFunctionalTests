@@ -86,6 +86,8 @@ Where :
 
 -**DB_SERVER** (optional, default to mysql): To add your database server address
 
+-**DB_NAME** (optional, default to prestashop): Set the database name
+
 -**DB_USER** (optional, default to root): To add your Database login
 
 -**DB_PASSWD** (optional, default doge): To add your Database password

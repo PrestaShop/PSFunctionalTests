@@ -98,27 +98,19 @@ function runScenario() {
             it('should enter the database address', function (done) {
                 this.client
                     .waitForExist(this.selector.InstallationWizardPage.database_address_input, 300000);
-                if (typeof db_server !== 'undefined') {
-                    this.client.setValue(this.selector.InstallationWizardPage.database_address_input, db_server);
-                } else {
-                    this.client.setValue(this.selector.InstallationWizardPage.database_address_input, "mysql");
-                }
+                this.client.setValue(this.selector.InstallationWizardPage.database_address_input, db_server);
                 this.client.call(done);
             });
             it('should enter the database name', function (done) {
                 this.client
                     .waitForExist(this.selector.InstallationWizardPage.database_name_input, 300000)
-                    .setValue(this.selector.InstallationWizardPage.database_name_input, "prestashop")
+                    .setValue(this.selector.InstallationWizardPage.database_name_input, db_name)
                     .call(done);
             });
             it('should enter the database login', function (done) {
                 this.client
                     .waitForExist(this.selector.InstallationWizardPage.database_login_input, 300000);
-                if (typeof db_user !== 'undefined') {
-                    this.client.setValue(this.selector.InstallationWizardPage.database_login_input, db_user);
-                } else {
-                    this.client.setValue(this.selector.InstallationWizardPage.database_login_input, "root");
-                }
+                this.client.setValue(this.selector.InstallationWizardPage.database_login_input, db_user);
                 this.client.call(done);
             });
             it('should enter the database password', function (done) {
