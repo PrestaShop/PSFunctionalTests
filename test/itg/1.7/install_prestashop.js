@@ -137,6 +137,11 @@ function runScenario() {
                     .click(this.selector.InstallationWizardPage.test_conection_button)
                     .waitForExist(this.selector.InstallationWizardPage.dbResultCheck_green_block, 300000)
                     .call(done);
+                this.client
+                    .waitForExist(this.selector.InstallationWizardPage.dbResultCheck_red_block, 3000)
+                    .getText(this.selector.InstallationWizardPage.dbResultCheck_red_block).then(function (text) {
+                        console.error("Could not confirm database credentials.", text);
+                    });
             });
             it('should click on button next step', function (done) {
                 this.client
