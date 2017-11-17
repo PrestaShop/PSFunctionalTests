@@ -8,6 +8,11 @@ global.date_time = new Date().getTime();
 global.URL = argv.URL;
 global.module_tech_name = argv.MODULE;
 global.install_prestashop = argv.INSTALL;
+global.db_server = argv.DB_SERVER || "mysql";
+global.db_name = argv.DB_NAME || "prestashop";
+global.db_user = argv.DB_USER || "root";
+global.db_passwd = argv.DB_PASSWD || "doge";
+global.db_empty_password = !!argv.DB_EMPTY_PASSWD; // Cast as boolean
 global.saucelabs = argv.SAUCELABS;
 global.selenium_url = argv.SELENIUM;
 global._projectdir = path.join(__dirname, '..', '..');
@@ -35,7 +40,8 @@ module.exports = {
             database_login_input: '//*[@id="dbLogin"]',
             database_password_input: '//*[@id="dbPassword"]',
             test_conection_button: '#btTestDB',
-            dbResultCheck_green_block: '//*[@id="dbResultCheck"]',
+            dbResultCheck_green_block: '//*[@id="dbResultCheck" and @class="okBlock"]',
+            dbResultCheck_red_block: '//*[@id="dbResultCheck" and @class="errorBlock"]',
             create_file_parameter_step: '//li[@id="process_step_generateSettingsFile" and @class="process_step success"]',
             create_database_step: '//li[@id="process_step_installDatabase" and @class="process_step success"]',
             create_default_shop_step: '//li[@id="process_step_installDefaultData" and @class="process_step success"]',

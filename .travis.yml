@@ -24,7 +24,10 @@ env:
     - SAUCELABS=None
     - MODULE_TECHNICAL_NAME=None
     - INSTALL_CLI=1
-    - INSTALL_WEB=None
+    - INSTALL_WEB=0
+    - DB_SERVER=mysql
+    - DB_PASSWD=doge
+    - DB_USER=root
   matrix:
     - PS_VERSION=1.6 TAG=1.6
     - PS_VERSION=1.7 TAG=1.7
@@ -37,7 +40,7 @@ matrix:
 
 before_script:
   - docker run --name=mysql -e MYSQL_ROOT_PASSWORD=doge -e MYSQL_DATABASE=prestashop -tid mysql
-  - docker run --link mysql -e DB_SERVER=mysql -e DB_PASSWD=doge -e PS_INSTALL_AUTO=$INSTALL_CLI -e PS_COUNTRY=fr -e PS_DEV_MODE=0 -e PS_FOLDER_INSTALL=install-dev -e PS_FOLDER_ADMIN=admin-dev -e PS_HANDLE_DYNAMIC_DOMAIN=1 -p 80:80 -tid --name=prestashop prestashop/$DOCKER_IMG:$TAG
+  - docker run --link mysql -e DB_SERVER=$DB_SERVER -e DB_PASSWD=$DB_PASSWD -e PS_INSTALL_AUTO=$INSTALL_CLI -e PS_COUNTRY=fr -e PS_DEV_MODE=0 -e PS_FOLDER_INSTALL=install-dev -e PS_FOLDER_ADMIN=admin-dev -e PS_HANDLE_DYNAMIC_DOMAIN=1 -p 80:80 -tid --name=prestashop prestashop/$DOCKER_IMG:$TAG
   - docker exec prestashop rm -f /var/www/html/app/config/parameters.yml
   - npm install selenium-standalone@latest
   - cd node_modules/selenium-standalone/bin/
@@ -52,7 +55,7 @@ before_script:
 
 script:
   - mkdir screenshots
-  - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost --MODULE=$MODULE_TECHNICAL_NAME --SAUCELABS=$SAUCELABS --INSTALL=$INSTALL_WEB -t 300000 --reporter mochawesome
+  - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost --MODULE=$MODULE_TECHNICAL_NAME --SAUCELABS=$SAUCELABS --INSTALL=$INSTALL_WEB --DB_SERVER=$DB_SERVER --DB_USER=$DB_USER --DB_PASSWD=$DB_PASSWD -t 300000 --reporter mochawesome
   - curl http://localhost/
 
 after_script:

@@ -97,27 +97,31 @@ function runScenario() {
         describe('Step 5 : Setting the BD configuration', function () {
             it('should enter the database address', function (done) {
                 this.client
-                    .waitForExist(this.selector.InstallationWizardPage.database_address_input, 300000)
-                    .setValue(this.selector.InstallationWizardPage.database_address_input, "mysql")
-                    .call(done);
+                    .waitForExist(this.selector.InstallationWizardPage.database_address_input, 300000);
+                this.client.setValue(this.selector.InstallationWizardPage.database_address_input, db_server);
+                this.client.call(done);
             });
             it('should enter the database name', function (done) {
                 this.client
                     .waitForExist(this.selector.InstallationWizardPage.database_name_input, 300000)
-                    .setValue(this.selector.InstallationWizardPage.database_name_input, "prestashop")
+                    .setValue(this.selector.InstallationWizardPage.database_name_input, db_name)
                     .call(done);
             });
             it('should enter the database login', function (done) {
                 this.client
-                    .waitForExist(this.selector.InstallationWizardPage.database_login_input, 300000)
-                    .setValue(this.selector.InstallationWizardPage.database_login_input, "root")
-                    .call(done);
+                    .waitForExist(this.selector.InstallationWizardPage.database_login_input, 300000);
+                this.client.setValue(this.selector.InstallationWizardPage.database_login_input, db_user);
+                this.client.call(done);
             });
             it('should enter the database password', function (done) {
                 this.client
-                    .waitForExist(this.selector.InstallationWizardPage.database_password_input, 300000)
-                    .setValue(this.selector.InstallationWizardPage.database_password_input, "doge")
-                    .call(done);
+                    .waitForExist(this.selector.InstallationWizardPage.database_password_input, 300000);
+                if (db_empty_password) {
+                    this.client.setValue(this.selector.InstallationWizardPage.database_password_input, "")
+                } else {
+                    this.client.setValue(this.selector.InstallationWizardPage.database_password_input, db_passwd)
+                }
+                this.client.call(done);
             });
             it('should validate the connection', function (done) {
                 this.client
@@ -125,6 +129,11 @@ function runScenario() {
                     .click(this.selector.InstallationWizardPage.test_conection_button)
                     .waitForExist(this.selector.InstallationWizardPage.dbResultCheck_green_block, 300000)
                     .call(done);
+                this.client
+                    .waitForExist(this.selector.InstallationWizardPage.dbResultCheck_red_block, 3000)
+                    .getText(this.selector.InstallationWizardPage.dbResultCheck_red_block).then(function (text) {
+                        console.error("Could not confirm database credentials.", text);
+                    });
             });
             it('should click on button next step', function (done) {
                 this.client
