@@ -124,10 +124,10 @@ function runScenario() {
             it('should enter the database password', function (done) {
                 this.client
                     .waitForExist(this.selector.InstallationWizardPage.database_password_input, 300000);
-                if (typeof db_passwd !== 'undefined') {
-                    this.client.setValue(this.selector.InstallationWizardPage.database_password_input, db_passwd)
+                if (db_empty_password) {
+                    this.client.setValue(this.selector.InstallationWizardPage.database_password_input, "")
                 } else {
-                    this.client.setValue(this.selector.InstallationWizardPage.database_password_input, "doge")
+                    this.client.setValue(this.selector.InstallationWizardPage.database_password_input, db_passwd)
                 }
                 this.client.call(done);
             });
