@@ -55,9 +55,10 @@ describe('The Product Creation', function () {
                 .click(this.selector.BO.AddProductPage.products_subtab)
                 .waitForExist(this.selector.BO.AddProductPage.new_product_button, 90000)
                 .waitForExist('#notifications-total', 90000)
-                .isVisible('//div[@id="debug-mode"]').then(function (isVisible) {
-                devMode = isVisible;
-            })
+                .isVisible('//div[@id="debug-mode"]')
+                .then(function (isVisible) {
+                    devMode = isVisible;
+                })
                 .call(done);
         });
 
@@ -207,7 +208,7 @@ describe('The Product Creation', function () {
         it('Should generate picture url', function (done) {
             global.fctname = this.test.title;
             global.picture_url = "/img/p";
-            for (var i = 0, len = image_data_id.length; i < len; i++) {
+            for (let i = 0, len = image_data_id.length; i < len; i++) {
                 picture_url = picture_url + "/" + image_data_id[i];
             }
             picture_url = picture_url + "/" + image_data_id + "-home_default.jpg";
