@@ -41,7 +41,6 @@ describe('The Product Creation', function () {
                 .click(this.selector.BO.Onboarding.popup_close_button)
                 .waitForVisible(this.selector.BO.Onboarding.popup, 10000, true)
                 .click(this.selector.BO.Onboarding.stop_button)
-                .waitForVisible(this.selector.BO.Onboarding.navbar_block, 10000, false)
             ;
         });
     });
