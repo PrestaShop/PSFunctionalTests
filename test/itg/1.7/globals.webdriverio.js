@@ -114,7 +114,8 @@ module.exports = {
             Onboarding:{
                 popup: '.onboarding-popup',
                 popup_close_button: '.onboarding-button-shut-down',
-                stop_button: '.onboarding-button-stop'
+                stop_button: '.onboarding-button-stop',
+                navbar_block: 'nav .onboarding-navbar',
             }
         },
 

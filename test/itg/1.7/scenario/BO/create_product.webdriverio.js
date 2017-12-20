@@ -29,16 +29,20 @@ describe('The Product Creation', function () {
         });
     });
 
-    describe('Module "Welcome"', function (done) {
-        it("should close the onboarding if displayed", function (done) {
+    describe('Module "Welcome"', function () {
+        it("should show the onboarding", function () {
             global.fctname = this.test.title;
-            if (this.client.isVisible(this.selector.BO.Onboarding.popup)) {
-                this.client
-                    .click(this.selector.BO.Onboarding.popup_close_button)
-                    .pause(1000)
-                    .click(this.selector.BO.Onboarding.stop_button);
-            };
-            this.client.call(done);
+            return this.client.waitForVisible(this.selector.BO.Onboarding.popup, 3000);
+        });
+
+        it("should close the onboarding", function () {
+            global.fctname = this.test.title;
+            return this.client
+                .click(this.selector.BO.Onboarding.popup_close_button)
+                .waitForVisible(this.selector.BO.Onboarding.popup, 10000, true)
+                .click(this.selector.BO.Onboarding.stop_button)
+                .waitForVisible(this.selector.BO.Onboarding.navbar_block, 10000, false)
+            ;
         });
     });
 
