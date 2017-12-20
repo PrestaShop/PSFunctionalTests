@@ -216,75 +216,63 @@ describe('The Product Creation', function () {
         });
     });
 
-    describe('Check the product in Back Office', function (done) {
-        it('should check the product name', function (done) {
+    describe('Check the product in Back Office', function () {
+        it('should check the product name', function () {
             global.fctname = this.test.title;
             this.client
-                .getValue(this.selector.BO.AddProductPage.product_name_input).then(function (text) {
-                var my_name = text;
-                should(my_name).be.equal('test_nodejs_' + product_id);
-            })
-                .call(done);
-        });
-
-        it('should check the product summary', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .execute(function () {
-                    document.querySelector('textarea#form_step1_description_short_1').style = "";
+                .getValue(this.selector.BO.AddProductPage.product_name_input)
+                .then(function (my_name) {
+                    should(my_name).be.equal('test_nodejs_' + product_id);
                 })
-                .getText('textarea#form_step1_description_short_1').then(function (text) {
-                var my_summary = text;
-                should(my_summary).be.equal("this the summary");
-            })
-                .call(done);
         });
 
-        it('should check the product description', function (done) {
+        it('should check the product summary', function () {
+            global.fctname = this.test.title;
+            this.client
+                .getText('textarea#form_step1_description_short_1')
+                .then(function (my_summary) {
+                    should(my_summary).be.equal("this the summary");
+                })
+        });
+
+        it('should check the product description', function () {
             global.fctname = this.test.title;
             this.client
                 .click(this.selector.BO.AddProductPage.description_tab)
-                .execute(function () {
-                    document.querySelector('textarea#form_step1_description_1').style = "";
+                .getText('textarea#form_step1_description_1')
+                .then(function(my_description) {
+                    should(my_description).be.equal("this the description");
                 })
-                .getText('textarea#form_step1_description_1').then(function (text) {
-                var my_description = text;
-                should(my_description).be.equal("this the description");
-            })
-                .call(done);
         });
 
-        it('should check the product price', function (done) {
+        it('should check the product price', function () {
             global.fctname = this.test.title;
             this.client
-                .getValue(this.selector.BO.AddProductPage.price_te_shortcut_input).then(function (text) {
-                var my_priceTE = text;
-                should(parseInt(my_priceTE)).be.equal(parseInt("5"));
-            })
-                .call(done);
+                .getValue(this.selector.BO.AddProductPage.price_te_shortcut_input)
+                .then(function (my_priceTE) {
+                    should(parseInt(my_priceTE)).be.equal(5);
+                })
         });
 
-        it('should check the product quantity', function (done) {
+        it('should check the product quantity', function () {
             global.fctname = this.test.title;
             this.client
-                .getValue(this.selector.BO.AddProductPage.quantity_shortcut_input).then(function (text) {
-                var my_quantity = text;
-                should(parseInt(my_quantity)).be.equal(parseInt("10"));
-            })
-                .call(done);
+                .getValue(this.selector.BO.AddProductPage.quantity_shortcut_input)
+                .then(function (my_quantity) {
+                    should(parseInt(my_quantity)).be.equal(10);
+                })
         });
 
-        it('should check the product image', function (done) {
+        it('should check the product image', function () {
             global.fctname = this.test.title;
             this.client
-                .getAttribute('div[data-id="' + image_data_id + '"] > div ', "style").then(function (text) {
-                var my_picture_url_temp = text[0].split("url(\"");
-                var my_picture_url = my_picture_url_temp[1].split("\")");
-                var my_final_picture_url = my_picture_url[0].split("img/");
-                var final_picture_url = picture_url.split("img/");
-                should(my_final_picture_url[1]).be.equal(final_picture_url[1]);
-            })
-                .call(done);
+                .getAttribute('div[data-id="' + image_data_id + '"] > div ', "style")
+                .then(function (text) {
+                    let final_picture_url = picture_url.split("img/")[1];
+                    let matches = text[0].match(new RegExp('url\\(["\'].+/img/(.+)["\']\\)'));
+                    should(matches.length).be.equal(2);
+                    should(matches[1]).be.equal(final_picture_url[1]);
+                })
         });
     });
 
