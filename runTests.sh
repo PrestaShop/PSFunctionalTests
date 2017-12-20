@@ -7,7 +7,7 @@ SAUCELABS="${SAUCELABS:-}"
 SCRIPT="${SCRIPT:-index.webdriverio.js}"
 SELENIUM=""${SELENIUM_HOST:-}""
 
-COMMAND="/tmp/node_modules/mocha/bin/mocha /tmp/test/itg/$PS_VERSION/$SCRIPT --URL=$URL"
+COMMAND="node_modules/mocha/bin/mocha test/itg/$PS_VERSION/$SCRIPT --URL=$URL"
 
 if [ -n "$MODULE" ]; then
     COMMAND="$COMMAND --MODULE=$MODULE"
