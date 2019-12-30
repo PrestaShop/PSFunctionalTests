@@ -54,15 +54,18 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             this.client
                 .setValue(this.selector.BO.AddProductPage.product_name_input, 'test_nodejs_' + product_id)
-                .pause(60000)
+                .pause(5000)
                 .call(done);
         });
 
         it('should enter the product summary', function (done) {
             global.fctname = this.test.title;
+            const cl = this.client;
             this.client
-                .frame(this.selector.BO.AddProductPage.summary_textarea, function (err, result) {
-                    if (err) console.log(err);
+                .element(this.selector.BO.AddProductPage.summary_textarea).then(function(res) {
+                    return cl.frame(res.value, function (err, result) {
+                        if (err) console.log(err);
+                    });
                 })
                 .setValue("#tinymce", "this is the summary")
                 .frameParent()
@@ -72,9 +75,12 @@ describe('The Product Creation', function () {
 
         it('should enter the product description', function (done) {
             global.fctname = this.test.title;
+            const cl = this.client;
             this.client
-                .frame(this.selector.BO.AddProductPage.description_textarea, function (err, result) {
-                    if (err) console.log(err);
+                .element(this.selector.BO.AddProductPage.description_textarea).then(function(res) {
+                    return cl.frame(res.value, function (err, result) {
+                        if (err) console.log(err);
+                    });
                 })
                 .setValue("#tinymce", "this is the description")
                 .frameParent()
@@ -201,15 +207,18 @@ describe('The Product Creation', function () {
                 var my_name = text;
                 should(my_name).be.equal('test_nodejs_' + product_id);
             })
-                .pause(60000)
+                .pause(5000)
                 .call(done);
         });
 
         it('should check the product summary', function (done) {
             global.fctname = this.test.title;
+            const cl = this.client;
             this.client
-                .frame(this.selector.BO.AddProductPage.summary_textarea, function (err, result) {
-                    if (err) console.log(err);
+                .element(this.selector.BO.AddProductPage.summary_textarea).then(function(res) {
+                    return cl.frame(res.value, function (err, result) {
+                        if (err) console.log(err);
+                    });
                 })
                 .getText("#tinymce").then(function (text) {
                 var my_summary = text;
@@ -221,9 +230,12 @@ describe('The Product Creation', function () {
 
         it('should check the product description', function (done) {
             global.fctname = this.test.title;
+            const cl = this.client;
             this.client
-                .frame(this.selector.BO.AddProductPage.description_textarea, function (err, result) {
-                    if (err) console.log(err);
+                .element(this.selector.BO.AddProductPage.description_textarea).then(function(res) {
+                    return cl.frame(res.value, function (err, result) {
+                        if (err) console.log(err);
+                    });
                 })
                 .getText("#tinymce").then(function (text) {
                 var my_description = text;
