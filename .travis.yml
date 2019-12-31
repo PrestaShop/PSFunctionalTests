@@ -2,21 +2,20 @@ language: php
 
 services:
   - docker
-  - mysql
 
 addons:
-    apt:
-      packages:
-        - postfix
-        - libappindicator1
-        - fonts-liberation
+  chrome: stable
+  apt:
+    packages:
+      - postfix
+      - libappindicator1
+      - fonts-liberation
 
 cache:
   directories:
     - $HOME/.npm
 
 sudo: required
-dist: trusty
 
 env:
   global:
@@ -30,10 +29,7 @@ env:
     - DB_USER=root
   matrix:
     - PS_VERSION=1.6 TAG=1.6
-    - PS_VERSION=1.7 TAG=1.7
-    - PS_VERSION=1.7 TAG=1.7 INSTALL_WEB=1 INSTALL_CLI=0
     - PS_VERSION=1.6 TAG=1.6 MODULE_TECHNICAL_NAME=autoupgrade
-    - PS_VERSION=1.7 TAG=1.7 MODULE_TECHNICAL_NAME=autoupgrade
 
 matrix:
   fast_finish: true
