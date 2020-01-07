@@ -35,8 +35,8 @@ module.exports = {
                 close_green_validation_button: '.alert.alert-success > .close',
                 proceed_installation_anyway_button: '//div[@id="moduleNotTrusted"]//a[@id="proceed-install-anyway"]',
                 menu: '#nav-sidebar',
-                summary_textarea: 'description_short_1_ifr', //not declare like an id because using into function "frame" that not need this information;
-                description_textarea: 'description_1_ifr',//not declare like an id because using into function "frame" that not need this information;
+                summary_textarea: '#description_short_1_ifr',
+                description_textarea: '#description_1_ifr',
                 product_price_tab: '#link-Prices',
                 wholesale_price_input: '#wholesale_price',
                 priceTE_input: '#priceTE',
